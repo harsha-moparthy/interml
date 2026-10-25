@@ -28,7 +28,7 @@
 
 ## 5. Deploy workflow
 
-- [ ] 5.1 Add `npm run setup:ort` to `.github/workflows/pages.yml`, keep `public/ort/` git-ignored, and set the static build env; verify the workflow file parses (`actionlint` or a dry read) and a clean local run of the same commands produces a `dist` that serves under `/interml/`.
+- [x] 5.1 Add `npm run setup:ort` to `.github/workflows/pages.yml`, keep `public/ort/` git-ignored, and set the static build env; verify the workflow file parses (`actionlint` or a dry read) and a clean local run of the same commands produces a `dist` that serves under `/interml/`.
 - [ ] 5.2 Commit and push to `main`; verify the Actions run succeeds and the deploy job prints the page URL.
 - [ ] 5.3 In the repository settings, set Pages source to "GitHub Actions" (manual step); verify `https://harsha-moparthy.github.io/interml/` returns 200 and `…/models/Xenova/all-MiniLM-L6-v2/config.json` returns 200.
 
