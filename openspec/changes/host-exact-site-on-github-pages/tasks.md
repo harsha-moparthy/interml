@@ -42,14 +42,17 @@
 
 ## 7. Parity of the rest of the site
 
-- [ ] 7.1 Run the existing `ui` and `questions` browser suites against the published address; verify the failures, if any, are listed with causes (differences caused by static mode are noted, not hidden).
-- [ ] 7.2 Check that the Python playground runs on a lesson page of the published site (starter code fails its checks with the expected message); verify no failed request in the log.
-- [ ] 7.3 Compare per-chapter counts and the 72 lessons between `/api/chapters` locally and `static-api/chapters.json`; verify they are equal.
+- [x] 7.1 Run the existing `ui` and `questions` browser suites against the published address; verify the failures, if any, are listed with causes (differences caused by static mode are noted, not hidden).
+  - Result: `ui` 173/173 and `questions` 18/18 pass on the published address. First run had 4 failures, all from static mode: a failed static file reported 404 instead of its real status (app bug, fixed in `staticApi.js`), two request counters matched only `/api/` URLs (suites now also match `static-api/` files), and Chromium logged aborted-wasm noise when a page closed during the model preload (filtered only when `SITE` is set).
+- [x] 7.2 Check that the Python playground runs on a lesson page of the published site (starter code fails its checks with the expected message); verify no failed request in the log.
+  - Result: starter code runs and fails its three checks with `NotImplementedError`; no failed request and no page error on the published lesson `lesson-q030-pairwise-differences`.
+- [x] 7.3 Compare per-chapter counts and the 72 lessons between `/api/chapters` locally and `static-api/chapters.json`; verify they are equal.
+  - Result: chapters (54), stats, articles (79) and the question list are byte-equal to the local API; 44 sampled question and solution pages and all 79 articles are equal; 72 lessons complete.
 
 ## 8. Documentation
 
-- [ ] 8.1 Update the root `README.md` with the live address, how to regenerate the export, how to run the parity check, and a "Differences from the local site" section with the measured overlap, the first-visit download size and the licence note on public solutions; verify every command in it runs as written.
-- [ ] 8.2 Update `STATUS.MD` with the task row and measured results, stating what was not measured (browsers other than Chromium, slow connections, screen readers).
+- [x] 8.1 Update the root `README.md` with the live address, how to regenerate the export, how to run the parity check, and a "Differences from the local site" section with the measured overlap, the first-visit download size and the licence note on public solutions; verify every command in it runs as written.
+- [x] 8.2 Update `STATUS.MD` with the task row and measured results, stating what was not measured (browsers other than Chromium, slow connections, screen readers).
 
 ## Workflow follow-up
 
