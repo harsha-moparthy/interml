@@ -27,8 +27,9 @@ jobs:
       - name: Install
         working-directory: app/frontend
         run: |
-          npm ci
+          npm ci --ignore-scripts
           npm run setup:pyodide
+          npm run setup:ort
       - name: Test
         working-directory: app/frontend
         run: npm test
