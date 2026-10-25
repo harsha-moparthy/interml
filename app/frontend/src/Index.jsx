@@ -258,7 +258,7 @@ export function IndexPage({ filters, setFilters }) {
             )}
           </div>
           {data && !data.semantic && searching && (
-            <p className="sub">{STATIC ? "This online copy searches by keywords. Search by meaning needs the local model; run the site locally to use it." : <>Search by meaning is off because the local model is not installed. Run <code>python -m placement.semantic download</code>, then the import.</>}</p>
+            <p className="sub">{STATIC ? "The meaning model could not load, so this search used keywords only." : <>Search by meaning is off because the local model is not installed. Run <code>python -m placement.semantic download</code>, then the import.</>}</p>
           )}
           {data && Object.keys(data.corrected || {}).length > 0 && (
             <p className="didyoumean">Showing results for {Object.entries(data.corrected).map(([from, to]) => (

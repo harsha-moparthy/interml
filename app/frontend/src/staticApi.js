@@ -16,6 +16,9 @@ const load = (rel) => {
   return files.get(rel);
 };
 
+let vectors;
+const embeddings = () => (vectors ||= fetch(asset("static-api/embeddings.bin")).then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(r.status)))).then((b) => new Float32Array(b)).catch(() => { vectors = undefined; return null; }));
+
 /** Same contract as fetch() for the read-only /api routes. */
 export async function apiFetch(url) {
   if (!STATIC) return fetch(url);
@@ -32,6 +35,8 @@ export async function apiFetch(url) {
 }
 
 // ------------------------------------------------------------------ search (port of backend/placement/search.py, keywords only)
+import { embedQuery } from "./semantic.js";
+const SEMANTIC_FLOOR = 0.25, SEMANTIC_MARGIN = 0.12, RRF_K = 60, DIM = 384;   // same values as the backend
 const FILTER_KEYS = new Set(["chapter", "ch", "id", "lang", "source", "difficulty", "lesson", "has", "is"]);
 const WEIGHT = { title: 10, chapter: 3, topics: 5, prompt: 2, code_terms: 1.5 };
 const FIELDS = Object.keys(WEIGHT);
@@ -173,7 +178,10 @@ const snippet = (prompt, terms, width = 170) => {
   return (start ? "…" : "") + prompt.slice(start, start + width).trim() + (start + width < prompt.length ? "…" : "");
 };
 
-async function search(params) {
+/** Seams for tests: the query embedder can be replaced. */
+export const hooks = { embed: embedQuery };
+
+export async function search(params) {
   const ix = await buildIndex();
   const all = await load("all.json");
   const meta = new Map(all.items.map((e) => [e.id, e]));
@@ -189,6 +197,7 @@ async function search(params) {
   const freeText = [...words, ...p.phrases].join(" ").trim();
   const note = { corrected: fixes, semantic: false, filters: p.filters, query: freeText, mode: params.get("mode") || "hybrid" };
 
+  const mode = note.mode;
   let ids, total, why = {};
   if (!freeText && !p.exclude.length) {
     ids = ix.order.filter(ok);
@@ -197,35 +206,55 @@ async function search(params) {
   } else {
     const groups = expand(ix, words).map((g) => [...new Set(g.flatMap((t) => fts(t).split(/\s+/)).filter((t) => t && !ix.stop.has(t)))]).filter((g) => g.length);
     const exclude = p.exclude.flatMap((x) => fts(x).split(/\s+/)).filter(Boolean);
-    const scored = [];
-    for (const id of ix.order) {
-      if (!ok(id)) continue;
-      const d = ix.docs.get(id);
-      const hay = FIELDS.map((f) => d[f] || "").join(" \n ").toLowerCase();
-      if (p.phrases.some((ph) => !hay.includes(ph))) continue;
-      if (exclude.some((x) => FIELDS.some((f) => countMatches(d.toks[f], x)))) continue;
-      let score = 0;
-      for (const g of groups) {
-        for (const t of g) {
-          const idf = Math.log(1 + ix.n / (1 + (ix.df.get(t) || 0)));
-          for (const f of FIELDS) {
-            const tf = countMatches(d.toks[f], t);
-            if (tf) score += idf * WEIGHT[f] * ((tf * 2.2) / (tf + 1.2));
+    const excludedBy = (d) => exclude.some((x) => FIELDS.some((f) => countMatches(d.toks[f], x)));
+    const kw = [];
+    if (mode !== "semantic") {
+      for (const id of ix.order) {
+        const d = ix.docs.get(id);
+        const hay = FIELDS.map((f) => d[f] || "").join(" \n ").toLowerCase();
+        if (p.phrases.some((ph) => !hay.includes(ph)) || excludedBy(d)) continue;
+        let score = 0;
+        for (const g of groups) {
+          for (const t of g) {
+            const idf = Math.log(1 + ix.n / (1 + (ix.df.get(t) || 0)));
+            for (const f of FIELDS) {
+              const tf = countMatches(d.toks[f], t);
+              if (tf) score += idf * WEIGHT[f] * ((tf * 2.2) / (tf + 1.2));
+            }
           }
         }
+        if (groups.length && score === 0) continue;
+        if (!groups.length && !p.phrases.length) continue;
+        kw.push([id, score]);
       }
-      if (groups.length && score === 0 && !p.phrases.length) continue;
-      if (!groups.length && !p.phrases.length) score = 1;
-      scored.push([id, score]);
+      kw.sort((a, b) => b[1] - a[1]);
+      kw.length = Math.min(kw.length, 60);
     }
-    scored.sort((a, b) => b[1] - a[1]);
-    ids = scored.map(([id]) => id);
+    // Meaning: cosine similarity to the stored question vectors, as in backend/placement/search.py.
+    let sem = [];
+    if (mode !== "keyword" && freeText) {
+      const [vec, mat] = await Promise.all([hooks.embed(freeText), embeddings()]);
+      if (vec && mat) {
+        const sims = ix.order.map((id, i) => {
+          let dot = 0;
+          for (let k = 0; k < DIM; k++) dot += mat[i * DIM + k] * vec[k];
+          return [id, dot];
+        }).sort((a, b) => b[1] - a[1]).slice(0, 40);
+        const best = sims[0][1];
+        sem = sims.filter(([, v]) => v >= (mode === "hybrid" ? SEMANTIC_FLOOR : 0) && (mode !== "hybrid" || v >= best - SEMANTIC_MARGIN));
+        note.semantic = true;
+      }
+    }
+    const score = new Map();
+    const bump = (id, w, tag) => { score.set(id, (score.get(id) || 0) + w); (why[id] ||= []).push(tag); };
+    kw.forEach(([id], rank) => bump(id, 1 / (RRF_K + rank), "keyword"));
+    sem.forEach(([id], rank) => { if (!excludedBy(ix.docs.get(id))) bump(id, 1 / (RRF_K + rank), "meaning"); });
     for (const w of new Set([...p.words, ...words])) {   // a bare number is a question ID: pin it first
-      if (/^\d+$/.test(w) && ix.docs.has(+w) && ok(+w)) ids = [+w, ...ids.filter((i) => i !== +w)];
+      if (/^\d+$/.test(w) && ix.docs.has(+w)) { score.set(+w, (score.get(+w) || 0) + 1); (why[+w] ||= []).unshift("id"); }
     }
+    ids = [...score.entries()].sort((a, b) => b[1] - a[1]).map(([id]) => id).filter(ok);
     total = ids.length;
     ids = ids.slice(0, limit);
-    ids.forEach((i) => { why[i] = ["keyword"]; });
   }
 
   const stop = ix.stop;
