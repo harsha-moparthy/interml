@@ -2,7 +2,8 @@
 // Run against real servers (`node ui.mjs`) or the fixture servers (`./run_suites.sh ui`). Needs playwright-core.
 import { chromium } from "playwright-core";
 const PORT = process.env.WEB_PORT || 5173;
-const BASE = `http://127.0.0.1:${PORT}/`;
+const BASE = process.env.SITE || `http://127.0.0.1:${PORT}/`;   // SITE=<published address> runs this suite against the static copy
+const api = async (path) => (await fetch(process.env.SITE ? `${BASE}static-api/${path}.json` : `${BASE}api/${path}`)).json();
 const exe = "/mnt/nas/harshamttl/.cache/ms-playwright/chromium-1148/chrome-linux/chrome";
 const b = await chromium.launch({ executablePath: exe, args: ["--no-sandbox"] });
 const errs = [];
@@ -18,12 +19,14 @@ async function open({ scheme = "light", width = 1100, height = 800, storage = tr
   }
   const p = await ctx.newPage();
   p.on("pageerror", (e) => errs.push(String(e)));
-  p.on("console", (m) => { if (m.type() === "error" && !/Failed to load resource/.test(m.text())) errs.push(m.text()); });
+  // On the published copy the meaning model preloads; a page closed mid-download makes Chromium log this about the aborted wasm fetch.
+  const abortedWasm = /^(wasm streaming compile failed|falling back to ArrayBuffer instantiation)/;
+  p.on("console", (m) => { if (m.type() === "error" && !/Failed to load resource/.test(m.text()) && !(process.env.SITE && abortedWasm.test(m.text()))) errs.push(m.text()); });
   return { ctx, p };
 }
 const bg = (p) => p.evaluate(() => getComputedStyle(document.body).backgroundColor);
 const attr = (p) => p.evaluate(() => document.documentElement.getAttribute("data-theme"));
-const articles = await (await fetch(`${BASE}api/articles`)).json();
+const articles = await api("articles");
 const lesson = articles.find((a) => a.kind === "lesson")?.id ?? articles[0].id;
 
 // ---------------------------------------------------------------- shell: theme
@@ -110,7 +113,7 @@ const lesson = articles.find((a) => a.kind === "lesson")?.id ?? articles[0].id;
 {
   const { ctx, p } = await open();
   let hits = 0, mode = "slow";
-  await p.route("**/api/exercises/316", async (route) => {
+  await p.route("**/{api/exercises/316,static-api/exercises/316.json}", async (route) => {
     hits++;
     if (mode === "slow") { await new Promise((r) => setTimeout(r, 700)); return route.continue(); }
     if (mode === "fail") return route.fulfill({ status: 503, contentType: "text/plain", body: "down" });
@@ -140,7 +143,7 @@ const lesson = articles.find((a) => a.kind === "lesson")?.id ?? articles[0].id;
   await p.emulateMedia({ reducedMotion: "reduce" });
   mode = "slow";
   await p.goto(BASE + "#/question/317");
-  await p.route("**/api/exercises/317", async (route) => { await new Promise((r) => setTimeout(r, 600)); route.continue(); });
+  await p.route("**/{api/exercises/317,static-api/exercises/317.json}", async (route) => { await new Promise((r) => setTimeout(r, 600)); route.continue(); });
   await p.reload();
   await p.waitForSelector(".skeleton-line");
   const anim = await p.locator(".skeleton-line").first().evaluate((e) => getComputedStyle(e).animationName + "|" + getComputedStyle(e).animationDuration);
@@ -175,7 +178,7 @@ const lesson = articles.find((a) => a.kind === "lesson")?.id ?? articles[0].id;
 {
   const { ctx, p } = await open();
   const allReqs = [];
-  p.on("request", (r) => { if (/\/api\/search\?q=&chapter=&lesson=&limit=1100$/.test(r.url())) allReqs.push(r.url()); });
+  p.on("request", (r) => { if (/(\/api\/search\?q=&chapter=&lesson=&limit=1100|\/static-api\/all\.json)$/.test(r.url())) allReqs.push(r.url()); });
   await p.goto(BASE); await p.waitForSelector("article.result");
   const summary = await p.locator(".summary").innerText();
   ok(/0\s+of\s+1100 questions done/.test(summary), "first visit: summary shows 0 of 1100 done");
@@ -263,17 +266,17 @@ for (const w of [360, 768, 1280]) { // index layout at three widths
 }
 
 // ---------------------------------------------------------------- question page
-const lessonHit = async (kind) => (await (await fetch(`${BASE}api/search?q=&chapter=&lesson=${kind}&limit=1`)).json()).items?.[0]?.id;
+const lessonHit = async (kind) => (process.env.SITE ? (await api("all")).items.find((e) => e.lesson === kind)?.id : (await api(`search?q=&chapter=&lesson=${kind}&limit=1`)).items?.[0]?.id);
 const LQ = (await lessonHit("complete")) ?? (await lessonHit("planned")) ?? 316;   // a question that has a linked lesson
 let eqId = 316;
 for (const id of [4, 19, 25, 60, 124, 200, 301, 316, 340, 410]) {
-  const d = await (await fetch(`${BASE}api/exercises/${id}`)).json();
+  const d = await api(`exercises/${id}`);
   if (/\$\$/.test(d.prompt)) { eqId = id; break; }
 }
 {
   const { ctx, p } = await open({ height: 900 });
   const solReqs = [];
-  p.on("request", (r) => { if (/\/solution$/.test(r.url())) solReqs.push(r.url()); });
+  p.on("request", (r) => { if (/\/solution(\.json)?$/.test(r.url())) solReqs.push(r.url()); });
   await p.goto(BASE + `#/question/${LQ}`); await p.waitForSelector("h1 .id");
   const top = await p.evaluate(() => ["h1", ".qactions", ".question .meta"].map((s) => document.querySelector(s).getBoundingClientRect().bottom));
   ok(top.every((y) => y < 900), "header, actions and meta are visible without scrolling");
@@ -291,7 +294,7 @@ for (const id of [4, 19, 25, 60, 124, 200, 301, 316, 340, 410]) {
   ok(/[A-Za-z]/.test(await p.locator(".readings li .reading-meta").first().innerText()), "reading shows publisher and access note");
 
   await p.goto(BASE + "#/question/1"); await p.waitForSelector("h1 .id");
-  const q1 = await (await fetch(`${BASE}api/exercises/1`)).json();
+  const q1 = await api("exercises/1");
   ok((await p.locator(".lesson-card").count()) === q1.articles.length, `lesson cards match the linked articles (${q1.articles.length}) on question 1`);
   ok((await p.locator(".pager-off").first().innerText()).includes("first"), "first question shows its missing direction as unavailable");
   const hashBefore = await p.evaluate(() => location.hash);
@@ -330,7 +333,7 @@ for (const id of [4, 19, 25, 60, 124, 200, 301, 316, 340, 410]) {
 { // solution failure and long equations on a phone
   const { ctx, p } = await open();
   let fail = true;
-  await p.route("**/api/exercises/317/solution", (route) => (fail ? route.fulfill({ status: 500, contentType: "text/plain", body: "x" }) : route.continue()));
+  await p.route("**/{api/exercises/317/solution,static-api/exercises/317/solution.json}", (route) => (fail ? route.fulfill({ status: 500, contentType: "text/plain", body: "x" }) : route.continue()));
   await p.goto(BASE + "#/question/317"); await p.waitForSelector("h1 .id");
   await p.getByRole("button", { name: "Show solution" }).click();
   await p.waitForSelector("#solution-panel .error-notice");
@@ -352,7 +355,7 @@ for (const id of [4, 19, 25, 60, 124, 200, 301, 316, 340, 410]) {
 // ---------------------------------------------------------------- article reading
 let rich = { id: lesson, h2: 0, blocks: 0 };
 for (const a of articles) {
-  const d = await (await fetch(`${BASE}api/articles/${a.id}`)).json();
+  const d = await api(`articles/${a.id}`);
   const h2 = d.blocks.filter((b) => b.type === "heading" && b.level === 2).length;
   if (h2 > rich.h2 || (h2 === rich.h2 && d.blocks.length > rich.blocks)) rich = { id: a.id, h2, blocks: d.blocks.length, prereqs: d.prerequisites.length, exercises: d.exercises.length, kind: d.kind };
 }

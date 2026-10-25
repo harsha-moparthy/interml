@@ -9,7 +9,7 @@ const files = new Map();
 const load = (rel) => {
   if (!files.has(rel)) {
     files.set(rel, fetch(asset(`static-api/${rel}`)).then((r) => {
-      if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+      if (!r.ok) throw Object.assign(new Error(`${r.status} ${r.statusText}`), { status: r.status, statusText: r.statusText });
       return r.json();
     }).catch((e) => { files.delete(rel); throw e; }));
   }
@@ -30,7 +30,7 @@ export async function apiFetch(url) {
       : await load(`${path}.json`);
     return new Response(JSON.stringify(body), { status: 200, headers: { "content-type": "application/json" } });
   } catch (e) {
-    return new Response("{}", { status: 404, statusText: "Not found" });
+    return new Response("{}", { status: e.status || 404, statusText: e.statusText || "Not found" });
   }
 }
 
