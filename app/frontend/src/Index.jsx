@@ -1,6 +1,7 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { useFetch, useAllQuestions, pad } from "./lib.js";
 import { STATIC } from "./staticApi.js";
+import { meaningStatus } from "./semantic.js";
 import { useProgress } from "./useProgress.js";
 import { progress } from "./progress.js";
 import { Bar, EmptyState, ErrorNotice, Skeleton } from "./ui.jsx";
@@ -110,6 +111,7 @@ function Card({ e, searching, done, marked }) {
 }
 
 export function IndexPage({ filters, setFilters }) {
+  const meaning = useSyncExternalStore(meaningStatus.subscribe, meaningStatus.get);
   const { query, chapter, lesson, state = "all" } = filters;
   const set = (patch) => setFilters((f) => ({ ...f, ...patch }));
   const q = useDebounced(query, 180);
@@ -245,10 +247,13 @@ export function IndexPage({ filters, setFilters }) {
           )}
           {!data && !res.error && <Skeleton variant="list" label="Loading questions" />}
 
+          {STATIC && meaning === "loading" && (
+            <p className="sub" role="status" data-testid="meaning-loading">Loading meaning search… the first time this downloads about 44 MB. Results include meaning matches as soon as it is ready.</p>
+          )}
           <div className="statusbar">
             <p role="status" aria-live="polite" className="result-count">
-              {data ? (searching ? `${total} result${total === 1 ? "" : "s"} for “${q.trim()}”` : `${total} questions in original order`) : "Loading…"}
-              {data && searching && <span className="sub inline"> · {data.semantic ? "keywords + meaning" : "keywords only"}</span>}
+              {data ? (searching && res.loading ? `Searching for “${q.trim()}”…` : searching ? `${total} result${total === 1 ? "" : "s"} for “${q.trim()}”` : `${total} questions in original order`) : "Loading…"}
+              {data && searching && !res.loading && <span className="sub inline"> · {data.semantic ? "keywords + meaning" : "keywords only"}</span>}
             </p>
             {searching && (
               <div role="group" aria-label="Sort order" className="sorter">
@@ -257,7 +262,7 @@ export function IndexPage({ filters, setFilters }) {
               </div>
             )}
           </div>
-          {data && !data.semantic && searching && (
+          {data && !data.semantic && searching && !res.loading && (
             <p className="sub">{STATIC ? "The meaning model could not load, so this search used keywords only." : <>Search by meaning is off because the local model is not installed. Run <code>python -m placement.semantic download</code>, then the import.</>}</p>
           )}
           {data && Object.keys(data.corrected || {}).length > 0 && (

@@ -13,17 +13,18 @@
 
 ## 3. Search by meaning in the browser
 
-- [ ] 3.1 Commit `src/semantic.js` and the hybrid ranking in `src/staticApi.js`; verify `npm test` still passes (125 tests).
-- [ ] 3.2 Add Node tests for the query parser, filters (including `chapter:a03`), abbreviation expansion, typo correction and rank fusion using small fixtures; verify they pass.
-- [ ] 3.3 Pin `@huggingface/transformers` to an exact version in `package.json` and commit the lockfile; verify `npm ci` succeeds on a clean clone.
-- [ ] 3.4 Commit the model files under `public/models/Xenova/all-MiniLM-L6-v2/`; verify the four files are tracked and the largest is under 100 MB.
-- [ ] 3.5 Verify in a browser that, after a first search, no request goes to a host other than the site's own (network log).
+- [x] 3.1 Commit `src/semantic.js` and the hybrid ranking in `src/staticApi.js`; verify `npm test` still passes (125 tests).
+- [x] 3.2 Add Node tests for the query parser, filters (including `chapter:a03`), abbreviation expansion, typo correction and rank fusion using small fixtures; verify they pass.
+- [x] 3.3 Pin `@huggingface/transformers` to an exact version in `package.json` and commit the lockfile; verify `npm ci` succeeds on a clean clone.
+- [x] 3.4 Commit the model files under `public/models/Xenova/all-MiniLM-L6-v2/`; verify the four files are tracked and the largest is under 100 MB.
+- [x] 3.5 Verify in a browser that, after a first search, no request goes to a host other than the site's own (network log).
 
 ## 4. Early load and visible state
 
-- [ ] 4.1 Start loading the model when the page opens (idle), raise the wait to 60 s, and show "Loading meaning search…" in the index; verify with a throttled-network browser run that a query typed during loading ends as "keywords + meaning" without a second action.
-- [ ] 4.2 Show the keyword-only message when the model cannot load; verify by blocking `/models/` in the browser and reading the message.
-- [ ] 4.3 Update the e2e suite for these states; verify the suite passes on fixtures and on the real data.
+- [x] 4.1 Start loading the model when the page opens (idle), raise the wait to 60 s, and show "Loading meaning search…" in the index; verify with a throttled-network browser run that a query typed during loading ends as "keywords + meaning" without a second action.
+- [x] 4.2 Show the keyword-only message when the model cannot load; verify by blocking `/models/` in the browser and reading the message.
+- [x] 4.3 Update the e2e suite for these states; verify the suite passes on fixtures and on the real data.
+  - Result: new `app/e2e/static.mjs` passes (10 checks); `questions`, `articles`, `ui`, `python` pass on fixtures; `ui` and `questions` pass on real data. The older `search` suite already failed 6 checks before this change (it expects 600 questions and 36 chapter headings) and is not part of this change; `demo` has no checks.
 
 ## 5. Deploy workflow
 
