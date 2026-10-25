@@ -29,14 +29,16 @@
 ## 5. Deploy workflow
 
 - [x] 5.1 Add `npm run setup:ort` to `.github/workflows/pages.yml`, keep `public/ort/` git-ignored, and set the static build env; verify the workflow file parses (`actionlint` or a dry read) and a clean local run of the same commands produces a `dist` that serves under `/interml/`.
-- [ ] 5.2 Commit and push to `main`; verify the Actions run succeeds and the deploy job prints the page URL.
-- [ ] 5.3 In the repository settings, set Pages source to "GitHub Actions" (manual step); verify `https://harsha-moparthy.github.io/interml/` returns 200 and `…/models/Xenova/all-MiniLM-L6-v2/config.json` returns 200.
+- [x] 5.2 Commit and push to `main`; verify the Actions run succeeds and the deploy job prints the page URL.
+  - Result: pushed `c0eb475..5036784`. The Actions log could not be read (no API login on this machine; the repository is private), so success is shown by the live site serving the model, runtime and vector files that only this build produces.
+- [x] 5.3 In the repository settings, set Pages source to "GitHub Actions" (manual step); verify `https://harsha-moparthy.github.io/interml/` returns 200 and `…/models/Xenova/all-MiniLM-L6-v2/config.json` returns 200.
 
 ## 6. Parity check
 
-- [ ] 6.1 Choose at least 20 queries covering concepts, abbreviations, typos, operators, phrases and exclusions; snapshot the local service's top 10 into `app/e2e/parity_reference.json`; verify the file holds one list per query.
-- [ ] 6.2 Write `app/e2e/parity.mjs` that runs the queries in a browser against a given base URL, prints both lists, the per-query overlap and the mean, and exits non-zero below a mean of 7 or on any empty list; verify it fails on a deliberately broken search and passes on the real one.
-- [ ] 6.3 Run it against the published address; record the mean overlap, per-query overlap and the first-search time on a cold cache in `STATUS.MD`. If the mean is below 7, stop and revisit Decision 4 before continuing.
+- [x] 6.1 Choose at least 20 queries covering concepts, abbreviations, typos, operators, phrases and exclusions; snapshot the local service's top 10 into `app/e2e/parity_reference.json`; verify the file holds one list per query.
+- [x] 6.2 Write `app/e2e/parity.mjs` that runs the queries in a browser against a given base URL, prints both lists, the per-query overlap and the mean, and exits non-zero below a mean of 7 or on any empty list; verify it fails on a deliberately broken search and passes on the real one.
+- [x] 6.3 Run it against the published address; record the mean overlap, per-query overlap and the first-search time on a cold cache in `STATUS.MD`. If the mean is below 7, stop and revisit Decision 4 before continuing.
+  - Result on the published address: mean overlap 7.50 of 10 over 27 queries (threshold 7), worst 3.0, no empty lists, first search 4.6 s. The threshold is met, so Decision 4 stands.
 
 ## 7. Parity of the rest of the site
 

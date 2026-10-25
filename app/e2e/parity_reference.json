@@ -1,0 +1,413 @@
+{
+ "api": "http://127.0.0.1:8765",
+ "taken": "2026-10-25",
+ "results": {
+  "316": {
+   "total": 2,
+   "top": [
+    316,
+    916
+   ],
+   "semantic": true
+  },
+  "make training use less memory": {
+   "total": 87,
+   "top": [
+    852,
+    710,
+    561,
+    563,
+    562,
+    57,
+    632,
+    430,
+    1063,
+    444
+   ],
+   "semantic": true
+  },
+  "how to speed up inference of language models": {
+   "total": 63,
+   "top": [
+    374,
+    304,
+    887,
+    307,
+    308,
+    301,
+    1029,
+    299,
+    298,
+    296
+   ],
+   "semantic": true
+  },
+  "stop gradients from exploding": {
+   "total": 62,
+   "top": [
+    256,
+    255,
+    737,
+    1038,
+    631,
+    42,
+    56,
+    564,
+    632,
+    245
+   ],
+   "semantic": true
+  },
+  "explain bias variance tradeoff": {
+   "total": 60,
+   "top": [
+    799,
+    955,
+    157,
+    1068,
+    1082,
+    184,
+    1081,
+    965,
+    794,
+    991
+   ],
+   "semantic": true
+  },
+  "recommendation ranking metrics": {
+   "total": 63,
+   "top": [
+    538,
+    536,
+    488,
+    539,
+    487,
+    490,
+    828,
+    489,
+    541,
+    667
+   ],
+   "semantic": true
+  },
+  "handle imbalanced classes": {
+   "total": 61,
+   "top": [
+    229,
+    130,
+    787,
+    626,
+    790,
+    791,
+    786,
+    788,
+    789,
+    785
+   ],
+   "semantic": true
+  },
+  "reduce overfitting in neural networks": {
+   "total": 73,
+   "top": [
+    237,
+    763,
+    108,
+    239,
+    230,
+    747,
+    748,
+    241,
+    222,
+    225
+   ],
+   "semantic": true
+  },
+  "compare two distributions": {
+   "total": 60,
+   "top": [
+    100,
+    96,
+    93,
+    869,
+    508,
+    824,
+    865,
+    871,
+    1043,
+    864
+   ],
+   "semantic": true
+  },
+  "positional information in transformers": {
+   "total": 61,
+   "top": [
+    330,
+    329,
+    331,
+    99,
+    88,
+    792,
+    338,
+    192,
+    93,
+    606
+   ],
+   "semantic": true
+  },
+  "train on multiple gpus": {
+   "total": 61,
+   "top": [
+    874,
+    873,
+    988,
+    754,
+    1094,
+    427,
+    684,
+    863,
+    1087,
+    869
+   ],
+   "semantic": true
+  },
+  "pca": {
+   "total": 27,
+   "top": [
+    644,
+    182,
+    186,
+    930,
+    185,
+    184,
+    183,
+    784,
+    146,
+    427
+   ],
+   "semantic": true
+  },
+  "kl divergence": {
+   "total": 20,
+   "top": [
+    100,
+    796,
+    368,
+    797,
+    719,
+    98,
+    365,
+    468,
+    814,
+    99
+   ],
+   "semantic": true
+  },
+  "lora fine tuning": {
+   "total": 60,
+   "top": [
+    717,
+    357,
+    356,
+    354,
+    355,
+    608,
+    715,
+    358,
+    359,
+    724
+   ],
+   "semantic": true
+  },
+  "kv cache": {
+   "total": 60,
+   "top": [
+    396,
+    392,
+    393,
+    1024,
+    700,
+    604,
+    404,
+    321,
+    599,
+    391
+   ],
+   "semantic": true
+  },
+  "bn vs ln": {
+   "total": 65,
+   "top": [
+    619,
+    378,
+    233,
+    380,
+    242,
+    814,
+    740,
+    955,
+    620,
+    96
+   ],
+   "semantic": true
+  },
+  "rope": {
+   "total": 60,
+   "top": [
+    331,
+    605,
+    688,
+    332,
+    333,
+    330,
+    534,
+    300,
+    301,
+    304
+   ],
+   "semantic": true
+  },
+  "dpo preference": {
+   "total": 60,
+   "top": [
+    720,
+    616,
+    361,
+    721,
+    362,
+    364,
+    363,
+    722,
+    360,
+    716
+   ],
+   "semantic": true
+  },
+  "normalizaton layr": {
+   "total": 61,
+   "top": [
+    288,
+    236,
+    233,
+    620,
+    235,
+    232,
+    375,
+    609,
+    619,
+    32
+   ],
+   "semantic": true
+  },
+  "atention mechansim": {
+   "total": 60,
+   "top": [
+    310,
+    315,
+    311,
+    314,
+    327,
+    322,
+    313,
+    324,
+    607,
+    617
+   ],
+   "semantic": true
+  },
+  "gradiant descent": {
+   "total": 72,
+   "top": [
+    138,
+    747,
+    639,
+    742,
+    115,
+    630,
+    631,
+    107,
+    56,
+    108
+   ],
+   "semantic": true
+  },
+  "chapter:a03 kv cache": {
+   "total": 4,
+   "top": [
+    700,
+    708,
+    703,
+    709
+   ],
+   "semantic": true
+  },
+  "attention lang:python difficulty:hard": {
+   "total": 11,
+   "top": [
+    324,
+    316,
+    325,
+    326,
+    321,
+    318,
+    346,
+    445,
+    338,
+    446
+   ],
+   "semantic": true
+  },
+  "id:300-310": {
+   "total": 11,
+   "top": [
+    300,
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309
+   ],
+   "semantic": true
+  },
+  "has:lesson attention": {
+   "total": 6,
+   "top": [
+    316,
+    328,
+    308,
+    391,
+    439,
+    519
+   ],
+   "semantic": true
+  },
+  "\"causal mask\"": {
+   "total": 3,
+   "top": [
+    314,
+    312,
+    328
+   ],
+   "semantic": true
+  },
+  "softmax -dropout": {
+   "total": 31,
+   "top": [
+    618,
+    105,
+    224,
+    223,
+    139,
+    437,
+    324,
+    1067,
+    442,
+    230
+   ],
+   "semantic": true
+  }
+ }
+}
