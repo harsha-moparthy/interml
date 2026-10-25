@@ -1,0 +1,1 @@
+{"id":77,"language":"Python","code":"import numpy as np\n\n\ndef q077(matrix, rank):\n    a = np.asarray(matrix, float)\n    if not 0 <= rank <= min(a.shape):\n        raise ValueError(\"invalid rank\")\n    u, s, vh = np.linalg.svd(a, full_matrices=False)\n    return u[:, :rank] * s[:rank] @ vh[:rank]\n","answer":"","content_kind":"coding"}

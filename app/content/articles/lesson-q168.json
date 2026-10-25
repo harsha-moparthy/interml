@@ -1,0 +1,164 @@
+{
+  "id": "lesson-q168",
+  "kind": "lesson",
+  "title": "Fit the error, then add a little correction",
+  "revision": 6,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "The question asks for one round, not a full boosting training loop. You already have a prediction for each training row. First subtract those predictions from the targets. Fit a shallow regression tree to that residual vector. Then add a scaled version of the tree’s output to the original predictions."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What this question asks"
+    },
+    {
+      "type": "paragraph",
+      "text": "Perform one squared-error gradient boosting round by fitting a shallow regression tree to residuals. Return updated training predictions and the fitted tree."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The background you need"
+    },
+    {
+      "type": "paragraph",
+      "text": "An ensemble combines multiple predictors. Gradient boosting builds the ensemble sequentially. For squared error, the negative gradient with respect to the current prediction equals the residual y−prediction. A regression tree can learn a piecewise-constant approximation to those residuals."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Follow one complete computation"
+    },
+    {
+      "type": "paragraph",
+      "text": "The example starts with a constant prediction of three. Targets are one for the first two rows and five for the last two. The residual is therefore −2 on the left and +2 on the right. A depth-one tree can represent exactly that step, making the correction easy to inspect independently of the original labels."
+    },
+    {
+      "type": "image",
+      "path": "lesson-q168/essence.svg",
+      "caption": "The opening and final states. Use the animation below to inspect every intermediate step."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect the picture to the mathematics"
+    },
+    {
+      "type": "equation",
+      "latex": "r_i=y_i-F(x_i),\\qquad F_{\\mathrm{new}}(x_i)=F(x_i)+\\eta\\,h(x_i)",
+      "caption": "F is the current model, r is its residual, h is the newly fitted correction tree, and eta is the learning rate."
+    },
+    {
+      "type": "paragraph",
+      "text": "The learning rate controls how far to move toward the correction. At eta=1, this toy tree removes the training residual in one round. At eta=0.2, predictions become 2.6 and 3.4, leaving residuals of −1.6 and +1.6. A partial correction is deliberate: repeated small updates can provide a useful regularization effect in a larger ensemble, though it does not guarantee generalization."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Mistakes and boundaries"
+    },
+    {
+      "type": "callout",
+      "kind": "boundary",
+      "text": "A common mistake is fitting the new tree directly to y and then adding it to F. That repeatedly adds whole target predictions instead of correcting the current errors. Another error is replacing F with the correction. Keep the current prediction, correction, and updated prediction visible as separate arrays. The returned tree is necessary for applying the same update to new feature rows later. The current helper returns updated training predictions and the fitted tree; maintaining the ensemble and evaluating held-out data remain the caller’s responsibility.",
+      "title": "The boundary of this implementation"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Predict before revealing"
+    },
+    {
+      "type": "check",
+      "id": "q168-prediction"
+    },
+    {
+      "type": "check",
+      "id": "q168-new-case"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect to the supplied solution"
+    },
+    {
+      "type": "walkthrough",
+      "exercise_id": 168,
+      "notes": [
+        {
+          "lines": [
+            7,
+            7
+          ],
+          "match": "residual = np.asarray(y) - prediction",
+          "text": "Residuals provide the training targets for the new tree."
+        },
+        {
+          "lines": [
+            11,
+            11
+          ],
+          "match": "prediction + learning_rate * tree.predict(x)",
+          "text": "The fitted correction is scaled and added to the existing predictions."
+        }
+      ],
+      "title": "Question 168: original code, explained"
+    },
+    {
+      "type": "callout",
+      "kind": "note",
+      "text": "The original solution is preserved. The diagrams use deliberately small examples to expose the mechanism. Passing these checks is evidence for these examples, not an exhaustive correctness proof."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 168,
+      "purpose": "deep-lesson",
+      "order": 1
+    }
+  ],
+  "sources": [
+    {
+      "title": "Original exercise topic",
+      "url": "https://www.deep-ml.com/problems/344"
+    }
+  ],
+  "media": [
+    {
+      "path": "lesson-q168/essence.svg",
+      "description": "Two verified stages from the worked example.",
+      "alt_text": "Fit the error, then add a little correction: Every current prediction is 3, while targets are 1,1,5,5. Then: Learning rate 0.2 gives predictions (2.6, 2.6, 3.4, 3.4).",
+      "attribution": "Figure generated for this site."
+    }
+  ],
+  "demonstrations": [],
+  "checks": [
+    {
+      "id": "q168-prediction",
+      "kind": "prediction",
+      "prompt": "Current prediction is 3, correction is −2, and learning rate is 0.2. What is the new prediction?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "3+0.2×(−2)=2.6.",
+        "default": "Revisit the stated quantities and units. 3+0.2×(−2)=2.6."
+      },
+      "answer": 2.6,
+      "tolerance": 1e-05
+    },
+    {
+      "id": "q168-new-case",
+      "kind": "new-case",
+      "prompt": "Current prediction is 10, correction is 4, and learning rate is 0.25. What is the new prediction?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "10+0.25×4=11.",
+        "default": "Revisit the stated quantities and units. 10+0.25×4=11."
+      },
+      "answer": 11,
+      "tolerance": 1e-05
+    }
+  ]
+}

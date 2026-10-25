@@ -1,0 +1,1 @@
+{"id":299,"language":"Python","code":"import numpy as np\n\n\ndef q299(counts, alpha=1):\n    values = np.asarray(counts, float) + alpha\n    if np.any(values.sum(1) == 0):\n        raise ValueError(\"zero-probability row\")\n    return values / values.sum(axis=1, keepdims=True)\n","answer":"","content_kind":"coding"}

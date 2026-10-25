@@ -1,0 +1,1 @@
+{"id":238,"language":"Python","code":"import numpy as np\n\n\ndef q238(fan_in, fan_out, seed=0):\n    bound = np.sqrt(6 / (fan_in + fan_out))\n    return np.random.default_rng(seed).uniform(\n        -bound, bound, (fan_in, fan_out)\n    )\n","answer":"","content_kind":"coding"}

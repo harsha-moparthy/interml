@@ -1,0 +1,1 @@
+{"id":528,"language":"Python","code":"import torch\nfrom torch.nn import functional as F\n\n\ndef q528(logits, mask):\n    activated = torch.log1p(F.relu(logits)).masked_fill(\n        ~mask[:, :, None], 0\n    )\n    weights = activated.max(dim=1).values\n    return (weights, weights.sum(-1).mean(), weights.mean(0).square().sum())\n","answer":"","content_kind":"coding"}

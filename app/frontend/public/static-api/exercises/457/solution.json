@@ -1,0 +1,1 @@
+{"id":457,"language":"Python","code":"import numpy as np\n\n\ndef q457(successes, failures, seed=0):\n    draws = np.random.default_rng(seed).beta(\n        np.asarray(successes) + 1, np.asarray(failures) + 1\n    )\n    return (int(draws.argmax()), draws)\n","answer":"","content_kind":"coding"}

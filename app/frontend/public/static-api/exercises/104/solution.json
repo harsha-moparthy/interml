@@ -1,0 +1,1 @@
+{"id":104,"language":"Python","code":"import numpy as np\n\n\ndef q104(x, gradient, hessian, damping=1e-06):\n    x = np.asarray(x, float)\n    return x - np.linalg.solve(\n        hessian(x) + damping * np.eye(len(x)), gradient(x)\n    )\n","answer":"","content_kind":"coding"}

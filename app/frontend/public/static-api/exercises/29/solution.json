@@ -1,0 +1,1 @@
+{"id":29,"language":"Python","code":"import numpy as np\n\n\ndef q029(matrix, scales):\n    return np.asarray(matrix) * np.asarray(scales)[:, None]\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,1 @@
+{"id":492,"language":"Python","code":"import numpy as np\n\n\ndef q492(features, adjacency, weights):\n    a = np.asarray(adjacency, float) + np.eye(len(adjacency))\n    inverse = 1 / np.sqrt(a.sum(1))\n    normalized = inverse[:, None] * a * inverse[None, :]\n    return np.maximum(0, normalized @ features @ weights)\n","answer":"","content_kind":"coding"}

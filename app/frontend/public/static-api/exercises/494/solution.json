@@ -1,0 +1,1 @@
+{"id":494,"language":"Python","code":"import numpy as np\n\n\ndef q494(series, lag=1):\n    if lag <= 0:\n        raise ValueError(\"lag must be positive\")\n    x = np.asarray(series, float)\n    return x[lag:] - x[:-lag]\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,1 @@
+{"id":347,"language":"Python","code":"import numpy as np\n\n\ndef q347(state, key, value, beta):\n    s, k, v = (\n        np.asarray(state, float),\n        np.asarray(key, float),\n        np.asarray(value, float),\n    )\n    return s + beta * np.outer(k, v - k @ s)\n","answer":"","content_kind":"coding"}

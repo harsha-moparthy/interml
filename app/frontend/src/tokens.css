@@ -1,0 +1,80 @@
+/* Design tokens. Every colour, size and duration used by the site is defined here.
+   Themes: light (default), dark (system preference), and an explicit data-theme="light"|"dark" on <html>.
+   Existing names (--bg, --fg, --muted, --line, --accent, --accent-bg, --warn-bg, --err) are aliases of the --color-* tokens. */
+
+/* ---- theme-independent scales ---- */
+:root {
+  --font-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-read: Charter, "Bitstream Charter", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+
+  --fs-sm: .85rem; --fs-base: 1rem; --fs-md: 1.1rem; --fs-lg: 1.6rem;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 24px; --space-6: 40px;
+  --radius-1: 6px; --radius-2: 8px; --radius-3: 12px; --radius-pill: 999px;
+  --dur-fast: 120ms; --dur: 200ms; --ease: cubic-bezier(.22,.75,.25,1);
+
+  /* aliases used by existing rules and components */
+  --bg: var(--color-bg); --fg: var(--color-fg); --muted: var(--color-muted); --line: var(--color-line);
+  --accent: var(--color-accent); --accent-bg: var(--color-accent-bg); --warn-bg: var(--color-warn-bg); --err: var(--color-err);
+  font-family: var(--font-ui);
+}
+
+/* ---- light ---- */
+:root {
+  color-scheme: light;
+  --color-bg:#faf9f7; --color-fg:#1d2127; --color-muted:#59636e; --color-line:#e0dcd4;
+  --color-accent:#2849b8; --color-accent-bg:#e8edfb; --color-warn-bg:#fff4d6; --color-err:#b42318;
+  --color-surface:#fff; --color-surface-2:#f3f1ed; --color-ok:#1a7f37; --color-heading:#14223e;
+  --shadow-1:0 1px 2px rgba(20,34,62,.08); --shadow-2:0 16px 45px rgba(29,48,73,.07);
+  --code-bg:#f4f2ee; --code-fg:#24292f; --code-gutter-bg:#ebe8e2; --code-gutter-fg:#59636e; --code-selection:#b6d4f5;
+  --tok-keyword:#cf222e; --tok-string:#0a6a3b; --tok-number:#0550ae; --tok-atom:#0550ae; --tok-comment:#59636e; --tok-function:#6639ba; --tok-def:#953800; --tok-type:#0a6a3b; --tok-property:#0550ae; --tok-punct:#57606a; --tok-meta:#8250df;
+  --hl-bg:#fff3c4; --hl-bar:#d4a000; --hl-active:#ffe38a;
+  --navy:var(--color-heading); --teal:#08776e; --teal-bg:#d9f1ee; --amber:#9a5d00; --amber-bg:#ffeccb; --violet:#7139ba; --violet-bg:#ece3ff; --panel:#f3f1ed;
+  --image-bg:#fff; --shadow-pop:0 2px 8px rgba(0,0,0,.18);
+  --s0:#0072b2; --s1:#d55e00; --s2:#009e73; --s3:#cc79a7; --s4:#b08900; --s5:#56b4e9;
+}
+
+/* ---- dark: system preference unless the learner chose light ---- */
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  color-scheme: dark;
+  --color-bg:#101317; --color-fg:#e6e9ed; --color-muted:#9aa4af; --color-line:#2a313a;
+  --color-accent:#8fb0ff; --color-accent-bg:#1b2644; --color-warn-bg:#3b3214; --color-err:#ff8a80;
+  --color-surface:#171b21; --color-surface-2:#0c0f13; --color-ok:#5fd39a; --color-heading:#e7ecf6;
+  --shadow-1:0 1px 2px rgba(0,0,0,.4); --shadow-2:0 16px 45px rgba(0,0,0,.35);
+  --code-bg:#0c0f13; --code-fg:#d6dde4; --code-gutter-bg:#12161b; --code-gutter-fg:#7d8892; --code-selection:#264a73;
+  --tok-keyword:#ff7b72; --tok-string:#7ee0a3; --tok-number:#79c0ff; --tok-atom:#79c0ff; --tok-comment:#8b949e; --tok-function:#d2a8ff; --tok-def:#ffa657; --tok-type:#7ee0a3; --tok-property:#79c0ff; --tok-punct:#9aa4af; --tok-meta:#d2a8ff;
+  --hl-bg:#3b3214; --hl-bar:#e3b341; --hl-active:#5a4a12;
+  --navy:var(--color-heading); --teal:#4fd1c5; --teal-bg:#12413d; --amber:#f6ad55; --amber-bg:#4a3512; --violet:#b794f4; --violet-bg:#35255a; --panel:#171b21;
+  --image-bg:#fff; --shadow-pop:0 2px 8px rgba(0,0,0,.5);
+  --s0:#56b4e9; --s1:#ff9248; --s2:#3ddc97; --s3:#f0a5d0; --s4:#f2c744; --s5:#8fd3ff;
+} }
+
+/* ---- dark: explicit choice ---- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg:#101317; --color-fg:#e6e9ed; --color-muted:#9aa4af; --color-line:#2a313a;
+  --color-accent:#8fb0ff; --color-accent-bg:#1b2644; --color-warn-bg:#3b3214; --color-err:#ff8a80;
+  --color-surface:#171b21; --color-surface-2:#0c0f13; --color-ok:#5fd39a; --color-heading:#e7ecf6;
+  --shadow-1:0 1px 2px rgba(0,0,0,.4); --shadow-2:0 16px 45px rgba(0,0,0,.35);
+  --code-bg:#0c0f13; --code-fg:#d6dde4; --code-gutter-bg:#12161b; --code-gutter-fg:#7d8892; --code-selection:#264a73;
+  --tok-keyword:#ff7b72; --tok-string:#7ee0a3; --tok-number:#79c0ff; --tok-atom:#79c0ff; --tok-comment:#8b949e; --tok-function:#d2a8ff; --tok-def:#ffa657; --tok-type:#7ee0a3; --tok-property:#79c0ff; --tok-punct:#9aa4af; --tok-meta:#d2a8ff;
+  --hl-bg:#3b3214; --hl-bar:#e3b341; --hl-active:#5a4a12;
+  --navy:var(--color-heading); --teal:#4fd1c5; --teal-bg:#12413d; --amber:#f6ad55; --amber-bg:#4a3512; --violet:#b794f4; --violet-bg:#35255a; --panel:#171b21;
+  --image-bg:#fff; --shadow-pop:0 2px 8px rgba(0,0,0,.5);
+  --s0:#56b4e9; --s1:#ff9248; --s2:#3ddc97; --s3:#f0a5d0; --s4:#f2c744; --s5:#8fd3ff;
+}
+
+/* ---- print: always the light theme, whatever theme is on screen. Keep in step with the light block (a test checks). ---- */
+@media print { :root:root:root {
+  color-scheme: light;
+  --color-bg:#faf9f7; --color-fg:#1d2127; --color-muted:#59636e; --color-line:#e0dcd4;
+  --color-accent:#2849b8; --color-accent-bg:#e8edfb; --color-warn-bg:#fff4d6; --color-err:#b42318;
+  --color-surface:#fff; --color-surface-2:#f3f1ed; --color-ok:#1a7f37; --color-heading:#14223e;
+  --shadow-1:0 1px 2px rgba(20,34,62,.08); --shadow-2:0 16px 45px rgba(29,48,73,.07);
+  --code-bg:#f4f2ee; --code-fg:#24292f; --code-gutter-bg:#ebe8e2; --code-gutter-fg:#59636e; --code-selection:#b6d4f5;
+  --tok-keyword:#cf222e; --tok-string:#0a6a3b; --tok-number:#0550ae; --tok-atom:#0550ae; --tok-comment:#59636e; --tok-function:#6639ba; --tok-def:#953800; --tok-type:#0a6a3b; --tok-property:#0550ae; --tok-punct:#57606a; --tok-meta:#8250df;
+  --hl-bg:#fff3c4; --hl-bar:#d4a000; --hl-active:#ffe38a;
+  --navy:var(--color-heading); --teal:#08776e; --teal-bg:#d9f1ee; --amber:#9a5d00; --amber-bg:#ffeccb; --violet:#7139ba; --violet-bg:#ece3ff; --panel:#f3f1ed;
+  --image-bg:#fff; --shadow-pop:0 2px 8px rgba(0,0,0,.18);
+  --s0:#0072b2; --s1:#d55e00; --s2:#009e73; --s3:#cc79a7; --s4:#b08900; --s5:#56b4e9;
+} }

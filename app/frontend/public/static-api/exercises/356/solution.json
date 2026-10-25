@@ -1,0 +1,1 @@
+{"id":356,"language":"Python","code":"def q356(weight, a, b, alpha):\n    return weight + alpha / a.shape[0] * (b @ a)\n","answer":"","content_kind":"coding"}

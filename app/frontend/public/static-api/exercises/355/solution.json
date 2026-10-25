@@ -1,0 +1,1 @@
+{"id":355,"language":"Python","code":"import numpy as np\n\n\ndef q355(x, quantized_weight, scale, a, b, alpha):\n    weight = (\n        np.asarray(quantized_weight, float) * np.asarray(scale)[:, None]\n    )\n    return x @ weight.T + alpha / a.shape[0] * (x @ a.T) @ b.T\n","answer":"","content_kind":"coding"}

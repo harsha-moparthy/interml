@@ -1,0 +1,1 @@
+{"id":2,"language":"Python","code":"def q002(frame, columns):\n    return frame.loc[:, columns].copy()\n","answer":"","content_kind":"coding"}

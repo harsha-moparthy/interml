@@ -1,0 +1,1 @@
+{"id":105,"language":"Python","code":"import numpy as np\n\n\ndef q105(probabilities):\n    p = np.asarray(probabilities, float)\n    return np.diag(p) - np.outer(p, p)\n","answer":"","content_kind":"coding"}

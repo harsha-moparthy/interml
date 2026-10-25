@@ -1,0 +1,215 @@
+{
+  "id": "lesson-q503-implement-cross-view-dino-loss",
+  "kind": "lesson",
+  "title": "Implement cross-view DINO loss",
+  "revision": 4,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The question in plain language"
+    },
+    {
+      "type": "paragraph",
+      "text": "Each teacher global view supervises different student views; aligned views are excluded. The task is: Compute original-DINO cross-view loss. Student logits are [V,B,K], V>=2; detached teacher probabilities are [2,B,K]. Exclude student/teacher pairs (0,0) and (1,1), average over examples and remaining pairs, and return (loss,pair_count)."
+    },
+    {
+      "type": "paragraph",
+      "text": "The inputs are `student`, `teacher_targets`, `temperature`. Keep their roles separate while you trace the solution. The animation follows the supplied implementation, so every highlighted operation connects to code you can inspect."
+    },
+    {
+      "type": "callout",
+      "kind": "definition",
+      "text": "Each teacher global view supervises different student views; aligned views are excluded.",
+      "title": "Core idea: Cross-view self-distillation"
+    },
+    {
+      "type": "image",
+      "path": "lesson-q503-implement-cross-view-dino-loss/mechanism.svg"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The mathematical contract"
+    },
+    {
+      "type": "equation",
+      "latex": "L=\\frac1{|P|}\\sum_{(t,v):t\\ne v}H(p^{teacher}_t,p^{student}_v)",
+      "caption": "This equation names the central relationship. The prose below connects its symbols to the function inputs."
+    },
+    {
+      "type": "paragraph",
+      "text": "Read each symbol as a value with a specific axis, time, rank, token, or state role. The code must preserve those roles. A compact formula does not remove the validation, masking, boundary, or state rules in the prompt."
+    },
+    {
+      "type": "paragraph",
+      "text": "Before following the implementation, identify the output's shape and meaning. Then identify which input values can affect one selected output. This gives you a testable mental model before the code adds implementation detail."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Watch the mechanism"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What changes in the boundary case"
+    },
+    {
+      "type": "paragraph",
+      "text": "Change one input at the edge of the stated contract and trace where the behavior changes. Use the Trace control to switch between the normal path and this boundary focus. The algorithm does not get permission to invent an unstated fallback."
+    },
+    {
+      "type": "paragraph",
+      "text": "A useful test changes one condition while holding the remaining inputs fixed. Compare the output shape, state transition, valid edges, selected tokens, or returned status. This isolates the reason for the change."
+    },
+    {
+      "type": "callout",
+      "kind": "mistake",
+      "text": "A diagram can show data moving and still hide a wrong contract. Check the mask direction, reduction axis, update order, and ownership of persistent state against the prompt.",
+      "title": "Do not learn the motion without the rule"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect the explanation to the supplied solution"
+    },
+    {
+      "type": "walkthrough",
+      "exercise_id": 503,
+      "notes": [
+        {
+          "lines": [
+            6,
+            6
+          ],
+          "match": "def q503(student, teacher_ta",
+          "text": "Create teacher global targets. This is the code stage shown in the mechanism animation."
+        },
+        {
+          "lines": [
+            9,
+            10
+          ],
+          "match": "if student.ndim != 3 or stud",
+          "text": "Create student view logits. This is the code stage shown in the mechanism animation."
+        },
+        {
+          "lines": [
+            11,
+            12
+          ],
+          "match": "if teacher_targets.shape != ",
+          "text": "Skip aligned view pair. This is the code stage shown in the mechanism animation."
+        },
+        {
+          "lines": [
+            13,
+            13
+          ],
+          "match": "logp = F.log_softmax(student",
+          "text": "Score cross-view entropy. This is the code stage shown in the mechanism animation."
+        }
+      ],
+      "title": "Walk through the original solution"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Check your model"
+    },
+    {
+      "type": "check",
+      "id": "q503-predict"
+    },
+    {
+      "type": "check",
+      "id": "q503-new"
+    },
+    {
+      "type": "check",
+      "id": "q503-explain"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "A practical verification strategy"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Choose the smallest input that still exercises the mechanism.",
+        "Compute one output or transition by hand.",
+        "Run the supplied solution on the same input.",
+        "Change one mask, boundary, scale, or state condition.",
+        "Check the first stage where the result diverges."
+      ],
+      "ordered": true
+    },
+    {
+      "type": "paragraph",
+      "text": "This lesson explains the educational core in the workbook. It does not turn a small reference function into a complete production system, benchmark, privacy guarantee, distributed runtime, or trained model."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 503,
+      "purpose": "deep-lesson",
+      "order": 1
+    }
+  ],
+  "media": [
+    {
+      "path": "lesson-q503-implement-cross-view-dino-loss/mechanism.svg",
+      "description": "The static map shows the same stages as the animation. It remains useful when motion is disabled.",
+      "alt_text": "A left-to-right mechanism map for Implement cross-view DINO loss. The stages are Create teacher global targets, Create student view logits, Skip aligned view pair, Score cross-view entropy, Average valid pairs.",
+      "attribution": "Figure generated for this site."
+    }
+  ],
+  "demonstrations": [],
+  "checks": [
+    {
+      "id": "q503-predict",
+      "kind": "prediction",
+      "prompt": "Which stage must agree exactly with the exercise's promised output?",
+      "answer_type": "choice",
+      "explanation": {
+        "correct": "Yes. The returned object is where shape, value, and state promises become observable.",
+        "default": "Trace the data to the final returned object."
+      },
+      "answer": "Average valid pairs",
+      "options": [
+        "Average valid pairs",
+        "Create teacher global targets",
+        "Ignore the return value"
+      ]
+    },
+    {
+      "id": "q503-new",
+      "kind": "new-case",
+      "prompt": "You change only the boundary condition described above. What is the best next action?",
+      "answer_type": "choice",
+      "explanation": {
+        "correct": "Correct. Holding other inputs fixed isolates cause and effect.",
+        "default": "Change one condition and locate the first divergent stage."
+      },
+      "answer": "Trace the first stage whose condition changes",
+      "options": [
+        "Trace the first stage whose condition changes",
+        "Rewrite the mathematical contract",
+        "Assume the output is unchanged"
+      ]
+    },
+    {
+      "id": "q503-explain",
+      "kind": "explain-back",
+      "prompt": "Explain cross-view self-distillation in your own words. Name one input, one intermediate state, and the output meaning.",
+      "answer_type": "text",
+      "explanation": {
+        "correct": "A strong answer preserves the input roles, the central invariant, and the output contract.",
+        "default": "Use the animation stages as a scaffold."
+      }
+    }
+  ]
+}

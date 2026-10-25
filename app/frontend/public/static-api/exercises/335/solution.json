@@ -1,0 +1,1 @@
+{"id":335,"language":"Python","code":"import numpy as np\n\n\ndef SwiGLU(x: np.ndarray) -> np.ndarray:\n\n    def sigmoid(x):\n        return 1 / (1 + np.exp(-x))\n\n    d = x.shape[1] // 2\n    x1 = x[:, :d]\n    x2 = x[:, d:]\n    return x1 * (x2 * sigmoid(x2))\n","answer":"","content_kind":"coding"}

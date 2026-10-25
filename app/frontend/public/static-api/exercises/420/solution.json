@@ -1,0 +1,1 @@
+{"id":420,"language":"Python","code":"import numpy as np\n\n\ndef q420(worker_gradients):\n    if not worker_gradients:\n        raise ValueError(\"workers required\")\n    return [\n        np.mean(np.stack(group), axis=0)\n        for group in zip(*worker_gradients, strict=True)\n    ]\n","answer":"","content_kind":"coding"}

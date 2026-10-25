@@ -1,0 +1,164 @@
+{
+  "id": "lesson-q207",
+  "kind": "lesson",
+  "title": "Lower a threshold and watch the trade-off",
+  "revision": 6,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "One precision or recall number depends on a particular decision threshold. A precision-recall curve shows the operating points obtained as that threshold changes. The animation sorts observations by decreasing score and admits them into the predicted-positive set. Initially no row is selected; this implementation defines the starting point as recall zero and precision one."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What this question asks"
+    },
+    {
+      "type": "paragraph",
+      "text": "Build a precision-recall curve at each distinct score threshold for binary labels with at least one positive. Return recall, precision, and stepwise average precision; group tied scores together."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The background you need"
+    },
+    {
+      "type": "paragraph",
+      "text": "A binary classifier can output a score rather than a yes/no decision. A threshold turns scores into predictions. Precision is the fraction of predicted positives that are truly positive. Recall is the fraction of all actual positives that were found."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Follow one complete computation"
+    },
+    {
+      "type": "paragraph",
+      "text": "Lowering the threshold can recover another positive, but it can also introduce a false positive. Precision therefore need not change monotonically, while recall cannot decrease as more rows are selected. Watch the counters and the selected tokens together. A point on the curve represents a whole decision set, not the confidence of one individual observation."
+    },
+    {
+      "type": "image",
+      "path": "lesson-q207/essence.svg",
+      "caption": "The opening and final states. Use the animation below to inspect every intermediate step."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect the picture to the mathematics"
+    },
+    {
+      "type": "equation",
+      "latex": "\\mathrm{precision}=\\frac{TP}{TP+FP},\\quad \\mathrm{recall}=\\frac{TP}{P},\\quad AP=\\sum_k(R_k-R_{k-1})P_k",
+      "caption": "TP counts selected positive labels, FP counts selected negative labels, P is the total number of positive labels, and P_k in the AP sum denotes precision at step k."
+    },
+    {
+      "type": "paragraph",
+      "text": "Tied scores require special care. A single threshold cannot select one member of a tied group while excluding another member with the same score. The supplied code finds the end of each equal-score group and evaluates the cumulative counts there. Change the scenario to create a tie and observe the combined jump rather than an order-dependent intermediate point."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Mistakes and boundaries"
+    },
+    {
+      "type": "callout",
+      "kind": "boundary",
+      "text": "Average precision here is a stepwise sum of recall increments times the precision at the end of each increment. It is not a trapezoidal area formula and should not be described as one. The function assumes at least one positive label, since recall divides by that count. Scores need not be calibrated probabilities; only their ordering and ties determine this curve. Verify tied-score handling, the initial convention, and AP against the specific definition used by the exercise.",
+      "title": "The boundary of this implementation"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Predict before revealing"
+    },
+    {
+      "type": "check",
+      "id": "q207-prediction"
+    },
+    {
+      "type": "check",
+      "id": "q207-new-case"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect to the supplied solution"
+    },
+    {
+      "type": "walkthrough",
+      "exercise_id": 207,
+      "notes": [
+        {
+          "lines": [
+            8,
+            8
+          ],
+          "match": "ends = np.r_[np.flatnonzero(np.diff(s) != 0), len(s) - 1]",
+          "text": "Distinct threshold groups end only after all tied scores are included."
+        },
+        {
+          "lines": [
+            15,
+            15
+          ],
+          "match": "np.sum(np.diff(recall) * precision[1:])",
+          "text": "Average precision uses stepwise precision weights rather than trapezoids."
+        }
+      ],
+      "title": "Question 207: original code, explained"
+    },
+    {
+      "type": "callout",
+      "kind": "note",
+      "text": "The original solution is preserved. The diagrams use deliberately small examples to expose the mechanism. Passing these checks is evidence for these examples, not an exhaustive correctness proof."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 207,
+      "purpose": "deep-lesson",
+      "order": 1
+    }
+  ],
+  "sources": [
+    {
+      "title": "Original exercise topic",
+      "url": "https://www.deep-ml.com/problems/278"
+    }
+  ],
+  "media": [
+    {
+      "path": "lesson-q207/essence.svg",
+      "description": "Two verified stages from the worked example.",
+      "alt_text": "Lower a threshold and watch the trade-off: 0 predicted positive; true positives=0; precision=1; recall=0. Then: 4 predicted positive; true positives=2; precision=0.5; recall=1.",
+      "attribution": "Figure generated for this site."
+    }
+  ],
+  "demonstrations": [],
+  "checks": [
+    {
+      "id": "q207-prediction",
+      "kind": "prediction",
+      "prompt": "Three rows are predicted positive and two are truly positive. What is precision?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "Precision divides true positives by all selected rows: 2/3.",
+        "default": "Revisit the stated quantities and units. Precision divides true positives by all selected rows: 2/3."
+      },
+      "answer": 0.6666666666666666,
+      "tolerance": 1e-05
+    },
+    {
+      "id": "q207-new-case",
+      "kind": "new-case",
+      "prompt": "There are five actual positives and the selected set contains three of them. What is recall?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "Recall is 3/5=0.6.",
+        "default": "Revisit the stated quantities and units. Recall is 3/5=0.6."
+      },
+      "answer": 0.6,
+      "tolerance": 1e-05
+    }
+  ]
+}

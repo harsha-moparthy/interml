@@ -1,0 +1,1 @@
+{"id":63,"language":"Python","code":"import numpy as np\n\n\ndef transform_basis(B, C):\n    C = np.array(C)\n    B = np.array(B)\n    C_inv = np.linalg.inv(C)\n    P = np.dot(C_inv, B)\n    return P.tolist()\n","answer":"","content_kind":"coding"}

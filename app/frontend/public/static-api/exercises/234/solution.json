@@ -1,0 +1,1 @@
+{"id":234,"language":"Python","code":"import numpy as np\n\n\ndef q234(x, scale, epsilon=1e-06):\n    x = np.asarray(x, float)\n    return (\n        x\n        / np.sqrt(np.mean(x * x, axis=-1, keepdims=True) + epsilon)\n        * scale\n    )\n","answer":"","content_kind":"coding"}

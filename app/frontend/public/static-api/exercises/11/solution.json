@@ -1,0 +1,1 @@
+{"id":11,"language":"Python","code":"def q011(frame, group, value):\n    return (\n        frame.groupby(group, dropna=False, sort=False)[value]\n        .sum()\n        .reset_index()\n    )\n","answer":"","content_kind":"coding"}

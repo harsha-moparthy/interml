@@ -1,0 +1,1 @@
+{"id":455,"language":"Python","code":"def incremental_mean(Q_prev, k, R):\n    return Q_prev + 1 / k * (R - Q_prev)\n","answer":"","content_kind":"coding"}

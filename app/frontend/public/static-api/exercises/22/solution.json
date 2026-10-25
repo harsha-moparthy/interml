@@ -1,0 +1,1 @@
+{"id":22,"language":"Python","code":"import numpy as np\n\n\ndef q022(start, stop, step, count):\n    if step == 0 or count < 0:\n        raise ValueError(\"invalid step or count\")\n    return (np.arange(start, stop, step), np.linspace(start, stop, count))\n","answer":"","content_kind":"coding"}

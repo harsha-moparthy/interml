@@ -1,0 +1,1 @@
+{"id":41,"language":"Python","code":"def q041(x, shape, dim0, dim1):\n    return x.reshape(shape).transpose(dim0, dim1).contiguous()\n","answer":"","content_kind":"coding"}

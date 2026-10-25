@@ -1,0 +1,49 @@
+{
+  "id": "scaled-dot-product-attention",
+  "kind": "prerequisite",
+  "title": "Scaled dot-product attention",
+  "revision": 3,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "Attention lets each position build its output as a weighted average of **value** vectors. The weights come from comparing a **query** with all the **keys**. The numbers in this lesson are small invented values chosen so that you can follow the arithmetic. They are not learned from data and they do not show real language relationships."
+    },
+    {
+      "type": "equation",
+      "latex": "\\mathrm{Attention}(Q, K, V) = \\mathrm{softmax}\\!\\left(\\frac{Q K^{\\top}}{\\sqrt{d_k}}\\right) V"
+    },
+    {
+      "type": "list",
+      "items": [
+        "$Q$ has shape $(L, d_k)$: one query per output position.",
+        "$K$ has shape $(S, d_k)$: one key per source position.",
+        "$V$ has shape $(S, d_v)$: one value per source position.",
+        "The scores $QK^\\top$ have shape $(L, S)$. Row $i$ says how much query $i$ matches each key.",
+        "The weights have the same shape. Each row adds up to 1.",
+        "The output has shape $(L, d_v)$."
+      ],
+      "ordered": false
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Why divide by $\\sqrt{d_k}$"
+    },
+    {
+      "type": "paragraph",
+      "text": "A dot product of two random vectors with $d_k$ entries has a spread that grows like $\\sqrt{d_k}$. Large scores make softmax very sharp: one weight near 1 and the others near 0. A sharp softmax has tiny gradients. Dividing by $\\sqrt{d_k}$ keeps the spread near 1. The lesson on [[q:316|question 316]] shows this with numbers."
+    }
+  ],
+  "prerequisites": [
+    "dot-products-and-matmul",
+    "softmax"
+  ],
+  "sources": [
+    {
+      "title": "Attention Is All You Need (Vaswani et al., 2017)",
+      "url": "https://arxiv.org/abs/1706.03762"
+    }
+  ],
+  "demonstrations": []
+}

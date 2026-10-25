@@ -1,0 +1,1 @@
+{"id":271,"language":"Python","code":"import numpy as np\n\n\ndef residual_block(\n    x: np.ndarray, w1: np.ndarray, w2: np.ndarray\n) -> np.ndarray:\n    y = np.dot(w1, x)\n    y = np.maximum(0, y)\n    y = np.dot(w2, y)\n    y = y + x\n    y = np.maximum(0, y)\n    return y\n","answer":"","content_kind":"coding"}

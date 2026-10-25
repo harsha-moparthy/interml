@@ -1,0 +1,1 @@
+{"id":447,"language":"Python","code":"import numpy as np\n\n\ndef q447(rewards, gamma):\n    out = np.empty(len(rewards))\n    running = 0.0\n    for t in range(len(rewards) - 1, -1, -1):\n        running = rewards[t] + gamma * running\n        out[t] = running\n    return out\n","answer":"","content_kind":"coding"}

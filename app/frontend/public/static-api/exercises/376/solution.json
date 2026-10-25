@@ -1,0 +1,1 @@
+{"id":376,"language":"Python","code":"def q376(rating_a, rating_b, score_a, k=32):\n    expected = 1 / (1 + 10 ** ((rating_b - rating_a) / 400))\n    change = k * (score_a - expected)\n    return (rating_a + change, rating_b - change)\n","answer":"","content_kind":"coding"}

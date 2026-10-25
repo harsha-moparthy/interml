@@ -1,0 +1,207 @@
+{
+  "id": "lesson-q391-kv-cache-for-efficient-autoregressive-attention",
+  "kind": "lesson",
+  "title": "KV Cache for Efficient Autoregressive Attention",
+  "revision": 4,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The question in plain language"
+    },
+    {
+      "type": "paragraph",
+      "text": "A KV cache appends only new projected keys and values along the sequence axis. The task is: Append projected K/V arrays of shape (B,H,T,D) to an optional (K,V) cache along the sequence axis. Return a new cache without modifying the inputs."
+    },
+    {
+      "type": "paragraph",
+      "text": "The inputs are `cache`, `new_keys`, `new_values`. Keep their roles separate while you trace the solution. The animation follows the supplied implementation, so every highlighted operation connects to code you can inspect."
+    },
+    {
+      "type": "callout",
+      "kind": "definition",
+      "text": "A KV cache appends only new projected keys and values along the sequence axis.",
+      "title": "Core idea: Autoregressive reuse"
+    },
+    {
+      "type": "image",
+      "path": "lesson-q391-kv-cache-for-efficient-autoregressive-attention/mechanism.svg"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The mathematical contract"
+    },
+    {
+      "type": "equation",
+      "latex": "K_{cache}\\leftarrow\\operatorname{concat}(K_{cache},K_{new};\\,axis=T)",
+      "caption": "This equation names the central relationship. The prose below connects its symbols to the function inputs."
+    },
+    {
+      "type": "paragraph",
+      "text": "Read each symbol as a value with a specific axis, time, rank, token, or state role. The code must preserve those roles. A compact formula does not remove the validation, masking, boundary, or state rules in the prompt."
+    },
+    {
+      "type": "paragraph",
+      "text": "Before following the implementation, identify the output's shape and meaning. Then identify which input values can affect one selected output. This gives you a testable mental model before the code adds implementation detail."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Watch the mechanism"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What changes in the boundary case"
+    },
+    {
+      "type": "paragraph",
+      "text": "Return a new cache without modifying the inputs. Use the Trace control to switch between the normal path and this boundary focus. The algorithm does not get permission to invent an unstated fallback."
+    },
+    {
+      "type": "paragraph",
+      "text": "A useful test changes one condition while holding the remaining inputs fixed. Compare the output shape, state transition, valid edges, selected tokens, or returned status. This isolates the reason for the change."
+    },
+    {
+      "type": "callout",
+      "kind": "mistake",
+      "text": "A diagram can show data moving and still hide a wrong contract. Check the mask direction, reduction axis, update order, and ownership of persistent state against the prompt.",
+      "title": "Do not learn the motion without the rule"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect the explanation to the supplied solution"
+    },
+    {
+      "type": "walkthrough",
+      "exercise_id": 391,
+      "notes": [
+        {
+          "lines": [
+            4,
+            4
+          ],
+          "match": "def q391(cache, new_keys, ne",
+          "text": "Process prompt tokens. This is the code stage shown in the mechanism animation."
+        },
+        {
+          "lines": [
+            5,
+            9
+          ],
+          "match": "if cache is None:",
+          "text": "Append along token axis. This is the code stage shown in the mechanism animation."
+        },
+        {
+          "lines": [
+            10,
+            13
+          ],
+          "match": "return (",
+          "text": "Reuse all old cache entries. This is the code stage shown in the mechanism animation."
+        }
+      ],
+      "title": "Walk through the original solution"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Check your model"
+    },
+    {
+      "type": "check",
+      "id": "q391-predict"
+    },
+    {
+      "type": "check",
+      "id": "q391-new"
+    },
+    {
+      "type": "check",
+      "id": "q391-explain"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "A practical verification strategy"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Choose the smallest input that still exercises the mechanism.",
+        "Compute one output or transition by hand.",
+        "Run the supplied solution on the same input.",
+        "Change one mask, boundary, scale, or state condition.",
+        "Check the first stage where the result diverges."
+      ],
+      "ordered": true
+    },
+    {
+      "type": "paragraph",
+      "text": "This lesson explains the educational core in the workbook. It does not turn a small reference function into a complete production system, benchmark, privacy guarantee, distributed runtime, or trained model."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 391,
+      "purpose": "deep-lesson",
+      "order": 1
+    }
+  ],
+  "media": [
+    {
+      "path": "lesson-q391-kv-cache-for-efficient-autoregressive-attention/mechanism.svg",
+      "description": "The static map shows the same stages as the animation. It remains useful when motion is disabled.",
+      "alt_text": "A left-to-right mechanism map for KV Cache for Efficient Autoregressive Attention. The stages are Process prompt tokens, Project new keys and values, Append along token axis, Reuse all old cache entries, Attend with current query.",
+      "attribution": "Figure generated for this site."
+    }
+  ],
+  "demonstrations": [],
+  "checks": [
+    {
+      "id": "q391-predict",
+      "kind": "prediction",
+      "prompt": "Which stage must agree exactly with the exercise's promised output?",
+      "answer_type": "choice",
+      "explanation": {
+        "correct": "Yes. The returned object is where shape, value, and state promises become observable.",
+        "default": "Trace the data to the final returned object."
+      },
+      "answer": "Attend with current query",
+      "options": [
+        "Attend with current query",
+        "Process prompt tokens",
+        "Ignore the return value"
+      ]
+    },
+    {
+      "id": "q391-new",
+      "kind": "new-case",
+      "prompt": "You change only the boundary condition described above. What is the best next action?",
+      "answer_type": "choice",
+      "explanation": {
+        "correct": "Correct. Holding other inputs fixed isolates cause and effect.",
+        "default": "Change one condition and locate the first divergent stage."
+      },
+      "answer": "Trace the first stage whose condition changes",
+      "options": [
+        "Trace the first stage whose condition changes",
+        "Rewrite the mathematical contract",
+        "Assume the output is unchanged"
+      ]
+    },
+    {
+      "id": "q391-explain",
+      "kind": "explain-back",
+      "prompt": "Explain autoregressive reuse in your own words. Name one input, one intermediate state, and the output meaning.",
+      "answer_type": "text",
+      "explanation": {
+        "correct": "A strong answer preserves the input roles, the central invariant, and the output contract.",
+        "default": "Use the animation stages as a scaffold."
+      }
+    }
+  ]
+}

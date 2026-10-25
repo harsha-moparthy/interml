@@ -1,0 +1,1 @@
+{"id":273,"language":"Python","code":"import torch\nfrom torch.nn import functional as F\n\n\ndef q273(decoder, skip):\n    up = F.interpolate(\n        decoder, size=skip.shape[-2:], mode=\"bilinear\", align_corners=False\n    )\n    return torch.cat([skip, up], dim=1)\n","answer":"","content_kind":"coding"}

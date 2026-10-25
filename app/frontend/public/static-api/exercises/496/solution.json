@@ -1,0 +1,1 @@
+{"id":496,"language":"Python","code":"import numpy as np\n\n\ndef q496(series, alpha):\n    if not 0 < alpha <= 1:\n        raise ValueError(\"invalid alpha\")\n    x = np.asarray(series, float)\n    out = x.copy()\n    for i in range(1, len(x)):\n        out[i] = alpha * x[i] + (1 - alpha) * out[i - 1]\n    return out\n","answer":"","content_kind":"coding"}

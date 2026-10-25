@@ -1,0 +1,215 @@
+{
+  "id": "lesson-q476-implement-ddpm-reverse-sampling-step",
+  "kind": "lesson",
+  "title": "Implement DDPM Reverse Sampling Step",
+  "revision": 4,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The question in plain language"
+    },
+    {
+      "type": "paragraph",
+      "text": "A noise estimate produces a clean-sample estimate and then the previous noisy state. The task is: Compute a DDPM reverse step with epsilon prediction and posterior variance beta_t*(1-alpha_bar_previous)/(1-alpha_bar_t). At the final step alpha_bar_previous=1 removes stochastic noise."
+    },
+    {
+      "type": "paragraph",
+      "text": "The inputs are `x_t`, `predicted_noise`, `beta_t`, `alpha_bar_t`, `alpha_bar_previous`, `noise`. Keep their roles separate while you trace the solution. The animation follows the supplied implementation, so every highlighted operation connects to code you can inspect."
+    },
+    {
+      "type": "callout",
+      "kind": "definition",
+      "text": "A noise estimate produces a clean-sample estimate and then the previous noisy state.",
+      "title": "Core idea: One reverse diffusion step"
+    },
+    {
+      "type": "image",
+      "path": "lesson-q476-implement-ddpm-reverse-sampling-step/mechanism.svg"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The mathematical contract"
+    },
+    {
+      "type": "equation",
+      "latex": "\\hat x_0=(x_t-\\sqrt{1-\\bar\\alpha_t}\\,\\epsilon_\\theta)/\\sqrt{\\bar\\alpha_t}",
+      "caption": "This equation names the central relationship. The prose below connects its symbols to the function inputs."
+    },
+    {
+      "type": "paragraph",
+      "text": "Read each symbol as a value with a specific axis, time, rank, token, or state role. The code must preserve those roles. A compact formula does not remove the validation, masking, boundary, or state rules in the prompt."
+    },
+    {
+      "type": "paragraph",
+      "text": "Before following the implementation, identify the output's shape and meaning. Then identify which input values can affect one selected output. This gives you a testable mental model before the code adds implementation detail."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Watch the mechanism"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What changes in the boundary case"
+    },
+    {
+      "type": "paragraph",
+      "text": "Change one input at the edge of the stated contract and trace where the behavior changes. Use the Trace control to switch between the normal path and this boundary focus. The algorithm does not get permission to invent an unstated fallback."
+    },
+    {
+      "type": "paragraph",
+      "text": "A useful test changes one condition while holding the remaining inputs fixed. Compare the output shape, state transition, valid edges, selected tokens, or returned status. This isolates the reason for the change."
+    },
+    {
+      "type": "callout",
+      "kind": "mistake",
+      "text": "A diagram can show data moving and still hide a wrong contract. Check the mask direction, reduction axis, update order, and ownership of persistent state against the prompt.",
+      "title": "Do not learn the motion without the rule"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect the explanation to the supplied solution"
+    },
+    {
+      "type": "walkthrough",
+      "exercise_id": 476,
+      "notes": [
+        {
+          "lines": [
+            4,
+            4
+          ],
+          "match": "def q476(",
+          "text": "Read noisy state and schedule. This is the code stage shown in the mechanism animation."
+        },
+        {
+          "lines": [
+            7,
+            10
+          ],
+          "match": "mean = (",
+          "text": "Predict added noise. This is the code stage shown in the mechanism animation."
+        },
+        {
+          "lines": [
+            11,
+            11
+          ],
+          "match": "variance = beta_t * (1 - alp",
+          "text": "Estimate clean sample. This is the code stage shown in the mechanism animation."
+        },
+        {
+          "lines": [
+            12,
+            12
+          ],
+          "match": "return mean + np.sqrt(max(0,",
+          "text": "Add scheduled noise. This is the code stage shown in the mechanism animation."
+        }
+      ],
+      "title": "Walk through the original solution"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Check your model"
+    },
+    {
+      "type": "check",
+      "id": "q476-predict"
+    },
+    {
+      "type": "check",
+      "id": "q476-new"
+    },
+    {
+      "type": "check",
+      "id": "q476-explain"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "A practical verification strategy"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Choose the smallest input that still exercises the mechanism.",
+        "Compute one output or transition by hand.",
+        "Run the supplied solution on the same input.",
+        "Change one mask, boundary, scale, or state condition.",
+        "Check the first stage where the result diverges."
+      ],
+      "ordered": true
+    },
+    {
+      "type": "paragraph",
+      "text": "This lesson explains the educational core in the workbook. It does not turn a small reference function into a complete production system, benchmark, privacy guarantee, distributed runtime, or trained model."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 476,
+      "purpose": "deep-lesson",
+      "order": 1
+    }
+  ],
+  "media": [
+    {
+      "path": "lesson-q476-implement-ddpm-reverse-sampling-step/mechanism.svg",
+      "description": "The static map shows the same stages as the animation. It remains useful when motion is disabled.",
+      "alt_text": "A left-to-right mechanism map for Implement DDPM Reverse Sampling Step. The stages are Read noisy state and schedule, Predict added noise, Estimate clean sample, Compute previous mean, Add scheduled noise.",
+      "attribution": "Figure generated for this site."
+    }
+  ],
+  "demonstrations": [],
+  "checks": [
+    {
+      "id": "q476-predict",
+      "kind": "prediction",
+      "prompt": "Which stage must agree exactly with the exercise's promised output?",
+      "answer_type": "choice",
+      "explanation": {
+        "correct": "Yes. The returned object is where shape, value, and state promises become observable.",
+        "default": "Trace the data to the final returned object."
+      },
+      "answer": "Add scheduled noise",
+      "options": [
+        "Add scheduled noise",
+        "Read noisy state and schedule",
+        "Ignore the return value"
+      ]
+    },
+    {
+      "id": "q476-new",
+      "kind": "new-case",
+      "prompt": "You change only the boundary condition described above. What is the best next action?",
+      "answer_type": "choice",
+      "explanation": {
+        "correct": "Correct. Holding other inputs fixed isolates cause and effect.",
+        "default": "Change one condition and locate the first divergent stage."
+      },
+      "answer": "Trace the first stage whose condition changes",
+      "options": [
+        "Trace the first stage whose condition changes",
+        "Rewrite the mathematical contract",
+        "Assume the output is unchanged"
+      ]
+    },
+    {
+      "id": "q476-explain",
+      "kind": "explain-back",
+      "prompt": "Explain one reverse diffusion step in your own words. Name one input, one intermediate state, and the output meaning.",
+      "answer_type": "text",
+      "explanation": {
+        "correct": "A strong answer preserves the input roles, the central invariant, and the output contract.",
+        "default": "Use the animation stages as a scaffold."
+      }
+    }
+  ]
+}

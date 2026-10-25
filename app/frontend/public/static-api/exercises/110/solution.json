@@ -1,0 +1,1 @@
+{"id":110,"language":"Python","code":"def q110(a, b, c):\n    return {\n        \"a\": (\"input\", (), a),\n        \"b\": (\"input\", (), b),\n        \"c\": (\"input\", (), c),\n        \"product\": (\"mul\", (\"a\", \"b\"), a * b),\n        \"output\": (\"add\", (\"product\", \"c\"), a * b + c),\n    }\n","answer":"","content_kind":"coding"}

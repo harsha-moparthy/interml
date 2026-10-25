@@ -1,0 +1,1 @@
+{"id":211,"language":"Python","code":"import numpy as np\n\n\ndef q211(reference_counts, current_counts, epsilon=1e-06):\n    p = np.asarray(reference_counts, float) + epsilon\n    q = np.asarray(current_counts, float) + epsilon\n    p /= p.sum()\n    q /= q.sum()\n    return float(np.sum((q - p) * np.log(q / p)))\n","answer":"","content_kind":"coding"}

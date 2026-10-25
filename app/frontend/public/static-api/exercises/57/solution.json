@@ -1,0 +1,1 @@
+{"id":57,"language":"Python","code":"def q057(block, x):\n    from torch.utils.checkpoint import checkpoint\n\n    return checkpoint(\n        block, x, use_reentrant=False, preserve_rng_state=True\n    )\n","answer":"","content_kind":"coding"}

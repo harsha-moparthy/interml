@@ -1,0 +1,1 @@
+{"id":5,"language":"Python","code":"def q005(frame, keys):\n    return frame.set_index(keys, verify_integrity=True)\n","answer":"","content_kind":"coding"}

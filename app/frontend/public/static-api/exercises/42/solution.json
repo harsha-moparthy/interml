@@ -1,0 +1,1 @@
+{"id":42,"language":"Python","code":"import torch\n\n\ndef q042(values):\n    x = (\n        torch.as_tensor(values, dtype=torch.float64)\n        .detach()\n        .clone()\n        .requires_grad_()\n    )\n    return torch.autograd.grad((x**3).sum(), x)[0]\n","answer":"","content_kind":"coding"}

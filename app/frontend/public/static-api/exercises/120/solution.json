@@ -1,0 +1,1 @@
+{"id":120,"language":"Python","code":"import numpy as np\n\n\ndef to_categorical(x, n_col=None):\n    if not n_col:\n        n_col = np.amax(x) + 1\n    one_hot = np.zeros((x.shape[0], n_col))\n    one_hot[np.arange(x.shape[0]), x] = 1\n    return one_hot\n","answer":"","content_kind":"coding"}

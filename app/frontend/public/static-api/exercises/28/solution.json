@@ -1,0 +1,1 @@
+{"id":28,"language":"Python","code":"import numpy as np\n\n\ndef q028(x, y):\n    return np.asarray(x)[:, None] + np.asarray(y)[None, :]\n","answer":"","content_kind":"coding"}

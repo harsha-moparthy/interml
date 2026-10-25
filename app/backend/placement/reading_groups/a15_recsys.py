@@ -1,0 +1,17 @@
+from . import G, CAT
+
+EY_PATTERNS = ("Patterns for Personalization in Recommendations and Search", "https://eugeneyan.com/writing/patterns-for-personalization/", "Eugene Yan", "Surveys industry architectures: two-tower retrieval, ranking models, DeepFM, DIN and how companies combine them.")
+EY_DESIGN = CAT("System Design for Recommendations and Search")
+
+GROUPS = [
+    G((489, 490, 823), "collaborative filtering matrix", ("Collaborative Filtering in Recommender Systems", "https://www.datacamp.com/tutorial/collaborative-filtering", "DataCamp", "User-based and item-based filtering with similarity measures and Python code."), CAT("Matrix Factorization (Google")),
+    G(491, "matrix factorization sgd", CAT("Matrix Factorization (Google"), ("Collaborative Filtering in Recommender Systems", "https://www.datacamp.com/tutorial/collaborative-filtering", "DataCamp", "Model-based collaborative filtering and latent factors.")),
+    G((904, 543), "feature interaction wide deep factorization", ("Mastering Feature Interactions: DLRM-Style Ranking Models (Wide & Deep, DeepFM)", "https://www.shaped.ai/blog/mastering-feature-interactions-a-deep-dive-into-dlrm-style-ranking-models-wide-deep-deepfm-etc", "Shaped", "Explains why manual crosses are costly and how FM and cross layers learn feature interactions."), EY_PATTERNS),
+    G((824, 905), "candidate retrieval negatives popularity", ("Candidate generation in recommender systems", "https://agarwalr.substack.com/p/candidate-generation-in-recommender", "Rishabh Agarwal", "Two-tower candidate generation, in-batch negatives and popularity bias correction."), CAT("Candidate Generation (Google")),
+    G(828, "diversity mmr dpp", ("Diversity in Recommendation", "https://happystrongcoder.substack.com/p/diversity-in-recommendation", "Happy Strong Coder", "Why diversity matters and how MMR and DPP re-rank for it."), ("Diversity-aware retrieval: MMR and DPP", "https://www.mixpeek.com/guides/diversity-aware-retrieval-mmr-dpp", "Mixpeek", "Side-by-side MMR and DPP formulations with code.")),
+    G((909, 910), "auction second-price bid", ("Generalized second-price auction", "https://en.wikipedia.org/wiki/Generalized_second-price_auction", "Wikipedia", "How slots are allocated and priced in GSP and where truthfulness fails."), ("Vickrey-Clarke-Groves auction", "https://en.wikipedia.org/wiki/Vickrey%E2%80%93Clarke%E2%80%93Groves_auction", "Wikipedia", "The truthful multi-item mechanism that GSP is compared against.")),
+    G((908, 827), "mmoe ple seesaw", ("The Evolution of Multi-task Learning Based Video Recommender Systems, Part 1", "https://blog.reachsumit.com/posts/2024/06/multi-task-video-recsys-p1/", "Sumit's Diary", "MMoE and PLE, the seesaw problem and how video recommenders weigh multiple objectives."), EY_PATTERNS),
+    G(826, "position bias", ("Handle and Mitigate Position Bias in Machine Learning Systems", "https://medium.com/manomano-tech/conquering-position-bias-d64880104fd4", "ManoMano Tech", "Position bias in click data, PAL-style two-part models and practical mitigations."), EY_PATTERNS),
+    G(903, "retrieval ranking stages", EY_DESIGN, CAT("Candidate Generation (Google")),
+    G(906, "deep interest", EY_PATTERNS, ("System Design for Recommendations and Search", "https://eugeneyan.com/writing/system-design-for-discovery/", "Eugene Yan", "Where a behaviour-sequence ranking model sits in the retrieval-then-ranking pipeline.")),
+]

@@ -1,0 +1,1 @@
+{"id":255,"language":"Python","code":"import numpy as np\n\n\ndef q255(gradients, max_norm):\n    norm = np.sqrt(\n        sum((np.sum(np.asarray(g, float) ** 2) for g in gradients))\n    )\n    factor = min(1, max_norm / (norm + 1e-12))\n    return ([np.asarray(g) * factor for g in gradients], float(norm))\n","answer":"","content_kind":"coding"}

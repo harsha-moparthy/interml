@@ -1,0 +1,1 @@
+{"id":266,"language":"Python","code":"from torch.nn import functional as F\n\n\ndef q266(x, depthwise, pointwise, padding=0):\n    spatial = F.conv2d(x, depthwise, padding=padding, groups=x.shape[1])\n    return F.conv2d(spatial, pointwise)\n","answer":"","content_kind":"coding"}

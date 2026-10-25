@@ -1,0 +1,1 @@
+{"id":106,"language":"Python","code":"import numpy as np\n\n\ndef q106(logits, labels):\n    z = np.asarray(logits, float)\n    z = z - z.max(axis=1, keepdims=True)\n    p = np.exp(z)\n    p /= p.sum(axis=1, keepdims=True)\n    p[np.arange(len(p)), labels] -= 1\n    return p / len(p)\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,1 @@
+{"id":91,"language":"Python","code":"def q091(successes, trials, alpha, beta):\n    a = alpha + successes\n    b = beta + trials - successes\n    if a <= 1 or b <= 1:\n        raise ValueError(\"posterior mode is not interior\")\n    return (a - 1) / (a + b - 2)\n","answer":"","content_kind":"coding"}

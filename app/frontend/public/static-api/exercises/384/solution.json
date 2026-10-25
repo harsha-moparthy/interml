@@ -1,0 +1,1 @@
+{"id":384,"language":"Python","code":"import numpy as np\n\n\ndef q384(next_logits, prompt, max_new_tokens, eos_id):\n    tokens = list(prompt)\n    for _ in range(max_new_tokens):\n        token = int(np.argmax(next_logits(tokens)))\n        tokens.append(token)\n        if token == eos_id:\n            break\n    return tokens\n","answer":"","content_kind":"coding"}

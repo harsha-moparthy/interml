@@ -1,0 +1,172 @@
+{
+  "id": "lesson-q241",
+  "kind": "lesson",
+  "title": "Unroll time, then add every shared-weight gradient",
+  "revision": 6,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "The forward pass starts from a zero hidden state and processes inputs in order. Every new state combines current input information with remembered information from the previous state. A linear output layer produces a prediction at each time. The function caches inputs, hidden states, and outputs because backward needs those exact forward values."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What this question asks"
+    },
+    {
+      "type": "paragraph",
+      "text": "## Task: Implement a Simple RNN with Backpropagation Through Time (BPTT)\n\nYour task is to implement a simple Recurrent Neural Network (RNN) and backpropagation through time (BPTT) to learn from sequential data. The RNN will process input sequences, update hidden states, and perform backpropagation to adjust weights based on the error gradient.\n\nWrite a class `SimpleRNN` with the following methods:\n\n- `__init__(self, input_size, hidden_size, output_size)`: Initializes the RNN with random weights and zero biases.\n- `forward(self, x)`: Processes a sequence of inputs and returns the hidden states and output.\n- `backward(self, x, y, learning_rate)`: Performs backpropagation through time (BPTT) to adjust the weights based on the loss.\n\nIn this task, the RNN will be trained on sequence prediction, where the network will learn to predict the next item in a sequence. You should use 1/2 * Mean Squared Error (MSE) as the loss function and make sure to aggregate the losses at each time step by summing.\n"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The background you need"
+    },
+    {
+      "type": "paragraph",
+      "text": "A recurrent neural network updates a hidden state using the current input and previous state. Unrolling draws one copy of that computation for each time step. These copies share parameter values; they are not independently trained layers."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Follow one complete computation"
+    },
+    {
+      "type": "paragraph",
+      "text": "Backward traverses the sequence in reverse. At each time, a hidden state receives one derivative from its local output and another from its influence on the next hidden state. These must be added before multiplying by the tanh derivative. Ignoring the future contribution turns the model into a local predictor that cannot correctly learn delayed effects."
+    },
+    {
+      "type": "image",
+      "path": "lesson-q241/essence.svg",
+      "caption": "The opening and final states. Use the animation below to inspect every intermediate step."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect the picture to the mathematics"
+    },
+    {
+      "type": "equation",
+      "latex": "h_t=\\tanh(W_{xh}x_t+W_{hh}h_{t-1}+b_h),\\quad \\delta_t=(W_{hy}^T e_t+W_{hh}^T\\delta_{t+1})\\odot(1-h_t^2)",
+      "caption": "h_t is hidden state, e_t is the output error at time t, and delta_t is the gradient before the tanh activation. The future-state term carries effects from later losses."
+    },
+    {
+      "type": "paragraph",
+      "text": "The recurrent weight is reused at every time step, so its gradient is the sum of contributions from all those uses. The animation shows a one-dimensional network with explicitly assigned weights, making each contribution inspectable. Switching the recurrent weight changes both state values and the derivative path. Large recurrent weights do not guarantee large gradients because tanh saturation can make its derivative small."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Mistakes and boundaries"
+    },
+    {
+      "type": "callout",
+      "kind": "boundary",
+      "text": "The preserved solution sums squared-error output derivatives across time. For output dimension one this matches the illustrated one-half squared-error sum. For multiple output dimensions, the task text’s mean convention would require additional scaling that the supplied code does not apply. This lesson keeps the original code and labels that limitation. Check gradients by finite differences on a tiny network, use the same loss scaling, and delay parameter updates until all time-step contributions have been accumulated. The example validates the recurrent-weight update against the supplied class.",
+      "title": "The boundary of this implementation"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Predict before revealing"
+    },
+    {
+      "type": "check",
+      "id": "q241-prediction"
+    },
+    {
+      "type": "check",
+      "id": "q241-new-case"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect to the supplied solution"
+    },
+    {
+      "type": "walkthrough",
+      "exercise_id": 241,
+      "notes": [
+        {
+          "lines": [
+            43,
+            43
+          ],
+          "match": "dh = np.dot(self.W_hy.T, dy) + dh_next",
+          "text": "Local output influence and future-state influence are added before the activation derivative."
+        },
+        {
+          "lines": [
+            46,
+            46
+          ],
+          "match": "dW_hh += np.dot(dh_raw, self.last_hiddens[t].T)",
+          "text": "Every time-step use contributes to the same recurrent parameter gradient."
+        },
+        {
+          "lines": [
+            50,
+            50
+          ],
+          "match": "self.W_hh -= learning_rate * dW_hh",
+          "text": "The recurrent parameter is updated once after accumulation across time."
+        }
+      ],
+      "title": "Question 241: original code, explained"
+    },
+    {
+      "type": "callout",
+      "kind": "note",
+      "text": "The original solution is preserved. The diagrams use deliberately small examples to expose the mechanism. Passing these checks is evidence for these examples, not an exhaustive correctness proof."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 241,
+      "purpose": "deep-lesson",
+      "order": 1
+    }
+  ],
+  "sources": [
+    {
+      "title": "Original exercise topic",
+      "url": "https://www.deep-ml.com/problems/62"
+    }
+  ],
+  "media": [
+    {
+      "path": "lesson-q241/essence.svg",
+      "description": "Two verified stages from the worked example.",
+      "alt_text": "Unroll time, then add every shared-weight gradient: Inputs are 1, 0.5, -0.5. Hidden state starts at zero. Then: Total dL/dW_hh=0.1359; one update changes W_hh to 0.3986.",
+      "attribution": "Figure generated for this site."
+    }
+  ],
+  "demonstrations": [],
+  "checks": [
+    {
+      "id": "q241-prediction",
+      "kind": "prediction",
+      "prompt": "Two time steps contribute 0.2 and −0.05 to the same weight gradient. What total gradient is used?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "Shared-weight contributions add: 0.2−0.05=0.15.",
+        "default": "Revisit the stated quantities and units. Shared-weight contributions add: 0.2−0.05=0.15."
+      },
+      "answer": 0.15,
+      "tolerance": 1e-05
+    },
+    {
+      "id": "q241-new-case",
+      "kind": "new-case",
+      "prompt": "At hidden value h=0, what is the local derivative of tanh with respect to its preactivation?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "The derivative is 1−h², so at h=0 it is one.",
+        "default": "Revisit the stated quantities and units. The derivative is 1−h², so at h=0 it is one."
+      },
+      "answer": 1,
+      "tolerance": 1e-05
+    }
+  ]
+}

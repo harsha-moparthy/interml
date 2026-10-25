@@ -1,0 +1,1 @@
+{"id":55,"language":"Python","code":"import torch\n\n\ndef q055(model, x):\n    dtype = torch.float16 if x.device.type == \"cuda\" else torch.bfloat16\n    with torch.no_grad(), torch.autocast(\n        device_type=x.device.type, dtype=dtype\n    ):\n        return model(x)\n","answer":"","content_kind":"coding"}

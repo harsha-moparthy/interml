@@ -1,0 +1,1 @@
+{"id":285,"language":"Python","code":"def q285(images, patch):\n    n, c, h, w = images.shape\n    if h % patch or w % patch:\n        raise ValueError(\"incomplete patch\")\n    return (\n        images.reshape(n, c, h // patch, patch, w // patch, patch)\n        .permute(0, 2, 4, 1, 3, 5)\n        .reshape(n, -1, c * patch * patch)\n    )\n","answer":"","content_kind":"coding"}

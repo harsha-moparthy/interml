@@ -1,0 +1,1 @@
+{"id":259,"language":"Python","code":"import numpy as np\n\n\ndef q259(image, horizontal=True):\n    return np.flip(image, axis=1 if horizontal else 0).copy()\n","answer":"","content_kind":"coding"}

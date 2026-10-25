@@ -1,0 +1,215 @@
+{
+  "id": "lesson-q409-asymmetric-uniform-quantization-with-zero-point",
+  "kind": "lesson",
+  "title": "Asymmetric Uniform Quantization with Zero-Point",
+  "revision": 4,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The question in plain language"
+    },
+    {
+      "type": "paragraph",
+      "text": "Scale and zero point map a real interval onto a finite unsigned integer grid that contains real zero. The task is: Asymmetrically quantize to unsigned integers using a representable range that includes zero. Return q, scale, integer zero point, and reconstruction; support 1 through 16 bits."
+    },
+    {
+      "type": "paragraph",
+      "text": "The inputs are `x`, `bits`. Keep their roles separate while you trace the solution. The animation follows the supplied implementation, so every highlighted operation connects to code you can inspect."
+    },
+    {
+      "type": "callout",
+      "kind": "definition",
+      "text": "Scale and zero point map a real interval onto a finite unsigned integer grid that contains real zero.",
+      "title": "Core idea: Affine quantization"
+    },
+    {
+      "type": "image",
+      "path": "lesson-q409-asymmetric-uniform-quantization-with-zero-point/mechanism.svg"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The mathematical contract"
+    },
+    {
+      "type": "equation",
+      "latex": "q=\\operatorname{clip}(\\operatorname{round}(x/s)+z,0,2^b-1),\\quad \\hat x=s(q-z)",
+      "caption": "This equation names the central relationship. The prose below connects its symbols to the function inputs."
+    },
+    {
+      "type": "paragraph",
+      "text": "Read each symbol as a value with a specific axis, time, rank, token, or state role. The code must preserve those roles. A compact formula does not remove the validation, masking, boundary, or state rules in the prompt."
+    },
+    {
+      "type": "paragraph",
+      "text": "Before following the implementation, identify the output's shape and meaning. Then identify which input values can affect one selected output. This gives you a testable mental model before the code adds implementation detail."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Watch the mechanism"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What changes in the boundary case"
+    },
+    {
+      "type": "paragraph",
+      "text": "Asymmetrically quantize to unsigned integers using a representable range that includes zero. Use the Trace control to switch between the normal path and this boundary focus. The algorithm does not get permission to invent an unstated fallback."
+    },
+    {
+      "type": "paragraph",
+      "text": "A useful test changes one condition while holding the remaining inputs fixed. Compare the output shape, state transition, valid edges, selected tokens, or returned status. This isolates the reason for the change."
+    },
+    {
+      "type": "callout",
+      "kind": "mistake",
+      "text": "A diagram can show data moving and still hide a wrong contract. Check the mask direction, reduction axis, update order, and ownership of persistent state against the prompt.",
+      "title": "Do not learn the motion without the rule"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect the explanation to the supplied solution"
+    },
+    {
+      "type": "walkthrough",
+      "exercise_id": 409,
+      "notes": [
+        {
+          "lines": [
+            4,
+            4
+          ],
+          "match": "def q409(x, bits=8):",
+          "text": "Find real range with zero. This is the code stage shown in the mechanism animation."
+        },
+        {
+          "lines": [
+            7,
+            7
+          ],
+          "match": "x = np.asarray(x, float)",
+          "text": "Choose integer grid. This is the code stage shown in the mechanism animation."
+        },
+        {
+          "lines": [
+            9,
+            9
+          ],
+          "match": "high = max(float(x.max()), 0",
+          "text": "Compute scale and zero-point. This is the code stage shown in the mechanism animation."
+        },
+        {
+          "lines": [
+            12,
+            12
+          ],
+          "match": "zero = int(np.clip(np.rint(-",
+          "text": "Round and clip integers. This is the code stage shown in the mechanism animation."
+        }
+      ],
+      "title": "Walk through the original solution"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Check your model"
+    },
+    {
+      "type": "check",
+      "id": "q409-predict"
+    },
+    {
+      "type": "check",
+      "id": "q409-new"
+    },
+    {
+      "type": "check",
+      "id": "q409-explain"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "A practical verification strategy"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Choose the smallest input that still exercises the mechanism.",
+        "Compute one output or transition by hand.",
+        "Run the supplied solution on the same input.",
+        "Change one mask, boundary, scale, or state condition.",
+        "Check the first stage where the result diverges."
+      ],
+      "ordered": true
+    },
+    {
+      "type": "paragraph",
+      "text": "This lesson explains the educational core in the workbook. It does not turn a small reference function into a complete production system, benchmark, privacy guarantee, distributed runtime, or trained model."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 409,
+      "purpose": "deep-lesson",
+      "order": 1
+    }
+  ],
+  "media": [
+    {
+      "path": "lesson-q409-asymmetric-uniform-quantization-with-zero-point/mechanism.svg",
+      "description": "The static map shows the same stages as the animation. It remains useful when motion is disabled.",
+      "alt_text": "A left-to-right mechanism map for Asymmetric Uniform Quantization with Zero-Point. The stages are Find real range with zero, Choose integer grid, Compute scale and zero-point, Round and clip integers, Dequantize for comparison.",
+      "attribution": "Figure generated for this site."
+    }
+  ],
+  "demonstrations": [],
+  "checks": [
+    {
+      "id": "q409-predict",
+      "kind": "prediction",
+      "prompt": "Which stage must agree exactly with the exercise's promised output?",
+      "answer_type": "choice",
+      "explanation": {
+        "correct": "Yes. The returned object is where shape, value, and state promises become observable.",
+        "default": "Trace the data to the final returned object."
+      },
+      "answer": "Dequantize for comparison",
+      "options": [
+        "Dequantize for comparison",
+        "Find real range with zero",
+        "Ignore the return value"
+      ]
+    },
+    {
+      "id": "q409-new",
+      "kind": "new-case",
+      "prompt": "You change only the boundary condition described above. What is the best next action?",
+      "answer_type": "choice",
+      "explanation": {
+        "correct": "Correct. Holding other inputs fixed isolates cause and effect.",
+        "default": "Change one condition and locate the first divergent stage."
+      },
+      "answer": "Trace the first stage whose condition changes",
+      "options": [
+        "Trace the first stage whose condition changes",
+        "Rewrite the mathematical contract",
+        "Assume the output is unchanged"
+      ]
+    },
+    {
+      "id": "q409-explain",
+      "kind": "explain-back",
+      "prompt": "Explain affine quantization in your own words. Name one input, one intermediate state, and the output meaning.",
+      "answer_type": "text",
+      "explanation": {
+        "correct": "A strong answer preserves the input roles, the central invariant, and the output contract.",
+        "default": "Use the animation stages as a scaffold."
+      }
+    }
+  ]
+}

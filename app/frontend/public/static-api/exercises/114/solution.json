@@ -1,0 +1,1 @@
+{"id":114,"language":"Python","code":"def q114(contributions):\n    result = {}\n    for node, gradient in contributions:\n        result[node] = result.get(node, 0.0) + gradient\n    return result\n","answer":"","content_kind":"coding"}

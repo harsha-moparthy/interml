@@ -1,0 +1,7 @@
+{
+  "name": "placement-e2e",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "./run_suites.sh" },
+  "devDependencies": { "playwright-core": "1.49.1" }
+}

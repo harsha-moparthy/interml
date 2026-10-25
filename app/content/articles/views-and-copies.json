@@ -1,0 +1,86 @@
+{
+ "id": "views-and-copies",
+ "kind": "prerequisite",
+ "title": "Views and copies",
+ "revision": 1,
+ "review_state": "complete",
+ "blocks": [
+  {
+   "type": "paragraph",
+   "text": "A NumPy array has two parts. One part is the block of memory that holds the numbers. The other part describes how to read that block: the shape and the steps. A **view** is a new description of the same memory. A **copy** is a new block of memory."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Which operations make which"
+  },
+  {
+   "type": "table",
+   "header": [
+    "Operation",
+    "Result",
+    "Shares memory?"
+   ],
+   "rows": [
+    [
+     "`a[::2]` (basic slice)",
+     "view",
+     "yes"
+    ],
+    [
+     "`a[2:5]`",
+     "view",
+     "yes"
+    ],
+    [
+     "`a.reshape(...)` of a contiguous array",
+     "view",
+     "yes"
+    ],
+    [
+     "`a[[0, 2, 4]]` (index list, fancy indexing)",
+     "copy",
+     "no"
+    ],
+    [
+     "`a[a > 0]` (boolean mask)",
+     "copy",
+     "no"
+    ],
+    [
+     "`a.copy()`",
+     "copy",
+     "no"
+    ]
+   ],
+   "caption": "Checked with np.shares_memory"
+  },
+  {
+   "type": "paragraph",
+   "text": "The rule of thumb: slices with a start, stop, and step make views. Index lists and masks make copies."
+  },
+  {
+   "type": "callout",
+   "kind": "mistake",
+   "text": "Writing into a view changes the original array. Writing into a copy does not. This is the usual source of surprising changes in ML code, for example when you \"clean\" a slice of a dataset in place."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "How a view works"
+  },
+  {
+   "type": "paragraph",
+   "text": "A view stores a start position and a **stride**. The stride is how many bytes to jump to reach the next element. The slice `a[::2]` uses a stride of two elements. It owns no numbers of its own."
+  }
+ ],
+ "prerequisites": [
+  "arrays-and-shapes"
+ ],
+ "sources": [
+  {
+   "title": "NumPy documentation: Copies and views",
+   "url": "https://numpy.org/doc/stable/user/basics.copies.html"
+  }
+ ]
+}

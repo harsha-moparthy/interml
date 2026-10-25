@@ -1,0 +1,1 @@
+{"id":474,"language":"Python","code":"import numpy as np\n\n\ndef q474(clean, noise, alpha_bar):\n    return np.sqrt(alpha_bar) * np.asarray(clean) + np.sqrt(\n        1 - np.asarray(alpha_bar)\n    ) * np.asarray(noise)\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,1 @@
+{"id":83,"language":"Python","code":"import math\n\n\ndef binomial_probability(n, k, p):\n    binomial_coeff = math.comb(n, k)\n    probability = binomial_coeff * p**k * (1 - p) ** (n - k)\n    return round(probability, 5)\n","answer":"","content_kind":"coding"}

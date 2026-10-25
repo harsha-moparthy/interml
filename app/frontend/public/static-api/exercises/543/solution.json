@@ -1,0 +1,1 @@
+{"id":543,"language":"Python","code":"def q543(x0, x, weight, bias, u=None, v=None):\n    if weight is None:\n        projection = x @ v @ u.T\n    else:\n        projection = x @ weight.T\n    return x0 * (projection + bias) + x\n","answer":"","content_kind":"coding"}

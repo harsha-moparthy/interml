@@ -1,0 +1,1 @@
+{"id":314,"language":"Python","code":"import numpy as np\n\n\ndef q314(query_length, key_length, query_offset=0, key_offset=0):\n    return (np.arange(key_length) + key_offset)[None, :] <= (\n        np.arange(query_length) + query_offset\n    )[:, None]\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,18 @@
+{
+ "id": "shapes",
+ "kind": "prerequisite",
+ "title": "Array shapes",
+ "revision": 1,
+ "review_state": "complete",
+ "blocks": [
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "What a shape is"
+  },
+  {
+   "type": "paragraph",
+   "text": "A shape lists the length of each axis. The array `np.zeros((2, 3))` has shape `(2, 3)`."
+  }
+ ]
+}

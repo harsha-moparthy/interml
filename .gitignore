@@ -1,0 +1,15 @@
+# Large or local-only material (the source workbook and the models are not part of the site)
+ml-interview/
+ml-interview-prep.zip
+backups/
+.claude/
+
+# Built or downloaded; rebuilt by the commands in README.md
+app/.venv/
+app/.venv-ref/
+app/.run/
+app/data/
+**/node_modules/
+**/dist/
+**/__pycache__/
+app/frontend/public/pyodide/

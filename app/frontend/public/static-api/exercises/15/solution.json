@@ -1,0 +1,1 @@
+{"id":15,"language":"Python","code":"def q015(frame, keys, value):\n    return (\n        frame.groupby(keys, dropna=False)[value]\n        .agg([\"count\", \"sum\", \"mean\"])\n        .reset_index()\n    )\n","answer":"","content_kind":"coding"}

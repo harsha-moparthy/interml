@@ -1,0 +1,1 @@
+{"id":44,"language":"Python","code":"from torch import nn\n\n\ndef q044(dimensions):\n    layers = []\n    for i, (a, b) in enumerate(zip(dimensions, dimensions[1:])):\n        layers.append(nn.Linear(a, b))\n        if i < len(dimensions) - 2:\n            layers.append(nn.ReLU())\n    return nn.Sequential(*layers)\n","answer":"","content_kind":"coding"}

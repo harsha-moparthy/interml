@@ -1,0 +1,1 @@
+{"id":16,"language":"Python","code":"def q016(frame, group, value):\n    result = frame.copy()\n    result[\"group_mean\"] = frame.groupby(group, dropna=False)[\n        value\n    ].transform(\"mean\")\n    return result\n","answer":"","content_kind":"coding"}

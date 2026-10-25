@@ -1,0 +1,43 @@
+{
+  "id": "softmax",
+  "kind": "prerequisite",
+  "title": "Softmax",
+  "revision": 3,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "Softmax turns a list of numbers (scores) into positive weights that add up to 1. Larger scores get larger weights."
+    },
+    {
+      "type": "equation",
+      "latex": "\\mathrm{softmax}(s)_j = \\frac{e^{s_j}}{\\sum_{k} e^{s_k}}"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Numerical stability"
+    },
+    {
+      "type": "paragraph",
+      "text": "The exponential of a large score overflows. $e^{1000}$ is infinity in floating point. The fix is to subtract the largest score first. This does not change the result, because the same factor $e^{-\\max}$ appears in the numerator and the denominator."
+    },
+    {
+      "type": "equation",
+      "latex": "\\mathrm{softmax}(s) = \\mathrm{softmax}(s - \\max_k s_k)"
+    },
+    {
+      "type": "paragraph",
+      "text": "With scores (1000, 999, 998) the naive formula returns `nan` for every weight. The shifted formula returns (0.6652, 0.2447, 0.09003). Question [[q:223|223]] asks for this stable version."
+    },
+    {
+      "type": "callout",
+      "kind": "boundary",
+      "text": "If every score is $-\\infty$ (all positions masked), the shifted formula divides $-\\infty$ by $-\\infty$ and returns `nan`. Question 328 handles this case by returning zeros. See [[article:attention-masks|Attention masks]]."
+    }
+  ],
+  "prerequisites": [
+    "dot-products-and-matmul"
+  ],
+  "demonstrations": []
+}

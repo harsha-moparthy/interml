@@ -1,0 +1,1 @@
+{"id":92,"language":"Python","code":"def q092(alpha, beta, successes, failures):\n    a, b = (alpha + successes, beta + failures)\n    return (a, b, a / (a + b), a * b / ((a + b) ** 2 * (a + b + 1)))\n","answer":"","content_kind":"coding"}

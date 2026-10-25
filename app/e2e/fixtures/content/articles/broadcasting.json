@@ -1,0 +1,95 @@
+{
+ "id": "broadcasting",
+ "kind": "prerequisite",
+ "title": "Broadcasting",
+ "revision": 1,
+ "review_state": "complete",
+ "prerequisites": [
+  "shapes"
+ ],
+ "sources": [
+  {
+   "title": "NumPy broadcasting",
+   "url": "https://numpy.org/doc/stable/user/basics.broadcasting.html"
+  }
+ ],
+ "media": [
+  {
+   "path": "axes.svg",
+   "description": "Shape label",
+   "alt_text": "A box labelled shape (2, 1, 3)",
+   "attribution": "Demo figure"
+  }
+ ],
+ "blocks": [
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Align from the right"
+  },
+  {
+   "type": "paragraph",
+   "text": "Align shapes from the right. Read [[article:shapes|array shapes]] first. This is the idea behind [[q:30]]."
+  },
+  {
+   "type": "equation",
+   "latex": "C_{ijk} = A_{i0k} + B_{0j0}",
+   "caption": "Output cell $(i,j,k)$ reads one cell of each input."
+  },
+  {
+   "type": "image",
+   "path": "axes.svg",
+   "caption": "Input shape."
+  },
+  {
+   "type": "callout",
+   "kind": "mistake",
+   "text": "Do not assume the input is copied. Broadcasting reuses values."
+  },
+  {
+   "type": "table",
+   "header": [
+    "A",
+    "B",
+    "Result"
+   ],
+   "rows": [
+    [
+     "(2, 1, 3)",
+     "(1, 4, 1)",
+     "(2, 4, 3)"
+    ],
+    [
+     "(3,)",
+     "(4,)",
+     "error"
+    ]
+   ],
+   "caption": "Shape pairs"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Boundary"
+  },
+  {
+   "type": "list",
+   "ordered": true,
+   "items": [
+    "Equal sizes match.",
+    "A size of **1** stretches."
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Code"
+  },
+  {
+   "type": "code",
+   "language": "python",
+   "code": "A[:, None, :] - A[None, :, :]",
+   "caption": "Pairwise differences."
+  }
+ ]
+}

@@ -1,0 +1,1 @@
+{"id":495,"language":"Python","code":"import numpy as np\n\n\ndef q495(series, window):\n    x = np.asarray(series, float)\n    if not 1 <= window <= len(x):\n        raise ValueError(\"invalid window\")\n    sums = np.r_[0, np.cumsum(x)]\n    return (sums[window:] - sums[:-window]) / window\n","answer":"","content_kind":"coding"}

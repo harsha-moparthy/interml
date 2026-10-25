@@ -1,0 +1,1 @@
+{"id":218,"language":"Python","code":"def leaky_relu(z: float, alpha: float = 0.01) -> float | int:\n    return z if z > 0 else alpha * z\n","answer":"","content_kind":"coding"}

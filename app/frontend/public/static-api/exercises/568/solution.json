@@ -1,0 +1,1 @@
+{"id":568,"language":"Python","code":"def q568(training_gradients, public_validation_gradient, learning_rate):\n    return learning_rate * (training_gradients @ public_validation_gradient)\n","answer":"","content_kind":"coding"}

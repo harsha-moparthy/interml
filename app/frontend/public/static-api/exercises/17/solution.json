@@ -1,0 +1,1 @@
+{"id":17,"language":"Python","code":"def q017(left, right, keys, how=\"left\"):\n    return left.merge(\n        right, on=keys, how=how, sort=False, validate=\"many_to_one\"\n    )\n","answer":"","content_kind":"coding"}

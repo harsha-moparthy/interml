@@ -1,0 +1,1 @@
+{"id":153,"language":"Python","code":"import numpy as np\n\n\ndef q153(labels, count):\n    classes, counts = np.unique(labels, return_counts=True)\n    return np.repeat(classes[counts.argmax()], count)\n","answer":"","content_kind":"coding"}

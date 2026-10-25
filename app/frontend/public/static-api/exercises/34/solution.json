@@ -1,0 +1,1 @@
+{"id":34,"language":"Python","code":"import numpy as np\n\n\ndef q034(values):\n    x = np.asarray(values)\n    order = np.argsort(x, kind=\"stable\")\n    return (order, x[order])\n","answer":"","content_kind":"coding"}

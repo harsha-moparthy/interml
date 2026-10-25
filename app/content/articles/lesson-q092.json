@@ -1,0 +1,164 @@
+{
+  "id": "lesson-q092",
+  "kind": "lesson",
+  "title": "Let evidence reshape a belief",
+  "revision": 6,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "The question asks you to update uncertainty about a probability, not merely compute the observed success fraction. A Beta prior and a Bernoulli likelihood combine into another Beta distribution. That conjugacy means the update needs only two counts. Each success increments alpha, and each failure increments beta, regardless of the order in which observations arrive."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What this question asks"
+    },
+    {
+      "type": "paragraph",
+      "text": "Update a Beta prior after Bernoulli observations. Return posterior shape parameters, mean, and variance."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The background you need"
+    },
+    {
+      "type": "paragraph",
+      "text": "A Bernoulli trial is one success or failure. Its success probability is an unknown number between zero and one. A Beta distribution represents uncertainty about that probability. Alpha and beta are positive shape parameters, not probabilities themselves."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Follow one complete computation"
+    },
+    {
+      "type": "paragraph",
+      "text": "The first scenario starts with Beta(1,1), a uniform density over possible probabilities. The animation observes success, success, failure, success. After each event, the distribution moves and its concentration changes. A curve’s height is a probability density, so it can exceed one. Probability belongs to an interval under the curve, not to a single height."
+    },
+    {
+      "type": "image",
+      "path": "lesson-q092/essence.svg",
+      "caption": "The opening and final states. Use the animation below to inspect every intermediate step."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect the picture to the mathematics"
+    },
+    {
+      "type": "equation",
+      "latex": "\\alpha'=\\alpha+s,\\quad \\beta'=\\beta+f,\\quad \\mathbb E[p]=\\frac{\\alpha'}{\\alpha'+\\beta'},\\quad \\mathrm{Var}(p)=\\frac{\\alpha'\\beta'}{(\\alpha'+\\beta')^2(\\alpha'+\\beta'+1)}",
+      "caption": "s and f count observed successes and failures. p denotes the unknown success probability, while alpha and beta describe a distribution over p."
+    },
+    {
+      "type": "paragraph",
+      "text": "The second scenario starts from Beta(8,2), a prior concentrated toward higher probabilities. The same four observations now have less influence relative to the prior strength. This does not mean the evidence is ignored. It means the posterior combines the evidence with more initial concentration. Compare posterior means and variances rather than judging only the horizontal position of a peak."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Mistakes and boundaries"
+    },
+    {
+      "type": "callout",
+      "kind": "boundary",
+      "text": "The posterior mean is alpha divided by alpha plus beta. The predictive probability of success for the next Bernoulli trial is that same posterior mean. However, the posterior variance describes uncertainty about the unknown probability, not the variance of the next binary outcome. Those are different random quantities. Verify that the updated parameters remain positive and that the mean lies between zero and one. This exercise assumes supplied counts and a valid Beta prior; it does not fit a hierarchical model.",
+      "title": "The boundary of this implementation"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Predict before revealing"
+    },
+    {
+      "type": "check",
+      "id": "q092-prediction"
+    },
+    {
+      "type": "check",
+      "id": "q092-new-case"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect to the supplied solution"
+    },
+    {
+      "type": "walkthrough",
+      "exercise_id": 92,
+      "notes": [
+        {
+          "lines": [
+            2,
+            2
+          ],
+          "match": "a, b = (alpha + successes, beta + failures)",
+          "text": "Sufficient counts update the two Beta parameters."
+        },
+        {
+          "lines": [
+            3,
+            3
+          ],
+          "match": "return (a, b,",
+          "text": "The return includes parameters, mean, and variance, so callers can inspect both belief and uncertainty."
+        }
+      ],
+      "title": "Question 092: original code, explained"
+    },
+    {
+      "type": "callout",
+      "kind": "note",
+      "text": "The original solution is preserved. The diagrams use deliberately small examples to expose the mechanism. Passing these checks is evidence for these examples, not an exhaustive correctness proof."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 92,
+      "purpose": "deep-lesson",
+      "order": 1
+    }
+  ],
+  "sources": [
+    {
+      "title": "Original exercise topic",
+      "url": "https://www.deep-ml.com/problems/213"
+    }
+  ],
+  "media": [
+    {
+      "path": "lesson-q092/essence.svg",
+      "description": "Two verified stages from the worked example.",
+      "alt_text": "Let evidence reshape a belief: alpha=1, beta=1; posterior mean=0.5, variance=0.08333. Then: alpha=4, beta=2; posterior mean=0.6667, variance=0.03175.",
+      "attribution": "Figure generated for this site."
+    }
+  ],
+  "demonstrations": [],
+  "checks": [
+    {
+      "id": "q092-prediction",
+      "kind": "prediction",
+      "prompt": "Starting from Beta(1,1), two successes and one failure produce what alpha parameter?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "Alpha increases by the number of successes: 1+2=3.",
+        "default": "Revisit the stated quantities and units. Alpha increases by the number of successes: 1+2=3."
+      },
+      "answer": 3,
+      "tolerance": 1e-05
+    },
+    {
+      "id": "q092-new-case",
+      "kind": "new-case",
+      "prompt": "Starting from Beta(2,2), observing no successes and two failures gives what posterior mean?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "The posterior is Beta(2,4), so the mean is 2/6=1/3.",
+        "default": "Revisit the stated quantities and units. The posterior is Beta(2,4), so the mean is 2/6=1/3."
+      },
+      "answer": 0.3333333333333333,
+      "tolerance": 1e-05
+    }
+  ]
+}

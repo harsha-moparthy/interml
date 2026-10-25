@@ -1,0 +1,1 @@
+{"id":23,"language":"Python","code":"import numpy as np\n\n\ndef q023(shape, seed=0):\n    return np.random.default_rng(seed).standard_normal(shape)\n","answer":"","content_kind":"coding"}

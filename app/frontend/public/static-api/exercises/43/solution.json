@@ -1,0 +1,1 @@
+{"id":43,"language":"Python","code":"from torch import nn\n\n\ndef q043(features):\n\n    class Regression(nn.Module):\n\n        def __init__(self):\n            super().__init__()\n            self.linear = nn.Linear(features, 1)\n\n        def forward(self, x):\n            return self.linear(x)\n\n    return Regression()\n","answer":"","content_kind":"coding"}

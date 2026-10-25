@@ -1,0 +1,1 @@
+{"id":125,"language":"Python","code":"import numpy as np\n\n\ndef q125(x):\n    x = np.asarray(x)\n    i, j = np.triu_indices(x.shape[1], k=1)\n    return x[:, i] * x[:, j]\n","answer":"","content_kind":"coding"}

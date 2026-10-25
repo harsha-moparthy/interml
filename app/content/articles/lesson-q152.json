@@ -1,0 +1,164 @@
+{
+  "id": "lesson-q152",
+  "kind": "lesson",
+  "title": "Grow a margin one dual coordinate at a time",
+  "revision": 4,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "The exercise intentionally uses an SVM without an intercept. Consequently, it does not impose the usual equality constraint that accompanies a free bias in the standard dual. This simplifies coordinate ascent: each coefficient can be optimized individually inside its box, while the primal weight vector is updated incrementally."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What this question asks"
+    },
+    {
+      "type": "paragraph",
+      "text": "Solve the no-intercept linear SVM dual by coordinate ascent with 0<=alpha<=C. Return primal weights and dual variables. This variant intentionally has no equality constraint for a bias term."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The background you need"
+    },
+    {
+      "type": "paragraph",
+      "text": "A linear classifier scores a vector with w·x. Labels are −1 or +1, so y(w·x) is the signed margin. A dual coefficient assigns training-example influence to w. The box constraint limits each influence to the interval from zero to C."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Follow one complete computation"
+    },
+    {
+      "type": "paragraph",
+      "text": "The signed margin tells you whether an example is correctly classified with enough separation. A margin below one creates pressure to increase its dual coefficient. The unconstrained coordinate optimum is adjusted by curvature x_i·x_i, then clipped to the permitted interval. Clipping is essential because a difficult example cannot acquire unlimited influence."
+    },
+    {
+      "type": "image",
+      "path": "lesson-q152/essence.svg",
+      "caption": "The opening and final states. Use the animation below to inspect every intermediate step."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect the picture to the mathematics"
+    },
+    {
+      "type": "equation",
+      "latex": "\\alpha_i' = \\mathrm{clip}\\!\\left(\\alpha_i+\\frac{1-y_iw^Tx_i}{x_i^Tx_i},0,C\\right),\\qquad w'=w+(\\alpha_i'-\\alpha_i)y_ix_i",
+      "caption": "alpha_i is one dual coefficient, C is its cap, and x_i·x_i is the coordinate curvature. The label y_i must be ±1."
+    },
+    {
+      "type": "paragraph",
+      "text": "The animation uses four points on the coordinate axes. Follow one coefficient as it changes, then inspect both components of w. Only the example’s direction contributes to the increment. The invariant w=Σ alpha_i y_i x_i is checked after the illustrated pass. Switching to a small C shows margins remaining below one even after coefficients reach their caps."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Mistakes and boundaries"
+    },
+    {
+      "type": "callout",
+      "kind": "boundary",
+      "text": "Zero feature vectors have zero curvature and are skipped by the supplied code. This prevents division by zero, but such examples cannot be separated by a no-intercept model. Also distinguish one coordinate update, one pass over all examples, and convergence: the demonstration shows a complete first pass, while the function normally repeats many epochs. Verify the box constraints, the primal/dual invariant, and the no-intercept convention. Adding a bias changes the optimization problem and cannot be done by merely appending an unused return value.",
+      "title": "The boundary of this implementation"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Predict before revealing"
+    },
+    {
+      "type": "check",
+      "id": "q152-prediction"
+    },
+    {
+      "type": "check",
+      "id": "q152-new-case"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect to the supplied solution"
+    },
+    {
+      "type": "walkthrough",
+      "exercise_id": 152,
+      "notes": [
+        {
+          "lines": [
+            13,
+            13
+          ],
+          "match": "updated = np.clip(",
+          "text": "The box constraint is applied to the proposed coordinate optimum."
+        },
+        {
+          "lines": [
+            16,
+            16
+          ],
+          "match": "w += (updated - a[i]) * y[i] * x[i]",
+          "text": "The primal vector is updated by the change in one example’s dual contribution."
+        }
+      ],
+      "title": "Question 152: original code, explained"
+    },
+    {
+      "type": "callout",
+      "kind": "note",
+      "text": "The original solution is preserved. The diagrams use deliberately small examples to expose the mechanism. Passing these checks is evidence for these examples, not an exhaustive correctness proof."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 152,
+      "purpose": "deep-lesson",
+      "order": 1
+    }
+  ],
+  "sources": [
+    {
+      "title": "Original exercise topic",
+      "url": "https://www.deep-ml.com/problems/814"
+    }
+  ],
+  "media": [
+    {
+      "path": "lesson-q152/essence.svg",
+      "description": "Two verified stages from the worked example.",
+      "alt_text": "Grow a margin one dual coordinate at a time: alpha=(0, 0, 0, 0), w=(0, 0). Then: alpha=(0.2, 0.2, 0.2, 0.2), w=(0.4, 0.4).",
+      "attribution": "Figure generated for this site."
+    }
+  ],
+  "demonstrations": [],
+  "checks": [
+    {
+      "id": "q152-prediction",
+      "kind": "prediction",
+      "prompt": "If a proposed dual coefficient is 1.4 and C=1, what value survives clipping?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "The coefficient cannot exceed C, so it becomes 1.",
+        "default": "Revisit the stated quantities and units. The coefficient cannot exceed C, so it becomes 1."
+      },
+      "answer": 1,
+      "tolerance": 1e-05
+    },
+    {
+      "id": "q152-new-case",
+      "kind": "new-case",
+      "prompt": "If the proposed coefficient is −0.3 and C=2, what value survives clipping?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "The lower box bound is zero.",
+        "default": "Revisit the stated quantities and units. The lower box bound is zero."
+      },
+      "answer": 0,
+      "tolerance": 1e-05
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"id":252,"language":"Python","code":"class ExponentialLRScheduler:\n\n    def __init__(self, initial_lr, gamma):\n        self.initial_lr = initial_lr\n        self.gamma = gamma\n\n    def get_lr(self, epoch):\n        current_lr = self.initial_lr * self.gamma**epoch\n        return round(current_lr, 4)\n","answer":"","content_kind":"coding"}

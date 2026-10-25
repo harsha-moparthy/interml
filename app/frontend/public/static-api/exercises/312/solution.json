@@ -1,0 +1,1 @@
+{"id":312,"language":"Python","code":"import numpy as np\n\n\ndef q312(length):\n    return np.arange(length)[:, None] >= np.arange(length)[None, :]\n","answer":"","content_kind":"coding"}

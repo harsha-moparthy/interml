@@ -1,0 +1,1 @@
+{"id":90,"language":"Python","code":"import numpy as np\n\n\ndef q090(values):\n    x = np.asarray(values, float)\n    return (float(x.mean()), float(((x - x.mean()) ** 2).mean()))\n","answer":"","content_kind":"coding"}

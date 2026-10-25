@@ -1,0 +1,1 @@
+{"id":199,"language":"Python","code":"import numpy as np\n\n\ndef q199(truth, prediction):\n    y, p = (np.asarray(truth, bool), np.asarray(prediction, bool))\n    tp = np.sum(y & p)\n    denominator = y.sum() + p.sum()\n    return float(2 * tp / denominator) if denominator else 0.0\n","answer":"","content_kind":"coding"}

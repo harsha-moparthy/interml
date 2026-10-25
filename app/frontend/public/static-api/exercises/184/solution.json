@@ -1,0 +1,1 @@
+{"id":184,"language":"Python","code":"import numpy as np\n\n\ndef q184(singular_values):\n    variance = np.asarray(singular_values, float) ** 2\n    return (\n        variance / variance.sum()\n        if variance.sum()\n        else np.zeros_like(variance)\n    )\n","answer":"","content_kind":"coding"}

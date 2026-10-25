@@ -1,0 +1,1 @@
+{"id":85,"language":"Python","code":"import math\n\n\ndef poisson_probability(k, lam):\n    probability = lam**k * math.exp(-lam) / math.factorial(k)\n    return round(probability, 5)\n","answer":"","content_kind":"coding"}

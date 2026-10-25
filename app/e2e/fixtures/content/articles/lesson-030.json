@@ -1,0 +1,182 @@
+{
+ "id": "lesson-030",
+ "kind": "lesson",
+ "title": "Pairwise differences",
+ "revision": 7,
+ "review_state": "complete",
+ "prerequisites": [
+  "broadcasting"
+ ],
+ "exercises": [
+  {
+   "id": 30,
+   "purpose": "deep-lesson",
+   "order": 1
+  },
+  {
+   "id": 54,
+   "purpose": "related",
+   "order": 2
+  },
+  {
+   "id": 16,
+   "purpose": "related",
+   "order": 3
+  }
+ ],
+ "blocks": [
+  {
+   "type": "paragraph",
+   "text": "This demo checks which pairs of shapes can be added, and which cells of each input feed one output cell."
+  },
+  {
+   "type": "check",
+   "id": "predict-shape"
+  },
+  {
+   "type": "callout",
+   "kind": "mistake",
+   "text": "Do not compare axes from the left. A shape (3,) is not the same as (3, 1)."
+  },
+  {
+   "type": "check",
+   "id": "new-cell"
+  },
+  {
+   "type": "check",
+   "id": "explain-reuse"
+  },
+  {
+   "type": "playground",
+   "exercise_id": 30
+  },
+  {
+   "type": "playground",
+   "exercise_id": 54
+  },
+  {
+   "type": "playground",
+   "exercise_id": 16
+  },
+  {
+   "type": "walkthrough",
+   "exercise_id": 30,
+   "title": "Read the supplied solution for question 030",
+   "notes": [
+    {
+     "lines": [
+      4,
+      4
+     ],
+     "match": "def q030",
+     "text": "The function takes two feature matrices, `x` with shape `(n, d)` and `y` with shape `(m, d)`."
+    },
+    {
+     "lines": [
+      5,
+      5
+     ],
+     "match": "[:, None, :]",
+     "text": "`x[:, None, :]` has shape `(n, 1, d)` and `y[None, :, :]` has shape `(1, m, d)`. Subtraction broadcasts them to `(n, m, d)`."
+    }
+   ]
+  }
+ ],
+ "demonstrations": [],
+ "checks": [
+  {
+   "id": "predict-shape",
+   "kind": "prediction",
+   "prompt": "Predict the shape of the sum before you open the steps. A has shape (3, 1) and B has shape (1, 4).",
+   "answer_type": "shape",
+   "case": {
+    "shapeA": [
+     3,
+     1
+    ],
+    "shapeB": [
+     1,
+     4
+    ]
+   },
+   "answer": "(3, 4)",
+   "explanation": {
+    "correct": "Axis 1 pairs 1 with 4, so it becomes 4. Axis 0 pairs 3 with 1, so it becomes 3.",
+    "wrong": {
+     "(3, 1)": "That is shape A. B stretches the last axis to 4.",
+     "error": "These shapes are compatible. Each pair contains a 1."
+    },
+    "default": "Compare axes from the right. Each pair contains a 1, so the result takes the larger size of each pair."
+   }
+  },
+  {
+   "id": "new-cell",
+   "kind": "new-case",
+   "prompt": "Use the demo defaults. What is the value of C[1, 2, 1]? A holds 1, 2, 3, … and B holds 10, 20, 30, … in order.",
+   "answer_type": "number",
+   "answer": 35,
+   "explanation": {
+    "correct": "C[1,2,1] reads A[1,0,1] = 5 and B[0,2,0] = 30. The sum is 35.",
+    "default": "Axes of size 1 always read index 0. Read A at (1, 0, 1) and B at (0, 2, 0), then add."
+   }
+  },
+  {
+   "id": "explain-reuse",
+   "kind": "explain-back",
+   "prompt": "In your own words: does broadcasting copy B four times? Explain.",
+   "answer_type": "text",
+   "explanation": {
+    "correct": "No. The same stored values are read again for each position. The result array is new, but the inputs are not enlarged."
+   }
+  }
+ ],
+ "playgrounds": [
+  {
+   "exercise_id": 30,
+   "runtime": "pyodide",
+   "packages": [
+    "numpy"
+   ],
+   "time_limit_ms": 2000,
+   "max_input_size": 200,
+   "note": "Write `pairwise_differences(x, y)`. For `x` of shape `(n, d)` and `y` of shape `(m, d)`, return shape `(n, m, d)` with `out[i, j] = x[i] - y[j]`.",
+   "starter_code": "import numpy as np\n\n\ndef pairwise_differences(x, y):\n    # Insert axes so that the shapes broadcast to (n, m, d).\n    raise NotImplementedError\n",
+   "checks": [
+    {
+     "name": "shape is (n, m, d)",
+     "code": "r = pairwise_differences(np.zeros((2, 3)), np.zeros((4, 3)))\nassert r.shape == (2, 4, 3), f'shape {r.shape}'"
+    },
+    {
+     "name": "values: out[i, j] = x[i] - y[j]",
+     "code": "x = np.array([[1., 2.], [3., 4.]]); y = np.array([[0., 1.], [1., 1.], [2., 2.]])\nr = pairwise_differences(x, y)\nfor i in range(2):\n    for j in range(3):\n        assert np.array_equal(r[i, j], x[i] - y[j]), f'cell {i},{j}'"
+    }
+   ]
+  },
+  {
+   "exercise_id": 54,
+   "runtime": "display-only",
+   "note": "The supplied solution for this question uses PyTorch. PyTorch does not run in the browser runtime, so this page shows no Run button."
+  },
+  {
+   "exercise_id": 16,
+   "runtime": "pyodide",
+   "packages": [
+    "numpy",
+    "pandas"
+   ],
+   "time_limit_ms": 2000,
+   "note": "Write `add_group_mean(frame, group, value)`. Add a `group_mean` column with each row's group mean. Keep the row order and the index. Do not change the input.",
+   "starter_code": "import pandas as pd\n\n\ndef add_group_mean(frame, group, value):\n    raise NotImplementedError\n",
+   "checks": [
+    {
+     "name": "column values, row order, and index are kept",
+     "code": "f = pd.DataFrame({'g': ['a', 'b', 'a', 'b', 'a'], 'v': [1., 2., 3., 6., 5.]}, index=[10, 11, 12, 13, 14])\nr = add_group_mean(f, 'g', 'v')\nassert list(r.index) == [10, 11, 12, 13, 14], 'index changed'\nassert list(r['group_mean']) == [3.0, 4.0, 3.0, 4.0, 3.0], list(r['group_mean'])"
+    },
+    {
+     "name": "input frame is not changed",
+     "code": "f = pd.DataFrame({'g': ['a', 'a'], 'v': [1., 3.]})\nadd_group_mean(f, 'g', 'v')\nassert list(f.columns) == ['g', 'v']"
+    }
+   ]
+  }
+ ]
+}

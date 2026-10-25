@@ -1,0 +1,1 @@
+{"id":293,"language":"Python","code":"import numpy as np\n\n\ndef q293(token_ids, pad_id=0):\n    return np.asarray(token_ids) != pad_id\n","answer":"","content_kind":"coding"}

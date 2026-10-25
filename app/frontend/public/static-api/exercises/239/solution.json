@@ -1,0 +1,1 @@
+{"id":239,"language":"Python","code":"import numpy as np\n\n\ndef q239(fan_in, fan_out, seed=0):\n    return np.random.default_rng(seed).normal(\n        0, np.sqrt(2 / fan_in), (fan_in, fan_out)\n    )\n","answer":"","content_kind":"coding"}

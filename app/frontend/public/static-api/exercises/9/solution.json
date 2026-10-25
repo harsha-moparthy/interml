@@ -1,0 +1,1 @@
+{"id":9,"language":"Python","code":"def q009(frame, replacements):\n    return frame.replace(replacements)\n","answer":"","content_kind":"coding"}

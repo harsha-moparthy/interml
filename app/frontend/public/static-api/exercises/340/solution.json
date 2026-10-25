@@ -1,0 +1,1 @@
+{"id":340,"language":"Python","code":"def q340(embedding, head):\n    if head.weight.shape != embedding.weight.shape:\n        raise ValueError(\"shape mismatch\")\n    head.weight = embedding.weight\n    return head\n","answer":"","content_kind":"coding"}

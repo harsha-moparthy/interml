@@ -1,0 +1,1 @@
+{"id":225,"language":"Python","code":"import numpy as np\n\n\ndef q225(logits, targets):\n    x, y = (np.asarray(logits, float), np.asarray(targets, float))\n    return float(\n        np.mean(np.maximum(x, 0) - x * y + np.log1p(np.exp(-np.abs(x))))\n    )\n","answer":"","content_kind":"coding"}

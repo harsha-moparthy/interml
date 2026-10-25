@@ -1,0 +1,1 @@
+{"id":71,"language":"Python","code":"import numpy as np\n\n\ndef q071(matrix):\n    a = np.asarray(matrix, float)\n    if a.ndim != 2 or a.shape[0] != a.shape[1] or (not np.allclose(a, a.T)):\n        return False\n    try:\n        np.linalg.cholesky(a)\n        return True\n    except np.linalg.LinAlgError:\n        return False\n","answer":"","content_kind":"coding"}

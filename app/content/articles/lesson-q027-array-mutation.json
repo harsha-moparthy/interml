@@ -1,0 +1,164 @@
+{
+  "id": "lesson-q027-array-mutation",
+  "kind": "lesson",
+  "title": "Same values, different memory",
+  "revision": 9,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "The exercise creates two independent copies of the input before demonstrating two indexing operations. That first step is important: it isolates the examples and leaves the caller’s input unchanged. Both branches select positions zero, two, and four. Their selected values initially look identical, but the references to storage are different."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What this question asks"
+    },
+    {
+      "type": "paragraph",
+      "text": "Demonstrate views versus copies: return two copies of the input, modifying every second element through a slice in one and through fancy indexing in the other. Use -1 as the replacement."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The background you need"
+    },
+    {
+      "type": "paragraph",
+      "text": "An ndarray combines stored values with metadata such as shape and strides. A view has its own metadata but refers to an existing buffer. A copy has separate data storage. Equal values therefore do not prove that two arrays share memory."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Follow one complete computation"
+    },
+    {
+      "type": "paragraph",
+      "text": "In the slice branch, a[::2] creates a view. Its stride skips one original element each time. When view[:] is assigned −1, those writes reach positions zero, two, and four in a. The view is not a list of detached values. Trace the arrows in the diagram to see why the returned a contains alternating replacements."
+    },
+    {
+      "type": "image",
+      "path": "lesson-q027-array-mutation/essence.svg",
+      "caption": "The opening and final states. Use the animation below to inspect every intermediate step."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect the picture to the mathematics"
+    },
+    {
+      "type": "equation",
+      "latex": "\\mathrm{address}(a[i])=\\mathrm{base}(a)+i\\,\\mathrm{stride}(a)",
+      "caption": "The base is the starting memory location. The stride is the byte distance between consecutive entries of a one-dimensional view."
+    },
+    {
+      "type": "paragraph",
+      "text": "In the integer-array branch, b[np.arange(0,len(b),2)] performs advanced indexing and returns copied values. Writing into this temporary array changes only the temporary buffer. The returned b therefore retains all original values. This distinction is about storing the indexed result and then mutating it. Direct assignment b[index_array] = value follows NumPy’s assignment rules and does modify b."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Mistakes and boundaries"
+    },
+    {
+      "type": "callout",
+      "kind": "boundary",
+      "text": "The memory relationship can matter more than the numerical result. A helper that unexpectedly mutates a view can alter an input used later in training. An unnecessary copy can consume substantial memory. Check np.shares_memory for overlap when you need evidence, and distinguish basic slicing from advanced indexing. Also avoid treating every reshape as a guaranteed view: the answer depends on layout and whether a copy is required.",
+      "title": "The boundary of this implementation"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Predict before revealing"
+    },
+    {
+      "type": "check",
+      "id": "q027-prediction"
+    },
+    {
+      "type": "check",
+      "id": "q027-new-case"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect to the supplied solution"
+    },
+    {
+      "type": "walkthrough",
+      "exercise_id": 27,
+      "notes": [
+        {
+          "lines": [
+            6,
+            6
+          ],
+          "match": "view = a[::2]",
+          "text": "Basic slicing creates the alias that later writes use."
+        },
+        {
+          "lines": [
+            8,
+            8
+          ],
+          "match": "copied = b[np.arange",
+          "text": "Advanced integer indexing creates independent data for this temporary result."
+        }
+      ],
+      "title": "Question 027: original code, explained"
+    },
+    {
+      "type": "callout",
+      "kind": "note",
+      "text": "The original solution is preserved. The diagrams use deliberately small examples to expose the mechanism. Passing these checks is evidence for these examples, not an exhaustive correctness proof."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 27,
+      "purpose": "deep-lesson",
+      "order": 1
+    }
+  ],
+  "sources": [
+    {
+      "title": "Original exercise topic",
+      "url": "https://www.tensortonic.com/study-plans/numpy-basics/numpy-mutation-trap"
+    }
+  ],
+  "media": [
+    {
+      "path": "lesson-q027-array-mutation/essence.svg",
+      "description": "Two verified stages from the worked example.",
+      "alt_text": "Same values, different memory: Both a and b start as (0, 1, 2, 3, 4, 5). Then: b remains (0, 1, 2, 3, 4, 5).",
+      "attribution": "Figure generated for this site."
+    }
+  ],
+  "demonstrations": [],
+  "checks": [
+    {
+      "id": "q027-prediction",
+      "kind": "prediction",
+      "prompt": "After the slice writes −1 into every second entry of six values, how many entries of a change?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "Positions 0, 2, and 4 share the slice view and change.",
+        "default": "Revisit the stated quantities and units. Positions 0, 2, and 4 share the slice view and change."
+      },
+      "answer": 3,
+      "tolerance": 1e-05
+    },
+    {
+      "id": "q027-new-case",
+      "kind": "new-case",
+      "prompt": "For an input of length eight, how many positions does array[::2] select?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "It selects indices 0, 2, 4, and 6.",
+        "default": "Revisit the stated quantities and units. It selects indices 0, 2, 4, and 6."
+      },
+      "answer": 4,
+      "tolerance": 1e-05
+    }
+  ]
+}

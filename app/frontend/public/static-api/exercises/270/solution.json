@@ -1,0 +1,1 @@
+{"id":270,"language":"Python","code":"def q270(x):\n    return x.mean(dim=(-2, -1))\n","answer":"","content_kind":"coding"}

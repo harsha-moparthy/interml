@@ -1,0 +1,1 @@
+{"id":38,"language":"Python","code":"import numpy as np\n\n\ndef q038(indices, bins):\n    indices = np.asarray(indices, dtype=int)\n    if bins < 0 or np.any((indices < 0) | (indices >= bins)):\n        raise ValueError(\"invalid bin index\")\n    result = np.zeros(bins, dtype=int)\n    np.add.at(result, indices, 1)\n    return result\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,1 @@
+{"id":291,"language":"Python","code":"def q291(tokens, vocabulary, end_token=\"<eot>\", unknown_token=\"<unk>\"):\n    return [\n        vocabulary.get(t, vocabulary[unknown_token]) for t in tokens\n    ] + [vocabulary[end_token]]\n","answer":"","content_kind":"coding"}

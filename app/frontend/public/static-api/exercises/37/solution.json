@@ -1,0 +1,1 @@
+{"id":37,"language":"Python","code":"import numpy as np\n\n\ndef q037(vector, repeats):\n    return np.diff(np.tile(vector, repeats))\n","answer":"","content_kind":"coding"}

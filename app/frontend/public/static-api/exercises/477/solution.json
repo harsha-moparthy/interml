@@ -1,0 +1,1 @@
+{"id":477,"language":"Python","code":"def q477(unconditional, conditional, guidance_scale):\n    return unconditional + guidance_scale * (conditional - unconditional)\n","answer":"","content_kind":"coding"}

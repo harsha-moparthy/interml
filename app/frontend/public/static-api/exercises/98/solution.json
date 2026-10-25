@@ -1,0 +1,1 @@
+{"id":98,"language":"Python","code":"import numpy as np\n\n\ndef q098(p, q):\n    p, q = (np.asarray(p, float), np.asarray(q, float))\n    m = (p + q) / 2\n\n    def kl(a):\n        keep = a > 0\n        return np.sum(a[keep] * np.log(a[keep] / m[keep]))\n\n    return float((kl(p) + kl(q)) / 2)\n","answer":"","content_kind":"coding"}

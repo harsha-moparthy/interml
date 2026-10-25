@@ -1,0 +1,1 @@
+{"id":303,"language":"Python","code":"import numpy as np\n\n\ndef q303(token_ids, embedding_table):\n    return np.asarray(embedding_table)[np.asarray(token_ids, dtype=int)]\n","answer":"","content_kind":"coding"}

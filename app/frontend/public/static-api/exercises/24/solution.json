@@ -1,0 +1,1 @@
+{"id":24,"language":"Python","code":"import numpy as np\n\n\ndef q024(array, shape):\n    return np.asarray(array).reshape(shape).copy()\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,1 @@
+{"id":203,"language":"Python","code":"import numpy as np\n\n\ndef rmse(y_true, y_pred):\n    if y_true.shape != y_pred.shape:\n        raise ValueError(\"Arrays must have the same shape\")\n    if y_true.size == 0:\n        raise ValueError(\"Arrays cannot be empty\")\n    return round(np.sqrt(np.mean((y_true - y_pred) ** 2)), 3)\n","answer":"","content_kind":"coding"}

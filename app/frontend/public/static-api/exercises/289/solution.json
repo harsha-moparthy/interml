@@ -1,0 +1,1 @@
+{"id":289,"language":"Python","code":"import re\n\n\ndef q289(text):\n    return re.findall(\"\\\\w+|[^\\\\w\\\\s]\", text, flags=re.UNICODE)\n","answer":"","content_kind":"coding"}

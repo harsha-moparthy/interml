@@ -1,0 +1,1 @@
+{"id":26,"language":"Python","code":"import numpy as np\n\n\ndef q026(array, mask):\n    array, mask = (np.asarray(array), np.asarray(mask, dtype=bool))\n    if array.shape != mask.shape:\n        raise ValueError(\"shape mismatch\")\n    return array[mask]\n","answer":"","content_kind":"coding"}

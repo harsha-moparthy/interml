@@ -1,0 +1,1 @@
+{"id":411,"language":"Python","code":"import numpy as np\n\n\ndef q411(samples, percentile=99.9):\n    a = np.abs(np.asarray(samples, float))\n    thresholds = [a.max(), np.percentile(a, percentile)]\n    return {\n        name: float(t / 127 if t else 1)\n        for name, t in zip((\"absmax\", \"percentile\"), thresholds)\n    }\n","answer":"","content_kind":"coding"}

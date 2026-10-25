@@ -1,0 +1,1 @@
+{"id":40,"language":"Python","code":"import torch\n\n\ndef q040(values):\n    return torch.tensor(values, dtype=torch.float32)\n","answer":"","content_kind":"coding"}

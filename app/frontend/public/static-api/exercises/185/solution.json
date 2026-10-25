@@ -1,0 +1,1 @@
+{"id":185,"language":"Python","code":"import numpy as np\n\n\ndef q185(x, mean, components):\n    x = np.asarray(x, float)\n    centered = x - mean\n    reconstructed = centered @ components.T @ components + mean\n    return float(np.mean((x - reconstructed) ** 2))\n","answer":"","content_kind":"coding"}

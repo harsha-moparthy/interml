@@ -1,0 +1,6018 @@
+{
+ "hashes": {
+  "pdf": "0010235fd7224bf1051062e9f02d6d5713eebb0fa516572b7c4b19703fd25494",
+  "tex": "48b721cfc0abf6016f2083f120e17f0ac08d5614151a60153ec36a1ca44e5757",
+  "workbook": "1b816010d8e2bf6832529f13de714770f1c93c76bd6a2a452971fb793718a24e",
+  "catalog": "00e2e28c1d485b2082023b616f541769f8a0114cfb9c1a8a3903512c3fd1d920"
+ },
+ "pdf_pages": 304,
+ "workbook_records": 600,
+ "pdf_headings": 600,
+ "title_matches": 600,
+ "code_matches": 600,
+ "duplicate_pdf_ids": [],
+ "extra_pdf_ids": [],
+ "problems": [],
+ "records": [
+  {
+   "id": 1,
+   "title": "Create DataFrame from Dict",
+   "pdf_pages": [
+    8,
+    8
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 2,
+   "title": "Column Selection",
+   "pdf_pages": [
+    8,
+    8
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 3,
+   "title": "Loc vs iLoc",
+   "pdf_pages": [
+    8,
+    8
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 4,
+   "title": "Boolean Indexing",
+   "pdf_pages": [
+    8,
+    9
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 5,
+   "title": "Setting Index",
+   "pdf_pages": [
+    9,
+    9
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 6,
+   "title": "Handle Missing Values",
+   "pdf_pages": [
+    9,
+    9
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 7,
+   "title": "Drop Duplicates",
+   "pdf_pages": [
+    9,
+    9
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 8,
+   "title": "Rename Columns",
+   "pdf_pages": [
+    9,
+    9
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 9,
+   "title": "Replace Values",
+   "pdf_pages": [
+    9,
+    10
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 10,
+   "title": "Change Data Types",
+   "pdf_pages": [
+    10,
+    10
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 11,
+   "title": "GroupBy Basics",
+   "pdf_pages": [
+    10,
+    10
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 12,
+   "title": "Pandas aggregation functions",
+   "pdf_pages": [
+    10,
+    10
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 13,
+   "title": "Pivot Tables",
+   "pdf_pages": [
+    10,
+    11
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 14,
+   "title": "Cross Tabulation",
+   "pdf_pages": [
+    11,
+    11
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 15,
+   "title": "Multi-Level GroupBy",
+   "pdf_pages": [
+    11,
+    11
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 16,
+   "title": "Add a Per-Group Average Column with GroupBy Transform",
+   "pdf_pages": [
+    11,
+    12
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 17,
+   "title": "Merge DataFrames",
+   "pdf_pages": [
+    12,
+    12
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 18,
+   "title": "Concatenate DataFrames",
+   "pdf_pages": [
+    12,
+    12
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 19,
+   "title": "Melt Wide to Long",
+   "pdf_pages": [
+    12,
+    13
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 20,
+   "title": "Unstack Long to Wide",
+   "pdf_pages": [
+    13,
+    13
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 21,
+   "title": "Apply Custom Transforms",
+   "pdf_pages": [
+    13,
+    14
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 22,
+   "title": "Arange and Linspace",
+   "pdf_pages": [
+    14,
+    14
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 23,
+   "title": "Random Array Generation",
+   "pdf_pages": [
+    14,
+    14
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 24,
+   "title": "Reshaping Arrays",
+   "pdf_pages": [
+    14,
+    14
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 25,
+   "title": "Fancy Indexing",
+   "pdf_pages": [
+    14,
+    15
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 26,
+   "title": "Boolean Masking",
+   "pdf_pages": [
+    15,
+    15
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 27,
+   "title": "Diagnose NumPy array mutation behavior",
+   "pdf_pages": [
+    15,
+    15
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 28,
+   "title": "Outer Sum",
+   "pdf_pages": [
+    15,
+    16
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 29,
+   "title": "Row Scaling",
+   "pdf_pages": [
+    16,
+    16
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 30,
+   "title": "Pairwise Differences",
+   "pdf_pages": [
+    16,
+    16
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 31,
+   "title": "Column Scaling",
+   "pdf_pages": [
+    16,
+    17
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 32,
+   "title": "Normalized Difference",
+   "pdf_pages": [
+    17,
+    17
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 33,
+   "title": "NumPy aggregation functions",
+   "pdf_pages": [
+    17,
+    17
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 34,
+   "title": "Sort and Argsort",
+   "pdf_pages": [
+    17,
+    17
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 35,
+   "title": "Norm-Gated Linear Transform",
+   "pdf_pages": [
+    17,
+    18
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 36,
+   "title": "Row Extremes",
+   "pdf_pages": [
+    18,
+    18
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 37,
+   "title": "Tile and Diff",
+   "pdf_pages": [
+    18,
+    18
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 38,
+   "title": "Tensor Puzzle: Bincount by Scatter-Add",
+   "pdf_pages": [
+    18,
+    19
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 39,
+   "title": "Tensor Puzzle: Bucketize Values into Bins",
+   "pdf_pages": [
+    19,
+    20
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 40,
+   "title": "Create a Float Tensor from a Python List",
+   "pdf_pages": [
+    20,
+    20
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 41,
+   "title": "Reshape and Transpose a Tensor",
+   "pdf_pages": [
+    20,
+    20
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 42,
+   "title": "Compute a Gradient with PyTorch Autograd",
+   "pdf_pages": [
+    20,
+    21
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 43,
+   "title": "Build a Linear Regression Model with nn.Module",
+   "pdf_pages": [
+    21,
+    21
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 44,
+   "title": "Build an MLP with nn.Sequential",
+   "pdf_pages": [
+    21,
+    21
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 45,
+   "title": "Save and Load Model Weights with state_dict",
+   "pdf_pages": [
+    21,
+    22
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 46,
+   "title": "Register Parameters and Buffers on a Custom Module",
+   "pdf_pages": [
+    22,
+    22
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 47,
+   "title": "Capture Activations with Forward Hooks",
+   "pdf_pages": [
+    22,
+    22
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 48,
+   "title": "nn.ModuleList vs a Plain Python List",
+   "pdf_pages": [
+    22,
+    23
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 49,
+   "title": "Parameter Groups and Freezing for Transfer Learning",
+   "pdf_pages": [
+    23,
+    23
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 50,
+   "title": "Build a Dataset and Use It with a DataLoader",
+   "pdf_pages": [
+    23,
+    24
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 51,
+   "title": "A collate_fn for Variable-Length Sequences",
+   "pdf_pages": [
+    24,
+    24
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 52,
+   "title": "Class-Balanced Sampling with WeightedRandomSampler",
+   "pdf_pages": [
+    24,
+    25
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 53,
+   "title": "Run One Training Step: Forward, Loss, Backward, Optimizer",
+   "pdf_pages": [
+    25,
+    25
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 54,
+   "title": "Implement a Custom `autograd.Function`",
+   "pdf_pages": [
+    25,
+    25
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 55,
+   "title": "Mixed-Precision Forward with `autocast`",
+   "pdf_pages": [
+    25,
+    26
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 56,
+   "title": "Gradient Accumulation Over Micro-Batches",
+   "pdf_pages": [
+    26,
+    26
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 57,
+   "title": "Trade Compute for Memory with Gradient Checkpointing",
+   "pdf_pages": [
+    26,
+    27
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 58,
+   "title": "Exponential Moving Average of Model Weights",
+   "pdf_pages": [
+    27,
+    28
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 59,
+   "title": "Matrix-Vector Dot Product",
+   "pdf_pages": [
+    28,
+    28
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 60,
+   "title": "Matrix times Matrix",
+   "pdf_pages": [
+    28,
+    28
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 61,
+   "title": "Vector Norms (L1/L2/L-inf) and the Frobenius Norm",
+   "pdf_pages": [
+    28,
+    29
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 62,
+   "title": "Calculate Cosine Similarity Between Vectors",
+   "pdf_pages": [
+    29,
+    29
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 63,
+   "title": "Transformation Matrix from Basis B to C",
+   "pdf_pages": [
+    29,
+    30
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 64,
+   "title": "Gaussian Elimination for Solving Linear Systems",
+   "pdf_pages": [
+    30,
+    31
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 65,
+   "title": "Solve Linear Equations using Jacobi Method",
+   "pdf_pages": [
+    31,
+    31
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 66,
+   "title": "Implement the Conjugate Gradient Method for Solving Linear Systems",
+   "pdf_pages": [
+    31,
+    32
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 67,
+   "title": "Implement Reduced Row Echelon Form (RREF) Function",
+   "pdf_pages": [
+    32,
+    33
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 68,
+   "title": "Implement Compressed Row Sparse Matrix (CSR) Format Conversion",
+   "pdf_pages": [
+    33,
+    33
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 69,
+   "title": "Matrix Rank",
+   "pdf_pages": [
+    33,
+    34
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 70,
+   "title": "Compute the Null Space (Kernel) of a Matrix",
+   "pdf_pages": [
+    34,
+    34
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 71,
+   "title": "Check if Matrix is Positive Definite",
+   "pdf_pages": [
+    34,
+    34
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 72,
+   "title": "LU Decomposition of a Square Matrix",
+   "pdf_pages": [
+    34,
+    35
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 73,
+   "title": "QR Decomposition",
+   "pdf_pages": [
+    35,
+    35
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 74,
+   "title": "Cholesky Decomposition",
+   "pdf_pages": [
+    35,
+    36
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 75,
+   "title": "Calculate Eigenvalues of a Matrix",
+   "pdf_pages": [
+    36,
+    36
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 76,
+   "title": "Singular Value Decomposition (SVD) of 2x2 Matrix",
+   "pdf_pages": [
+    36,
+    37
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 77,
+   "title": "Truncated SVD Rank-r Approximation of Weight Updates",
+   "pdf_pages": [
+    37,
+    37
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 78,
+   "title": "Implement Orthogonal Projection of a Vector onto a Line",
+   "pdf_pages": [
+    37,
+    38
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 79,
+   "title": "Descriptive Statistics Calculator",
+   "pdf_pages": [
+    38,
+    38
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 80,
+   "title": "Calculate Covariance Matrix",
+   "pdf_pages": [
+    38,
+    39
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 81,
+   "title": "Calculate Correlation Matrix",
+   "pdf_pages": [
+    39,
+    39
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 82,
+   "title": "Online Mean and Variance with Welford's Algorithm",
+   "pdf_pages": [
+    39,
+    40
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 83,
+   "title": "Binomial Distribution Probability",
+   "pdf_pages": [
+    40,
+    40
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 84,
+   "title": "Normal Distribution PDF Calculator",
+   "pdf_pages": [
+    40,
+    40
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 85,
+   "title": "Poisson Distribution Probability Calculator",
+   "pdf_pages": [
+    40,
+    41
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 86,
+   "title": "Conditional Probability from Joint Distribution",
+   "pdf_pages": [
+    41,
+    41
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 87,
+   "title": "Compute Posterior Probability using Bayes' Theorem",
+   "pdf_pages": [
+    41,
+    41
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 88,
+   "title": "Inverse-Transform Sampling from a Uniform RNG",
+   "pdf_pages": [
+    41,
+    42
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 89,
+   "title": "Reservoir Sampling from a Stream",
+   "pdf_pages": [
+    42,
+    42
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 90,
+   "title": "Maximum Likelihood Estimation for Gaussian Distribution",
+   "pdf_pages": [
+    42,
+    42
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 91,
+   "title": "Maximum A Posteriori (MAP) Estimation for Bernoulli Parameter",
+   "pdf_pages": [
+    42,
+    43
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 92,
+   "title": "Bayesian Inference for Beta-Binomial Model",
+   "pdf_pages": [
+    43,
+    43
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 93,
+   "title": "Two-Sample T-Test Implementation",
+   "pdf_pages": [
+    43,
+    43
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 94,
+   "title": "Confidence Interval for Population Mean",
+   "pdf_pages": [
+    43,
+    44
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 95,
+   "title": "Bootstrap Confidence Interval",
+   "pdf_pages": [
+    44,
+    44
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 96,
+   "title": "A/B Test Statistical Analysis for Model Comparison",
+   "pdf_pages": [
+    44,
+    44
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 97,
+   "title": "Entropy & Cross-Entropy",
+   "pdf_pages": [
+    44,
+    45
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 98,
+   "title": "Jensen-Shannon Divergence",
+   "pdf_pages": [
+    45,
+    45
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 99,
+   "title": "Mutual Information",
+   "pdf_pages": [
+    45,
+    45
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 100,
+   "title": "Calculate KL Divergence Between Two Multivariate Gaussian Distributions",
+   "pdf_pages": [
+    45,
+    47
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 101,
+   "title": "Numerical Gradient Checking",
+   "pdf_pages": [
+    47,
+    47
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 102,
+   "title": "Jacobian Matrix Calculation",
+   "pdf_pages": [
+    47,
+    47
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 103,
+   "title": "Compute the Hessian Matrix",
+   "pdf_pages": [
+    47,
+    48
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 104,
+   "title": "Newton's Method for Optimization",
+   "pdf_pages": [
+    48,
+    48
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 105,
+   "title": "Derivative of Softmax",
+   "pdf_pages": [
+    48,
+    49
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 106,
+   "title": "Derivative of Cross-Entropy Loss w.r.t. Logits",
+   "pdf_pages": [
+    49,
+    49
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 107,
+   "title": "Backpropagation Gradients for a Dense Layer",
+   "pdf_pages": [
+    49,
+    49
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 108,
+   "title": "Reduce Gradient Across Broadcasted Dimensions",
+   "pdf_pages": [
+    49,
+    50
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 109,
+   "title": "Backward Pass of Tensor Reshape",
+   "pdf_pages": [
+    50,
+    50
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 110,
+   "title": "Build a Scalar Expression Graph",
+   "pdf_pages": [
+    50,
+    50
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 111,
+   "title": "Apply Local Vector-Jacobian Rules",
+   "pdf_pages": [
+    50,
+    51
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 112,
+   "title": "Topologically Sort a Computation DAG",
+   "pdf_pages": [
+    51,
+    51
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 113,
+   "title": "Run Reverse-Mode Autodiff",
+   "pdf_pages": [
+    51,
+    52
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 114,
+   "title": "Accumulate Shared-Path Gradients",
+   "pdf_pages": [
+    52,
+    52
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 115,
+   "title": "Train a Tiny Micrograd MLP",
+   "pdf_pages": [
+    52,
+    53
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 116,
+   "title": "StandardScaler Fit and Transform",
+   "pdf_pages": [
+    53,
+    53
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 117,
+   "title": "Handle Missing Data with Imputation",
+   "pdf_pages": [
+    53,
+    53
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 118,
+   "title": "Outlier Detection and Removal Using IQR Method",
+   "pdf_pages": [
+    53,
+    54
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 119,
+   "title": "Robust Scaling",
+   "pdf_pages": [
+    54,
+    54
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 120,
+   "title": "One-Hot Encoding of Nominal Values",
+   "pdf_pages": [
+    54,
+    55
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 121,
+   "title": "Label Encoding for Ordinal Variables",
+   "pdf_pages": [
+    55,
+    55
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 122,
+   "title": "Target Encoding",
+   "pdf_pages": [
+    55,
+    55
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 123,
+   "title": "Frequency Encoding",
+   "pdf_pages": [
+    55,
+    56
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 124,
+   "title": "Generate Sorted Polynomial Features",
+   "pdf_pages": [
+    56,
+    56
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 125,
+   "title": "Interaction Features",
+   "pdf_pages": [
+    56,
+    56
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 126,
+   "title": "Cyclic Encoding",
+   "pdf_pages": [
+    56,
+    57
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 127,
+   "title": "Feature Hashing Trick for Sparse Features",
+   "pdf_pages": [
+    57,
+    57
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 128,
+   "title": "Implement Stratified Train-Test Split",
+   "pdf_pages": [
+    57,
+    58
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 129,
+   "title": "Implement Stratified K-Fold Cross-Validation",
+   "pdf_pages": [
+    58,
+    58
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 130,
+   "title": "Handle Imbalanced Data with SMOTE",
+   "pdf_pages": [
+    58,
+    58
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 131,
+   "title": "Detect Target Leakage in a Feature Matrix",
+   "pdf_pages": [
+    58,
+    59
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 132,
+   "title": "Pipeline Composition (Chain Transformers and Estimator)",
+   "pdf_pages": [
+    59,
+    59
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 133,
+   "title": "ColumnTransformer-Style Dispatcher",
+   "pdf_pages": [
+    59,
+    61
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 134,
+   "title": "Linear Regression Using Normal Equation",
+   "pdf_pages": [
+    61,
+    61
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 135,
+   "title": "Linear Regression Using Gradient Descent",
+   "pdf_pages": [
+    61,
+    62
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 136,
+   "title": "Ridge Regression",
+   "pdf_pages": [
+    62,
+    62
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 137,
+   "title": "Implement Lasso Regression using ISTA",
+   "pdf_pages": [
+    62,
+    63
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 138,
+   "title": "Elastic Net Regression via Gradient Descent",
+   "pdf_pages": [
+    63,
+    63
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 139,
+   "title": "Train Softmax Regression with Gradient Descent",
+   "pdf_pages": [
+    63,
+    64
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 140,
+   "title": "Train Logistic Regression with Gradient Descent",
+   "pdf_pages": [
+    64,
+    65
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 141,
+   "title": "Poisson Regression by Iteratively Reweighted Least Squares",
+   "pdf_pages": [
+    65,
+    65
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 142,
+   "title": "Implement K-Nearest Neighbors",
+   "pdf_pages": [
+    65,
+    65
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 143,
+   "title": "Gaussian Naive Bayes Classifier",
+   "pdf_pages": [
+    65,
+    66
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 144,
+   "title": "Bernoulli Naive Bayes Classifier",
+   "pdf_pages": [
+    66,
+    67
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 145,
+   "title": "Multinomial Naive Bayes Classifier",
+   "pdf_pages": [
+    67,
+    67
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 146,
+   "title": "Linear Discriminant Analysis (LDA) Binary Classifier",
+   "pdf_pages": [
+    67,
+    68
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 147,
+   "title": "Quadratic Discriminant Analysis (QDA) Classifier",
+   "pdf_pages": [
+    68,
+    68
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 148,
+   "title": "Implement RBF (Gaussian) Kernel Function",
+   "pdf_pages": [
+    68,
+    69
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 149,
+   "title": "Implement Polynomial Kernel Function",
+   "pdf_pages": [
+    69,
+    69
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 150,
+   "title": "Implement Hinge Loss for SVM",
+   "pdf_pages": [
+    69,
+    69
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 151,
+   "title": "Pegasos Kernel SVM Implementation",
+   "pdf_pages": [
+    69,
+    70
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 152,
+   "title": "SVM Dual Formulation via Coordinate Descent",
+   "pdf_pages": [
+    70,
+    71
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 153,
+   "title": "Dummy Classifier Baseline",
+   "pdf_pages": [
+    71,
+    71
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 154,
+   "title": "Dummy Regressor Baseline",
+   "pdf_pages": [
+    71,
+    71
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 155,
+   "title": "Implement Grid Search",
+   "pdf_pages": [
+    71,
+    72
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 156,
+   "title": "Randomized Search for Hyperparameter Tuning",
+   "pdf_pages": [
+    72,
+    72
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 157,
+   "title": "Bias-Variance Decomposition from Bootstrap",
+   "pdf_pages": [
+    72,
+    73
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 158,
+   "title": "Implement Gini Impurity Calculation for a Set of Classes",
+   "pdf_pages": [
+    73,
+    73
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 159,
+   "title": "Compute Information Gain for a Split",
+   "pdf_pages": [
+    73,
+    74
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 160,
+   "title": "Find the Best Gini-Based Split for a Binary Decision Tree",
+   "pdf_pages": [
+    74,
+    74
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 161,
+   "title": "Best Variance Reduction Split for Regression Tree",
+   "pdf_pages": [
+    74,
+    75
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 162,
+   "title": "CART Recursive Tree Builder",
+   "pdf_pages": [
+    75,
+    76
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 163,
+   "title": "Decision Tree Pruning with Cost-Complexity",
+   "pdf_pages": [
+    76,
+    76
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 164,
+   "title": "Implement Bagging Classifier from Scratch",
+   "pdf_pages": [
+    76,
+    77
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 165,
+   "title": "Random Forest Fit from Scratch",
+   "pdf_pages": [
+    77,
+    77
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 166,
+   "title": "Implement Out-of-Bag Score Calculation",
+   "pdf_pages": [
+    77,
+    78
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 167,
+   "title": "Implement AdaBoost Fit Method",
+   "pdf_pages": [
+    78,
+    78
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 168,
+   "title": "Implement Gradient Boosting Regressor Step",
+   "pdf_pages": [
+    78,
+    79
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 169,
+   "title": "XGBoost Objective Function Calculation",
+   "pdf_pages": [
+    79,
+    79
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 170,
+   "title": "Histogram-Based Gradient Boosting Split Finding",
+   "pdf_pages": [
+    79,
+    80
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 171,
+   "title": "Implement Stacking Classifier",
+   "pdf_pages": [
+    80,
+    80
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 172,
+   "title": "Permutation Feature Importance",
+   "pdf_pages": [
+    80,
+    81
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 173,
+   "title": "K-Means Clustering",
+   "pdf_pages": [
+    81,
+    82
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 174,
+   "title": "Implement K-Means++ Initialization",
+   "pdf_pages": [
+    82,
+    82
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 175,
+   "title": "Implement Mini-Batch K-Means",
+   "pdf_pages": [
+    82,
+    82
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 176,
+   "title": "Implement DBSCAN Clustering Algorithm",
+   "pdf_pages": [
+    82,
+    83
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 177,
+   "title": "Implement Hierarchical Clustering (Agglomerative)",
+   "pdf_pages": [
+    83,
+    84
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 178,
+   "title": "Spectral Clustering via Graph Laplacian",
+   "pdf_pages": [
+    84,
+    84
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 179,
+   "title": "Implement Gaussian Mixture Model (GMM) E-step",
+   "pdf_pages": [
+    84,
+    85
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 180,
+   "title": "Implement Gaussian Mixture Model (GMM) M-step",
+   "pdf_pages": [
+    85,
+    85
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 181,
+   "title": "Gaussian Mixture Model with EM Algorithm",
+   "pdf_pages": [
+    85,
+    86
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 182,
+   "title": "Principal Component Analysis (PCA) Implementation",
+   "pdf_pages": [
+    86,
+    86
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 183,
+   "title": "Implement Kernel PCA with RBF Kernel",
+   "pdf_pages": [
+    86,
+    87
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 184,
+   "title": "Calculate Explained Variance Ratio for PCA",
+   "pdf_pages": [
+    87,
+    87
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 185,
+   "title": "Reconstruction Error from PCA",
+   "pdf_pages": [
+    87,
+    87
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 186,
+   "title": "Randomized PCA via Range Finding",
+   "pdf_pages": [
+    87,
+    88
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 187,
+   "title": "Implement t-SNE Gradient Calculation",
+   "pdf_pages": [
+    88,
+    88
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 188,
+   "title": "Implement Isolation Forest for Anomaly Detection",
+   "pdf_pages": [
+    88,
+    89
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 189,
+   "title": "Local Outlier Factor (LOF) Anomaly Score",
+   "pdf_pages": [
+    89,
+    89
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 190,
+   "title": "Silhouette Score for Clustering Evaluation",
+   "pdf_pages": [
+    89,
+    90
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 191,
+   "title": "Calculate Davies-Bouldin Index for Clustering Evaluation",
+   "pdf_pages": [
+    90,
+    90
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 192,
+   "title": "Calculate BIC/AIC for Model Selection",
+   "pdf_pages": [
+    90,
+    91
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 193,
+   "title": "Generate a Confusion Matrix for Binary Classification",
+   "pdf_pages": [
+    91,
+    91
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 194,
+   "title": "Calculate Accuracy Score",
+   "pdf_pages": [
+    91,
+    91
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 195,
+   "title": "Implement Precision Metric",
+   "pdf_pages": [
+    91,
+    92
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 196,
+   "title": "Implement Recall Metric in Binary Classification",
+   "pdf_pages": [
+    92,
+    92
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 197,
+   "title": "Calculate F1 Score from Predicted and True Labels",
+   "pdf_pages": [
+    92,
+    93
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 198,
+   "title": "Macro F1 Score for Multi-Class Classification",
+   "pdf_pages": [
+    93,
+    93
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 199,
+   "title": "Micro F1 Score for Multi-Label Classification",
+   "pdf_pages": [
+    93,
+    93
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 200,
+   "title": "Calculate Matthews Correlation Coefficient",
+   "pdf_pages": [
+    93,
+    94
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 201,
+   "title": "Hamming Loss for Multilabel Classification",
+   "pdf_pages": [
+    94,
+    94
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 202,
+   "title": "Calculate R-squared for Regression Analysis",
+   "pdf_pages": [
+    94,
+    95
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 203,
+   "title": "Calculate Root Mean Square Error (RMSE)",
+   "pdf_pages": [
+    95,
+    95
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 204,
+   "title": "Calculate Mean Absolute Error (MAE)",
+   "pdf_pages": [
+    95,
+    96
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 205,
+   "title": "Implement ROC Curve Calculation",
+   "pdf_pages": [
+    96,
+    96
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 206,
+   "title": "Calculate AUC (Area Under ROC Curve)",
+   "pdf_pages": [
+    96,
+    96
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 207,
+   "title": "Implement Precision-Recall Curve",
+   "pdf_pages": [
+    96,
+    97
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 208,
+   "title": "Calculate Expected Calibration Error (ECE)",
+   "pdf_pages": [
+    97,
+    97
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 209,
+   "title": "Isotonic Regression Calibration",
+   "pdf_pages": [
+    97,
+    98
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 210,
+   "title": "Data Quality Scoring for ML Pipelines",
+   "pdf_pages": [
+    98,
+    98
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 211,
+   "title": "Feature Drift Detection using Population Stability Index",
+   "pdf_pages": [
+    98,
+    98
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 212,
+   "title": "Calculate Model Inference Statistics for Monitoring",
+   "pdf_pages": [
+    98,
+    99
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 213,
+   "title": "Analyze Canary Deployment Health for Model Rollout",
+   "pdf_pages": [
+    99,
+    99
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 214,
+   "title": "Detect Train-Serving Skew",
+   "pdf_pages": [
+    99,
+    100
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 215,
+   "title": "Demographic Parity and Equalized Odds Gaps",
+   "pdf_pages": [
+    100,
+    101
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 216,
+   "title": "Implement the sigmoid activation function",
+   "pdf_pages": [
+    101,
+    101
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 217,
+   "title": "Implement ReLU Activation Function",
+   "pdf_pages": [
+    101,
+    101
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 218,
+   "title": "Leaky ReLU Activation Function",
+   "pdf_pages": [
+    101,
+    101
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 219,
+   "title": "Implement the Tanh Activation Function",
+   "pdf_pages": [
+    101,
+    102
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 220,
+   "title": "GeLU Activation Function",
+   "pdf_pages": [
+    102,
+    102
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 221,
+   "title": "Implement the Swish Activation Function",
+   "pdf_pages": [
+    102,
+    102
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 222,
+   "title": "Implement the Softplus Activation Function",
+   "pdf_pages": [
+    102,
+    103
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 223,
+   "title": "Implement numerically stable softmax",
+   "pdf_pages": [
+    103,
+    103
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 224,
+   "title": "Implement numerically stable log-softmax",
+   "pdf_pages": [
+    103,
+    103
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 225,
+   "title": "Implement Binary Cross-Entropy Loss",
+   "pdf_pages": [
+    103,
+    104
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 226,
+   "title": "Compute Multi-class Cross-Entropy Loss",
+   "pdf_pages": [
+    104,
+    104
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 227,
+   "title": "Implement the Huber Loss Function",
+   "pdf_pages": [
+    104,
+    104
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 228,
+   "title": "Implement Label Smoothing for Multi-Class Cross-Entropy",
+   "pdf_pages": [
+    104,
+    105
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 229,
+   "title": "Implement Focal Loss for Imbalanced Classification",
+   "pdf_pages": [
+    105,
+    105
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 230,
+   "title": "Contrastive Loss (InfoNCE / SimCLR-style)",
+   "pdf_pages": [
+    105,
+    105
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 231,
+   "title": "Triplet Margin Loss",
+   "pdf_pages": [
+    105,
+    106
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 232,
+   "title": "Implement Batch Normalization for BCHW Input",
+   "pdf_pages": [
+    106,
+    106
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 233,
+   "title": "Implement Layer Normalization for Sequence Data",
+   "pdf_pages": [
+    106,
+    107
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 234,
+   "title": "Implement RMSNorm (Root Mean Square Layer Normalization)",
+   "pdf_pages": [
+    107,
+    107
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 235,
+   "title": "Implement Group Normalization",
+   "pdf_pages": [
+    107,
+    108
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 236,
+   "title": "Instance Normalization (IN) Implementation",
+   "pdf_pages": [
+    108,
+    108
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 237,
+   "title": "Dropout Layer",
+   "pdf_pages": [
+    108,
+    109
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 238,
+   "title": "Implement Xavier/Glorot Weight Initialization",
+   "pdf_pages": [
+    109,
+    109
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 239,
+   "title": "Implement He Weight Initialization",
+   "pdf_pages": [
+    109,
+    109
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 240,
+   "title": "Implementing a Simple RNN",
+   "pdf_pages": [
+    109,
+    110
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 241,
+   "title": "Implement a Simple RNN with Backpropagation Through Time (BPTT)",
+   "pdf_pages": [
+    110,
+    111
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 242,
+   "title": "Implement GRU Cell",
+   "pdf_pages": [
+    111,
+    111
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 243,
+   "title": "Implement Long Short-Term Memory (LSTM) Network",
+   "pdf_pages": [
+    111,
+    113
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 244,
+   "title": "Momentum Optimizer",
+   "pdf_pages": [
+    113,
+    113
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 245,
+   "title": "Nesterov Accelerated Gradient Optimizer",
+   "pdf_pages": [
+    113,
+    113
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 246,
+   "title": "Adagrad Optimizer",
+   "pdf_pages": [
+    113,
+    114
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 247,
+   "title": "Implement RMSProp Optimizer",
+   "pdf_pages": [
+    114,
+    114
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 248,
+   "title": "Implement Adam Optimization Algorithm",
+   "pdf_pages": [
+    114,
+    115
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 249,
+   "title": "Implement AdamW Optimizer Step",
+   "pdf_pages": [
+    115,
+    116
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 250,
+   "title": "Muon Optimizer Update with Newton-Schulz Iteration",
+   "pdf_pages": [
+    116,
+    116
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 251,
+   "title": "StepLR Learning Rate Scheduler",
+   "pdf_pages": [
+    116,
+    117
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 252,
+   "title": "ExponentialLR Learning Rate Scheduler",
+   "pdf_pages": [
+    117,
+    117
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 253,
+   "title": "Warmup + Cosine Decay Schedule",
+   "pdf_pages": [
+    117,
+    117
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 254,
+   "title": "Implement Cosine Annealing with Warm Restarts",
+   "pdf_pages": [
+    117,
+    118
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 255,
+   "title": "Gradient Clipping by Global Norm",
+   "pdf_pages": [
+    118,
+    118
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 256,
+   "title": "Implement Gradient Clipping by Value",
+   "pdf_pages": [
+    118,
+    118
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 257,
+   "title": "Implement Early Stopping Based on Validation Loss",
+   "pdf_pages": [
+    118,
+    120
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 258,
+   "title": "Convert RGB Image to Grayscale",
+   "pdf_pages": [
+    120,
+    120
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 259,
+   "title": "Flip an Image Horizontally or Vertically",
+   "pdf_pages": [
+    120,
+    120
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 260,
+   "title": "Apply Zero Padding to an Image",
+   "pdf_pages": [
+    120,
+    120
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 261,
+   "title": "Bilinear Image Resizing",
+   "pdf_pages": [
+    120,
+    121
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 262,
+   "title": "Sobel Edge Detection",
+   "pdf_pages": [
+    121,
+    121
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 263,
+   "title": "Gaussian Blur 2D",
+   "pdf_pages": [
+    121,
+    122
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 264,
+   "title": "Simple Convolutional 2D Layer",
+   "pdf_pages": [
+    122,
+    122
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 265,
+   "title": "Dilated 2D Convolution",
+   "pdf_pages": [
+    122,
+    123
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 266,
+   "title": "Depthwise Separable Convolution",
+   "pdf_pages": [
+    123,
+    123
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 267,
+   "title": "2D Transposed Convolution",
+   "pdf_pages": [
+    123,
+    123
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 268,
+   "title": "Max Pool 2D",
+   "pdf_pages": [
+    123,
+    124
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 269,
+   "title": "Implement 2D Average Pooling",
+   "pdf_pages": [
+    124,
+    124
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 270,
+   "title": "Implement Global Average Pooling",
+   "pdf_pages": [
+    124,
+    124
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 271,
+   "title": "Implement a Simple Residual Block with Shortcut Connection",
+   "pdf_pages": [
+    124,
+    125
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 272,
+   "title": "Squeeze-and-Excitation Block",
+   "pdf_pages": [
+    125,
+    125
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 273,
+   "title": "U-Net Skip Connection",
+   "pdf_pages": [
+    125,
+    126
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 274,
+   "title": "Pairwise IoU",
+   "pdf_pages": [
+    126,
+    126
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 275,
+   "title": "Anchor Box Generation",
+   "pdf_pages": [
+    126,
+    126
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 276,
+   "title": "Box Encode and Decode",
+   "pdf_pages": [
+    126,
+    127
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 277,
+   "title": "Non-Maximum Suppression for Object Detection",
+   "pdf_pages": [
+    127,
+    128
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 278,
+   "title": "Soft Non-Maximum Suppression",
+   "pdf_pages": [
+    128,
+    128
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 279,
+   "title": "ROI Align",
+   "pdf_pages": [
+    128,
+    129
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 280,
+   "title": "Dice Loss",
+   "pdf_pages": [
+    129,
+    129
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 281,
+   "title": "Generalized IoU Loss",
+   "pdf_pages": [
+    129,
+    130
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 282,
+   "title": "Mean IoU for Segmentation",
+   "pdf_pages": [
+    130,
+    130
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 283,
+   "title": "MixUp Augmentation",
+   "pdf_pages": [
+    130,
+    130
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 284,
+   "title": "CutMix Augmentation",
+   "pdf_pages": [
+    130,
+    131
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 285,
+   "title": "ViT Patchify",
+   "pdf_pages": [
+    131,
+    131
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 286,
+   "title": "Window Partition and Reverse",
+   "pdf_pages": [
+    131,
+    131
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 287,
+   "title": "Implement a Vision Transformer (ViT) Image Encoder",
+   "pdf_pages": [
+    131,
+    133
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 288,
+   "title": "Text Normalization",
+   "pdf_pages": [
+    133,
+    133
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 289,
+   "title": "Regex-Based Text Tokenizer",
+   "pdf_pages": [
+    133,
+    133
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 290,
+   "title": "Build Vocabulary from Token List",
+   "pdf_pages": [
+    133,
+    134
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 291,
+   "title": "Tokenizer with Unknown and End-of-Text Tokens",
+   "pdf_pages": [
+    134,
+    134
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 292,
+   "title": "Pad and Truncate Tokenized Sequences",
+   "pdf_pages": [
+    134,
+    134
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 293,
+   "title": "Build Attention Mask from Pad Tokens",
+   "pdf_pages": [
+    134,
+    134
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 294,
+   "title": "Byte Pair Encoding (BPE) Tokenizer",
+   "pdf_pages": [
+    134,
+    135
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 295,
+   "title": "BPE Pre-Tokenization with Whitespace Marking",
+   "pdf_pages": [
+    135,
+    135
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 296,
+   "title": "Bag of Words",
+   "pdf_pages": [
+    135,
+    136
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 297,
+   "title": "Implement TF-IDF (Term Frequency-Inverse Document Frequency)",
+   "pdf_pages": [
+    136,
+    137
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 298,
+   "title": "Build Bigram Count Matrix from Words",
+   "pdf_pages": [
+    137,
+    137
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 299,
+   "title": "Laplace Smoothing for Bigram Probabilities",
+   "pdf_pages": [
+    137,
+    137
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 300,
+   "title": "Word2Vec",
+   "pdf_pages": [
+    137,
+    138
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 301,
+   "title": "GloVe",
+   "pdf_pages": [
+    138,
+    138
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 302,
+   "title": "FastText",
+   "pdf_pages": [
+    138,
+    139
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 303,
+   "title": "Token Embedding Lookup Table",
+   "pdf_pages": [
+    139,
+    139
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 304,
+   "title": "Construct Next-Token Prediction Targets",
+   "pdf_pages": [
+    139,
+    139
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 305,
+   "title": "Sliding Window Text Dataset Generator",
+   "pdf_pages": [
+    139,
+    140
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 306,
+   "title": "MinHash for Near-Duplicate Document Detection",
+   "pdf_pages": [
+    140,
+    140
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 307,
+   "title": "N-gram Overlap Contamination Detection",
+   "pdf_pages": [
+    140,
+    140
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 308,
+   "title": "Cross-Document Attention Mask Construction",
+   "pdf_pages": [
+    140,
+    142
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 309,
+   "title": "Build Scaled Dot-Product Attention",
+   "pdf_pages": [
+    142,
+    142
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 310,
+   "title": "Implement Self-Attention Mechanism",
+   "pdf_pages": [
+    142,
+    143
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 311,
+   "title": "Bahdanau Additive Attention",
+   "pdf_pages": [
+    143,
+    143
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 312,
+   "title": "Construct Causal Attention Mask via tril and triu Methods",
+   "pdf_pages": [
+    143,
+    143
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 313,
+   "title": "Implement batched causal self-attention",
+   "pdf_pages": [
+    143,
+    144
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 314,
+   "title": "Build Causal Mask with Position Offsets for Cached Attention",
+   "pdf_pages": [
+    144,
+    144
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 315,
+   "title": "Apply Dropout to Attention Weights",
+   "pdf_pages": [
+    144,
+    145
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 316,
+   "title": "Implement Multi-Head Attention",
+   "pdf_pages": [
+    145,
+    146
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 317,
+   "title": "Multi-Head Attention with Combined QKV Weight Matrix",
+   "pdf_pages": [
+    146,
+    146
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 318,
+   "title": "Implement Multi-Head Attention Using Einsum",
+   "pdf_pages": [
+    146,
+    147
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 319,
+   "title": "Implement multi-query attention (MQA)",
+   "pdf_pages": [
+    147,
+    148
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 320,
+   "title": "Implement grouped-query attention (GQA)",
+   "pdf_pages": [
+    148,
+    148
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 321,
+   "title": "Implement multi-head latent attention (MLA)",
+   "pdf_pages": [
+    148,
+    149
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 322,
+   "title": "Sliding Window Attention",
+   "pdf_pages": [
+    149,
+    150
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 323,
+   "title": "Implement Efficient Sparse Window Attention",
+   "pdf_pages": [
+    150,
+    151
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 324,
+   "title": "Flash Attention v1 - Forward Pass",
+   "pdf_pages": [
+    151,
+    151
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 325,
+   "title": "FlashDecoding: Split-K GQA Decode Attention",
+   "pdf_pages": [
+    151,
+    152
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 326,
+   "title": "Implementing PagedAttention: Block-wise Attention Computation",
+   "pdf_pages": [
+    152,
+    153
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 327,
+   "title": "Implement Gated Attention",
+   "pdf_pages": [
+    153,
+    153
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 328,
+   "title": "Implement cross-attention with different query and key/value sequences",
+   "pdf_pages": [
+    153,
+    155
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 329,
+   "title": "Positional Encoding Calculator",
+   "pdf_pages": [
+    155,
+    155
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 330,
+   "title": "Learned Positional Embeddings",
+   "pdf_pages": [
+    155,
+    155
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 331,
+   "title": "Rotary Positional Embeddings (RoPE)",
+   "pdf_pages": [
+    155,
+    156
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 332,
+   "title": "Implement Llama 3.1 RoPE Frequency Rescaling",
+   "pdf_pages": [
+    156,
+    156
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 333,
+   "title": "YaRN RoPE Frequency Scaling",
+   "pdf_pages": [
+    156,
+    157
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 334,
+   "title": "GPT FeedForward Block (Linear-GELU-Linear)",
+   "pdf_pages": [
+    157,
+    157
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 335,
+   "title": "Implement SwiGLU activation function",
+   "pdf_pages": [
+    157,
+    158
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 336,
+   "title": "Pre-Norm vs Post-Norm Transformer Block",
+   "pdf_pages": [
+    158,
+    158
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 337,
+   "title": "Build a Transformer Encoder Layer",
+   "pdf_pages": [
+    158,
+    159
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 338,
+   "title": "Transformer Decoder Block",
+   "pdf_pages": [
+    159,
+    160
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 339,
+   "title": "Build a Tiny GPT",
+   "pdf_pages": [
+    160,
+    161
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 340,
+   "title": "Implement Weight Tying Between Embedding and LM Head",
+   "pdf_pages": [
+    161,
+    161
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 341,
+   "title": "Implement the Noisy Top-K Gating Function",
+   "pdf_pages": [
+    161,
+    161
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 342,
+   "title": "Implement a Sparse Mixture of Experts Layer",
+   "pdf_pages": [
+    161,
+    162
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 343,
+   "title": "Mixture of Experts Load Balancing Loss",
+   "pdf_pages": [
+    162,
+    163
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 344,
+   "title": "MoE with Shared Expert Forward Pass",
+   "pdf_pages": [
+    163,
+    163
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 345,
+   "title": "Implement Sigmoid MoE Router with Bias Correction",
+   "pdf_pages": [
+    163,
+    164
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 346,
+   "title": "Implement Gated DeltaNet Linear Attention",
+   "pdf_pages": [
+    164,
+    164
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 347,
+   "title": "Delta Rule Update for Associative Memory",
+   "pdf_pages": [
+    164,
+    164
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 348,
+   "title": "Count Trainable Parameters with Weight Tying in a GPT Model",
+   "pdf_pages": [
+    164,
+    165
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 349,
+   "title": "Logit Lens Projection",
+   "pdf_pages": [
+    165,
+    166
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 350,
+   "title": "Chat Template Encoding for Instruct Models",
+   "pdf_pages": [
+    166,
+    166
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 351,
+   "title": "Custom Collate Function for Instruction Finetuning",
+   "pdf_pages": [
+    166,
+    166
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 352,
+   "title": "Mask Instruction Tokens for Loss Computation",
+   "pdf_pages": [
+    166,
+    167
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 353,
+   "title": "Masked Log-Probability for Sequence Tokens",
+   "pdf_pages": [
+    167,
+    167
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 354,
+   "title": "LoRA: Low-Rank Adaptation Forward Pass",
+   "pdf_pages": [
+    167,
+    167
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 355,
+   "title": "QLoRA: Quantized Low-Rank Adaptation Forward Pass",
+   "pdf_pages": [
+    167,
+    168
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 356,
+   "title": "Merge LoRA Adapter Weights for Zero-Latency Inference",
+   "pdf_pages": [
+    168,
+    168
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 357,
+   "title": "Calculate LoRA Trainable Parameter Count vs Full Fine-Tuning",
+   "pdf_pages": [
+    168,
+    168
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 358,
+   "title": "Recursively Replace Linear Layers with LoRA",
+   "pdf_pages": [
+    168,
+    169
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 359,
+   "title": "Implement Adapter Bottleneck Layer for Transformer Fine-Tuning",
+   "pdf_pages": [
+    169,
+    169
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 360,
+   "title": "Reward Model Loss from Pairwise Human Preferences",
+   "pdf_pages": [
+    169,
+    170
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 361,
+   "title": "Direct Preference Optimization (DPO) Loss",
+   "pdf_pages": [
+    170,
+    170
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 362,
+   "title": "DPO Implicit Reward Computation",
+   "pdf_pages": [
+    170,
+    170
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 363,
+   "title": "Odds Ratio Preference Optimization (ORPO) Loss",
+   "pdf_pages": [
+    170,
+    171
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 364,
+   "title": "Simple Preference Optimization (SimPO) Loss",
+   "pdf_pages": [
+    171,
+    171
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 365,
+   "title": "Adaptive KL-Penalized Reward Shaping for RLHF",
+   "pdf_pages": [
+    171,
+    172
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 366,
+   "title": "Implement the GRPO Objective Function",
+   "pdf_pages": [
+    172,
+    172
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 367,
+   "title": "Group Relative Advantage for GRPO",
+   "pdf_pages": [
+    172,
+    172
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 368,
+   "title": "KL Divergence Estimator for GRPO",
+   "pdf_pages": [
+    172,
+    173
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 369,
+   "title": "RLOO: REINFORCE Leave-One-Out Advantages",
+   "pdf_pages": [
+    173,
+    173
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 370,
+   "title": "Knowledge Distillation Loss",
+   "pdf_pages": [
+    173,
+    174
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 371,
+   "title": "Implement BLEU score for text generation",
+   "pdf_pages": [
+    174,
+    174
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 372,
+   "title": "Implement ROUGE score",
+   "pdf_pages": [
+    174,
+    175
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 373,
+   "title": "Evaluate Translation Quality with METEOR Score",
+   "pdf_pages": [
+    175,
+    176
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 374,
+   "title": "Calculate Perplexity for Language Models",
+   "pdf_pages": [
+    176,
+    176
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 375,
+   "title": "Exact Match Score with Normalization",
+   "pdf_pages": [
+    176,
+    176
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 376,
+   "title": "Elo Rating System for Model Comparison",
+   "pdf_pages": [
+    176,
+    177
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 377,
+   "title": "MMLU Log-Probability Scoring",
+   "pdf_pages": [
+    177,
+    177
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 378,
+   "title": "Pairwise Preference Judge for LLM Comparison",
+   "pdf_pages": [
+    177,
+    177
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 379,
+   "title": "Pass@k and Majority Voting Evaluation Metrics",
+   "pdf_pages": [
+    177,
+    178
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 380,
+   "title": "Cohen's Kappa and Judge Position Bias",
+   "pdf_pages": [
+    178,
+    179
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 381,
+   "title": "Math Answer Verification with Equivalence Checking",
+   "pdf_pages": [
+    179,
+    179
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 382,
+   "title": "Build a code-execution verifier for programming benchmarks",
+   "pdf_pages": [
+    179,
+    180
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 383,
+   "title": "Verifiable Instruction Constraint Checker",
+   "pdf_pages": [
+    180,
+    181
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 384,
+   "title": "Greedy Autoregressive Text Generation",
+   "pdf_pages": [
+    181,
+    181
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 385,
+   "title": "Temperature Sampling",
+   "pdf_pages": [
+    181,
+    181
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 386,
+   "title": "Top-p (Nucleus) Sampling",
+   "pdf_pages": [
+    181,
+    182
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 387,
+   "title": "Combined Token Sampling Pipeline (Temperature + Top-k + Top-p)",
+   "pdf_pages": [
+    182,
+    183
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 388,
+   "title": "Beam Search Decoding",
+   "pdf_pages": [
+    183,
+    183
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 389,
+   "title": "Repetition, Frequency, Presence Penalties and Stop Sequences",
+   "pdf_pages": [
+    183,
+    184
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 390,
+   "title": "Grammar-Constrained Token Masking",
+   "pdf_pages": [
+    184,
+    184
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 391,
+   "title": "KV Cache for Efficient Autoregressive Attention",
+   "pdf_pages": [
+    184,
+    185
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 392,
+   "title": "Pre-allocated Sliding KV Cache Update",
+   "pdf_pages": [
+    185,
+    185
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 393,
+   "title": "Building a Virtual Memory System for KV Cache",
+   "pdf_pages": [
+    185,
+    185
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 394,
+   "title": "Copy-on-Write Memory Sharing for LLM Sampling",
+   "pdf_pages": [
+    185,
+    186
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 395,
+   "title": "Radix Prefix-Tree KV Cache Lookup",
+   "pdf_pages": [
+    186,
+    186
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 396,
+   "title": "KV Cache Memory Budget and Eviction Policy",
+   "pdf_pages": [
+    186,
+    187
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 397,
+   "title": "Implement Speculative Decoding Verification",
+   "pdf_pages": [
+    187,
+    187
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 398,
+   "title": "Speculative Decoding End-to-End Simulation",
+   "pdf_pages": [
+    187,
+    188
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 399,
+   "title": "Tree Speculative Verification",
+   "pdf_pages": [
+    188,
+    188
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 400,
+   "title": "Continuous Batching (In-Flight Batching) Simulator",
+   "pdf_pages": [
+    188,
+    189
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 401,
+   "title": "Chunked Prefill Scheduling Alongside Decode",
+   "pdf_pages": [
+    189,
+    189
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 402,
+   "title": "Cache-Aware Request Routing Across Replicas",
+   "pdf_pages": [
+    189,
+    190
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 403,
+   "title": "Disaggregated Prefill-Decode Serving Simulator",
+   "pdf_pages": [
+    190,
+    190
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 404,
+   "title": "KV Cache Size Estimator for MLA vs MHA vs GQA",
+   "pdf_pages": [
+    190,
+    190
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 405,
+   "title": "Compute TTFT ITL and TPS from a Token Timestamp Stream",
+   "pdf_pages": [
+    190,
+    191
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 406,
+   "title": "Calculate P50/P95/P99 Latency Percentiles",
+   "pdf_pages": [
+    191,
+    191
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 407,
+   "title": "Goodput vs Throughput under a P99 SLA",
+   "pdf_pages": [
+    191,
+    192
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 408,
+   "title": "Implement INT8 Quantization",
+   "pdf_pages": [
+    192,
+    192
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 409,
+   "title": "Asymmetric Uniform Quantization with Zero-Point",
+   "pdf_pages": [
+    192,
+    192
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 410,
+   "title": "Post-Training Quantization with Per-Channel Scale Factors",
+   "pdf_pages": [
+    192,
+    193
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 411,
+   "title": "Quantization Scale Calibration (AbsMax and Percentile)",
+   "pdf_pages": [
+    193,
+    193
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 412,
+   "title": "INT4 Pack/Unpack and Weight-Only W4A16 Matmul",
+   "pdf_pages": [
+    193,
+    194
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 413,
+   "title": "Simplified GPTQ: Sequential Quantization with Error Compensation",
+   "pdf_pages": [
+    194,
+    194
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 414,
+   "title": "NF4 Quantization (NormalFloat4)",
+   "pdf_pages": [
+    194,
+    195
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 415,
+   "title": "Double Quantization of Scales",
+   "pdf_pages": [
+    195,
+    195
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 416,
+   "title": "Block-wise FP8 Quantization",
+   "pdf_pages": [
+    195,
+    196
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 417,
+   "title": "SmoothQuant: Migration Scales for W8A8",
+   "pdf_pages": [
+    196,
+    196
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 418,
+   "title": "Fake Quantization with Straight-Through Estimator",
+   "pdf_pages": [
+    196,
+    197
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 419,
+   "title": "INT8 KV-Cache Quantize and Dequantize",
+   "pdf_pages": [
+    197,
+    198
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 420,
+   "title": "Simulate DDP All-Reduce Gradient Averaging",
+   "pdf_pages": [
+    198,
+    198
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 421,
+   "title": "Tensor Parallelism All-Reduce Communication Cost",
+   "pdf_pages": [
+    198,
+    198
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 422,
+   "title": "Expert Parallelism Token Routing and Communication Cost",
+   "pdf_pages": [
+    198,
+    199
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 423,
+   "title": "Pipeline Parallelism Bubble Ratio Calculator",
+   "pdf_pages": [
+    199,
+    199
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 424,
+   "title": "Computing Optimal Model Size with Scaling Laws",
+   "pdf_pages": [
+    199,
+    200
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 425,
+   "title": "Designing 4D Parallelism for Large Model Training",
+   "pdf_pages": [
+    200,
+    200
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 426,
+   "title": "Model FLOPs Utilization (MFU) Calculator",
+   "pdf_pages": [
+    200,
+    200
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 427,
+   "title": "Roofline Model Analysis for GPU Operations",
+   "pdf_pages": [
+    200,
+    201
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 428,
+   "title": "Compute Attention Memory Traffic and FLOPs",
+   "pdf_pages": [
+    201,
+    201
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 429,
+   "title": "Classify LLM Prefill vs Decode as Compute-Bound or Memory-Bound",
+   "pdf_pages": [
+    201,
+    202
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 430,
+   "title": "Kernel Fusion Memory Savings Calculator",
+   "pdf_pages": [
+    202,
+    203
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 431,
+   "title": "Your First CUDA Kernel: Thread Index",
+   "pdf_pages": [
+    203,
+    203
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 432,
+   "title": "Grid-Stride Loop: Square Each Element",
+   "pdf_pages": [
+    203,
+    203
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 433,
+   "title": "Tiled Matrix Multiply CUDA Kernel",
+   "pdf_pages": [
+    203,
+    204
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 434,
+   "title": "Coalesced Matrix Transpose",
+   "pdf_pages": [
+    204,
+    204
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 435,
+   "title": "Warp Shuffle Reduction",
+   "pdf_pages": [
+    204,
+    205
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 436,
+   "title": "Histogram with Atomic Adds",
+   "pdf_pages": [
+    205,
+    205
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 437,
+   "title": "Fused Row-wise Softmax CUDA Kernel",
+   "pdf_pages": [
+    205,
+    206
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 438,
+   "title": "Fused RMSNorm CUDA Kernel",
+   "pdf_pages": [
+    206,
+    206
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 439,
+   "title": "Tiled Flash Attention",
+   "pdf_pages": [
+    206,
+    207
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 440,
+   "title": "Triton: Vector Addition Kernel",
+   "pdf_pages": [
+    207,
+    207
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 441,
+   "title": "Triton: Row-wise Sum",
+   "pdf_pages": [
+    207,
+    208
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 442,
+   "title": "Triton: Numerically Stable Fused Softmax",
+   "pdf_pages": [
+    208,
+    208
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 443,
+   "title": "Triton: Block Matrix Multiplication",
+   "pdf_pages": [
+    208,
+    209
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 444,
+   "title": "Triton: Low-Memory Dropout with Seeded RNG",
+   "pdf_pages": [
+    209,
+    210
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 445,
+   "title": "Implement FlashAttention forward in Triton",
+   "pdf_pages": [
+    210,
+    211
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 446,
+   "title": "Implement LayerNorm backward in Triton",
+   "pdf_pages": [
+    211,
+    212
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 447,
+   "title": "Compute Discounted Return",
+   "pdf_pages": [
+    212,
+    212
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 448,
+   "title": "Bellman Expectation Equation for State-Value Function",
+   "pdf_pages": [
+    212,
+    212
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 449,
+   "title": "Implement the Bellman Equation for Value Iteration",
+   "pdf_pages": [
+    212,
+    213
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 450,
+   "title": "Policy Iteration for Markov Decision Processes",
+   "pdf_pages": [
+    213,
+    213
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 451,
+   "title": "Implement Q-Learning Algorithm for MDPs",
+   "pdf_pages": [
+    213,
+    214
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 452,
+   "title": "Implement the SARSA Algorithm on policy",
+   "pdf_pages": [
+    214,
+    215
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 453,
+   "title": "First-Visit Monte Carlo Prediction",
+   "pdf_pages": [
+    215,
+    215
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 454,
+   "title": "TD(\u03bb) with Eligibility Traces",
+   "pdf_pages": [
+    215,
+    216
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 455,
+   "title": "Epsilon-Greedy Action Selection for n-Armed Bandit",
+   "pdf_pages": [
+    216,
+    216
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 456,
+   "title": "Upper Confidence Bound (UCB) Action Selection",
+   "pdf_pages": [
+    216,
+    216
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 457,
+   "title": "Thompson Sampling (Beta-Bernoulli)",
+   "pdf_pages": [
+    216,
+    217
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 458,
+   "title": "Deep Q-Network Implementation",
+   "pdf_pages": [
+    217,
+    217
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 459,
+   "title": "Prioritized Experience Replay",
+   "pdf_pages": [
+    217,
+    218
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 460,
+   "title": "Policy Gradient with REINFORCE",
+   "pdf_pages": [
+    218,
+    218
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 461,
+   "title": "Compute GAE Advantages with Episode Boundaries",
+   "pdf_pages": [
+    218,
+    219
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 462,
+   "title": "PPO Clipped Surrogate Loss with Clip Diagnostics",
+   "pdf_pages": [
+    219,
+    219
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 463,
+   "title": "Monte Carlo Tree Search",
+   "pdf_pages": [
+    219,
+    220
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 464,
+   "title": "PUCT Selection Rule for MCTS",
+   "pdf_pages": [
+    220,
+    221
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 465,
+   "title": "Build AlphaZero Training Targets from Self-Play",
+   "pdf_pages": [
+    221,
+    221
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 466,
+   "title": "AlphaZero Policy and Value Loss",
+   "pdf_pages": [
+    221,
+    222
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 467,
+   "title": "Autoencoder Forward Pass",
+   "pdf_pages": [
+    222,
+    222
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 468,
+   "title": "Reparameterization Trick and the VAE Prior KL",
+   "pdf_pages": [
+    222,
+    222
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 469,
+   "title": "Implement Variational Autoencoder (VAE) Loss (ELBO)",
+   "pdf_pages": [
+    222,
+    223
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 470,
+   "title": "Build a VQ-VAE from Scratch",
+   "pdf_pages": [
+    223,
+    224
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 471,
+   "title": "Vector Quantization with Straight-Through Gradients",
+   "pdf_pages": [
+    224,
+    224
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 472,
+   "title": "Train a Simple GAN on 1D Gaussian Data",
+   "pdf_pages": [
+    224,
+    226
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 473,
+   "title": "Implement Wasserstein Critic Loss",
+   "pdf_pages": [
+    226,
+    226
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 474,
+   "title": "Forward Diffusion Process",
+   "pdf_pages": [
+    226,
+    226
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 475,
+   "title": "DDPM Noise Schedule (Linear Beta Schedule)",
+   "pdf_pages": [
+    226,
+    227
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 476,
+   "title": "Implement DDPM Reverse Sampling Step",
+   "pdf_pages": [
+    227,
+    227
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 477,
+   "title": "Classifier-Free Guidance for Conditional Diffusion",
+   "pdf_pages": [
+    227,
+    227
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 478,
+   "title": "DDIM Deterministic Sampling Step",
+   "pdf_pages": [
+    227,
+    228
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 479,
+   "title": "Diffusion Cosine Noise Schedule",
+   "pdf_pages": [
+    228,
+    228
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 480,
+   "title": "Training a Rectified Flow Diffusion Model",
+   "pdf_pages": [
+    228,
+    228
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 481,
+   "title": "Euler Sampling for Rectified Flow Models",
+   "pdf_pages": [
+    228,
+    229
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 482,
+   "title": "CLIP Cosine Retrieval",
+   "pdf_pages": [
+    229,
+    229
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 483,
+   "title": "Frechet Inception Distance (FID) for Image Quality Evaluation",
+   "pdf_pages": [
+    229,
+    230
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 484,
+   "title": "Compute PSNR for Image Reconstruction Quality",
+   "pdf_pages": [
+    230,
+    231
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 485,
+   "title": "BM25 Ranking",
+   "pdf_pages": [
+    231,
+    231
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 486,
+   "title": "Text Chunking",
+   "pdf_pages": [
+    231,
+    232
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 487,
+   "title": "Precision and Recall at K",
+   "pdf_pages": [
+    232,
+    232
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 488,
+   "title": "NDCG (Normalized Discounted Cumulative Gain)",
+   "pdf_pages": [
+    232,
+    232
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 489,
+   "title": "User-Based CF Prediction",
+   "pdf_pages": [
+    232,
+    233
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 490,
+   "title": "Item-Based CF Prediction",
+   "pdf_pages": [
+    233,
+    233
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 491,
+   "title": "Matrix Factorization SGD Step",
+   "pdf_pages": [
+    233,
+    234
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 492,
+   "title": "Implement Graph Convolution Network (GCN) Layer",
+   "pdf_pages": [
+    234,
+    234
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 493,
+   "title": "Lag Features",
+   "pdf_pages": [
+    234,
+    234
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 494,
+   "title": "Differencing",
+   "pdf_pages": [
+    234,
+    235
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 495,
+   "title": "Simple Moving Average",
+   "pdf_pages": [
+    235,
+    235
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 496,
+   "title": "Exponential Moving Average",
+   "pdf_pages": [
+    235,
+    235
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 497,
+   "title": "Naive and Seasonal-Naive Forecast Baselines",
+   "pdf_pages": [
+    235,
+    236
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 498,
+   "title": "Windowed Time-Series Dataset with Multi-Step Targets",
+   "pdf_pages": [
+    236,
+    236
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 499,
+   "title": "Purged Walk-Forward Cross-Validation",
+   "pdf_pages": [
+    236,
+    236
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 500,
+   "title": "Detect Look-Ahead Bias in a Feature Pipeline",
+   "pdf_pages": [
+    236,
+    238
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 501,
+   "title": "Produce global and local image views",
+   "pdf_pages": [
+    238,
+    238
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 502,
+   "title": "Center and sharpen teacher targets",
+   "pdf_pages": [
+    238,
+    239
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 503,
+   "title": "Implement cross-view DINO loss",
+   "pdf_pages": [
+    239,
+    239
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 504,
+   "title": "Update a distributed teacher center",
+   "pdf_pages": [
+    239,
+    240
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 505,
+   "title": "Build the DINO projection head",
+   "pdf_pages": [
+    240,
+    240
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 506,
+   "title": "Detect representation collapse",
+   "pdf_pages": [
+    240,
+    241
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 507,
+   "title": "Weighted k-NN evaluation of frozen features",
+   "pdf_pages": [
+    241,
+    241
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 508,
+   "title": "Implement the BYOL objective for comparison",
+   "pdf_pages": [
+    241,
+    242
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 509,
+   "title": "Implement the original-DINO training step",
+   "pdf_pages": [
+    242,
+    244
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 510,
+   "title": "Convert patch tokens to a spatial feature map",
+   "pdf_pages": [
+    244,
+    244
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 511,
+   "title": "Implement PixelShuffle and its inverse",
+   "pdf_pages": [
+    244,
+    245
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 512,
+   "title": "Generate aligned super-resolution training pairs",
+   "pdf_pages": [
+    245,
+    245
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 513,
+   "title": "Repair the patch-grid-to-image resolution budget",
+   "pdf_pages": [
+    245,
+    246
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 514,
+   "title": "Predict residuals for SR and enhancement",
+   "pdf_pages": [
+    246,
+    246
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 515,
+   "title": "Insert Q/V-only LoRA into a fused QKV layer",
+   "pdf_pages": [
+    246,
+    247
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 516,
+   "title": "Compute a perceptual feature loss with correct gradients",
+   "pdf_pages": [
+    247,
+    247
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 517,
+   "title": "Implement local-window SSIM",
+   "pdf_pages": [
+    247,
+    248
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 518,
+   "title": "Stitch overlapping restoration tiles",
+   "pdf_pages": [
+    248,
+    249
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 519,
+   "title": "Build a shifted-window attention mask",
+   "pdf_pages": [
+    249,
+    249
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 520,
+   "title": "Implement a dense residual group",
+   "pdf_pages": [
+    249,
+    250
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 521,
+   "title": "Combine masked multi-task losses",
+   "pdf_pages": [
+    250,
+    250
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 522,
+   "title": "Build a small shared-encoder restoration model",
+   "pdf_pages": [
+    250,
+    252
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 523,
+   "title": "Compute batched cosine retrieval scores",
+   "pdf_pages": [
+    252,
+    252
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 524,
+   "title": "Find exact top-k neighbors in chunks",
+   "pdf_pages": [
+    252,
+    253
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 525,
+   "title": "Implement ColBERT MaxSim with masks",
+   "pdf_pages": [
+    253,
+    253
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 526,
+   "title": "Project visual features through a GLU",
+   "pdf_pages": [
+    253,
+    254
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 527,
+   "title": "Implement a nonnegative sparse image encoder",
+   "pdf_pages": [
+    254,
+    254
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 528,
+   "title": "Implement SPLADE-style pooling and sparsity penalties",
+   "pdf_pages": [
+    254,
+    255
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 529,
+   "title": "Build an inverted index from sparse vectors",
+   "pdf_pages": [
+    255,
+    255
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 530,
+   "title": "Score sparse queries using postings",
+   "pdf_pages": [
+    255,
+    255
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 531,
+   "title": "Mine hard negatives without false-negative leakage",
+   "pdf_pages": [
+    255,
+    256
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 532,
+   "title": "Implement multi-positive in-batch contrastive loss",
+   "pdf_pages": [
+    256,
+    256
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 533,
+   "title": "Evaluate nearest-neighbor retrieval and classification separately",
+   "pdf_pages": [
+    256,
+    257
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 534,
+   "title": "Train nested embedding prefixes",
+   "pdf_pages": [
+    257,
+    257
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 535,
+   "title": "Encode, index, and search a tiny sparse corpus",
+   "pdf_pages": [
+    257,
+    259
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 536,
+   "title": "Implement reciprocal rank, AP, MRR, and MAP",
+   "pdf_pages": [
+    259,
+    259
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 537,
+   "title": "Build valid query-group arrays",
+   "pdf_pages": [
+    259,
+    260
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 538,
+   "title": "Implement reciprocal-rank fusion",
+   "pdf_pages": [
+    260,
+    260
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 539,
+   "title": "Implement pairwise RankNet loss",
+   "pdf_pages": [
+    260,
+    261
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 540,
+   "title": "Learn and aggregate token impacts",
+   "pdf_pages": [
+    261,
+    261
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 541,
+   "title": "Rerank candidates using specified MRF features",
+   "pdf_pages": [
+    261,
+    261
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 542,
+   "title": "Implement LambdaRank pseudo-gradients",
+   "pdf_pages": [
+    261,
+    262
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 543,
+   "title": "Implement a DCN-V2 cross layer",
+   "pdf_pages": [
+    262,
+    262
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 544,
+   "title": "Diagnose the retrieval ceiling of a reranker",
+   "pdf_pages": [
+    262,
+    263
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 545,
+   "title": "Build and evaluate a two-stage ranking pipeline",
+   "pdf_pages": [
+    263,
+    265
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 546,
+   "title": "Implement pooled WAPE and contrast it with mean group WAPE",
+   "pdf_pages": [
+    265,
+    265
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 547,
+   "title": "Aggregate noisy sessions deterministically",
+   "pdf_pages": [
+    265,
+    266
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 548,
+   "title": "Construct a quarter-consistent panel",
+   "pdf_pages": [
+    266,
+    267
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 549,
+   "title": "Perform an as-of feature join",
+   "pdf_pages": [
+    267,
+    267
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 550,
+   "title": "Apply historical price-band thresholds",
+   "pdf_pages": [
+    267,
+    268
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 551,
+   "title": "Implement a demand-gap gate",
+   "pdf_pages": [
+    268,
+    268
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 552,
+   "title": "Evaluate quantile forecasts",
+   "pdf_pages": [
+    268,
+    269
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 553,
+   "title": "Write a rolling-origin forecast evaluator",
+   "pdf_pages": [
+    269,
+    270
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 554,
+   "title": "Compute mergeable forecast metric statistics",
+   "pdf_pages": [
+    270,
+    270
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 555,
+   "title": "Build a small leakage-resistant gap forecast benchmark",
+   "pdf_pages": [
+    270,
+    273
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 556,
+   "title": "Batch a task-specific adapter library",
+   "pdf_pages": [
+    273,
+    273
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 557,
+   "title": "Merge weighted LoRA updates correctly",
+   "pdf_pages": [
+    273,
+    274
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 558,
+   "title": "Route by adapter subspace affinity",
+   "pdf_pages": [
+    274,
+    274
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 559,
+   "title": "Mix adapter outputs per token",
+   "pdf_pages": [
+    274,
+    274
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 560,
+   "title": "Temperature-sample tasks with unequal sizes",
+   "pdf_pages": [
+    274,
+    275
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 561,
+   "title": "Pack instruction examples without cross-task leakage",
+   "pdf_pages": [
+    275,
+    276
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 562,
+   "title": "Accumulate unequal micro-batches by valid tokens",
+   "pdf_pages": [
+    276,
+    276
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 563,
+   "title": "Estimate optimizer-state memory under ZeRO",
+   "pdf_pages": [
+    276,
+    278
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 564,
+   "title": "Compute per-example gradients",
+   "pdf_pages": [
+    278,
+    278
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 565,
+   "title": "Clip each example by its joint gradient norm",
+   "pdf_pages": [
+    278,
+    279
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 566,
+   "title": "Generate Poisson-sampled batches",
+   "pdf_pages": [
+    279,
+    279
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 567,
+   "title": "Implement noisy clipped-gradient aggregation",
+   "pdf_pages": [
+    279,
+    279
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 568,
+   "title": "Compute a GLISTER-style one-step utility",
+   "pdf_pages": [
+    279,
+    280
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 569,
+   "title": "Implement facility-location greedy selection",
+   "pdf_pages": [
+    280,
+    280
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 570,
+   "title": "Sample with the exponential mechanism",
+   "pdf_pages": [
+    280,
+    281
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 571,
+   "title": "Compose selection and training privacy budgets",
+   "pdf_pages": [
+    281,
+    281
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 572,
+   "title": "Search noise multipliers using an accountant interface",
+   "pdf_pages": [
+    281,
+    282
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 573,
+   "title": "Run a selected-subset DP-SGD step",
+   "pdf_pages": [
+    282,
+    284
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 574,
+   "title": "Extract frozen BERT features with masked pooling",
+   "pdf_pages": [
+    284,
+    284
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 575,
+   "title": "Build a supervised compression bottleneck",
+   "pdf_pages": [
+    284,
+    285
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 576,
+   "title": "Add a reconstruction branch to the bottleneck",
+   "pdf_pages": [
+    285,
+    285
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 577,
+   "title": "Distinguish additive noise from a variational bottleneck",
+   "pdf_pages": [
+    285,
+    285
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 578,
+   "title": "Convert raw CT values into normalized windows",
+   "pdf_pages": [
+    285,
+    286
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 579,
+   "title": "Split scans by patient before extracting slices",
+   "pdf_pages": [
+    286,
+    286
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 580,
+   "title": "Transform segmentation images and masks together",
+   "pdf_pages": [
+    286,
+    287
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 581,
+   "title": "Implement a small complete U-Net",
+   "pdf_pages": [
+    287,
+    288
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 582,
+   "title": "Evaluate segmentation per patient and globally",
+   "pdf_pages": [
+    288,
+    289
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 583,
+   "title": "Validate synthetic augmentation provenance and patient splits",
+   "pdf_pages": [
+    289,
+    290
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 584,
+   "title": "Deduplicate repair candidates",
+   "pdf_pages": [
+    290,
+    290
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 585,
+   "title": "Implement budgeted tree-of-thought search",
+   "pdf_pages": [
+    290,
+    291
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 586,
+   "title": "Implement a structured verifier adapter",
+   "pdf_pages": [
+    291,
+    291
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 587,
+   "title": "Calculate repair success with explicit denominators",
+   "pdf_pages": [
+    291,
+    292
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 588,
+   "title": "Implement a checkpointed workflow state machine",
+   "pdf_pages": [
+    292,
+    294
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 589,
+   "title": "Make tool effects idempotent",
+   "pdf_pages": [
+    294,
+    294
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 590,
+   "title": "Implement retry delays and a circuit-breaker state machine",
+   "pdf_pages": [
+    294,
+    295
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 591,
+   "title": "Validate versioned approval arguments",
+   "pdf_pages": [
+    295,
+    296
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 592,
+   "title": "Test recovery at every effect/checkpoint boundary",
+   "pdf_pages": [
+    296,
+    297
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 593,
+   "title": "Implement a sequential Count-Min Sketch",
+   "pdf_pages": [
+    297,
+    298
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 594,
+   "title": "Merge sketches and maintain candidate TopK",
+   "pdf_pages": [
+    298,
+    298
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 595,
+   "title": "Implement exact integer token billing",
+   "pdf_pages": [
+    298,
+    299
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 596,
+   "title": "Reserve and settle an in-memory tenant budget",
+   "pdf_pages": [
+    299,
+    300
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 597,
+   "title": "Parse an SSE stream incrementally",
+   "pdf_pages": [
+    300,
+    300
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 598,
+   "title": "Route requests and fail over streamed responses",
+   "pdf_pages": [
+    300,
+    301
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 599,
+   "title": "Build an isolated inference-cache key",
+   "pdf_pages": [
+    301,
+    302
+   ],
+   "title_match": true,
+   "code_match": true
+  },
+  {
+   "id": 600,
+   "title": "Implement a price-time-priority matching engine",
+   "pdf_pages": [
+    302,
+    304
+   ],
+   "title_match": true,
+   "code_match": true
+  }
+ ]
+}

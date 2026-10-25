@@ -1,0 +1,1 @@
+{"id":368,"language":"Python","code":"import numpy as np\n\n\ndef q368(policy_logp, reference_logp):\n    difference = np.asarray(reference_logp) - policy_logp\n    return np.expm1(difference) - difference\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,1 @@
+{"id":12,"language":"Python","code":"def q012(frame, column):\n    return frame[column].agg([\"count\", \"mean\", \"min\", \"max\", \"std\"])\n","answer":"","content_kind":"coding"}

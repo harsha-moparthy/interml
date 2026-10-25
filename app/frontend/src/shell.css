@@ -1,0 +1,63 @@
+/* App shell and base controls. Loaded after styles.css, so these rules refine the older ones. */
+
+/* ---- base controls ---- */
+body { font-family: var(--font-ui); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+input, select, button, textarea { font: inherit; }
+button, input, select { border-radius: var(--radius-2); border-color: var(--color-line); background: var(--color-surface); transition: background var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast); }
+button:not(:disabled) { cursor: pointer; }
+button:not(:disabled):hover { border-color: var(--color-accent); }
+input:hover, select:hover { border-color: color-mix(in srgb, var(--color-accent) 50%, var(--color-line)); }
+:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+button.linklike { border: 0; background: none; padding: 0; color: var(--color-accent); text-decoration: underline; }
+kbd { font-family: var(--font-mono); font-size: .8em; border: 1px solid var(--color-line); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--color-surface); color: var(--color-muted); }
+
+/* ---- skip link ---- */
+.skip { position: absolute; left: var(--space-3); top: -4rem; z-index: 100; padding: var(--space-2) var(--space-4); border-radius: var(--radius-2); background: var(--color-accent); color: var(--color-bg); }
+.skip:focus { top: var(--space-3); }
+
+/* ---- header ---- */
+.appbar { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--color-bg) 88%, transparent); backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--color-line); }
+.appbar-inner { max-width: 1100px; margin: 0 auto; padding: var(--space-2) var(--space-4); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); }
+.brand { font-family: var(--font-read); font-weight: 700; font-size: 1.1rem; letter-spacing: -.01em; color: var(--color-heading); text-decoration: none; margin-right: auto; }
+.appnav { display: flex; align-items: center; gap: var(--space-3); }
+.appnav a { color: var(--color-fg); text-decoration: none; padding: 4px 8px; border-radius: var(--radius-1); }
+.appnav a:hover { background: var(--color-accent-bg); }
+.appnav a[aria-current=page] { color: var(--color-accent); font-weight: 700; }
+.searchentry { display: inline-flex; align-items: center; gap: var(--space-2); padding: 5px 10px; color: var(--color-muted); }
+.searchentry:hover { color: var(--color-fg); }
+.appnav .linklike { text-decoration: none; padding: 3px 9px; border: 1px solid var(--color-line); border-radius: var(--radius-pill); color: var(--color-muted); }
+.themeswitch { display: inline-flex; border: 1px solid var(--color-line); border-radius: var(--radius-pill); padding: 2px; background: var(--color-surface); }
+.themeswitch button { border: 0; border-radius: var(--radius-pill); padding: 3px 11px; font-size: var(--fs-sm); background: transparent; color: var(--color-muted); }
+.themeswitch button[aria-pressed=true] { background: var(--color-accent); color: var(--color-bg); font-weight: 600; }
+@media (max-width: 560px) { .appbar-inner { gap: var(--space-1) var(--space-3); } .brand { flex: 1 1 auto; margin-right: 0; font-size: 1rem; white-space: nowrap; } .themeswitch { order: 2; } .themeswitch button { padding: 3px 8px; } .appnav { order: 3; flex: 1 1 100%; } }
+
+/* ---- storage notice ---- */
+.notice { max-width: 1100px; margin: var(--space-3) auto 0; padding: var(--space-2) var(--space-4); background: var(--color-warn-bg); border-radius: var(--radius-2); font-size: var(--fs-sm); display: flex; gap: var(--space-3); align-items: baseline; justify-content: space-between; box-sizing: border-box; }
+@media (max-width: 1130px) { .notice { margin-inline: var(--space-4); } }
+
+/* ---- shortcut help ---- */
+.helpdialog { border: 1px solid var(--color-line); border-radius: var(--radius-3); background: var(--color-surface); color: var(--color-fg); padding: var(--space-5); max-width: min(30rem, calc(100vw - 2rem)); box-shadow: var(--shadow-2); }
+.helpdialog::backdrop { background: rgba(10, 14, 20, .55); }
+.helpdialog h2 { margin: 0 0 var(--space-3); }
+.helpdialog dl { margin: 0 0 var(--space-3); display: grid; gap: var(--space-2); }
+.helpdialog dl > div { display: grid; grid-template-columns: 6rem 1fr; gap: var(--space-3); align-items: baseline; }
+.helpdialog dt { display: flex; gap: 4px; flex-wrap: wrap; }
+.helpdialog dd { margin: 0; }
+
+/* ---- print: the header and shell controls never print ---- */
+@media print { .appbar, .skip, .notice, .helpdialog { display: none !important; } }
+
+/* ---- waiting, empty and failed states ---- */
+.skeleton { display: grid; gap: var(--space-3); margin: var(--space-5) 0; }
+.skeleton-title, .skeleton-line { display: block; height: .9rem; width: var(--w, 90%); border-radius: var(--radius-1); background: linear-gradient(90deg, var(--color-surface-2) 25%, color-mix(in srgb, var(--color-line) 60%, var(--color-surface-2)) 50%, var(--color-surface-2) 75%); background-size: 200% 100%; animation: skeleton-shimmer 1.4s linear infinite; }
+.skeleton-title { height: 2rem; width: 55%; margin-bottom: var(--space-2); }
+.skeleton-list .skeleton-line { height: 3.2rem; width: 100%; border-radius: var(--radius-2); }
+@keyframes skeleton-shimmer { to { background-position: -200% 0; } }
+.empty { text-align: center; padding: var(--space-6) var(--space-4); border: 1px dashed var(--color-line); border-radius: var(--radius-3); color: var(--color-muted); }
+.empty h2 { margin: 0 0 var(--space-2); color: var(--color-fg); }
+.empty p { margin: 0; }
+.error-notice { margin: var(--space-4) 0; padding: var(--space-3) var(--space-4); border: 1px solid var(--color-err); border-left-width: 4px; border-radius: var(--radius-2); background: var(--color-surface); }
+.error-notice p { margin: 0 0 var(--space-2); color: var(--color-err); }
+.error-notice p.sub { color: var(--color-muted); }
+.error-notice button { margin-top: var(--space-1); }
+@media print { .skeleton { display: none; } }

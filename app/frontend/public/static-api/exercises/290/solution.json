@@ -1,0 +1,1 @@
+{"id":290,"language":"Python","code":"from collections import Counter\n\n\ndef q290(tokens, min_count=1):\n    counts = Counter(tokens)\n    ordered = sorted(\n        (t for t, c in counts.items() if c >= min_count),\n        key=lambda t: (-counts[t], t),\n    )\n    return ({token: i for i, token in enumerate(ordered)}, ordered)\n","answer":"","content_kind":"coding"}

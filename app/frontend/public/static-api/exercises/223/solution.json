@@ -1,0 +1,1 @@
+{"id":223,"language":"Python","code":"import math\n\n\ndef softmax(scores: list[float]) -> list[float]:\n    exp_scores = [math.exp(score) for score in scores]\n    sum_exp_scores = sum(exp_scores)\n    probabilities = [\n        round(score / sum_exp_scores, 4) for score in exp_scores\n    ]\n    return probabilities\n","answer":"","content_kind":"coding"}

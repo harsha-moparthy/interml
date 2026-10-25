@@ -1,0 +1,56 @@
+{
+ "id": "attention-masks",
+ "kind": "prerequisite",
+ "title": "Attention masks",
+ "revision": 1,
+ "review_state": "complete",
+ "blocks": [
+  {
+   "type": "paragraph",
+   "text": "A mask tells attention which positions it may use. Masked positions get a score of $-\\infty$ before softmax. Then $e^{-\\infty} = 0$, so they get weight 0, and the other weights still add up to 1."
+  },
+  {
+   "type": "table",
+   "header": [
+    "Kind of mask",
+    "Shape of the allowed array",
+    "What it hides"
+   ],
+   "rows": [
+    [
+     "Padding (source) mask",
+     "`(B, S)` then broadcast to `(B, 1, 1, S)`",
+     "Padding tokens in the source"
+    ],
+    [
+     "Causal mask",
+     "`(L, L)` lower triangle",
+     "Future tokens"
+    ],
+    [
+     "Document mask",
+     "`(L, L)` block diagonal",
+     "Tokens of other documents"
+    ]
+   ]
+  },
+  {
+   "type": "paragraph",
+   "text": "Example: scores (2, 1, 0.5) with the last position masked give weights (0.7311, 0.2689, 0). The masked position has weight exactly 0."
+  },
+  {
+   "type": "callout",
+   "kind": "mistake",
+   "text": "Adding a large negative number (such as -1e9) works in most cases. Setting the score to $-\\infty$ and using a max-shifted softmax is cleaner. If **all** positions are masked, the result is `nan` unless you handle it. Question 328 returns zeros for such rows."
+  },
+  {
+   "type": "callout",
+   "kind": "boundary",
+   "text": "A mask applies on the **source** axis for cross-attention. For a source of length `S`, the mask has length `S`, not the query length `L`."
+  }
+ ],
+ "prerequisites": [
+  "softmax",
+  "scaled-dot-product-attention"
+ ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "dot-products-and-matmul",
+  "kind": "prerequisite",
+  "title": "Dot products and matrix products",
+  "revision": 3,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "A **dot product** multiplies two vectors entry by entry and adds the results. For $u, v \\in \\mathbb{R}^d$: $u \\cdot v = \\sum_{k=1}^{d} u_k v_k$. The result is one number. It is large when the vectors point in a similar direction."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Shapes"
+    },
+    {
+      "type": "paragraph",
+      "text": "If $A$ has shape $(n, d)$ and $B$ has shape $(d, m)$, then $AB$ has shape $(n, m)$. The inner sizes must match. Entry $(i, j)$ of $AB$ is the dot product of row $i$ of $A$ with column $j$ of $B$."
+    },
+    {
+      "type": "equation",
+      "latex": "(AB)_{ij} = \\sum_{k=1}^{d} A_{ik} B_{kj}"
+    },
+    {
+      "type": "callout",
+      "kind": "mistake",
+      "text": "In attention, scores are `Q @ K.T`. The transpose turns the rows of `K` into columns. Without it the inner sizes do not match."
+    }
+  ],
+  "prerequisites": [
+    "arrays-and-shapes"
+  ],
+  "demonstrations": []
+}

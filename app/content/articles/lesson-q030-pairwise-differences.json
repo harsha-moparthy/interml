@@ -1,0 +1,391 @@
+{
+  "id": "lesson-q030-pairwise-differences",
+  "kind": "lesson",
+  "title": "Pairwise differences with broadcasting",
+  "revision": 11,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The puzzle"
+    },
+    {
+      "type": "paragraph",
+      "text": "You have `n` points in a list `x` and `m` points in a list `y`. Each point has `d` numbers. You want the difference `x[i] - y[j]` for **every** pair `(i, j)`. That is `n × m` differences."
+    },
+    {
+      "type": "paragraph",
+      "text": "A loop is easy to write. NumPy can do all pairs in one line, with no loop. This lesson shows why that line works."
+    },
+    {
+      "type": "image",
+      "path": "lesson-q030-pairwise-differences/pairs.svg",
+      "caption": "Two x points and three y points give six differences. The result has one vector per arrow."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Watch it happen in 3D"
+    },
+    {
+      "type": "paragraph",
+      "text": "Press **Play**. `x` stands on the left wall and `y` hangs from the ceiling. Copies slide into a box, and every pair fuses into one result cube. Drag the picture to rotate it. Scroll to zoom. Click a cube to see which inputs made it. Use the chapter buttons to replay one part."
+    },
+    {
+      "type": "paragraph",
+      "text": "If you prefer to read, open **Text version** under the animation. It lists every chapter and lets you select numbers without the 3D view."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What the question asks"
+    },
+    {
+      "type": "paragraph",
+      "text": "For feature matrices X of shape (n,d) and Y of shape (m,d), return pairwise differences of shape (n,m,d)."
+    },
+    {
+      "type": "callout",
+      "kind": "definition",
+      "text": "Input `x` has shape `(n, d)`. Input `y` has shape `(m, d)`. The output has shape `(n, m, d)`, and `out[i, j] = x[i] - y[j]`. Both inputs may be lists. The solution converts them with `np.asarray`.",
+      "title": "Inputs and output"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What you need first"
+    },
+    {
+      "type": "list",
+      "items": [
+        "[[article:arrays-and-shapes|Array shapes and indexing]]: shapes, axes, and the index `None` that inserts an axis.",
+        "[[article:broadcasting|Broadcasting]]: how two shapes combine, and why a size of 1 stretches."
+      ],
+      "ordered": false
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The mathematics"
+    },
+    {
+      "type": "paragraph",
+      "text": "Write the two matrices as $X \\in \\mathbb{R}^{n \\times d}$ and $Y \\in \\mathbb{R}^{m \\times d}$. The result is a three-axis array $D$ with one entry for each triple $(i, j, k)$:"
+    },
+    {
+      "type": "equation",
+      "latex": "D_{i,j,k} = X_{i,k} - Y_{j,k}",
+      "caption": "Index $i$ picks a row of $X$. Index $j$ picks a row of $Y$. Index $k$ picks a feature."
+    },
+    {
+      "type": "list",
+      "items": [
+        "$i$ runs over the $n$ rows of $X$.",
+        "$j$ runs over the $m$ rows of $Y$.",
+        "$k$ runs over the $d$ features. It is shared by both inputs.",
+        "The output has $n \\cdot m \\cdot d$ numbers. For the demo it has $2 \\cdot 3 \\cdot 2 = 12$."
+      ],
+      "ordered": false
+    },
+    {
+      "type": "paragraph",
+      "text": "In shapes, the operation is:"
+    },
+    {
+      "type": "equation",
+      "latex": "(n,\\,1,\\,d) - (1,\\,m,\\,d) \\;\\to\\; (n,\\,m,\\,d)"
+    },
+    {
+      "type": "paragraph",
+      "text": "The squared distance between two rows follows from the result. Sum the squares over $k$: $\\lVert x_i - y_j \\rVert^2 = \\sum_k D_{i,j,k}^2$. This is how many nearest-neighbour and clustering methods compute all distances at once."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "When the shapes do not fit"
+    },
+    {
+      "type": "paragraph",
+      "text": "Now `x` has 3 features and `y` has only 2. Watch where the animation stops."
+    },
+    {
+      "type": "callout",
+      "kind": "mistake",
+      "text": "NumPy reports: `operands could not be broadcast together with shapes (2,1,3) (1,2,2) `. The three numbers per shape are `(n, 1, d)` and `(1, m, d)`. Both inputs must have the same `d`.",
+      "title": "The error message"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Break it, then repair it"
+    },
+    {
+      "type": "paragraph",
+      "text": "Choose a wrong version of the expression. Read the shape table. Then repair the expression. The shapes here are `x` with `(2, 2)` and `y` with `(3, 2)`."
+    },
+    {
+      "type": "callout",
+      "kind": "mistake",
+      "text": "`x - y` can run without an error when `x` and `y` have the same shape. It then subtracts matching rows only and returns shape `(n, d)`. NumPy cannot tell that you wanted all pairs.",
+      "title": "A silent mistake"
+    },
+    {
+      "type": "callout",
+      "kind": "boundary",
+      "text": "If `x` or `y` has no rows (`n = 0` or `m = 0`), the output has shape `(0, m, d)` or `(n, 0, d)`. The expression still works. It returns an empty array."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Does this copy the data?"
+    },
+    {
+      "type": "paragraph",
+      "text": "The two inputs are not copied. Broadcasting reads the same numbers again for each pair. The **result** is a new array with `n × m × d` numbers, so the memory for the result grows with `n × m`. Inserting axes with `None` makes views. Learn about views in [[article:views-and-copies|Views and copies]] and test your understanding with question [[q:27|027]]."
+    },
+    {
+      "type": "paragraph",
+      "text": "For large inputs the result can be too big. With `n = m = 10000` and `d = 128`, the result has about 12.8 billion numbers. If you only need distances, use the identity $\\lVert x - y \\rVert^2 = \\lVert x \\rVert^2 - 2 x \\cdot y + \\lVert y \\rVert^2$ and a matrix product instead."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Read the supplied solution"
+    },
+    {
+      "type": "walkthrough",
+      "exercise_id": 30,
+      "notes": [
+        {
+          "lines": [
+            4,
+            4
+          ],
+          "match": "def q030",
+          "text": "The function takes the two collections of points."
+        },
+        {
+          "lines": [
+            5,
+            5
+          ],
+          "match": "np.asarray(x)",
+          "text": "`np.asarray` accepts lists or arrays and gives an array without copying when it can."
+        },
+        {
+          "lines": [
+            5,
+            5
+          ],
+          "match": "[:, None, :]",
+          "text": "This inserts an axis of size 1 between the rows and the features. `x` becomes `(n, 1, d)`."
+        },
+        {
+          "lines": [
+            5,
+            5
+          ],
+          "match": "- np.asarray(y)[None, :, :]",
+          "text": "This inserts the size-1 axis in front. `y` becomes `(1, m, d)`. The subtraction broadcasts the two shapes to `(n, m, d)`."
+        }
+      ],
+      "title": "Question 030: the whole solution is one line"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Test yourself"
+    },
+    {
+      "type": "check",
+      "id": "predict-shape"
+    },
+    {
+      "type": "check",
+      "id": "new-cell"
+    },
+    {
+      "type": "check",
+      "id": "pick-expression"
+    },
+    {
+      "type": "check",
+      "id": "explain-copy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Write it yourself"
+    },
+    {
+      "type": "playground",
+      "exercise_id": 30
+    },
+    {
+      "type": "paragraph",
+      "text": "When you finish, compare with the walkthrough above. Then read how [[q:30|question 030]] connects to gradients in [[q:108|question 108]], where a broadcast value must be summed back to its original shape."
+    }
+  ],
+  "prerequisites": [
+    "arrays-and-shapes",
+    "broadcasting"
+  ],
+  "exercises": [
+    {
+      "id": 30,
+      "purpose": "deep-lesson",
+      "order": 1
+    },
+    {
+      "id": 27,
+      "purpose": "related",
+      "order": 2
+    }
+  ],
+  "sources": [
+    {
+      "title": "NumPy documentation: Broadcasting",
+      "url": "https://numpy.org/doc/stable/user/basics.broadcasting.html"
+    },
+    {
+      "title": "Question 030 source",
+      "url": "https://www.tensortonic.com/study-plans/numpy-basics/numpy-pairwise-diff"
+    }
+  ],
+  "media": [
+    {
+      "path": "lesson-q030-pairwise-differences/pairs.svg",
+      "description": "Geometry of pairwise differences: 2 x points, 3 y points, 6 difference arrows",
+      "alt_text": "Plot of two x points and three y points on a plane, with an arrow from each y point to each x point. Each arrow is a difference.",
+      "attribution": "Figure generated for this site."
+    }
+  ],
+  "demonstrations": [],
+  "checks": [
+    {
+      "id": "predict-shape",
+      "kind": "prediction",
+      "prompt": "Predict the shape of `x[:, None, :] - y[None, :, :]` when `x` has shape (4, 3) and `y` has shape (5, 3). Do this before you use the demo.",
+      "answer_type": "shape",
+      "explanation": {
+        "correct": "`x[:, None, :]` has shape (4, 1, 3). `y[None, :, :]` has shape (1, 5, 3). The pairs are (4, 1), (1, 5), (3, 3), so the result is (4, 5, 3).",
+        "default": "Insert the axes, then compare from the right: (4, 1, 3) with (1, 5, 3). Each axis takes the larger size of its pair.",
+        "wrong": {
+          "(5, 4, 3)": "That is the shape of the swapped version. `x` supplies axis 0, so its size 4 comes first.",
+          "(4, 3)": "That is the shape of `x`. The result has a new axis for the `y` rows.",
+          "error": "These shapes are compatible. Each pair of sizes is equal or contains a 1."
+        }
+      },
+      "answer": "(4, 5, 3)",
+      "case": {
+        "x": "(4, 3)",
+        "y": "(5, 3)"
+      }
+    },
+    {
+      "id": "new-cell",
+      "kind": "new-case",
+      "prompt": "Use the supplied solution on new data. `x = [[2, 5, 1], [7, 3, 4]]` and `y = [[1, 1, 1], [4, 0, 2]]`. What is `out[1, 0, 1]`?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "`out[1, 0, 1] = x[1][1] - y[0][1] = 3 - 1 = 2`. The first index picks a row of `x`. The second index picks a row of `y`. The third index picks the feature.",
+        "default": "Read the three indices as (row of x, row of y, feature). Here that is `x[1][1] - y[0][1]`.",
+        "wrong": {
+          "-2": "The sign is reversed. The result is `x` minus `y`, not `y` minus `x`.",
+          "5": "You read `x[0]` and `y[1]`. The first index is the row of `x` and the second is the row of `y`."
+        }
+      },
+      "answer": 2,
+      "case": {
+        "x": [
+          [
+            2,
+            5,
+            1
+          ],
+          [
+            7,
+            3,
+            4
+          ]
+        ],
+        "y": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            4,
+            0,
+            2
+          ]
+        ]
+      },
+      "tolerance": 0
+    },
+    {
+      "id": "pick-expression",
+      "kind": "prediction",
+      "prompt": "Which expression gives an array of shape (m, n, d), with `out[j, i] = x[i] - y[j]`?",
+      "answer_type": "choice",
+      "explanation": {
+        "correct": "`x[None, :, :]` has shape (1, n, d) and `y[:, None, :]` has shape (m, 1, d). The result has shape (m, n, d).",
+        "default": "Put the `y` axis first by inserting the new axis for `x` in front.",
+        "wrong": {
+          "x[:, None, :] - y[None, :, :]": "This gives shape (n, m, d), the shape of question 030.",
+          "x - y": "This does not insert axes. It fails or subtracts matching rows.",
+          "x.T - y.T": "The transposes have shapes (d, n) and (d, m). They do not match."
+        }
+      },
+      "answer": "x[None, :, :] - y[:, None, :]",
+      "options": [
+        "x[:, None, :] - y[None, :, :]",
+        "x[None, :, :] - y[:, None, :]",
+        "x - y",
+        "x.T - y.T"
+      ]
+    },
+    {
+      "id": "explain-copy",
+      "kind": "explain-back",
+      "prompt": "In your own words: does the expression copy `y` once for every row of `x`? What does NumPy do instead?",
+      "answer_type": "text",
+      "explanation": {
+        "correct": "No. NumPy does not build a stretched copy of `y`. It reads the same stored numbers again for each position, because a size-1 axis has a stride of zero. Only the result array is new memory."
+      }
+    }
+  ],
+  "playgrounds": [
+    {
+      "exercise_id": 30,
+      "runtime": "pyodide",
+      "time_limit_ms": 10000,
+      "starter_code": "import numpy as np\n\n\ndef pairwise_differences(x, y):\n    # Return an array of shape (n, m, d) with out[i, j] = x[i] - y[j].\n    # Use axis insertion. Do not use a loop.\n    raise NotImplementedError\n",
+      "packages": [
+        "numpy"
+      ],
+      "checks": [
+        {
+          "name": "output shape is (n, m, d)",
+          "code": "r = pairwise_differences(np.zeros((2, 3)), np.zeros((4, 3)))\nassert r.shape == (2, 4, 3), f'shape {r.shape}'"
+        },
+        {
+          "name": "values: out[i, j] = x[i] - y[j]",
+          "code": "x = np.array([[1., 2.], [3., 4.]]); y = np.array([[0., 1.], [1., 1.], [2., 2.]])\nr = pairwise_differences(x, y)\nfor i in range(2):\n    for j in range(3):\n        assert np.array_equal(r[i, j], x[i] - y[j]), f'cell {i},{j}'"
+        },
+        {
+          "name": "accepts lists",
+          "code": "r = pairwise_differences([[1, 2]], [[0, 1], [2, 2]])\nassert np.asarray(r).tolist() == [[[1, 1], [-1, 0]]], np.asarray(r).tolist()"
+        },
+        {
+          "name": "does not change the inputs",
+          "code": "x = np.array([[1., 2.]]); y = np.array([[3., 4.]])\npairwise_differences(x, y)\nassert x.tolist() == [[1., 2.]] and y.tolist() == [[3., 4.]]"
+        }
+      ],
+      "note": "Write `pairwise_differences(x, y)` for question 030. Insert axes so that the shapes broadcast. The checks run after your code.",
+      "max_input_size": 200
+    }
+  ]
+}

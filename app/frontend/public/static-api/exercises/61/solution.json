@@ -1,0 +1,1 @@
+{"id":61,"language":"Python","code":"import numpy as np\n\n\ndef q061(x):\n    x = np.asarray(x, float)\n    flat = x.ravel()\n    return (\n        np.abs(flat).sum(),\n        np.sqrt(flat @ flat),\n        np.abs(flat).max(initial=0),\n        np.sqrt((x * x).sum()),\n    )\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,62 @@
+{
+  "id": "arrays-and-shapes",
+  "kind": "prerequisite",
+  "title": "Array shapes and indexing",
+  "revision": 3,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "An array is a grid of numbers of one type. Its **shape** lists how many numbers lie along each **axis**."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Read a shape"
+    },
+    {
+      "type": "paragraph",
+      "text": "A shape is a tuple. The array `np.zeros((2, 3))` has shape `(2, 3)`. Axis 0 has 2 rows. Axis 1 has 3 columns."
+    },
+    {
+      "type": "paragraph",
+      "text": "Use the demonstration to change the shape. Select a cell to see its index. The index has one number for each axis."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Rules to remember"
+    },
+    {
+      "type": "list",
+      "items": [
+        "The shape `(n, d)` means `n` rows and `d` columns. Many ML arrays use `n` for the number of samples and `d` for the number of features.",
+        "`a[i, j]` reads one number. The index has one entry per axis.",
+        "`a[:, j]` keeps all rows and picks column `j`. The result has one axis fewer.",
+        "`a.reshape(...)` changes the shape but not the order of the numbers."
+      ],
+      "ordered": false
+    },
+    {
+      "type": "callout",
+      "kind": "mistake",
+      "text": "Do not confuse `(3,)` and `(3, 1)`. The first is a flat vector. The second is a column with one number per row. They behave differently when you add them to a matrix."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Insert an axis"
+    },
+    {
+      "type": "paragraph",
+      "text": "Write `None` (or `np.newaxis`) inside an index to insert a new axis of size 1. For example, a vector `v` with shape `(3,)` gives `v[:, None]` with shape `(3, 1)` and `v[None, :]` with shape `(1, 3)`. This is the tool you need for [[article:broadcasting|broadcasting]]."
+    }
+  ],
+  "sources": [
+    {
+      "title": "NumPy documentation: Broadcasting",
+      "url": "https://numpy.org/doc/stable/user/basics.broadcasting.html"
+    }
+  ],
+  "demonstrations": []
+}

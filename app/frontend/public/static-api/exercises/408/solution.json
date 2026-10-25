@@ -1,0 +1,1 @@
+{"id":408,"language":"Python","code":"import numpy as np\n\n\ndef q408(x):\n    x = np.asarray(x, float)\n    maximum = np.max(np.abs(x))\n    scale = maximum / 127 if maximum else 1.0\n    q = np.clip(np.rint(x / scale), -127, 127).astype(np.int8)\n    return (q, scale, q.astype(float) * scale)\n","answer":"","content_kind":"coding"}

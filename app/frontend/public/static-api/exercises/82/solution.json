@@ -1,0 +1,1 @@
+{"id":82,"language":"Python","code":"import numpy as np\n\n\ndef q082(values):\n    n = 0\n    mean = 0.0\n    m2 = 0.0\n    for x in values:\n        n += 1\n        delta = x - mean\n        mean += delta / n\n        m2 += delta * (x - mean)\n    return (n, mean if n else np.nan, m2 / (n - 1) if n > 1 else np.nan)\n","answer":"","content_kind":"coding"}

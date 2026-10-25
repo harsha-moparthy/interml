@@ -1,0 +1,1 @@
+{"id":500,"language":"Python","code":"import numpy as np\n\n\ndef q500(prediction_times, feature_available_times):\n    mask = (\n        np.asarray(feature_available_times)\n        > np.asarray(prediction_times)[:, None]\n    )\n    return (mask, np.flatnonzero(mask.any(axis=1)))\n","answer":"","content_kind":"coding"}

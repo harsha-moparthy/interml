@@ -1,0 +1,1 @@
+{"id":566,"language":"Python","code":"import numpy as np\n\n\ndef q566(population, rate, rng):\n    if population < 0 or not 0 <= rate <= 1:\n        raise ValueError(\"invalid population/rate\")\n    return np.flatnonzero(rng.random(population) < rate)\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,164 @@
+{
+  "id": "lesson-q017",
+  "kind": "lesson",
+  "title": "A join is a lookup with a contract",
+  "revision": 7,
+  "review_state": "complete",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "A purchase table can contain many purchases from the same store. A store lookup table should contain one rate per store. Joining these tables enriches purchases with rates. It does not combine purchases into totals, and it does not compare row numbers. A purchase with key B must find the right-side B even if B appears at another row position."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What this question asks"
+    },
+    {
+      "type": "paragraph",
+      "text": "Join DataFrames on keys. Require unique right-side keys, allowing many left rows per right row. Preserve left order for a left join."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The background you need"
+    },
+    {
+      "type": "paragraph",
+      "text": "A key is a value used to match rows. A left join keeps every left row. Cardinality describes how many matches one row can have. Many-to-one means repeated keys are permitted on the left but must be unique on the right."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Follow one complete computation"
+    },
+    {
+      "type": "paragraph",
+      "text": "Follow the two B purchases in the animation. Both use the same lookup value 20 and remain separate rows. The unmatched C purchase is still present because this is a left join; its rate is missing. The question additionally asks to preserve left order, so the B,A,B,C sequence matters. The example checks that sequence instead of assuming a sorted output is equivalent."
+    },
+    {
+      "type": "image",
+      "path": "lesson-q017/essence.svg",
+      "caption": "The opening and final states. Use the animation below to inspect every intermediate step."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect the picture to the mathematics"
+    },
+    {
+      "type": "equation",
+      "latex": "\\#\\text{matches for left row }i=\\#\\{j:k_j^{R}=k_i^{L}\\}",
+      "caption": "kᴸ and kᴿ are left and right keys. The right-side uniqueness constraint makes the count at most one for each matched left row."
+    },
+    {
+      "type": "paragraph",
+      "text": "Turn on the duplicate-key scenario. If B appears twice on the right, each left B purchase has two matches. A normal many-to-many merge would create two copies of each B purchase. This can silently inflate totals downstream. The supplied validate=\"many_to_one\" raises an error instead, because ambiguity in the lookup violates this task’s stated contract."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Mistakes and boundaries"
+    },
+    {
+      "type": "callout",
+      "kind": "boundary",
+      "text": "Do not repair duplicate lookup keys by dropping an arbitrary row without deciding what the duplicates mean. They might indicate versions that need an effective-date rule, conflicting records, or a missing join key. A correct implementation should join on all required key columns. After joining, check row count, key order, unmatched values, and whether duplicate right keys are rejected. These tests catch different failure modes.",
+      "title": "The boundary of this implementation"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Predict before revealing"
+    },
+    {
+      "type": "check",
+      "id": "q017-prediction"
+    },
+    {
+      "type": "check",
+      "id": "q017-new-case"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Connect to the supplied solution"
+    },
+    {
+      "type": "walkthrough",
+      "exercise_id": 17,
+      "notes": [
+        {
+          "lines": [
+            2,
+            2
+          ],
+          "match": "left.merge(",
+          "text": "The merge matches keys between two independent tables."
+        },
+        {
+          "lines": [
+            3,
+            3
+          ],
+          "match": "validate=\"many_to_one\"",
+          "text": "Validation turns right-key uniqueness into an enforced input contract."
+        }
+      ],
+      "title": "Question 017: original code, explained"
+    },
+    {
+      "type": "callout",
+      "kind": "note",
+      "text": "The original solution is preserved. The diagrams use deliberately small examples to expose the mechanism. Passing these checks is evidence for these examples, not an exhaustive correctness proof."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 17,
+      "purpose": "deep-lesson",
+      "order": 1
+    }
+  ],
+  "sources": [
+    {
+      "title": "Original exercise topic",
+      "url": "https://www.tensortonic.com/study-plans/pandas-basics/pandas-merge-dataframes"
+    }
+  ],
+  "media": [
+    {
+      "path": "lesson-q017/essence.svg",
+      "description": "Two verified stages from the worked example.",
+      "alt_text": "A join is a lookup with a contract: The left side contains repeated keys; the right side is a lookup table. Then: The result has rates 20, 10, 20, missing.",
+      "attribution": "Figure generated for this site."
+    }
+  ],
+  "demonstrations": [],
+  "checks": [
+    {
+      "id": "q017-prediction",
+      "kind": "prediction",
+      "prompt": "Two left B rows match one right B row. How many B rows are in the result?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "Each left row has one right match, so the two rows stay distinct.",
+        "default": "Revisit the stated quantities and units. Each left row has one right match, so the two rows stay distinct."
+      },
+      "answer": 2,
+      "tolerance": 1e-05
+    },
+    {
+      "id": "q017-new-case",
+      "kind": "new-case",
+      "prompt": "Three left B rows each match two right B rows in an unconstrained join. How many B rows would that create?",
+      "answer_type": "number",
+      "explanation": {
+        "correct": "The unconstrained Cartesian match gives 3×2=6 rows. The supplied function rejects this right-side duplication.",
+        "default": "Revisit the stated quantities and units. The unconstrained Cartesian match gives 3×2=6 rows. The supplied function rejects this right-side duplication."
+      },
+      "answer": 6,
+      "tolerance": 1e-05
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"id":354,"language":"Python","code":"def q354(x, weight, a, b, alpha):\n    return x @ weight.T + alpha / a.shape[0] * (x @ a.T) @ b.T\n","answer":"","content_kind":"coding"}

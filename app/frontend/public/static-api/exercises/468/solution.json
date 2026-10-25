@@ -1,0 +1,1 @@
+{"id":468,"language":"Python","code":"import torch\n\n\ndef q468(mu, log_variance):\n    z = mu + torch.exp(0.5 * log_variance) * torch.randn_like(mu)\n    kl = (\n        0.5\n        * (mu.square() + log_variance.exp() - 1 - log_variance)\n        .sum(-1)\n        .mean()\n    )\n    return (z, kl)\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,1 @@
+{"id":123,"language":"Python","code":"import pandas as pd\n\n\ndef q123(categories):\n    return pd.Series(categories).value_counts(normalize=True).to_dict()\n","answer":"","content_kind":"coding"}

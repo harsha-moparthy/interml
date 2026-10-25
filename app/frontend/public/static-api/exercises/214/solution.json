@@ -1,0 +1,1 @@
+{"id":214,"language":"Python","code":"import numpy as np\n\n\ndef q214(training, serving, tolerance=1e-08):\n    a, b = (np.asarray(training, float), np.asarray(serving, float))\n    if a.shape != b.shape:\n        raise ValueError(\"shape mismatch\")\n    error = np.abs(a - b).mean(axis=0)\n    return (error, error > tolerance)\n","answer":"","content_kind":"coding"}

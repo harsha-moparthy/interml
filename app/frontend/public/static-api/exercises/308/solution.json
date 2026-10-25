@@ -1,0 +1,1 @@
+{"id":308,"language":"Python","code":"import numpy as np\n\n\ndef q308(document_ids):\n    ids = np.asarray(document_ids)\n    n = len(ids)\n    return (ids[:, None] == ids[None, :]) & (\n        np.arange(n)[:, None] >= np.arange(n)[None, :]\n    )\n","answer":"","content_kind":"coding"}

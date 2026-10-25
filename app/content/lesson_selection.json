@@ -1,0 +1,293 @@
+{
+ "note": "Planned deep lessons. Generated from planning/LESSON_SELECTION.md. Completion comes from content.db.",
+ "selected": [
+  {
+   "chapter": "C01",
+   "exercise_id": 16
+  },
+  {
+   "chapter": "C01",
+   "exercise_id": 17
+  },
+  {
+   "chapter": "C02",
+   "exercise_id": 27
+  },
+  {
+   "chapter": "C02",
+   "exercise_id": 30
+  },
+  {
+   "chapter": "C03",
+   "exercise_id": 54
+  },
+  {
+   "chapter": "C03",
+   "exercise_id": 57
+  },
+  {
+   "chapter": "C04",
+   "exercise_id": 66
+  },
+  {
+   "chapter": "C04",
+   "exercise_id": 77
+  },
+  {
+   "chapter": "C05",
+   "exercise_id": 92
+  },
+  {
+   "chapter": "C05",
+   "exercise_id": 100
+  },
+  {
+   "chapter": "C06",
+   "exercise_id": 108
+  },
+  {
+   "chapter": "C06",
+   "exercise_id": 113
+  },
+  {
+   "chapter": "C07",
+   "exercise_id": 122
+  },
+  {
+   "chapter": "C07",
+   "exercise_id": 132
+  },
+  {
+   "chapter": "C08",
+   "exercise_id": 137
+  },
+  {
+   "chapter": "C08",
+   "exercise_id": 152
+  },
+  {
+   "chapter": "C09",
+   "exercise_id": 162
+  },
+  {
+   "chapter": "C09",
+   "exercise_id": 168
+  },
+  {
+   "chapter": "C10",
+   "exercise_id": 181
+  },
+  {
+   "chapter": "C10",
+   "exercise_id": 182
+  },
+  {
+   "chapter": "C11",
+   "exercise_id": 207
+  },
+  {
+   "chapter": "C11",
+   "exercise_id": 209
+  },
+  {
+   "chapter": "C12",
+   "exercise_id": 233
+  },
+  {
+   "chapter": "C12",
+   "exercise_id": 241
+  },
+  {
+   "chapter": "C13",
+   "exercise_id": 248
+  },
+  {
+   "chapter": "C13",
+   "exercise_id": 249
+  },
+  {
+   "chapter": "C14",
+   "exercise_id": 267
+  },
+  {
+   "chapter": "C14",
+   "exercise_id": 287
+  },
+  {
+   "chapter": "C15",
+   "exercise_id": 294
+  },
+  {
+   "chapter": "C15",
+   "exercise_id": 308
+  },
+  {
+   "chapter": "C16",
+   "exercise_id": 316
+  },
+  {
+   "chapter": "C16",
+   "exercise_id": 328
+  },
+  {
+   "chapter": "C17",
+   "exercise_id": 331
+  },
+  {
+   "chapter": "C17",
+   "exercise_id": 339
+  },
+  {
+   "chapter": "C18",
+   "exercise_id": 354
+  },
+  {
+   "chapter": "C18",
+   "exercise_id": 361
+  },
+  {
+   "chapter": "C19",
+   "exercise_id": 374
+  },
+  {
+   "chapter": "C19",
+   "exercise_id": 379
+  },
+  {
+   "chapter": "C20",
+   "exercise_id": 391
+  },
+  {
+   "chapter": "C20",
+   "exercise_id": 397
+  },
+  {
+   "chapter": "C21",
+   "exercise_id": 409
+  },
+  {
+   "chapter": "C21",
+   "exercise_id": 413
+  },
+  {
+   "chapter": "C22",
+   "exercise_id": 420
+  },
+  {
+   "chapter": "C22",
+   "exercise_id": 429
+  },
+  {
+   "chapter": "C23",
+   "exercise_id": 433
+  },
+  {
+   "chapter": "C23",
+   "exercise_id": 439
+  },
+  {
+   "chapter": "C24",
+   "exercise_id": 461
+  },
+  {
+   "chapter": "C24",
+   "exercise_id": 462
+  },
+  {
+   "chapter": "C25",
+   "exercise_id": 469
+  },
+  {
+   "chapter": "C25",
+   "exercise_id": 476
+  },
+  {
+   "chapter": "C26",
+   "exercise_id": 485
+  },
+  {
+   "chapter": "C26",
+   "exercise_id": 499
+  },
+  {
+   "chapter": "C27",
+   "exercise_id": 503
+  },
+  {
+   "chapter": "C27",
+   "exercise_id": 509
+  },
+  {
+   "chapter": "C28",
+   "exercise_id": 515
+  },
+  {
+   "chapter": "C28",
+   "exercise_id": 519
+  },
+  {
+   "chapter": "C29",
+   "exercise_id": 525
+  },
+  {
+   "chapter": "C29",
+   "exercise_id": 528
+  },
+  {
+   "chapter": "C30",
+   "exercise_id": 542
+  },
+  {
+   "chapter": "C30",
+   "exercise_id": 545
+  },
+  {
+   "chapter": "C31",
+   "exercise_id": 549
+  },
+  {
+   "chapter": "C31",
+   "exercise_id": 555
+  },
+  {
+   "chapter": "C32",
+   "exercise_id": 557
+  },
+  {
+   "chapter": "C32",
+   "exercise_id": 562
+  },
+  {
+   "chapter": "C33",
+   "exercise_id": 567
+  },
+  {
+   "chapter": "C33",
+   "exercise_id": 573
+  },
+  {
+   "chapter": "C34",
+   "exercise_id": 577
+  },
+  {
+   "chapter": "C34",
+   "exercise_id": 581
+  },
+  {
+   "chapter": "C35",
+   "exercise_id": 588
+  },
+  {
+   "chapter": "C35",
+   "exercise_id": 592
+  },
+  {
+   "chapter": "C36",
+   "exercise_id": 593
+  },
+  {
+   "chapter": "C36",
+   "exercise_id": 598
+  }
+ ]
+}
