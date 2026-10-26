@@ -15,7 +15,10 @@ const SOURCE_LABEL = { DM: "Deep-ML", TT: "TensorTonic", RESUME: "Resume project
 
 function SourceLink({ q }) {
   return q.source_url ? (
-    <a href={q.source_url} target="_blank" rel="noreferrer">Original source ({SOURCE_LABEL[q.source_key] || q.source_key})</a>
+    <>
+      <a href={q.source_url} target="_blank" rel="noopener noreferrer">Original source ({SOURCE_LABEL[q.source_key] || q.source_key})</a>
+      {" "}<span className="sub inline">{q.source_url}</span>
+    </>
   ) : null;
 }
 
@@ -110,6 +113,7 @@ export function QuestionPage({ id }) {
 
       <section aria-labelledby="task-h">
         <h2 id="task-h">Original task</h2>
+        {q.source_url && <p className="sub"><a className="cta" href={q.source_url} target="_blank" rel="noopener noreferrer">Open this problem on {SOURCE_LABEL[q.source_key] || q.source_key} ↗</a></p>}
         <div className="task"><MarkdownPrompt text={q.prompt} /></div>
       </section>
 
