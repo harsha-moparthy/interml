@@ -1,6 +1,6 @@
 {
   "id": 987,
-  "answer": "`detach()` returns a tensor disconnected from the current autograd graph while generally sharing storage. `clone()` copies data but remains differentiable, so gradients can flow back to the original tensor. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nUse `detach().clone()` when you need an independent snapshot that neither participates in gradient history nor aliases future in-place changes. A detached view is not immutable; modifying shared storage can affect the original or trigger autograd version checks. For logging, a CPU transfer may also be needed. Distinguish stopping gradients, copying memory, and moving devices—each is a separate operation.",
+  "answer": "**Stopping gradients and copying data solve different problems.** `detach()` disconnects a tensor from its current autograd history but generally shares the underlying storage. `clone()` allocates copied data while preserving a differentiable connection to the original. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nIf x requires gradients and y=x.clone(), a loss on y can still propagate to x. If z=x.detach(), ordinary gradient tracking through that connection stops, but changing shared storage can affect x as well. Detachment is not immutability.\n\n**Use `detach().clone()` for an independent frozen snapshot.** This is useful when a target or saved diagnostic should neither backpropagate nor change when the original tensor is modified later. Moving it to CPU is a third, separate decision when logging or retaining it outside GPU memory.\n\nIn-place edits can trigger autograd version checks if saved values are needed for backward, and careless shared-storage mutation can be surprising. Decide explicitly whether you need graph separation, storage separation, or device transfer. The methods are related only because practical workflows sometimes need more than one of those operations together.\n\n**Technical details and references.**\n\n`detach()` returns a tensor disconnected from the current autograd graph while generally sharing storage. `clone()` copies data but remains differentiable, so gradients can flow back to the original tensor. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nUse `detach().clone()` when you need an independent snapshot that neither participates in gradient history nor aliases future in-place changes. A detached view is not immutable; modifying shared storage can affect the original or trigger autograd version checks. For logging, a CPU transfer may also be needed. Distinguish stopping gradients, copying memory, and moving devices—each is a separate operation.",
   "readings": [
     {
       "title": "PyTorch Documentation",
@@ -42,5 +42,6 @@
       "why": "Guards, recompilation, graph breaks, and diagnosis.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

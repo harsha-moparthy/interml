@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-labelledby="title desc"><title id="title">In-batch negatives: reuse the other positive items</title><desc id="desc">Original schematic. Rows are Alice, Ben, Cara; columns are Guitar, Football, Pasta. Diagonal pairs are observed positives, all six off-diagonal pairs are sampled negatives, not confirmed dislikes. Batch selection follows logged item popularity.</desc><rect width="760" height="400" rx="16" fill="#f4f8fc"/><g font-family="sans-serif" fill="#172b45" font-size="19"><text x="28" y="40" font-size="25" font-weight="bold">In-batch negatives: reuse the other positive items</text><text x="28" y="78">One batch → nine scores from one matrix multiplication</text>
+<text x="218" y="122">Guitar</text><text x="398" y="122">Football</text><text x="583" y="122">Pasta</text>
+<text x="28" y="168">Alice</text><text x="28" y="228">Ben</text><text x="28" y="288">Cara</text>
+<rect x="185" y="138" width="165" height="44" rx="5" fill="#167d67"/><text x="267" y="166" text-anchor="middle" fill="white">Positive</text>
+<rect x="370" y="138" width="165" height="44" rx="5" fill="#e1edfa"/><text x="452" y="166" text-anchor="middle">Negative</text>
+<rect x="555" y="138" width="165" height="44" rx="5" fill="#e1edfa"/><text x="637" y="166" text-anchor="middle">Negative</text>
+<rect x="185" y="198" width="165" height="44" rx="5" fill="#e1edfa"/><text x="267" y="226" text-anchor="middle">Negative</text>
+<rect x="370" y="198" width="165" height="44" rx="5" fill="#167d67"/><text x="452" y="226" text-anchor="middle" fill="white">Positive</text>
+<rect x="555" y="198" width="165" height="44" rx="5" fill="#e1edfa"/><text x="637" y="226" text-anchor="middle">Negative</text>
+<rect x="185" y="258" width="165" height="44" rx="5" fill="#e1edfa"/><text x="267" y="286" text-anchor="middle">Negative</text>
+<rect x="370" y="258" width="165" height="44" rx="5" fill="#e1edfa"/><text x="452" y="286" text-anchor="middle">Negative</text>
+<rect x="555" y="258" width="165" height="44" rx="5" fill="#167d67"/><text x="637" y="286" text-anchor="middle" fill="white">Positive</text>
+<text x="28" y="345">Popular items recur in batches; rare items are seldom compared.</text><text x="28" y="378">“Negative” is a training comparison, not proof of dislike.</text></g></svg>

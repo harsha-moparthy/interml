@@ -1,6 +1,6 @@
 {
   "id": 1051,
-  "answer": "For $p=\\sigma(z)$, binary cross entropy is $L=-y\\log p-(1-y)\\log(1-p)$. Differentiate: $\\partial L/\\partial p=-y/p+(1-y)/(1-p)$ and $\\partial p/\\partial z=p(1-p)$. Multiplying cancels the denominators, giving $\\partial L/\\partial z=p-y$. [1](https://www.deeplearningbook.org/) [2](https://d2l.ai/)\n\nFor a mean over a batch of $N$, divide by $N$; class weights or soft-label weighting can change the expression. Numerically compute $L=\\operatorname{softplus}(z)-yz$ with a stable logits-based loss instead of taking logs of rounded probabilities. For $z=0,y=1$, the derivative is -0.5, so gradient descent increases the logit as expected. This useful gradient is specific to the sigmoid and cross-entropy pairing.",
+  "answer": "**The logit gradient has a simple interpretation: predicted probability minus target.** For a positive example predicted at 0.2, the gradient is -0.8, so gradient descent increases the logit. For a negative example predicted at 0.9, it is +0.9, pushing the logit down strongly. [1](https://www.deeplearningbook.org/) [2](https://d2l.ai/)\n\nTo derive it, differentiate BCE with respect to p, giving $-y/p+(1-y)/(1-p)$. Then multiply by the sigmoid derivative p(1-p). The first term becomes -y(1-p), the second becomes (1-y)p, and their sum simplifies to p-y.\n\n**The cancellation matters.** A saturated sigmoid alone has a small derivative, but its pairing with cross-entropy cancels problematic denominators and supplies a strong correction for confidently wrong examples. This does not remove every vanishing-gradient problem in a deep network; it explains the output-layer derivative.\n\nUse a stable logits-based implementation, and include the loss reduction: averaging N examples divides their contributions by N. Class weighting changes the derivative. Check a simple sign example before trusting an implementation; a reversed sign would train confidence in the wrong direction.\n\n**Technical details and references.**\n\nFor $p=\\sigma(z)$, binary cross entropy is $L=-y\\log p-(1-y)\\log(1-p)$. Differentiate: $\\partial L/\\partial p=-y/p+(1-y)/(1-p)$ and $\\partial p/\\partial z=p(1-p)$. Multiplying cancels the denominators, giving $\\partial L/\\partial z=p-y$. [1](https://www.deeplearningbook.org/) [2](https://d2l.ai/)\n\nFor a mean over a batch of $N$, divide by $N$; class weights or soft-label weighting can change the expression. Numerically compute $L=\\operatorname{softplus}(z)-yz$ with a stable logits-based loss instead of taking logs of rounded probabilities. For $z=0,y=1$, the derivative is -0.5, so gradient descent increases the logit as expected. This useful gradient is specific to the sigmoid and cross-entropy pairing.",
   "readings": [
     {
       "title": "Deep Learning — Goodfellow, Bengio, Courville",
@@ -42,5 +42,6 @@
       "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

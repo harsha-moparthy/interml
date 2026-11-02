@@ -8,6 +8,11 @@ for(let id=601;id<=1100;id++) {
  const item=JSON.parse(fs.readFileSync(`${root}/app/content/solutions/q${id}.json`));
  const assert=(condition,message)=>{if(!condition)throw Error(`Q${id}: ${message}`);};
  assert(item.id===id,'ID mismatch');
+ const source=fs.readFileSync(`${root}/tools/appendix/expanded/q${id}.md`,'utf8').trim();
+ const expanded=source.replace(/\[(\d)\](?!\()/g,(_,rank)=>`[${rank}](${item.readings[Number(rank)-1].url})`);
+ assert(item.explanation_revision==='beginner-worked-v2','beginner revision missing');
+ assert(item.answer===expanded,'manifest does not match expanded source');
+ assert(item.answer.split(/\n\n/).length>=5,'worked explanation needs distinct paragraphs');
  assert(item.answer.split(/\s+/).length>=60,'answer missing or too short');
  assert(!/A complete (answer|solution) must|Answer focus:/.test(item.answer),'generic guide retained');
  assert(item.readings.length===5 && new Set(item.readings.map(r=>r.url)).size===5,'five distinct resources required');

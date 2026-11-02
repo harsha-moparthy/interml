@@ -1,6 +1,6 @@
 {
   "id": 867,
-  "answer": "Split each $N$-byte tensor into $P$ chunks. Ring reduce-scatter takes $P-1$ rounds, sending one $N/P$ chunk per round; ring all-gather takes another $P-1$ rounds. Thus each rank sends [1](https://jax-ml.github.io/scaling-book/)\n\n$$2(P-1)N/P$$\n\nbytes and receives the same amount. For large $P$, this approaches $2N$ sent per rank, not counting receive bytes again. The bandwidth-volume term is nearly independent of $P$, but latency grows with the $2(P-1)$ steps and topology contention can worsen. Small tensors can favor tree or other algorithms. AllReduce also requires consistent collective order and participation; equal byte count alone does not prevent deadlocks or stragglers.",
+  "answer": "**An AllReduce makes every worker receive the sum of everybody's gradients.** A ring accomplishes this without requiring one central worker to receive and redistribute the whole tensor. Split each N-byte tensor into P equal chunks, then pass chunks between neighbors. [1](https://jax-ml.github.io/scaling-book/)\n\nDuring reduce-scatter, each received chunk is combined with local contributions as it travels. After P-1 rounds, each rank owns one fully reduced chunk. During all-gather, those completed chunks circulate for another P-1 rounds until every rank has the full reduced tensor.\n\n**Count a four-worker example.** If N=400 MB, each chunk is 100 MB. Each worker sends three chunks during reduce-scatter and three during all-gather: 600 MB total. The formula gives $2(4-1)400/4=600$ MB. Each worker also receives 600 MB. Whether a bandwidth accounting convention reports sent bytes or sent-plus-received bytes must be stated.\n\nAs P grows, sent volume approaches 2N, which explains the attractive bandwidth scaling. It does not mean runtime is independent of worker count. There are 2(P-1) rounds, each with latency, and physical links may be shared or uneven. Small messages can be dominated by latency rather than bytes. Collective algorithms should therefore be selected for tensor size and network topology, not solely the asymptotic volume formula.\n\n**Technical details and references.**\n\nSplit each $N$-byte tensor into $P$ chunks. Ring reduce-scatter takes $P-1$ rounds, sending one $N/P$ chunk per round; ring all-gather takes another $P-1$ rounds. Thus each rank sends [1](https://jax-ml.github.io/scaling-book/)\n\n$$2(P-1)N/P$$\n\nbytes and receives the same amount. For large $P$, this approaches $2N$ sent per rank, not counting receive bytes again. The bandwidth-volume term is nearly independent of $P$, but latency grows with the $2(P-1)$ steps and topology contention can worsen. Small tensors can favor tree or other algorithms. AllReduce also requires consistent collective order and participation; equal byte count alone does not prevent deadlocks or stragglers.",
   "readings": [
     {
       "title": "How to Scale Your Model",
@@ -42,5 +42,6 @@
       "why": "Official operator, autograd, numerical, and distributed-training contracts.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

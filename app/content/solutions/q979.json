@@ -1,6 +1,6 @@
 {
   "id": 979,
-  "answer": "Winsorization replaces extreme values with boundary values; trimming removes those observations. Clipping retains sample count but distorts tails, while trimming changes the analyzed population. [1](https://docs.scipy.org/doc/scipy/reference/stats.html)\n\nEstimate percentile boundaries on training data and reuse them for validation/serving so future information does not influence preprocessing. A 1st/99th percentile rule is a choice, not proof those values are errors. Legitimate rare events may be the most important examples. Keep an outlier/missingness indicator where useful, examine units and collection bugs first, and evaluate tail performance and distribution shift before adopting the transformation.",
+  "answer": "**Clipping changes an extreme value; trimming removes its row.** If a chosen upper boundary is 100, winsorization replaces 1000 with 100. Trimming discards the observation entirely. The first keeps the sample count but alters the tail; the second changes which population is represented. [1](https://docs.scipy.org/doc/scipy/reference/stats.html)\n\nNeither operation establishes that the original value was erroneous. A very large transaction or rare failure may be the event the model most needs to understand. First inspect units, collection bugs, and domain meaning.\n\n**Learn boundaries without looking into validation or the future.** Estimating the 99th percentile from the whole dataset lets later observations influence training preprocessing. Fit it on the training subset and reuse that fixed rule on held-out data. In a rolling system, update it only with information available then.\n\nConsider retaining a clipping indicator and the original value for audit. Evaluate tail cases separately, since aggregate accuracy may improve while rare-event detection worsens. A 1st/99th percentile rule is a tunable modeling choice, not a universal data-cleaning law. Distribution drift can also make a previously sensible boundary clip too much new data.\n\n**Technical details and references.**\n\nWinsorization replaces extreme values with boundary values; trimming removes those observations. Clipping retains sample count but distorts tails, while trimming changes the analyzed population. [1](https://docs.scipy.org/doc/scipy/reference/stats.html)\n\nEstimate percentile boundaries on training data and reuse them for validation/serving so future information does not influence preprocessing. A 1st/99th percentile rule is a choice, not proof those values are errors. Legitimate rare events may be the most important examples. Keep an outlier/missingness indicator where useful, examine units and collection bugs first, and evaluate tail performance and distribution shift before adopting the transformation.",
   "readings": [
     {
       "title": "SciPy Statistics Reference",
@@ -42,5 +42,6 @@
       "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

@@ -1,6 +1,6 @@
 {
   "id": 994,
-  "answer": "Perplexity is the exponential of average token negative log likelihood, equivalent to the inverse geometric mean probability assigned to observed tokens. PPL 10 corresponds to the same average log loss as ten equally likely choices, not literally ten candidates at every step. [1](https://arxiv.org/abs/1808.06226)\n\nDifferent tokenizers define different prediction units, so raw token PPL is not an apples-to-apples comparison. Compare total log likelihood normalized by a common byte/character count with consistent text preprocessing and encoding. Tokenization, BOS/EOS handling, and context windows must be specified. Lower perplexity on one corpus does not guarantee better instruction-following or reasoning quality.",
+  "answer": "**Perplexity summarizes how much probability the model assigns to the actual text.** Average the negative log probability of each observed token, then exponentiate. Lower values mean the model gave the test sequence higher probability per prediction unit. [1](https://arxiv.org/abs/1808.06226)\n\nPPL=10 means average log loss equals that of choosing uniformly among ten alternatives. It does not mean there were exactly ten equally likely tokens at every position. Some tokens may be nearly certain and others very surprising.\n\n**The unit matters.** One tokenizer might encode a word as one token and another as three. Their per-token losses are measured over different events, so raw token perplexities cannot be interpreted as directly comparable model quality. Normalize total log likelihood by a common byte or character count when making a suitable cross-tokenizer comparison.\n\nDocument text normalization, encoding, context windows, and BOS/EOS treatment. Common-unit likelihood comparisons still require compatible scoring conventions. Finally, a model can predict ordinary text well yet follow instructions poorly. Perplexity measures a distributional prediction task on a specific corpus, not every useful language-model capability.\n\n**Technical details and references.**\n\nPerplexity is the exponential of average token negative log likelihood, equivalent to the inverse geometric mean probability assigned to observed tokens. PPL 10 corresponds to the same average log loss as ten equally likely choices, not literally ten candidates at every step. [1](https://arxiv.org/abs/1808.06226)\n\nDifferent tokenizers define different prediction units, so raw token PPL is not an apples-to-apples comparison. Compare total log likelihood normalized by a common byte/character count with consistent text preprocessing and encoding. Tokenization, BOS/EOS handling, and context windows must be specified. Lower perplexity on one corpus does not guarantee better instruction-following or reasoning quality.",
   "readings": [
     {
       "title": "SentencePiece: A Simple and Language Independent Subword Tokenizer",
@@ -42,5 +42,6 @@
       "why": "Encoder–decoder pretraining objectives and controlled architecture comparisons.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

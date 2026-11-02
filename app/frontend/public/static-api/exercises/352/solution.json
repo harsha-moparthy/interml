@@ -1,1 +1,0 @@
-{"id":352,"language":"Python","code":"import numpy as np\n\n\ndef q352(targets, assistant_mask, ignore_index=-100):\n    \"\"\"Keep target tokens where an aligned assistant-response mask is True and replace all\n    other target positions with ignore_index.\n    \"\"\"\n    return np.where(assistant_mask, targets, ignore_index)\n","answer":"","content_kind":"coding"}

@@ -1,6 +1,6 @@
 {
   "id": 989,
-  "answer": "`nn.Parameter` registers a tensor as a model parameter, normally returned by `parameters()` and supplied to an optimizer. `register_buffer` tracks non-parameter state for device moves and, by default, serialization. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nBatchNorm running statistics are buffers because they are updated by a running-stat rule rather than gradient descent. RoPE tables can be buffers, but may be registered nonpersistent or regenerated instead of saved; “must be in state_dict” is too strong. Buffers can still be mutated by code. Set persistence and dtype/device handling deliberately and exclude fixed constants from optimization.",
+  "answer": "**Parameters are optimized weights; buffers are tracked model state with other update rules.** `nn.Parameter` registers a tensor for parameter iteration and ordinary optimizer use. `register_buffer` makes non-parameter tensors follow module device moves and, by default, serialization. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nBatchNorm running mean is a buffer because a running-statistics rule updates it rather than gradient descent. A fixed positional table can also be a buffer so it moves with the model instead of remaining accidentally on the CPU.\n\n**Persistence is a choice.** A reproducible RoPE sine/cosine cache may be registered as nonpersistent or regenerated instead of being saved in the checkpoint. Thus it is too strong to say every such table must appear in `state_dict`. Buffers can still be mutated by application code.\n\nA plain tensor attribute does not automatically receive the same device and serialization handling. Choose registration, dtype, persistence, and optimizer membership deliberately. This avoids both training constants unintentionally and forgetting state required to reproduce inference after loading a checkpoint.\n\n**Technical details and references.**\n\n`nn.Parameter` registers a tensor as a model parameter, normally returned by `parameters()` and supplied to an optimizer. `register_buffer` tracks non-parameter state for device moves and, by default, serialization. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nBatchNorm running statistics are buffers because they are updated by a running-stat rule rather than gradient descent. RoPE tables can be buffers, but may be registered nonpersistent or regenerated instead of saved; “must be in state_dict” is too strong. Buffers can still be mutated by code. Set persistence and dtype/device handling deliberately and exclude fixed constants from optimization.",
   "readings": [
     {
       "title": "PyTorch Documentation",
@@ -42,5 +42,6 @@
       "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

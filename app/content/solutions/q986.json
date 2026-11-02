@@ -1,6 +1,6 @@
 {
   "id": 986,
-  "answer": "`view()` reinterprets shape without copying only when strides are compatible. `reshape()` returns a view when possible and otherwise may allocate a copy. Transpose/permute usually changes strides rather than rearranging storage, producing a noncontiguous view. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nA tensor can be noncontiguous yet still permit some views, so “view requires contiguous” is an oversimplification. Use `contiguous()` when an explicit layout copy is appropriate, but account for its cost. Never rely on `reshape()` always aliasing or always copying. Check strides, shape, and mutation semantics when debugging a silently incorrect axis manipulation.",
+  "answer": "**A tensor's shape is not its physical storage order.** Strides specify how far to move in storage when advancing along each dimension. Transposing a matrix usually changes those strides without rearranging its underlying elements. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nFor a contiguous 2-by-3 matrix, transposition yields a 3-by-2 view whose logical row order no longer matches a simple contiguous traversal. Flattening that transposed layout as a no-copy view may be impossible with the requested strides.\n\n`view()` requires the requested shape to be compatible with existing storage and strides. `reshape()` uses a view when possible and otherwise may copy. Calling `contiguous()` explicitly requests an appropriate contiguous copy when one is needed.\n\n**Do not assume every reshape aliases or every noncontiguous tensor forbids every view.** Some reshapes remain compatible, and others allocate. Check shape, stride, and aliasing when debugging in-place changes or performance. A costly layout copy can dominate a small operation, while a mistaken axis interpretation can silently compute the wrong result even when all dimensions are legal.\n\n**Technical details and references.**\n\n`view()` reinterprets shape without copying only when strides are compatible. `reshape()` returns a view when possible and otherwise may allocate a copy. Transpose/permute usually changes strides rather than rearranging storage, producing a noncontiguous view. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nA tensor can be noncontiguous yet still permit some views, so “view requires contiguous” is an oversimplification. Use `contiguous()` when an explicit layout copy is appropriate, but account for its cost. Never rely on `reshape()` always aliasing or always copying. Check strides, shape, and mutation semantics when debugging a silently incorrect axis manipulation.",
   "readings": [
     {
       "title": "PyTorch Documentation",
@@ -42,5 +42,6 @@
       "why": "Derivations and failure modes of gradient-based neural-network optimization.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

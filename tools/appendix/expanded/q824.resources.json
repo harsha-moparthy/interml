@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Sampling-Bias-Corrected Neural Modeling for Large Corpus Item Recommendations",
+    "url": "https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/",
+    "publisher": "research.google",
+    "tags": "",
+    "why": "Original two-tower sampling-bias paper; read the loss and frequency-estimation sections.",
+    "access": "Free online paper or author publication page"
+  },
+  {
+    "title": "Correcting the LogQ Correction: Revisiting Sampled Softmax for Large-Scale Retrieval",
+    "url": "https://arxiv.org/abs/2507.09331",
+    "publisher": "arxiv.org",
+    "tags": "",
+    "why": "Explains the always-included positive item and why standard LogQ is not an exact unbiased-gradient guarantee.",
+    "access": "Free online paper or author publication page"
+  },
+  {
+    "title": "Approximate Nearest Neighbor Negative Contrastive Learning for Dense Text Retrieval",
+    "url": "https://arxiv.org/abs/2007.00808",
+    "publisher": "arxiv.org",
+    "tags": "",
+    "why": "A concrete ANN-based hard-negative mining method, including index refresh during training.",
+    "access": "Free online paper or author publication page"
+  },
+  {
+    "title": "Mixed Negative Sampling for Learning Two-tower Neural Networks in Recommendations",
+    "url": "https://research.google/pubs/mixed-negative-sampling-for-learning-two-tower-neural-networks-in-recommendations/",
+    "publisher": "research.google",
+    "tags": "",
+    "why": "Combines batch and uniformly sampled negatives; useful for understanding coverage and implicit-feedback selection.",
+    "access": "Free online paper or author publication page"
+  },
+  {
+    "title": "On Sampled Metrics for Item Recommendation",
+    "url": "https://research.google/pubs/on-sampled-metrics-for-item-recommendation/",
+    "publisher": "research.google",
+    "tags": "",
+    "why": "Shows why evaluating on a few sampled negatives can misrepresent full-catalog ranking quality.",
+    "access": "Free online paper or author publication page"
+  }
+]

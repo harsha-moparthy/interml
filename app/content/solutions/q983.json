@@ -1,6 +1,6 @@
 {
   "id": 983,
-  "answer": "EMA updates $\\theta_{ema}\\leftarrow\\beta\\theta_{ema}+(1-\\beta)\\theta$; Polyak averaging averages iterates; SWA averages selected later checkpoints, often under a suitable learning-rate schedule. Averaging can smooth optimization noise and improve validation quality. [1](https://arxiv.org/abs/1803.05407)\n\nDiffusion training commonly uses EMA, but “LLMs almost always serve EMA weights” is not a reliable universal claim. BatchNorm statistics may need recomputation after weight averaging, and unrelated checkpoints may not share a compatible basin. Evaluate the averaged model explicitly. Keep averaging decay, start time, dtype, and checkpoint state documented; averaging predictions and averaging weights are different operations.",
+  "answer": "**Weight averaging smooths a sequence of nearby parameter estimates.** EMA updates a running model toward the current weights with a small fraction of each step. With beta=0.99, the new average is 99% old average and 1% current weights. Recent iterates influence it gradually instead of replacing it abruptly. [1](https://arxiv.org/abs/1803.05407)\n\nPolyak averaging takes an ordinary average of iterates; SWA averages selected later checkpoints, commonly under a schedule that explores a useful region. These are weight-space operations, unlike averaging predictions from separately executed models.\n\n**Compatibility matters.** Nearby iterates from one trajectory may average well, while unrelated checkpoints can have mismatched representations. BatchNorm running statistics may need recalculation for the averaged weights. Keep accumulation precision, start time, decay, and checkpoint state explicit.\n\nEMA is common in diffusion training, but the claim that LLMs almost always serve EMA weights is not a reliable universal rule. Evaluate the averaged model against the ordinary checkpoint on the actual task. Smoother weights can improve generalization, but they may also lag behind a rapidly improving or adapting model.\n\n**Technical details and references.**\n\nEMA updates $\\theta_{ema}\\leftarrow\\beta\\theta_{ema}+(1-\\beta)\\theta$; Polyak averaging averages iterates; SWA averages selected later checkpoints, often under a suitable learning-rate schedule. Averaging can smooth optimization noise and improve validation quality. [1](https://arxiv.org/abs/1803.05407)\n\nDiffusion training commonly uses EMA, but “LLMs almost always serve EMA weights” is not a reliable universal claim. BatchNorm statistics may need recomputation after weight averaging, and unrelated checkpoints may not share a compatible basin. Evaluate the averaged model explicitly. Keep averaging decay, start time, dtype, and checkpoint state documented; averaging predictions and averaging weights are different operations.",
   "readings": [
     {
       "title": "Averaging Weights Leads to Wider Optima and Better Generalization",
@@ -42,5 +42,6 @@
       "why": "Official operator, autograd, numerical, and distributed-training contracts.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

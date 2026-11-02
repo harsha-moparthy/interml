@@ -1,6 +1,6 @@
 {
   "id": 966,
-  "answer": "Bagging changes training samples, but a dominant feature may still drive nearly every tree's early splits. Random forests also restrict candidate features at each split, encouraging different structures and reducing error correlation. [1](https://scikit-learn.org/stable/modules/ensemble.html)\n\nUsing roughly $\\sqrt p$ candidates is a common classification setting, not a defining fixed rule for every task/library. Smaller subsets can increase individual-tree bias while improving diversity; the ensemble tradeoff must be tuned. Random thresholds and leaf/depth constraints affect it too. Measure validation/OOB quality and stability rather than assuming the lowest correlation alone gives the best predictor.",
+  "answer": "**Bootstrap samples alone can still produce very similar trees.** If one feature is overwhelmingly attractive, almost every bagged tree may choose it at the root despite seeing different sampled rows. Their structures and errors remain correlated. [1](https://scikit-learn.org/stable/modules/ensemble.html)\n\nA random forest also restricts which features are considered at each split. Sometimes the dominant feature is unavailable, forcing a tree to learn another useful partition. Across many trees, this can diversify errors and make averaging more effective.\n\n**There is a strength-versus-diversity tradeoff.** Too few candidate features can produce weak individual trees. Too many can make them nearly identical. A square-root feature count is a common classification setting, not a defining rule that applies to every task or library.\n\nTune feature subsampling together with leaf size, depth, and tree count. Use validation or appropriate OOB estimates and examine important slices. Low correlation is valuable only when the trees still carry predictive signal; averaging many uninformative independent guesses is not the objective. The forest works by combining competent but imperfectly correlated predictors.\n\n**Technical details and references.**\n\nBagging changes training samples, but a dominant feature may still drive nearly every tree's early splits. Random forests also restrict candidate features at each split, encouraging different structures and reducing error correlation. [1](https://scikit-learn.org/stable/modules/ensemble.html)\n\nUsing roughly $\\sqrt p$ candidates is a common classification setting, not a defining fixed rule for every task/library. Smaller subsets can increase individual-tree bias while improving diversity; the ensemble tradeoff must be tuned. Random thresholds and leaf/depth constraints affect it too. Measure validation/OOB quality and stability rather than assuming the lowest correlation alone gives the best predictor.",
   "readings": [
     {
       "title": "Scikit-learn: Ensemble Methods",
@@ -42,5 +42,6 @@
       "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

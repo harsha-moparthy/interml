@@ -131,8 +131,8 @@ export function QuestionPage({ id }) {
         <div id="solution-panel" hidden={!shown}>
           {shown && !sol.data && !sol.error && <p role="status">Loading {guide}…</p>}
           {sol.error && <ErrorNotice what={`the ${guide}`} error={sol.error} onRetry={() => { setSol({ data: null, error: null }); setAttempt((n) => n + 1); }} />}
-          {sol.data?.code && <CodeView code={sol.data.code} language={sol.data.language} label={`Solution code for question ${pad(id)}`} />}
           {sol.data?.answer && <div className="answer-guide"><MarkdownPrompt text={sol.data.answer} /></div>}
+          {sol.data?.code && <CodeView code={sol.data.code} language={sol.data.language} label={`Solution code for question ${pad(id)}`} />}
         </div>
       </section>
 

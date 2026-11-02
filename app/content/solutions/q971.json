@@ -1,6 +1,6 @@
 {
   "id": 971,
-  "answer": "Mixup forms convex combinations of two inputs and their target vectors, encouraging smoother behavior between examples. CutMix replaces an image region with a region from another image and weights labels by the mixed area. [1](https://arxiv.org/abs/1710.09412)\n\n$$\\tilde x=\\lambda x_i+(1-\\lambda)x_j,\\quad \\tilde y=\\lambda y_i+(1-\\lambda)y_j.$$\n\nThese are task-dependent augmentations: mixing may create unrealistic data or violate labels for detection, segmentation, or structured inputs unless targets are transformed consistently. Validate augmentation strength and calibration as well as accuracy. Area-based CutMix labels approximate semantic contribution; a small pasted region can contain the only relevant object.",
+  "answer": "**Mixup teaches intermediate inputs to have intermediate targets.** If lambda=0.7, combine 70% of one input with 30% of another and use the same mixture of their target vectors. The model is encouraged to vary smoothly between examples instead of making arbitrarily sharp changes. [1](https://arxiv.org/abs/1710.09412)\n\nFor a cat and dog image, the target may become 0.7 cat and 0.3 dog. This is a training construction, not a claim that the mixed image contains a literal fractional animal. CutMix instead pastes a spatial region from one image into another and commonly weights labels by the replaced area.\n\n**The transformation must fit the task.** A small pasted patch may contain the only object, so area is an imperfect proxy for semantic contribution. Detection and segmentation need boxes or masks transformed consistently. Mixing arbitrary tabular identifiers or text tokens may create meaningless examples.\n\nValidate strength, task accuracy, and calibration. Augmentation introduces assumptions about which intermediate or altered examples should have which labels. It helps when those assumptions regularize useful behavior and can hurt when they contradict the real task.\n\n**Technical details and references.**\n\nMixup forms convex combinations of two inputs and their target vectors, encouraging smoother behavior between examples. CutMix replaces an image region with a region from another image and weights labels by the mixed area. [1](https://arxiv.org/abs/1710.09412)\n\n$$\\tilde x=\\lambda x_i+(1-\\lambda)x_j,\\quad \\tilde y=\\lambda y_i+(1-\\lambda)y_j.$$\n\nThese are task-dependent augmentations: mixing may create unrealistic data or violate labels for detection, segmentation, or structured inputs unless targets are transformed consistently. Validate augmentation strength and calibration as well as accuracy. Area-based CutMix labels approximate semantic contribution; a small pasted region can contain the only relevant object.",
   "readings": [
     {
       "title": "mixup: Beyond Empirical Risk Minimization",
@@ -42,5 +42,6 @@
       "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

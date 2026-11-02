@@ -63,10 +63,22 @@ ranked resources each. A01 retains its 52 standalone implementations. Answers
 open beneath the original question, with rendered equations and original SVG
 figures where useful. Company-named system designs are illustrative proposals.
 
-The authoring scripts and source catalog are in `tools/appendix/`. Run the numbered
-`a*.py` scripts in order, then `diagrams.py`, to regenerate the manifests. Run
+The authoring scripts and source catalog are in `tools/appendix/`. The complete
+beginner explanations live in `tools/appendix/expanded/q<ID>.md`. Edit those files
+and run `python3 tools/appendix/apply_expanded.py` to update the manifests. Optional
+`q<ID>.resources.json` files override the five further-reading resources.
+
+The numbered `a*.py` scripts preserve the original technical answer layer, and
+the `beginner_a*.py` scripts preserve the authored teaching passages. If rebuilding
+from those scripts, run the numbered scripts, then `diagrams.py`, then the
+`beginner_a*.py` scripts, `beginner_diagrams.py`, and finally `apply_expanded.py`.
+Always apply expanded sources last; the numbered scripts alone restore the old
+short answers. Questions 796 and 824 are complete standalone expanded sources.
+Run
 `node tools/appendix/check.mjs` from the repository root to validate citation
-mapping, five-resource coverage, all math expressions, and figure paths.
+mapping, five-resource coverage, all math expressions, figure paths, and exact
+expanded-source parity for all 500 answers. Then reimport and export static JSON
+before building the site; editing a manifest alone does not update served answers.
 
 ## Validation of this pass (2026-10-28)
 

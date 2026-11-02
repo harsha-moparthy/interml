@@ -1,6 +1,6 @@
 {
   "id": 968,
-  "answer": "For binary AdaBoost with weighted error $\\epsilon_t<1/2$, the learner weight is $\\alpha_t=\\tfrac12\\log((1-\\epsilon_t)/\\epsilon_t)$. Update example weights proportionally to $w_i e^{-\\alpha_ty_ih_t(x_i)}$, then normalize. [1](https://scikit-learn.org/stable/modules/ensemble.html)\n\nMistakes gain relative weight and correct examples lose it. This corresponds to reducing an exponential margin loss, so persistently mislabeled outliers can attract extreme attention. Shrinkage, early stopping, robust variants, or better labels may help. Random forests do not repeatedly reweight the same errors this way, though they can still overfit noise. Handle zero/error-one edge cases rather than evaluating an infinite coefficient blindly.",
+  "answer": "**AdaBoost deliberately shifts attention toward examples the current ensemble gets wrong.** A weak learner with weighted error epsilon below one half receives weight $\\alpha=\\tfrac12\\log((1-\\epsilon)/\\epsilon)$. Better learners receive more influence in the final vote. [1](https://scikit-learn.org/stable/modules/ensemble.html)\n\nIf epsilon=0.2, alpha is about 0.693. A misclassified example's weight is multiplied by $e^{0.693}\\approx2$, while a correctly classified example's weight is multiplied by $e^{-0.693}\\approx0.5$, before normalization. The mistake gains four times as much relative weight as the correct example.\n\n**That focus can be harmful when the label is wrong.** A persistently mislabeled point keeps attracting effort even if no meaningful rule can satisfy it. The associated exponential margin loss grows rapidly on such cases, making noise influential.\n\nShrinkage, early stopping, robust variants, and label review can reduce the problem. Random forests do not repeatedly amplify the same errors through this boosting rule, though they are not immune to noisy labels. Handle perfect or unusable weak learners explicitly rather than blindly evaluating infinite or invalid coefficient formulas.\n\n**Technical details and references.**\n\nFor binary AdaBoost with weighted error $\\epsilon_t<1/2$, the learner weight is $\\alpha_t=\\tfrac12\\log((1-\\epsilon_t)/\\epsilon_t)$. Update example weights proportionally to $w_i e^{-\\alpha_ty_ih_t(x_i)}$, then normalize. [1](https://scikit-learn.org/stable/modules/ensemble.html)\n\nMistakes gain relative weight and correct examples lose it. This corresponds to reducing an exponential margin loss, so persistently mislabeled outliers can attract extreme attention. Shrinkage, early stopping, robust variants, or better labels may help. Random forests do not repeatedly reweight the same errors this way, though they can still overfit noise. Handle zero/error-one edge cases rather than evaluating an infinite coefficient blindly.",
   "readings": [
     {
       "title": "Scikit-learn: Ensemble Methods",
@@ -42,5 +42,6 @@
       "why": "Regularization, parameter penalties, dropout, and generalization.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

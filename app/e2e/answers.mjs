@@ -16,16 +16,21 @@ for(let id=601;id<=1100;id++){
  if(id%50===0)console.log(`Checked through Q${id}`);
 }
 ok(failures.length===0,`all 500 answers render with five readings and citations: ${JSON.stringify(failures)}`);
-for(const id of [605,614,653,684,688,701,724,734,1080]){
+for(const id of [605,614,653,684,688,701,724,734,796,824,1080]){
  await page.goto(BASE+`#/question/${id}`);await page.waitForSelector('.answer-figure img');
  await page.locator('.answer-figure').scrollIntoViewIfNeeded();
  await page.waitForFunction(()=>[...document.querySelectorAll('.answer-figure img')].every(i=>i.complete&&i.naturalWidth>0));
  ok(true,`Q${id} diagram loads`);
 }
+for(const [id,phrase] of [[796,'0.8113'],[824,'Hard negative'],[1100,'first day']]){
+ await page.goto(BASE+`#/question/${id}`);await page.waitForSelector('.answer-guide');
+ const answer=await page.locator('.answer-guide').innerText();
+ ok(answer.toLowerCase().includes(phrase.toLowerCase())&&answer.length>1500,`Q${id} expanded explanation is served`);
+}
 await page.goto(BASE+'#/question/1080');await page.waitForSelector('.answer-guide');
 ok(await page.locator('.task strong .katex').count()===3,'math inside emphasized question text renders');
 await page.setViewportSize({width:390,height:844});
-for(const id of [688,1053,1058,1080,1100]){
+for(const id of [688,796,824,1053,1058,1080,1100]){
  await page.goto(BASE+`#/question/${id}`);await page.waitForSelector('.answer-guide');
  ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),`Q${id} mobile page fits viewport`);
 }

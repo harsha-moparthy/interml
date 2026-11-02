@@ -1,6 +1,6 @@
 {
   "id": 990,
-  "answer": "Collectives require compatible participation and ordering across ranks. If rank 0 enters a barrier or a DDP-triggered collective while rank 1 skips it, rank 0 waits for a matching operation that never arrives, often ending in timeout. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nUse consistent control flow for distributed operations, broadcast decisions when necessary, and ensure loaders/iteration counts match or use supported uneven-input mechanisms. Log rank-local step IDs and the first error, since one rank's earlier exception can cause everyone else's apparent communication failure. Increasing timeout is not a fix for mismatched collective sequences.",
+  "answer": "**A distributed collective is a coordinated operation, not a local function call.** If rank zero enters a barrier while rank one skips it, rank zero waits for a participant that never arrives. Similar mismatches can occur in DDP operations that trigger communication internally. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nA branch such as “only the worker with this condition runs the collective” is unsafe unless the protocol explicitly accounts for every rank. Even if all workers eventually communicate, calling different collectives or calling them in different orders can mismatch the sequence.\n\n**An earlier exception can look like a network failure elsewhere.** One worker may crash while reading data; the others later time out in synchronization. Inspect the earliest rank-local error and step identifiers before blaming the collective implementation.\n\nKeep distributed decisions consistent, broadcast decisions when needed, and match iteration counts or use supported uneven-input mechanisms. Record tensor shapes and collective order for diagnosis. Increasing the timeout does not fix missing participation; it only lengthens the wait. Recovery should return all workers to a coherent state rather than letting some continue with stale progress.\n\n**Technical details and references.**\n\nCollectives require compatible participation and ordering across ranks. If rank 0 enters a barrier or a DDP-triggered collective while rank 1 skips it, rank 0 waits for a matching operation that never arrives, often ending in timeout. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nUse consistent control flow for distributed operations, broadcast decisions when necessary, and ensure loaders/iteration counts match or use supported uneven-input mechanisms. Log rank-local step IDs and the first error, since one rank's earlier exception can cause everyone else's apparent communication failure. Increasing timeout is not a fix for mismatched collective sequences.",
   "readings": [
     {
       "title": "PyTorch Documentation",
@@ -42,5 +42,6 @@
       "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

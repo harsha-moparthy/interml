@@ -1,6 +1,6 @@
 {
   "id": 974,
-  "answer": "One-vs-rest trains $K$ classifiers, each separating one class from all others. One-vs-one trains $K(K-1)/2$ classifiers on class pairs and combines their votes or scores. [1](https://scikit-learn.org/stable/user_guide.html)\n\nOvO has more models but each can train on fewer examples; this can benefit some kernel methods. OvR scores may have different scales and need consistent decision/calibration handling. Neither scheme inherently exploits class hierarchy or guarantees optimal multiclass probabilities. Compare class imbalance, model size, training complexity, and prediction cost. A native multiclass objective such as softmax is a third option rather than merely a voting wrapper.",
+  "answer": "**Binary classifiers can be combined in two common ways.** One-vs-rest trains one classifier for each class against all others, giving K models. One-vs-one trains a classifier for every unordered pair, giving $K(K-1)/2$ models. [1](https://scikit-learn.org/stable/user_guide.html)\n\nWith four classes, OvR needs four classifiers and OvO needs six. Each OvO classifier sees only examples from its two classes, then a voting or score-combination rule produces the final class. OvR compares the K class-versus-rest scores.\n\n**More models does not always mean more training work.** Pairwise datasets are smaller, which can benefit expensive kernel methods. But prediction may require evaluating many classifiers. OvR faces potentially imbalanced one-versus-many problems, and its scores may have different scales.\n\nSpecify how scores or votes are combined and how probabilities are calibrated if needed. Neither construction automatically respects class hierarchy or gives a coherent multiclass probability distribution. A native multiclass model such as softmax is another option. Compare total training cost, inference cost, imbalance, and validation quality under the actual class distribution.\n\n**Technical details and references.**\n\nOne-vs-rest trains $K$ classifiers, each separating one class from all others. One-vs-one trains $K(K-1)/2$ classifiers on class pairs and combines their votes or scores. [1](https://scikit-learn.org/stable/user_guide.html)\n\nOvO has more models but each can train on fewer examples; this can benefit some kernel methods. OvR scores may have different scales and need consistent decision/calibration handling. Neither scheme inherently exploits class hierarchy or guarantees optimal multiclass probabilities. Compare class imbalance, model size, training complexity, and prediction cost. A native multiclass objective such as softmax is a third option rather than merely a voting wrapper.",
   "readings": [
     {
       "title": "Scikit-learn User Guide",
@@ -42,5 +42,6 @@
       "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

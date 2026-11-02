@@ -1,6 +1,6 @@
 {
   "id": 996,
-  "answer": "Catastrophic interference occurs when updates for new tasks overwrite parameters needed by earlier tasks, degrading old performance. Shared features can help transfer, but conflicting gradients and narrow new data can shift them destructively. [1](https://arxiv.org/abs/1612.00796)\n\nReplay old examples, constrain important parameters, allocate task-specific capacity/adapters, or distill old outputs. Each trades storage, compute, flexibility, and retention. Evaluate old/new tasks throughout the sequence, including class-incremental settings where task identity is unavailable at inference. Keeping old labels in a checkpoint is not enough if the new model's decision boundaries or calibration forget them.",
+  "answer": "**Learning a new task changes parameters that an old task may still need.** A model trained first on one image category set and then only on another can shift its features and decision boundaries until earlier categories perform poorly. This is catastrophic interference or forgetting. [1](https://arxiv.org/abs/1612.00796)\n\nThe problem is not simply that old examples are absent from storage. Even with an old checkpoint available, the currently deployed model may no longer express the old behavior. Shared features can enable transfer, but conflicting gradients can also overwrite useful structure.\n\n**Different remedies preserve different things.** Replay keeps old examples in training. Distillation preserves selected old outputs. Importance penalties restrict changes to estimated critical parameters. Adapters or task-specific capacity reduce forced sharing but require routing or storage choices.\n\nEvaluate both old and new tasks throughout the sequence. In class-incremental settings, the model may not know which task a test example belongs to, making evaluation harder than selecting a task-specific head with an oracle. Track calibration and rare classes as well as average accuracy. Retention and adaptation are a tradeoff to measure, not something guaranteed by one regularizer.\n\n**Technical details and references.**\n\nCatastrophic interference occurs when updates for new tasks overwrite parameters needed by earlier tasks, degrading old performance. Shared features can help transfer, but conflicting gradients and narrow new data can shift them destructively. [1](https://arxiv.org/abs/1612.00796)\n\nReplay old examples, constrain important parameters, allocate task-specific capacity/adapters, or distill old outputs. Each trades storage, compute, flexibility, and retention. Evaluate old/new tasks throughout the sequence, including class-incremental settings where task identity is unavailable at inference. Keeping old labels in a checkpoint is not enough if the new model's decision boundaries or calibration forget them.",
   "readings": [
     {
       "title": "Overcoming Catastrophic Forgetting in Neural Networks",
@@ -42,5 +42,6 @@
       "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

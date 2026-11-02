@@ -1,6 +1,6 @@
 {
   "id": 982,
-  "answer": "The 1-cycle policy raises learning rate from a low starting value to a peak, then decays it to a much smaller value, often varying momentum inversely. The high-rate phase can act as regularization and speed exploration; the final low-rate phase refines the fit. [1](https://www.deeplearningbook.org/contents/optimization.html)\n\n“Super-convergence” describes favorable empirical cases, not a guarantee. Peak rate, total steps, batch size, weight decay, and augmentation interact. Use a stable range-finding experiment and held-out validation, and ensure the schedule advances once per intended optimizer update. Too large a peak can destroy training rather than accelerate it.",
+  "answer": "**The one-cycle policy changes the learning rate to suit different phases of training.** It begins relatively low, rises to a high peak, then falls to a much smaller final rate. Momentum is often varied in the opposite direction. [1](https://www.deeplearningbook.org/contents/optimization.html)\n\nThe early increase allows a larger exploratory phase; the late decrease permits precise refinement. In favorable experiments, the high-rate phase provides useful regularization and reaches good performance with fewer updates, motivating the term super-convergence.\n\n**A high peak is a risk to tune, not a free acceleration.** If it exceeds the stable range, loss can diverge or useful weights can be damaged. Batch size, weight decay, augmentation, and total updates interact with that choice.\n\nUse a bounded range-finding experiment and a validation comparison to choose the peak and duration. Advance the scheduler once per intended optimizer update, not once per microbatch if updates are accumulated. Report the complete schedule so “one cycle” is reproducible. A successful recipe on one dataset does not guarantee the same speedup on another architecture or training budget.\n\n**Technical details and references.**\n\nThe 1-cycle policy raises learning rate from a low starting value to a peak, then decays it to a much smaller value, often varying momentum inversely. The high-rate phase can act as regularization and speed exploration; the final low-rate phase refines the fit. [1](https://www.deeplearningbook.org/contents/optimization.html)\n\n“Super-convergence” describes favorable empirical cases, not a guarantee. Peak rate, total steps, batch size, weight decay, and augmentation interact. Use a stable range-finding experiment and held-out validation, and ensure the schedule advances once per intended optimizer update. Too large a peak can destroy training rather than accelerate it.",
   "readings": [
     {
       "title": "Deep Learning, Chapter 8: Optimization",
@@ -42,5 +42,6 @@
       "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

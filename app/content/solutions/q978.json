@@ -1,6 +1,6 @@
 {
   "id": 978,
-  "answer": "Box–Cox and Yeo–Johnson are power transformations used to reduce skew or stabilize variance under suitable modeling goals. “Bessel function” is a different mathematical object and does not belong in this list. [1](https://docs.scipy.org/doc/scipy/reference/stats.html)\n\nFor positive $x$, Box–Cox uses $(x^\\lambda-1)/\\lambda$ when $\\lambda\\ne0$ and $\\log x$ when $\\lambda=0$. Yeo–Johnson extends a related piecewise family to zero/negative inputs. Fit transformation parameters using training data only. Normal-looking features are not a universal requirement: trees may gain little, while linear residual/variance assumptions can matter more than marginal feature normality.",
+  "answer": "**Power transformations change scale to make relationships or variability easier to model.** For positive x, Box–Cox uses $(x^\\lambda-1)/\\lambda$, with log(x) as the continuous limit at lambda=0. Lambda=1 is essentially a shifted identity; other values compress or expand different ranges. [1](https://docs.scipy.org/doc/scipy/reference/stats.html)\n\nA logarithm turns multiplicative differences into additive ones. Values 1, 10, and 100 are extremely uneven on the raw scale but equally spaced in base-ten log units. This can help a model whose errors are more naturally relative than absolute.\n\nYeo–Johnson uses a related piecewise family that permits zero and negative values. A Bessel function is a different mathematical object and does not belong in the question's list of standard power transforms.\n\n**Do not transform solely to make a histogram look Gaussian.** Many models do not require normally distributed features. Residual behavior and the modeled relationship may matter more. Fit any transformation parameter using training data only, preserve a valid inverse when needed, and assess held-out performance. Trees may gain little from a strictly monotonic feature transform, while linear models can change substantially.\n\n**Technical details and references.**\n\nBox–Cox and Yeo–Johnson are power transformations used to reduce skew or stabilize variance under suitable modeling goals. “Bessel function” is a different mathematical object and does not belong in this list. [1](https://docs.scipy.org/doc/scipy/reference/stats.html)\n\nFor positive $x$, Box–Cox uses $(x^\\lambda-1)/\\lambda$ when $\\lambda\\ne0$ and $\\log x$ when $\\lambda=0$. Yeo–Johnson extends a related piecewise family to zero/negative inputs. Fit transformation parameters using training data only. Normal-looking features are not a universal requirement: trees may gain little, while linear residual/variance assumptions can matter more than marginal feature normality.",
   "readings": [
     {
       "title": "SciPy Statistics Reference",
@@ -42,5 +42,6 @@
       "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }

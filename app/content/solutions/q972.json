@@ -1,6 +1,6 @@
 {
   "id": 972,
-  "answer": "Test-time augmentation averages predictions across label-preserving transformations, reducing sensitivity to orientation/crop choices and acting like a small ensemble. [1](https://arxiv.org/abs/2010.11929)\n\nIt multiplies inference work and can increase tail latency and energy, making it unattractive for some interactive systems—but it is used in production when the benefit justifies cost. The transformation must preserve the task: flipping text, medical laterality, or directional objects can change meaning. Align dense outputs back to original coordinates before averaging. Benchmark real end-to-end latency and robustness rather than assuming competition gains transfer to the deployment distribution.",
+  "answer": "**Test-time augmentation averages a model's views of the same example.** Predict from the original image and several valid transformations, then combine the predictions. This can reduce sensitivity to one crop or orientation, behaving like a small ensemble without training separate networks. [1](https://arxiv.org/abs/2010.11929)\n\nIf five views are processed, inference work may approach five forward passes, though batching and shared overhead affect actual latency. That can be acceptable for offline analysis and too expensive for a strict interactive budget.\n\n**A valid transformation must preserve the label.** Horizontal flipping can change text, directional signs, or laterality. For segmentation, map each predicted mask back into original coordinates before averaging; otherwise corresponding pixels do not align.\n\nBenchmark the full latency distribution and quality on deployment data. A competition gain may depend on test images unlike production traffic. TTA is used in some deployed systems when its benefit justifies the cost, so “never used in production” is inaccurate. Choose the number and type of views from a measured quality–latency tradeoff.\n\n**Technical details and references.**\n\nTest-time augmentation averages predictions across label-preserving transformations, reducing sensitivity to orientation/crop choices and acting like a small ensemble. [1](https://arxiv.org/abs/2010.11929)\n\nIt multiplies inference work and can increase tail latency and energy, making it unattractive for some interactive systems—but it is used in production when the benefit justifies cost. The transformation must preserve the task: flipping text, medical laterality, or directional objects can change meaning. Align dense outputs back to original coordinates before averaging. Benchmark real end-to-end latency and robustness rather than assuming competition gains transfer to the deployment distribution.",
   "readings": [
     {
       "title": "An Image is Worth 16x16 Words",
@@ -42,5 +42,6 @@
       "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
       "access": "Free online paper, book, or documentation"
     }
-  ]
+  ],
+  "explanation_revision": "beginner-worked-v2"
 }
