@@ -117,3 +117,26 @@ figure loading, mobile layouts, and automatic answer visibility.
 - 78 backend, 138 frontend, and 56 numerical/regression tests passed.
 - Internal lesson links and whitespace checks pass. External sources were
   researched selectively; this is not a claim of an exhaustive live URL audit.
+
+## Beginner explanation expansion (2026-11-02)
+
+All 500 A01–A18 answers now have authored teaching passages: intuition, concrete
+examples, derivations where relevant, and limitations tied to the question.
+The median answer is 323 words; Q796 and Q824 have standalone extended treatments.
+Explanations appear before implementation code. Every answer retains five distinct
+further-reading resources and inline citations. Eight original SVGs now appear in
+11 answers, including the entropy/KL decomposition and an in-batch-negative matrix.
+
+The expanded-source audit checks all 500 manifests against their Markdown sources,
+1,442 inline citations, and 1,369 strictly parsed KaTeX expressions. The updated
+browser suite traverses all 500 answers, loads all 11 diagram placements, verifies
+representative expanded content, and checks seven mobile layouts. The question
+suite passes 20 checks and the answer suite passes 24, with no console/page errors.
+Backend tests pass 78/78 and frontend tests pass 138/138. Numerical implementations
+are unchanged from the preceding verified pass. External sources were researched
+selectively; these checks do not claim an exhaustive external-link or factual audit.
+
+Run backend tests before the final static export, then build after export finishes.
+Some importer tests temporarily create a content fixture; exporting concurrently
+with those tests can publish the fixture. Export also replaces its output directory,
+so a concurrent static build can encounter missing files.

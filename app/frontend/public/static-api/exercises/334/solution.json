@@ -1,0 +1,1 @@
+{"id":334,"language":"Python","code":"from torch.nn import functional as F\n\n\ndef q334(x, w1, b1, w2, b2):\n    \"\"\"Implement a GPT feed-forward block Linear-GELU-Linear. Matrix layout is\n    input-by-output; apply exact GELU.\n    \"\"\"\n    return F.gelu(x @ w1 + b1, approximate=\"none\") @ w2 + b2\n","answer":"","content_kind":"coding"}
