@@ -1,0 +1,46 @@
+{
+  "id": 829,
+  "answer": "Random folds let a financial model learn from future regimes and from observations overlapping a validation label's future horizon. A forward split trains only on information available before the evaluation period. Purging removes training examples whose label intervals overlap validation intervals; embargo excludes an additional neighborhood where dependence or information propagation could leak. [1](https://scikit-learn.org/stable/modules/cross_validation.html) [2](https://otexts.com/fpp3/)\n\nFor a label using returns from $t$ to $t+H$, track the full interval rather than only row timestamp. Fit scalers, feature selection, and tuning inside each allowed training window. Evaluate realistic execution costs and universe membership known at the time.\n\nNo split proves stationarity or profitability. Repeatedly trying strategies on the same backtest causes selection bias even when each individual split is temporally correct.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Forecasting: Principles and Practice",
+      "url": "https://otexts.com/fpp3/",
+      "publisher": "otexts.com",
+      "tags": "",
+      "why": "Open textbook on evaluation, temporal validation, reconciliation, and forecasting methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Common Pitfalls",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Preprocessing leakage, pipelines, and reproducible evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Causal Inference: What If",
+      "url": "https://miguelhernan.org/whatifbook",
+      "publisher": "miguelhernan.org",
+      "tags": "",
+      "why": "Hernán and Robins' open book on identification, confounding, weighting, and longitudinal causal inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

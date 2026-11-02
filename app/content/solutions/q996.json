@@ -1,0 +1,46 @@
+{
+  "id": 996,
+  "answer": "Catastrophic interference occurs when updates for new tasks overwrite parameters needed by earlier tasks, degrading old performance. Shared features can help transfer, but conflicting gradients and narrow new data can shift them destructively. [1](https://arxiv.org/abs/1612.00796)\n\nReplay old examples, constrain important parameters, allocate task-specific capacity/adapters, or distill old outputs. Each trades storage, compute, flexibility, and retention. Evaluate old/new tasks throughout the sequence, including class-incremental settings where task identity is unavailable at inference. Keeping old labels in a checkpoint is not enough if the new model's decision boundaries or calibration forget them.",
+  "readings": [
+    {
+      "title": "Overcoming Catastrophic Forgetting in Neural Networks",
+      "url": "https://arxiv.org/abs/1612.00796",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Importance-weighted parameter penalties for retaining earlier tasks.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "TIES-Merging: Resolving Interference When Merging Models",
+      "url": "https://arxiv.org/abs/2306.01708",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Trimming, sign conflicts, and combining task updates.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Low-rank updates, initialization, parameter cost, and inference merging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

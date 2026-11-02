@@ -1,0 +1,46 @@
+{
+  "id": 754,
+  "answer": "With per-device batch unchanged, eight-way DDP increases the global batch eightfold and reduces optimizer updates per epoch by roughly eightfold. The same epoch count and learning-rate schedule therefore describe a different optimization process. [1](https://docs.pytorch.org/docs/stable/index.html) [2](https://jax-ml.github.io/scaling-book/)\n\nCheck global batch including accumulation, learning-rate/warmup tuning, scheduler units, gradient averaging versus summation, and whether the distributed sampler changes shuffle each epoch. Ensure evaluation aggregates all examples without accidental duplicates or dropped tails. BatchNorm uses local statistics unless synchronized; its effective normalization batch may differ from the global optimization batch.\n\nCompare first with a configuration preserving the original global batch and update count. Then change batch size deliberately and retune. There is no single setting guaranteed to recover exactly the missing three percentage points.",
+  "readings": [
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Batch Normalization",
+      "url": "https://arxiv.org/abs/1502.03167",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Batch statistics, learned affine parameters, and inference behavior.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

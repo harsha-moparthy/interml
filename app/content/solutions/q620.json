@@ -1,0 +1,47 @@
+{
+  "id": 620,
+  "code_file": "q620.py",
+  "answer": "LayerNorm computes statistics independently across each example’s final feature axis. Backward subtracts the mean upstream scaled gradient and its projection onto the normalized input, then multiplies by inverse standard deviation. Weight and bias gradients reduce over every leading axis. The cache stores the forward weight as well as normalized activations, so accidental weight mutation cannot change that backward calculation. The reference supports one outstanding forward call at a time.\n\n**Mathematical and practical explanation.** For upstream scaled gradient $u=g\\odot\\gamma$, normalized input $\\hat x$, and inverse standard deviation $r$, $\\nabla_xL=r[u-\\operatorname{mean}(u)-\\hat x\\operatorname{mean}(u\\hat x)]$. Means are over normalized features only. Sum affine-parameter gradients over leading dimensions, and test constant inputs where epsilon controls the result. [3](https://arxiv.org/abs/1910.07467)\n\nFor the implementation or system context discussed above, see [1](https://theaisummer.com/normalization/) and [2](https://docs.pytorch.org/docs/stable/generated/torch.nn.LayerNorm.html).",
+  "readings": [
+    {
+      "title": "Normalization in Deep Learning (BN, LN, IN, GN)",
+      "url": "https://theaisummer.com/normalization/",
+      "publisher": "AI Summer",
+      "tags": "",
+      "why": "Compares the four normalization layers with diagrams and code.",
+      "access": "Free to read"
+    },
+    {
+      "title": "LayerNorm",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.LayerNorm.html",
+      "publisher": "PyTorch",
+      "tags": "",
+      "why": "Check normalized axes and affine parameter dimensions.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Root Mean Square Layer Normalization",
+      "url": "https://arxiv.org/abs/1910.07467",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "RMS normalization, invariances, and measured rather than universal efficiency gains.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

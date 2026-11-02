@@ -1,0 +1,46 @@
+{
+  "id": 1035,
+  "answer": "Initially freeze the pretrained vision encoder and language model and train the projection/adapter on image–text pairs. This aligns visual features with the language model's input space while limiting early destructive updates. Next, unfreeze selected layers or adapters for instruction tuning, using lower learning rates for pretrained weights and diverse text/vision evaluation. [1](https://arxiv.org/abs/2304.08485) [2](https://arxiv.org/abs/2301.12597)\n\nThis staged recipe is a useful baseline, not a universal necessity. Data scale, domain shift, and architecture may justify joint training or continued freezing. Check whether the model actually uses the image through counterfactual image swaps and visual grounding tests. Monitor language-only performance, OCR, spatial reasoning, and hallucinations. A low alignment loss can hide shortcut learning from captions or answer priors rather than visual understanding.",
+  "readings": [
+    {
+      "title": "Visual Instruction Tuning",
+      "url": "https://arxiv.org/abs/2304.08485",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Projection-based visual instruction tuning and evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "BLIP-2: Bootstrapping Language-Image Pre-training",
+      "url": "https://arxiv.org/abs/2301.12597",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "The Q-Former bridge between frozen vision and language models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+      "url": "https://arxiv.org/abs/2204.14198",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Visual resampling and gated cross-attention for multimodal sequences.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "url": "https://arxiv.org/abs/2103.00020",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Image–text contrastive learning, zero-shot transfer, and limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

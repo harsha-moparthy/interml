@@ -1,0 +1,46 @@
+{
+  "id": 722,
+  "answer": "GRPO samples a group of responses to the same prompt, scores them, and uses within-group rewards as a baseline instead of fitting a separate value network. A common normalized advantage is [1](https://arxiv.org/abs/2501.12948)\n\n$$A_i=\\frac{r_i-\\bar r}{s_r+\\epsilon},\\qquad \\bar r=G^{-1}\\sum_{j=1}^{G}r_j.$$\n\nA clipped policy-ratio objective then updates the policy, often with a reference KL term. Eliminating the critic saves weights, optimizer state, and value-learning work; generating multiple responses and scoring them still costs compute. If all rewards are identical, the group provides no ranking signal and its normalized advantages are zero. Reward verifiability matters: passing a unit test can provide stronger feedback than a fallible stylistic judge. Group normalization also changes weighting across prompts with different reward variability.",
+  "readings": [
+    {
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability via Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2501.12948",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Group-relative rewards, reasoning training, and reported limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Proximal Policy Optimization Algorithms",
+      "url": "https://arxiv.org/abs/1707.06347",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Clipped policy ratios, advantage estimates, and policy optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Direct Preference Optimization",
+      "url": "https://arxiv.org/abs/2305.18290",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "KL-regularized optimal policies and the preference logistic objective.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Let's Verify Step by Step",
+      "url": "https://arxiv.org/abs/2305.20050",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Process supervision, outcome supervision, and verifier evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Training Language Models to Follow Instructions with Human Feedback",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "SFT, reward modeling, PPO, and human evaluation in an RLHF pipeline.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

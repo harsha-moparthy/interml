@@ -1,0 +1,46 @@
+{
+  "id": 965,
+  "answer": "Expand the variance of an average into diagonal variance and off-diagonal covariance terms. With equal variance $\\sigma^2$ and pairwise covariance $\\rho\\sigma^2$, [1](https://scikit-learn.org/stable/modules/ensemble.html)\n\n$$Var(\\bar f)=\\frac{M\\sigma^2+M(M-1)\\rho\\sigma^2}{M^2}=\\rho\\sigma^2+\\frac{1-\\rho}{M}\\sigma^2.$$\n\nFor uncorrelated errors, this is $\\sigma^2/M$. Correlation leaves a floor, so more highly similar models eventually add little. These assumptions concern errors/prediction variation under an ensemble-generating process; they do not guarantee identical reduction in classification error. Bias is not removed by averaging identically biased models, and compute cost grows unless predictions can be compressed or distilled.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

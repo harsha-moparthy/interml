@@ -1,0 +1,46 @@
+{
+  "id": 941,
+  "answer": "Independent random walks can share long smooth excursions by chance. Regressing their levels violates usual stationary-error assumptions, so high $R^2$ and conventional t-statistics can be spurious. Differencing removes a unit root but may discard a meaningful long-run relation if one exists. [1](https://otexts.com/fpp3/)\n\nCointegration means a nontrivial linear combination of integrated series is stationary, for example $Y_t-\\beta X_t$. Engle–Granger tests residual behavior with appropriate nonstandard critical values; Johansen handles multiple series/relations.\n\nA cointegrating relation is not automatically a profitable pairs strategy. Test stability, estimate using past data only, model execution costs, and monitor breaks. Repeatedly searching many pairs creates selection bias; a favorable residual test on the chosen pair needs independent validation.",
+  "readings": [
+    {
+      "title": "Forecasting: Principles and Practice",
+      "url": "https://otexts.com/fpp3/",
+      "publisher": "otexts.com",
+      "tags": "",
+      "why": "Open textbook on evaluation, temporal validation, reconciliation, and forecasting methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

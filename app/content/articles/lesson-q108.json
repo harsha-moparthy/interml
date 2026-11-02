@@ -2,7 +2,7 @@
   "id": "lesson-q108",
   "kind": "lesson",
   "title": "The backward pass gathers what forward reused",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            6,
-            6
+            10,
+            10
           ],
           "match": "while g.ndim > len(original_shape):",
           "text": "Inserted leading axes are removed by summation."
         },
         {
           "lines": [
-            10,
-            10
+            14,
+            14
           ],
           "match": "g.sum(axis=axes, keepdims=True)",
           "text": "Existing singleton axes keep their positions while collecting repeated uses."

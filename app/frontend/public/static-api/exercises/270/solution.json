@@ -1,1 +1,1 @@
-{"id":270,"language":"Python","code":"def q270(x):\n    return x.mean(dim=(-2, -1))\n","answer":"","content_kind":"coding"}
+{"id":270,"language":"Python","code":"def q270(x):\n    \"\"\"Globally average the spatial dimensions of an NCHW tensor, returning shape\n    (batch,channels).\n    \"\"\"\n    return x.mean(dim=(-2, -1))\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,46 @@
+{
+  "id": 1022,
+  "answer": "A 3B model at ideal four-bit storage needs about 1.5 GB for raw weights, plus scales, metadata, runtime buffers, activations, and KV cache. GGUF is a container/ecosystem with several quantization schemes, whereas AWQ is a quantization method; they are not interchangeable format names. [1](https://arxiv.org/abs/2306.00978) [2](https://arxiv.org/abs/2210.17323)\n\nCap context/batch size using the KV formula and choose kernels supported by the phone/laptop backend. Offloading cache or weights to host/storage can make transfer bandwidth dominate token latency. Thermal throttling and unified-memory pressure matter over sustained sessions.\n\nBenchmark first-token latency, tokens/sec, energy, peak memory, and quality on-device. Reserve headroom for the operating system and other apps; fitting the weight file into nominal VRAM does not mean the model can run reliably.",
+  "readings": [
+    {
+      "title": "AWQ: Activation-aware Weight Quantization",
+      "url": "https://arxiv.org/abs/2306.00978",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Activation-informed protection of important weight channels.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "GPTQ: Accurate Post-Training Quantization",
+      "url": "https://arxiv.org/abs/2210.17323",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order reconstruction and sequential quantization error compensation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Efficient Memory Management for LLM Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Block tables, fragmentation, shared prefixes, and serving throughput.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "GQA: Training Generalized Multi-Query Transformer Models",
+      "url": "https://arxiv.org/abs/2305.13245",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "The quality, bandwidth, and cache tradeoff between MHA, MQA, and GQA.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

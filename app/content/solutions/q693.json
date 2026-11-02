@@ -1,0 +1,46 @@
+{
+  "id": 693,
+  "answer": "Soft-capping maps a raw logit $z$ into a bounded value before softmax. Large magnitudes approach a finite ceiling instead of increasing without limit. Gemma 2 uses this technique in specified attention and output-logit paths. [1](https://arxiv.org/abs/2408.00118)\n\n$$\\tilde z=c\\tanh(z/c),\\qquad |\\tilde z|<c,\\qquad \\frac{d\\tilde z}{dz}=1-\\tanh^2(z/c).$$\n\nFor small $|z|/c$, the mapping is approximately the identity. It limits extreme score differences and can improve stability, but extreme raw logits also have small gradients through the cap. It does not repair NaNs already produced upstream. Apply causal/padding exclusion as a true mask; transforming negative infinity through tanh would turn an excluded position into a finite score. The cap value and its location are architectural hyperparameters.",
+  "readings": [
+    {
+      "title": "Gemma 2: Improving Open Language Models at a Practical Size",
+      "url": "https://arxiv.org/abs/2408.00118",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Soft-capping and the model's specific normalization and attention design.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Root Mean Square Layer Normalization",
+      "url": "https://arxiv.org/abs/1910.07467",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "RMS normalization, invariances, and measured rather than universal efficiency gains.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "On Layer Normalization in the Transformer Architecture",
+      "url": "https://arxiv.org/abs/2002.04745",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Gradient behavior at initialization and normalization placement.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

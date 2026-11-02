@@ -1,0 +1,46 @@
+{
+  "id": 685,
+  "answer": "Let $s=\\sum_{r=1}^{d_k}q_rk_r$. Independence and zero means give $E[q_rk_r]=0$ and $E[q_r^2k_r^2]=1$. Cross-covariances vanish, so $\\operatorname{Var}(s)=d_k$; dividing by $\\sqrt{d_k}$ restores unit variance. For $d_k=64$, the unscaled standard deviation is 8, versus 1 after scaling. These assumptions describe initialization, not a guarantee about trained features. [1](https://arxiv.org/abs/1706.03762)\n\n$$p_i=\\frac{e^{z_i}}{\\sum_j e^{z_j}},\\qquad \\frac{\\partial p_i}{\\partial z_j}=p_i(\\delta_{ij}-p_j).$$\n\nLarge score differences make softmax nearly one-hot and shrink its Jacobian. Scaling reduces that tendency while retaining meaningful relative scores. Distinguish the attention-softmax Jacobian from the combined cross-entropy gradient $p-y$, which need not vanish for a confidently wrong prediction.",
+  "readings": [
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention: Exact Attention with IO-Awareness",
+      "url": "https://arxiv.org/abs/2205.14135",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Online softmax, SRAM tiling, and recomputation in the backward pass.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "On Layer Normalization in the Transformer Architecture",
+      "url": "https://arxiv.org/abs/2002.04745",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Gradient behavior at initialization and normalization placement.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

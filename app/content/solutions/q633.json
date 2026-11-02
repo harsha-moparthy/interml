@@ -1,0 +1,47 @@
+{
+  "id": 633,
+  "code_file": "q633.py",
+  "answer": "SiLU is x·sigmoid(x), with derivative sigmoid(x)·[1+x·(1−sigmoid(x))]. Saving x and recomputing sigmoid in backward trades some computation for a smaller saved activation set. The custom function supports ordinary autograd and can be checked with double-precision gradcheck. A production fused kernel may make different memory/performance tradeoffs.\n\n**Mathematical and practical explanation.** For $s=\\sigma(x)$, $d(xs)/dx=s+x s(1-s)$. Multiplying this by upstream gradient supplies the custom backward. Double-precision finite-difference checks should include negative, near-zero, and positive values; testing only saturated regions can miss errors because both correct and incorrect gradients may be numerically small there. [3](https://arxiv.org/abs/2002.05202)\n\nFor the implementation or system context discussed above, see [1](https://letsdatascience.com/blog/activation-functions-relu-sigmoid-and-beyond) and [2](https://docs.pytorch.org/docs/stable/notes/extending.html).",
+  "readings": [
+    {
+      "title": "Activation Functions: ReLU, Sigmoid and Beyond",
+      "url": "https://letsdatascience.com/blog/activation-functions-relu-sigmoid-and-beyond",
+      "publisher": "Let's Data Science",
+      "tags": "",
+      "why": "Compares sigmoid, tanh, ReLU and its variants and GELU, with gradient behaviour.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Extending PyTorch: autograd functions",
+      "url": "https://docs.pytorch.org/docs/stable/notes/extending.html",
+      "publisher": "PyTorch",
+      "tags": "",
+      "why": "Read saved tensors, backward signatures, and gradcheck guidance.",
+      "access": "Free to read"
+    },
+    {
+      "title": "GLU Variants Improve Transformer",
+      "url": "https://arxiv.org/abs/2002.05202",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Gated feed-forward activations and parameter-matched comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

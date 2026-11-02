@@ -1,0 +1,46 @@
+{
+  "id": 851,
+  "answer": "A strict output schema can force premature commitment: the model may have to emit a final field before it has resolved dependencies or uncertainty. Grammar validity only restricts possible strings; it does not supply the missing computation. [1](https://arxiv.org/abs/2411.15100)\n\nOne design separates a bounded internal analysis/verification stage from final structured serialization. Another asks for explicit intermediate evidence fields only when useful and appropriate for the product. A free-form “thinking” field is not guaranteed to improve accuracy and should not be treated as proof of reasoning quality.\n\nCompare task correctness, schema validity, latency, and output privacy under controlled prompts. External checks—calculations, type validation, or source retrieval—often provide more dependable verification than a longer self-explanation. Keep final output requirements clear and avoid schema order that conflicts with genuine data dependencies.",
+  "readings": [
+    {
+      "title": "XGrammar: Flexible and Efficient Structured Generation",
+      "url": "https://arxiv.org/abs/2411.15100",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Grammar state, token masks, and efficient constrained decoding.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally",
+      "url": "https://arxiv.org/abs/2408.03314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Adaptive inference-time compute allocation and comparison with model scaling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Let's Verify Step by Step",
+      "url": "https://arxiv.org/abs/2305.20050",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Process supervision, outcome supervision, and verifier evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Interleaving observations, reasoning, and tool actions.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Building Effective Agents — Anthropic",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Workflow patterns, tool interfaces, evaluation, and when agent complexity is justified.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

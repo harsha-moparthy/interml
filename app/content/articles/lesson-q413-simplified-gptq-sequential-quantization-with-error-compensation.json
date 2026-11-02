@@ -2,7 +2,7 @@
   "id": "lesson-q413-simplified-gptq-sequential-quantization-with-error-compensation",
   "kind": "lesson",
   "title": "Simplified GPTQ: Sequential Quantization with Error Compensation",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            6,
-            6
+            10,
+            10
           ],
           "match": "x = np.asarray(calibration, ",
           "text": "Factor inverse curvature. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            8,
-            8
+            12,
+            12
           ],
           "match": "h += np.eye(h.shape[0]) * ma",
           "text": "Quantize one column. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            11,
-            13
+            15,
+            15
           ],
           "match": "scale = np.maximum(",
           "text": "Measure scaled error. This is the code stage shown in the mechanism animation."

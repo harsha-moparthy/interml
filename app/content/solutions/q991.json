@@ -1,0 +1,46 @@
+{
+  "id": 991,
+  "answer": "Teacher forcing conditions each training prediction on the correct previous tokens, enabling parallel loss computation over a known sequence. At inference the model conditions on its own generated history, so an early error can move it into unfamiliar contexts and compound. [1](https://arxiv.org/abs/1706.03762)\n\n$$L=-\\sum_t\\log p_\\theta(y_t\\mid x,y_{<t}^{gold}).$$\n\nThis discrepancy is called exposure bias. Sequence-level training, data augmentation, or carefully designed sampling methods can help, but naive scheduled sampling changes the training objective and has caveats. Evaluate complete generated sequences and recovery from perturbed prefixes, not only teacher-forced token loss. EOS behavior and decoding choices also affect the observed failure.",
+  "readings": [
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+      "url": "https://arxiv.org/abs/1910.10683",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder pretraining objectives and controlled architecture comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally",
+      "url": "https://arxiv.org/abs/2408.03314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Adaptive inference-time compute allocation and comparison with model scaling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

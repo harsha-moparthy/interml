@@ -1,0 +1,47 @@
+{
+  "id": 646,
+  "code_file": "q646.py",
+  "answer": "Gaussian naive Bayes estimates a mean and variance per class/feature; multinomial naive Bayes estimates smoothed token probabilities from nonnegative feature counts. Both add log priors to summed feature log likelihoods, avoiding probability underflow. A variance floor handles constant Gaussian features; Laplace smoothing prevents unseen tokens from zeroing an entire class likelihood. Conditional independence is an approximation, so probabilities may be poorly calibrated.\n\n**Mathematical and practical explanation.** The posterior score is $\\log P(c)+\\sum_j\\log P(x_j|c)$ under conditional independence. For multinomial counts with Laplace smoothing, $P(j|c)=(N_{cj}+\\alpha)/(\\sum_lN_{cl}+\\alpha V)$. Smoothing avoids zero probabilities, while log space avoids multiplying many tiny values. Independence misspecification can still make the resulting probabilities overconfident. [3](https://probml.github.io/pml-book/book1.html)\n\nFor the implementation or system context discussed above, see [1](https://jakevdp.github.io/PythonDataScienceHandbook/05.05-naive-bayes.html) and [2](https://scikit-learn.org/stable/modules/naive_bayes.html).",
+  "readings": [
+    {
+      "title": "In Depth: Naive Bayes Classification (Python Data Science Handbook)",
+      "url": "https://jakevdp.github.io/PythonDataScienceHandbook/05.05-naive-bayes.html",
+      "publisher": "Jake VanderPlas",
+      "tags": "",
+      "why": "Gaussian and multinomial naive Bayes with the Bayes-rule derivation.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Naive Bayes (scikit-learn)",
+      "url": "https://scikit-learn.org/stable/modules/naive_bayes.html",
+      "publisher": "scikit-learn",
+      "tags": "",
+      "why": "Gaussian, multinomial and Bernoulli variants and their smoothing.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

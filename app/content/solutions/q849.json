@@ -1,0 +1,46 @@
+{
+  "id": 849,
+  "answer": "Represent tool calls and results as typed state transitions. Validate arguments before execution; return actionable structured errors for schema mistakes; distinguish transient timeouts/5xx errors from permanent invalid requests and valid empty results. [1](https://arxiv.org/abs/2210.03629) [2](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/)\n\nUse per-call deadlines, bounded retries with backoff/jitter, and a total task budget. Side-effecting calls need idempotency keys or status checks before retrying. An empty search result should trigger a changed query or an explicit information gap, not the same request forever.\n\nStore attempted calls and outcomes so repeated failures are detectable. Escalate or stop when the remaining budget cannot support a useful alternative. Tool error text is untrusted data, not authority to alter permissions. Successful recovery means a verified task result, not simply suppressing exceptions.",
+  "readings": [
+    {
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Interleaving observations, reasoning, and tool actions.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Timeouts, Retries, and Backoff with Jitter — AWS",
+      "url": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/",
+      "publisher": "aws.amazon.com",
+      "tags": "",
+      "why": "Bounded retries, timeout budgets, jitter, and idempotency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Building Effective Agents — Anthropic",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Workflow patterns, tool interfaces, evaluation, and when agent complexity is justified.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "XGrammar: Flexible and Efficient Structured Generation",
+      "url": "https://arxiv.org/abs/2411.15100",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Grammar state, token masks, and efficient constrained decoding.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

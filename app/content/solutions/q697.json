@@ -1,0 +1,46 @@
+{
+  "id": 697,
+  "answer": "Encoder-only models see both left and right context and are well suited to classification, tagging, and pooled retrieval representations. Decoder-only models use a causal mask and learn next-token prediction. Encoder–decoder models encode an input bidirectionally and generate an output with causal decoding plus cross-attention. [1](https://arxiv.org/abs/1810.04805) [2](https://arxiv.org/abs/1910.10683)\n\n$$p(y\\mid x)=\\prod_t p(y_t\\mid x,y_{<t}).$$\n\nDecoder-only models offer a simple common training/generation objective and flexible prompting at scale; that practical success does not establish universal architectural superiority. A bi-encoder can precompute document vectors and score queries with dot products, avoiding token-by-token generation. [4](https://arxiv.org/abs/1908.10084) Encoder–decoders remain useful when input conditioning and output generation have distinct roles. Compare quality at matched data/compute, latency, context size, and output requirements rather than assuming one architecture wins every task.",
+  "readings": [
+    {
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers",
+      "url": "https://arxiv.org/abs/1810.04805",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Masked language modeling and bidirectional representations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+      "url": "https://arxiv.org/abs/1910.10683",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder pretraining objectives and controlled architecture comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Retrieval-conditioned generation and the distinction between parameters and external evidence.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

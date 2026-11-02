@@ -1,0 +1,46 @@
+{
+  "id": 970,
+  "answer": "Early stopping chooses a checkpoint before optimization fully fits noise, using a separate validation criterion and patience rule. For quadratic linear regression, finite gradient-descent time shrinks slowly learned low-curvature directions, resembling spectral regularization. [1](https://www.deeplearningbook.org/contents/optimization.html)\n\nIt is **not generally exactly equivalent** to ridge with one scalar penalty: early-stopping and ridge apply different spectral filters. In neural networks the connection is even less exact. Save the best checkpoint rather than the last patience-expired one, and avoid repeatedly tuning against the final test set. Compare compute, validation uncertainty, and metric alignment when deciding when to stop.",
+  "readings": [
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 802,
+  "answer": "For a real symmetric matrix, PSD means every quadratic form $a^TAa$ is nonnegative, equivalently all eigenvalues are nonnegative. Covariance is PSD because [1](https://probml.github.io/pml-book/book1.html)\n\n$$a^T\\operatorname{Cov}(X)a=\\operatorname{Var}(a^TX)\\ge0.$$\n\nA Gram matrix from feature vectors is PSD since $\\sum_{ij}c_ic_j\\langle\\phi_i,\\phi_j\\rangle=\\|\\sum_i c_i\\phi_i\\|^2$. A valid kernel must have this property for every finite input set, not just one sampled matrix. Small negative computed eigenvalues may reflect rounding; large ones can indicate an invalid kernel or covariance construction. PSD may be singular, so ordinary inversion can fail; regularization or a pseudoinverse may be appropriate depending on the model.",
+  "readings": [
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Support Vector Machines",
+      "url": "https://scikit-learn.org/stable/modules/svm.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Margin objectives, kernel parameters, and scaling requirements.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Matrix Decomposition",
+      "url": "https://scikit-learn.org/stable/modules/decomposition.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "PCA, SVD, centering, whitening, and decomposition variants.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

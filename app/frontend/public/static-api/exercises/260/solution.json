@@ -1,1 +1,1 @@
-{"id":260,"language":"Python","code":"import numpy as np\n\n\ndef q260(image, padding):\n    return np.pad(image, ((padding, padding), (padding, padding), (0, 0)))\n","answer":"","content_kind":"coding"}
+{"id":260,"language":"Python","code":"import numpy as np\n\n\ndef q260(image, padding):\n    \"\"\"Zero-pad the height and width of an HWC image equally on all sides without padding\n    channels.\n    \"\"\"\n    return np.pad(image, ((padding, padding), (padding, padding), (0, 0)))\n","answer":"","content_kind":"coding"}

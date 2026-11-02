@@ -1,0 +1,46 @@
+{
+  "id": 660,
+  "answer": "Pipeline audio capture into echo cancellation, voice activity detection, streaming ASR, dialogue inference, and chunked TTS. VAD detects acoustic speech activity; semantic turn detection additionally estimates whether the utterance is complete. Partial ASR hypotheses can start speculative intent/retrieval, but irreversible actions should wait for confirmed intent.\n\nEvery turn and audio chunk carries a monotonic sequence/turn ID. On barge-in, cancel active generation, stop queued playback, and discard late chunks from the old turn. Update conversation history to reflect audio actually played, not the entire generated answer. Maintain backpressure so a slow network or speaker does not accumulate seconds of stale audio.\n\nBudget end-of-speech-to-first-audio latency across endpointing, reasoning, and synthesis; this is distinct from ASR word latency. Evaluate interruption recovery, false turn endings, word error rate by accent/noise, and task completion. A direct speech model can avoid some text-stage latency but changes observability and control; a modular ASR/LLM/TTS stack is easier to diagnose and replace. Consent, retention, and redaction rules apply to recorded audio as well as transcripts.\n\n**Mathematical and practical explanation.** Turn latency is the interval from the user's meaningful completion to the assistant's first useful audio, not merely model inference time. Measure endpointing delay, partial-transcript revision, response generation, synthesis, and playback jointly. Barge-in requires canceling queued audio and pending actions, with conversation state reflecting what was actually played to the user. [3](https://arxiv.org/abs/2212.04356)\n\nFor the implementation or system context discussed above, see [1](https://platform.openai.com/docs/guides/realtime) and [2](https://docs.pipecat.ai/guides/introduction).",
+  "readings": [
+    {
+      "title": "Realtime API guide",
+      "url": "https://platform.openai.com/docs/guides/realtime",
+      "publisher": "OpenAI",
+      "tags": "",
+      "why": "Speech-to-speech sessions, streaming audio and turn detection for low-latency voice assistants.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Pipecat introduction",
+      "url": "https://docs.pipecat.ai/guides/introduction",
+      "publisher": "Pipecat",
+      "tags": "",
+      "why": "A pipeline of STT, LLM and TTS stages for real-time voice agents.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Robust Speech Recognition via Large-Scale Weak Supervision",
+      "url": "https://arxiv.org/abs/2212.04356",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder speech recognition, training data, and error behavior.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sequence Transduction with Recurrent Neural Networks",
+      "url": "https://arxiv.org/abs/1211.3711",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Transducer alignment, prediction network, and streaming sequence modeling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

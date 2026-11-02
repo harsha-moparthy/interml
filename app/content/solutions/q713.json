@@ -1,0 +1,46 @@
+{
+  "id": 713,
+  "answer": "Autograd normally saves intermediate activations needed by backward. Checkpointing saves only selected boundaries and reruns the intervening forward computations during backward. Parameters and optimizer state are unchanged; the saving is chiefly activation memory. [1](https://arxiv.org/abs/1604.06174)\n\nIf an ordinary step costs one forward $F$ plus backward approximately $2F$, recomputing one forward changes $3F$ to $4F$, about 33% extra arithmetic. This is a rough model, not a guaranteed runtime penalty. Selective checkpointing, fused attention, communication overlap, and kernel costs alter it.\n\nFor a chain of $L$ similarly sized layers, checkpointed segments can reduce stored boundary/interior activations toward $O(\\sqrt L)$ under a suitable schedule. Preserve RNG behavior for dropout and handle mutable state carefully; rerunning a stateful forward can otherwise change the function being differentiated. [4](https://docs.pytorch.org/docs/stable/index.html)",
+  "readings": [
+    {
+      "title": "Training Deep Nets with Sublinear Memory Cost",
+      "url": "https://arxiv.org/abs/1604.06174",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Activation recomputation and memory–compute tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+      "url": "https://arxiv.org/abs/1910.02054",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Optimizer, gradient, and parameter sharding with communication accounting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention: Exact Attention with IO-Awareness",
+      "url": "https://arxiv.org/abs/2205.14135",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Online softmax, SRAM tiling, and recomputation in the backward pass.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

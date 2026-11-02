@@ -1,1 +1,1 @@
-{"id":105,"language":"Python","code":"import numpy as np\n\n\ndef q105(probabilities):\n    p = np.asarray(probabilities, float)\n    return np.diag(p) - np.outer(p, p)\n","answer":"","content_kind":"coding"}
+{"id":105,"language":"Python","code":"import numpy as np\n\n\ndef q105(probabilities):\n    \"\"\"Given a softmax probability vector p, return its Jacobian diag(p)-p*p.T.\"\"\"\n    p = np.asarray(probabilities, float)\n    return np.diag(p) - np.outer(p, p)\n","answer":"","content_kind":"coding"}

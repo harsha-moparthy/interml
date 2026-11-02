@@ -1,0 +1,46 @@
+{
+  "id": 975,
+  "answer": "Ordinal labels have ordered categories, so predicting 1 instead of 5 is usually worse than predicting 4 instead of 5. Model cumulative probabilities $P(Y>k)$ for $k=1,\\ldots,K-1$, with ordered thresholds or another mechanism enforcing nonincreasing probabilities. [1](https://scikit-learn.org/stable/modules/linear_model.html)\n\n$$P(Y=k)=P(Y>k-1)-P(Y>k).$$\n\nUse boundary values one and zero at the ends. Independent unconstrained binary heads can violate ordering and produce negative category probabilities after differencing. Cumulative-link models share a score and ordered cutpoints; more flexible models need consistency constraints. Evaluate ordinal cost and calibration, not only exact-match accuracy.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

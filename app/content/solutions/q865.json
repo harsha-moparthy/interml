@@ -1,0 +1,46 @@
+{
+  "id": 865,
+  "answer": "In ordinary eager execution, `sin(x)`, `cos(x)`, and their addition generally involve **three** kernels, not two: two unary kernels write intermediates, then addition reads them and writes the result. A compiler can generate one loop computing both functions and summing before the final store. [1](https://docs.pytorch.org/docs/stable/torch.compiler_troubleshooting.html)\n\nIgnoring cache effects, the unfused path reads $x$ twice, writes two intermediates, reads both, and writes the output: about seven element-sized transfers versus two for an ideal fused pass. Special-function compute may still dominate.\n\nFusion preserves the intended computation within dtype/compiler numerical behavior, but not necessarily bitwise results. Benchmark after compilation warmup, across relevant shapes, and inspect graph breaks. An unsupported operation or data-dependent branch can split the graph and restore launch/intermediate overhead.",
+  "readings": [
+    {
+      "title": "PyTorch: torch.compile Troubleshooting",
+      "url": "https://docs.pytorch.org/docs/stable/torch.compiler_troubleshooting.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Guards, recompilation, graph breaks, and diagnosis.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention: Exact Attention with IO-Awareness",
+      "url": "https://arxiv.org/abs/2205.14135",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Online softmax, SRAM tiling, and recomputation in the backward pass.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

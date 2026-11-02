@@ -1,0 +1,47 @@
+{
+  "id": 605,
+  "code_file": "q605.py",
+  "answer": "RoPE rotates each adjacent coordinate pair by position times its inverse frequency. Since R(m)ᵀR(n)=R(n−m), the positional part of the query-key dot product depends on relative displacement. It does not make the content vectors themselves independent of absolute context. This convention uses adjacent pairs; some model checkpoints use a different coordinate layout. Cache decoding must use absolute token positions. Rotation preserves pair norms, which provides a useful test.\n\n**Mathematical and practical explanation.** Each pair uses $R(\\theta)=\\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix}$. Since rotations compose additively, $(R(m\\omega)q)^T(R(n\\omega)k)=q^TR((n-m)\\omega)k$. This explains the relative-position term. Verify both norm preservation and dot-product equivalence; neither alone catches every checkpoint layout mismatch. [3](https://arxiv.org/abs/2104.09864)\n\nFor the implementation or system context discussed above, see [1](https://towardsdatascience.com/rope-clearly-explained/) and [2](https://blog.eleuther.ai/rotary-embeddings/).\n\n![Rotations preserve norm and encode relative displacement.](/answer-diagrams/rope.svg)",
+  "readings": [
+    {
+      "title": "RoPE Clearly Explained",
+      "url": "https://towardsdatascience.com/rope-clearly-explained/",
+      "publisher": "Towards Data Science",
+      "tags": "",
+      "why": "Visual walk-through of how rotating query and key pairs makes attention depend on relative position.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Rotary Embeddings: A Relative Revolution",
+      "url": "https://blog.eleuther.ai/rotary-embeddings/",
+      "publisher": "EleutherAI",
+      "tags": "",
+      "why": "Derives RoPE from complex rotations and shows why the dot product keeps only the relative offset.",
+      "access": "Free to read"
+    },
+    {
+      "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+      "url": "https://arxiv.org/abs/2104.09864",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Rotation matrices and the relative-position dot-product identity.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

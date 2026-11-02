@@ -1,0 +1,46 @@
+{
+  "id": 1014,
+  "answer": "Control lighting with diffuse sources/polarization where appropriate, calibrate both cameras and conveyor geometry, and synchronize capture. Segment instances/defects, use stereo or a known plane for size, and track each item through the actuator delay. [1](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html) [2](https://arxiv.org/abs/2304.02643)\n\nWeight cannot generally be measured from two images alone: use a scale or a validated density/volume model with uncertainty. Specular surfaces and occlusion can break stereo; detect low-confidence measurements and route them for reinspection. Benchmark edge inference including capture, preprocessing, tracking, and actuation.\n\nValidate physical-unit errors and false-accept/false-reject rates by material, size, speed, and lighting. Split evaluation by production lot/date to avoid near-duplicate leakage and monitor calibration drift after camera movement or maintenance.",
+  "readings": [
+    {
+      "title": "OpenCV: Camera Calibration and 3D Reconstruction",
+      "url": "https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html",
+      "publisher": "docs.opencv.org",
+      "tags": "",
+      "why": "Camera projection, lens distortion, rectification, and stereo geometry.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Segment Anything",
+      "url": "https://arxiv.org/abs/2304.02643",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Promptable masks, model design, and segmentation evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "U-Net: Convolutional Networks for Biomedical Image Segmentation",
+      "url": "https://arxiv.org/abs/1505.04597",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder localization and high-resolution skip connections.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Patch tokenization and the data/inductive-bias tradeoff of ViTs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

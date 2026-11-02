@@ -2,7 +2,7 @@
   "id": "lesson-q592-test-recovery-at-every-effect-checkpoint-boundary",
   "kind": "lesson",
   "title": "Test recovery at every effect/checkpoint boundary",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            8,
-            8
+            15,
+            15
           ],
           "match": "state = {\"effect_count\": 0, ",
           "text": "Cross effect boundary. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            10,
-            20
+            17,
+            17
           ],
           "match": "def worker(crash=None):",
           "text": "Crash at chosen point. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            22,
-            22
+            29,
+            29
           ],
           "match": "worker(crash_at)",
           "text": "Restart worker. This is the code stage shown in the mechanism animation."

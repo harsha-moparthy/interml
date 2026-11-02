@@ -1,0 +1,47 @@
+{
+  "id": 652,
+  "code_file": "q652.py",
+  "answer": "Viterbi stores the best score ending in each state and a backpointer to its predecessor. At every timestep maximize previous_score+transition over predecessor states, then add the emission score. Trace backward from the final best state. Log space handles tiny probabilities, while −infinity marks impossible transitions. A CRF can reuse the recurrence with unnormalized scores; it may additionally require start/end potentials.\n\n**Mathematical and practical explanation.** The recurrence is $\\delta_t(j)=\\log p(x_t|j)+\\max_i[\\delta_{t-1}(i)+\\log p(j|i)]$. Store the maximizing predecessor for each state/time, then backtrack. Complexity is $O(TK^2)$ for K states with dense transitions; sparse transition structure can reduce work. Viterbi returns the most likely entire path, not independent marginal best states. [3](https://probml.github.io/pml-book/book1.html)\n\nFor the implementation or system context discussed above, see [1](https://spotintelligence.com/2025/06/02/viterbi-algorithm-made-simple-how-to-worked-out-examples/) and [2](https://web.stanford.edu/~jurafsky/slp3/A.pdf).",
+  "readings": [
+    {
+      "title": "Viterbi Algorithm Made Simple",
+      "url": "https://spotintelligence.com/2025/06/02/viterbi-algorithm-made-simple-how-to-worked-out-examples/",
+      "publisher": "Spot Intelligence",
+      "tags": "",
+      "why": "A worked HMM example with the DP table and backpointers.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Hidden Markov Models, Appendix A",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/A.pdf",
+      "publisher": "Jurafsky and Martin",
+      "tags": "",
+      "why": "Read the Viterbi recurrence and traceback, distinct from forward probability summation.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

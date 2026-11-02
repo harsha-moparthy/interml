@@ -1,1 +1,1 @@
-{"id":220,"language":"Python","code":"import numpy as np\nfrom scipy.special import erf\n\n\ndef q220(x):\n    x = np.asarray(x, float)\n    return 0.5 * x * (1 + erf(x / np.sqrt(2)))\n","answer":"","content_kind":"coding"}
+{"id":220,"language":"Python","code":"import numpy as np\nfrom scipy.special import erf\n\n\ndef q220(x):\n    \"\"\"Implement exact GELU, x times the standard normal CDF, using erf.\"\"\"\n    x = np.asarray(x, float)\n    return 0.5 * x * (1 + erf(x / np.sqrt(2)))\n","answer":"","content_kind":"coding"}

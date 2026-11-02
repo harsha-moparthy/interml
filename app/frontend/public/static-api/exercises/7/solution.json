@@ -1,1 +1,1 @@
-{"id":7,"language":"Python","code":"def q007(frame, keys):\n    return frame.drop_duplicates(subset=keys, keep=\"first\").copy()\n","answer":"","content_kind":"coding"}
+{"id":7,"language":"Python","code":"def q007(frame, keys):\n    \"\"\"Keep the first row for each key combination, preserving encounter order.\"\"\"\n    return frame.drop_duplicates(subset=keys, keep=\"first\").copy()\n","answer":"","content_kind":"coding"}

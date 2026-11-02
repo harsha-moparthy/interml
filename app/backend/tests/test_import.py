@@ -59,8 +59,8 @@ class DatabaseTests(unittest.TestCase):
         self.assertEqual([r[0] for r in con.execute("SELECT id FROM exercise ORDER BY list_position")],
                          list(range(1, 1101)))
         self.assertEqual(con.execute("SELECT count(*) FROM chapter").fetchone()[0], 54)
-        self.assertEqual(con.execute("SELECT count(*) FROM exercise_resource").fetchone()[0], 2200)
-        self.assertEqual(con.execute("SELECT count(*) FROM exercise_resource GROUP BY exercise_id HAVING count(*) != 2").fetchall(), [])
+        self.assertEqual(con.execute("SELECT count(*) FROM exercise_resource").fetchone()[0], 3700)
+        self.assertEqual(con.execute("SELECT count(*) FROM exercise_resource GROUP BY exercise_id HAVING count(*) != CASE WHEN exercise_id >= 601 THEN 5 ELSE 2 END").fetchall(), [])
         self.assertEqual(con.execute("SELECT count(*) FROM exercise WHERE provenance='repository' "
                                      "AND license_note IS NULL").fetchone()[0], 0)
 

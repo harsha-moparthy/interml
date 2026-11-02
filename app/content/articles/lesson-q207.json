@@ -2,7 +2,7 @@
   "id": "lesson-q207",
   "kind": "lesson",
   "title": "Lower a threshold and watch the trade-off",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            8,
-            8
+            12,
+            12
           ],
           "match": "ends = np.r_[np.flatnonzero(np.diff(s) != 0), len(s) - 1]",
           "text": "Distinct threshold groups end only after all tied scores are included."
         },
         {
           "lines": [
-            15,
-            15
+            19,
+            19
           ],
           "match": "np.sum(np.diff(recall) * precision[1:])",
           "text": "Average precision uses stepwise precision weights rather than trapezoids."

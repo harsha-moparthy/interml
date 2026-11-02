@@ -2,7 +2,7 @@
   "id": "lesson-q549-perform-an-as-of-feature-join",
   "kind": "lesson",
   "title": "Perform an as-of feature join",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            2,
-            2
+            8,
+            8
           ],
           "match": "output = []",
           "text": "Match entity versions. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            3,
-            23
+            9,
+            9
           ],
           "match": "for entity, cutoff in reques",
           "text": "Reject late event times. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            24,
-            24
+            30,
+            30
           ],
           "match": "return output",
           "text": "Choose greatest eligible version. This is the code stage shown in the mechanism animation."

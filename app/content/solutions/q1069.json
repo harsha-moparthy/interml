@@ -1,0 +1,46 @@
+{
+  "id": 1069,
+  "answer": "Domain adaptation addresses differences between a labeled source distribution and a target distribution, such as clean studio images versus blurry mobile images. DANN trains a shared encoder with a task head and a source/target discriminator. The domain head minimizes domain classification loss, while a gradient-reversal layer multiplies its encoder gradient by $-\\lambda$, encouraging features that hide domain identity while preserving source-task prediction. [1](https://arxiv.org/abs/1505.07818)\n\nMarginal feature alignment is useful only when compatible with the task: different label proportions or class-conditional shifts can make indiscriminate alignment harmful. Evaluate labeled target data when available, target-specific augmentations, subgroup performance, and calibration. Avoid using a final target test set for tuning. Domain-confused features are not proof of semantic alignment or target accuracy, especially when the simulator omits important real-world factors.",
+  "readings": [
+    {
+      "title": "Domain-Adversarial Training of Neural Networks",
+      "url": "https://arxiv.org/abs/1505.07818",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Gradient reversal and domain-invariant representation learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

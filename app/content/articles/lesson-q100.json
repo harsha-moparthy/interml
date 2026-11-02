@@ -2,7 +2,7 @@
   "id": "lesson-q100",
   "kind": "lesson",
   "title": "Compare Gaussian means, shapes, and volume",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            16,
-            16
+            18,
+            18
           ],
           "match": "np.log(np.linalg.det(Cov_q) / np.linalg.det(Cov_p))",
           "text": "This term compares covariance volumes in the direction P to Q."
         },
         {
           "lines": [
-            18,
-            18
+            20,
+            20
           ],
           "match": "np.linalg.inv(Cov_q)",
           "text": "Q determines how mean displacement and P’s spread are weighted."

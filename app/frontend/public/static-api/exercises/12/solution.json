@@ -1,1 +1,1 @@
-{"id":12,"language":"Python","code":"def q012(frame, column):\n    return frame[column].agg([\"count\", \"mean\", \"min\", \"max\", \"std\"])\n","answer":"","content_kind":"coding"}
+{"id":12,"language":"Python","code":"def q012(frame, column):\n    \"\"\"Summarize a column; count excludes missing values and std uses ddof=1.\"\"\"\n    return frame[column].agg([\"count\", \"mean\", \"min\", \"max\", \"std\"])\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,46 @@
+{
+  "id": 762,
+  "answer": "CTC predicts frame-level label/blank distributions and sums over alignments that collapse to the same transcript. Its conditional-independence assumption permits parallel frame scoring; decoding with a language model or beam can still be sequential. RNN-T adds a label-history prediction network and marginalizes time/label alignments, making it suitable for streaming. Whisper uses an autoregressive attention-based decoder over audio features. [1](https://www.cs.toronto.edu/~graves/icml_2006.pdf) [2](https://arxiv.org/abs/1211.3711) [3](https://arxiv.org/abs/2212.04356)\n\n$$p_{CTC}(y\\mid x)=\\sum_{\\pi:\\mathcal B(\\pi)=y}\\prod_t p(\\pi_t\\mid x).$$\n\nOn silence or weak audio, an autoregressive language prior can dominate and generate plausible unsupported text. Voice activity detection, no-speech thresholds, repetition checks, and appropriate decoding mitigate this; they do not prove every transcript is grounded. Compare latency, alignment assumptions, robustness, and language-model integration.",
+  "readings": [
+    {
+      "title": "Connectionist Temporal Classification",
+      "url": "https://www.cs.toronto.edu/~graves/icml_2006.pdf",
+      "publisher": "www.cs.toronto.edu",
+      "tags": "",
+      "why": "Alignment marginalization with blanks and repeated-label collapse.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sequence Transduction with Recurrent Neural Networks",
+      "url": "https://arxiv.org/abs/1211.3711",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Transducer alignment, prediction network, and streaming sequence modeling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Robust Speech Recognition via Large-Scale Weak Supervision",
+      "url": "https://arxiv.org/abs/2212.04356",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder speech recognition, training data, and error behavior.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

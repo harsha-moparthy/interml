@@ -1,0 +1,46 @@
+{
+  "id": 871,
+  "answer": "A pipeline bubble is idle stage time during warmup/drain or imbalance. With $p$ balanced stages and $m$ microbatches, a common simplified schedule has overhead relative to useful work $(p-1)/m$; the idle fraction of total elapsed slots is $(p-1)/(m+p-1)$. These are not the same denominator. [1](https://jax-ml.github.io/scaling-book/)\n\nGPipe runs a forward wave before backward, retaining many activations. 1F1B alternates forward and backward after warmup, releasing activations sooner and reducing peak live storage. Ideal bubble behavior can be similar under matching assumptions.\n\nReal stages differ in compute, activation communication, and memory; tied weights and optimizer synchronization add constraints. Increasing microbatches reduces bubbles but can shrink matrix efficiency. Balance stages and measure end-to-end throughput rather than optimizing the formula alone.",
+  "readings": [
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+      "url": "https://arxiv.org/abs/1910.02054",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Optimizer, gradient, and parameter sharding with communication accounting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Training Deep Nets with Sublinear Memory Cost",
+      "url": "https://arxiv.org/abs/1604.06174",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Activation recomputation and memory–compute tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Megatron-LM: Training Multi-Billion Parameter Language Models",
+      "url": "https://arxiv.org/abs/1909.08053",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Column/row parallel linear layers and communication placement.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

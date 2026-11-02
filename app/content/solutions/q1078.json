@@ -1,0 +1,46 @@
+{
+  "id": 1078,
+  "answer": "MCMC constructs a Markov chain with the target posterior as stationary distribution. Metropolis–Hastings accepts/rejects proposals; HMC uses gradients and simulated trajectories; NUTS adapts trajectory length to reduce manual tuning. Samples can represent complex uncertainty, but autocorrelation, poor mixing, and multimodality require diagnostics such as effective sample size and multiple-chain convergence checks. [1](https://probml.github.io/pml-book/book2.html)\n\nVI optimizes a tractable distribution, commonly minimizing $D_{KL}(q\\|p)$ through an ELBO. It scales well with stochastic optimization and amortized inference, but the chosen family and objective can miss modes or underestimate uncertainty. Compare predictive calibration, posterior-sensitive decisions, compute, and diagnostics rather than declaring one universally superior. MCMC is asymptotically principled under conditions; finite chains are not automatically exact, and a high ELBO does not establish a good approximation everywhere.",
+  "readings": [
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Gaussian Processes for Machine Learning",
+      "url": "https://gaussianprocess.org/gpml/",
+      "publisher": "gaussianprocess.org",
+      "tags": "",
+      "why": "Free textbook covering GP posterior inference and kernel methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

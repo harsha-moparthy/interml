@@ -1,0 +1,46 @@
+{
+  "id": 1025,
+  "answer": "Post-filtering ten globally nearest items yields an expected 0.1 matching items if independent filter selectivity is 1%; it can often return none despite valid matches elsewhere. Overfetching helps but becomes expensive and still lacks a fixed recall guarantee. [1](https://arxiv.org/abs/1603.09320)\n\nBlindly restricting graph traversal to allowed nodes can disconnect useful paths. Filter-aware HNSW/ACORN-style methods separate traversal from result eligibility or add connectivity strategies, while very selective filters may favor an exact scan of the filtered subset. [2](https://arxiv.org/abs/2401.08281)\n\nUse metadata-aware search with explicit recall tests across selectivities and correlation between filters/geometry. Permission filters must be enforced before returning content; traversal access and user-visible result authorization are distinct. Benchmark update behavior and filtered ground truth, not only unfiltered ANN recall.",
+  "readings": [
+    {
+      "title": "Efficient and Robust Approximate Nearest Neighbor Search Using HNSW",
+      "url": "https://arxiv.org/abs/1603.09320",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Graph construction, search breadth, and recall/latency tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The FAISS Library",
+      "url": "https://arxiv.org/abs/2401.08281",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Exact and approximate search, compression, and index tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Retrieval-conditioned generation and the distinction between parameters and external evidence.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

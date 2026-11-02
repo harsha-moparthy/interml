@@ -1,0 +1,46 @@
+{
+  "id": 887,
+  "answer": "Shallow fusion combines acoustic/transducer scores with an external language-model or contextual-bias score during decoding. A lexicon/WFST or phrase trie can reward likely hotword paths; contextual adapters provide learned conditioning when supported. [1](https://arxiv.org/abs/1211.3711) [2](https://www.cs.toronto.edu/~graves/icml_2006.pdf)\n\n$$score(y)=\\log p_{ASR}(y\\mid x)+\\lambda\\log p_{LM}(y)+\\beta\\,bias(y).$$\n\nTune weights on held-out audio: excessive hotword bias inserts terms that were never spoken. Include phonetic variants and negative examples with similar sounds. LLM post-correction can use context but should stay constrained to plausible N-best/audio evidence and preserve uncertainty. User-specific vocabulary must be scoped and versioned. Measure rare-term recall alongside false hotword insertions, latency, and ordinary WER; improving one list of names can damage unrelated speech.",
+  "readings": [
+    {
+      "title": "Sequence Transduction with Recurrent Neural Networks",
+      "url": "https://arxiv.org/abs/1211.3711",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Transducer alignment, prediction network, and streaming sequence modeling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Connectionist Temporal Classification",
+      "url": "https://www.cs.toronto.edu/~graves/icml_2006.pdf",
+      "publisher": "www.cs.toronto.edu",
+      "tags": "",
+      "why": "Alignment marginalization with blanks and repeated-label collapse.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Robust Speech Recognition via Large-Scale Weak Supervision",
+      "url": "https://arxiv.org/abs/2212.04356",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder speech recognition, training data, and error behavior.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Building Effective Agents — Anthropic",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Workflow patterns, tool interfaces, evaluation, and when agent complexity is justified.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 895,
+  "answer": "CLIP trains image and text encoders to align paired examples and separate mismatched ones. At zero-shot classification, text prompts for candidate classes become comparison vectors. [1](https://arxiv.org/abs/2103.00020)\n\n$$L_{i\\to t}=-\\log\\frac{e^{s(i,t_i)/\\tau}}{\\sum_j e^{s(i,t_j)/\\tau}}.$$\n\nA global similarity objective can succeed by recognizing salient objects without precisely encoding counts, relations, or character strings. “Red cube above blue sphere” may share words/objects with an incorrect composition. Training distribution and resolution also matter. It is too strong to say CLIP always fails these tasks, but such weaknesses require direct evaluation. Use region/token-level supervision, higher resolution, or specialized OCR/counting components when exact structure is required.",
+  "readings": [
+    {
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "url": "https://arxiv.org/abs/2103.00020",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Image–text contrastive learning, zero-shot transfer, and limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sigmoid Loss for Language Image Pre-Training",
+      "url": "https://arxiv.org/abs/2303.15343",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Pairwise logistic image–text training and distributed scaling comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Patch tokenization and the data/inductive-bias tradeoff of ViTs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "BLIP-2: Bootstrapping Language-Image Pre-training",
+      "url": "https://arxiv.org/abs/2301.12597",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "The Q-Former bridge between frozen vision and language models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Visual Instruction Tuning",
+      "url": "https://arxiv.org/abs/2304.08485",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Projection-based visual instruction tuning and evaluation.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

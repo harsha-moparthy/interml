@@ -2,7 +2,7 @@
   "id": "lesson-q429-classify-llm-prefill-vs-decode-as-compute-bound-or-memory-bound",
   "kind": "lesson",
   "title": "Classify LLM Prefill vs Decode as Compute-Bound or Memory-Bound",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            9,
-            9
+            13,
+            13
           ],
           "match": "traffic = parameter_count * ",
           "text": "Count weight bytes. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            10,
-            10
+            14,
+            14
           ],
           "match": "result = {}",
           "text": "Compute ideal compute time. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            11,
-            20
+            15,
+            15
           ],
           "match": "for name, tokens in (",
           "text": "Compute ideal memory time. This is the code stage shown in the mechanism animation."

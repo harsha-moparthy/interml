@@ -1,0 +1,46 @@
+{
+  "id": 1093,
+  "answer": "Profile a representative warmed-up interval with CPU and CUDA activities, shapes/stacks only when needed, and explicit ranges for loading, transfer, forward, backward, and optimizer steps. Use a system timeline for kernel launches, memory copies, synchronization, and distributed communication; avoid measuring only asynchronous Python launch time. [1](https://docs.pytorch.org/docs/stable/index.html) [2](https://docs.nvidia.com/cuda/cuda-c-programming-guide/)\n\nLong GPU idle gaps between kernels with busy Python or delayed input delivery suggest CPU/loader starvation; correlate them with data-ready timestamps. Long NCCL kernels or waits around collectives suggest communication or rank imbalance, but a slow compute rank can make other ranks appear communication-bound. Inspect all ranks, overlap, transfer bandwidth, and batch sizes. Fix the measured bottleneck, rerun the same workload, and report throughput plus tail latency rather than optimizing an isolated kernel unrelated to the critical path.",
+  "readings": [
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch: torch.compile Troubleshooting",
+      "url": "https://docs.pytorch.org/docs/stable/torch.compiler_troubleshooting.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Guards, recompilation, graph breaks, and diagnosis.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

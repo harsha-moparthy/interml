@@ -1,0 +1,46 @@
+{
+  "id": 707,
+  "answer": "GPTQ uses an approximate second-order reconstruction objective to quantize weights sequentially and compensate remaining weights for quantization error. AWQ identifies activation-sensitive channels and rescales them to preserve important weights. SmoothQuant applies an equivalent channel scaling that shifts difficult activation magnitudes into weights, enabling lower-precision activation computation. [1](https://arxiv.org/abs/2210.17323) [2](https://arxiv.org/abs/2306.00978) [3](https://arxiv.org/abs/2211.10438)\n\n$$XW=(XD^{-1})(DW).$$\n\nActivation outliers can vary across inputs and channels, so one shared scale wastes most quantization bins on extremes. Weights are fixed and easier to inspect/calibrate once. Per-channel or block scales help but add metadata and kernel complexity. Evaluate representative calibration data, out-of-domain inputs, long sequences, and end-to-end kernel support: a numerically valid compressed model is not automatically faster on a given GPU.",
+  "readings": [
+    {
+      "title": "GPTQ: Accurate Post-Training Quantization",
+      "url": "https://arxiv.org/abs/2210.17323",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order reconstruction and sequential quantization error compensation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "AWQ: Activation-aware Weight Quantization",
+      "url": "https://arxiv.org/abs/2306.00978",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Activation-informed protection of important weight channels.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SmoothQuant: Accurate and Efficient Post-Training Quantization",
+      "url": "https://arxiv.org/abs/2211.10438",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Moving activation-channel scale into weights for easier quantization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "url": "https://arxiv.org/abs/2305.14314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "NF4, double quantization, and paged optimizers with trainable adapters.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

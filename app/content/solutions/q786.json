@@ -1,0 +1,46 @@
+{
+  "id": 786,
+  "answer": "One-hot encoding preserves category identity but grows with vocabulary. Frequency encoding is compact but merges categories with equal frequency. Hashing bounds dimension but introduces collisions. Learned embeddings model category similarity but need data and a policy for unseen values. Target encoding uses outcomes and requires strict leakage control. [1](https://arxiv.org/abs/1706.09516)\n\n$$enc(c)=\\frac{n_c\\bar y_c+\\alpha\\mu}{n_c+\\alpha}.$$\n\nFor training rows, compute this statistic from other allowed folds or earlier observations; validation uses training-only statistics. Rare categories shrink toward the global mean. Choose by cardinality, sample size, estimator, memory, and update frequency. Distinguish a genuinely unseen category from missing data. Temporal/category drift can invalidate frequency or target statistics even if the encoding code is unchanged.",
+  "readings": [
+    {
+      "title": "CatBoost: Unbiased Boosting with Categorical Features",
+      "url": "https://arxiv.org/abs/1706.09516",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Ordered boosting, target statistics, and prediction shift.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Common Pitfalls",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Preprocessing leakage, pipelines, and reproducible evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": 603,
+  "code_file": "q603.py",
+  "answer": "Group consecutive query heads around each shared KV head. Keeping a separate group axis lets batched matmul broadcast K/V without making a repeated KV tensor. Hkv=1 is MQA; Hkv=Hq is MHA. KV-cache storage scales with Hkv, but the number of query attention distributions still scales with Hq. repeat_interleave creates repeated values; it does not by itself avoid the memory copy. The reference still materializes scores and is not a fused GPU implementation.\n\n**Mathematical and practical explanation.** KV storage is $2BLSH_{kv}d_hb$ bytes for batch $B$, layers $L$, sequence length $S$, and $b$ bytes per element. Reducing KV heads from $H_q$ to $H_{kv}$ reduces that storage in the same ratio. Query heads remain distinct, so sharing KV heads does not collapse all heads to one attention distribution. [3](https://arxiv.org/abs/2305.13245)\n\nFor the implementation or system context discussed above, see [1](https://aiexpjourney.substack.com/p/grouped-query-attention-gqa-explained-5f3dbbfe013b) and [2](https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html).",
+  "readings": [
+    {
+      "title": "Grouped-Query Attention (GQA) Explained",
+      "url": "https://aiexpjourney.substack.com/p/grouped-query-attention-gqa-explained-5f3dbbfe013b",
+      "publisher": "AI Exploration Journey",
+      "tags": "",
+      "why": "Starts from multi-head attention, shows how MQA and GQA share key/value heads, and what that saves in the KV cache.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Scaled dot-product attention with GQA",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html",
+      "publisher": "PyTorch",
+      "tags": "",
+      "why": "Read the GQA constraints and explicit reference repeat_interleave operation.",
+      "access": "Free to read"
+    },
+    {
+      "title": "GQA: Training Generalized Multi-Query Transformer Models",
+      "url": "https://arxiv.org/abs/2305.13245",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "The quality, bandwidth, and cache tradeoff between MHA, MQA, and GQA.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

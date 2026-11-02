@@ -1,0 +1,46 @@
+{
+  "id": 848,
+  "answer": "A model's advertised context capacity says how many tokens it accepts, not how reliably it uses them. Relevant evidence can be harder to retrieve when surrounded by distractors or placed in the middle; conflicting instructions and accumulated conversational noise can further degrade use. [1](https://arxiv.org/abs/2307.03172)\n\nA single needle test mainly asks whether one explicit fact can be recovered. It does not test linking several distant facts, resolving contradictions, aggregating many records, or citing every supporting source. Build long-context evaluations varying evidence position, number of hops, distractor similarity, answerability, and document order.\n\nCompare retrieval-plus-short-context with full-context input at equal cost/latency. Summaries reduce length but can omit crucial qualifiers; retain source provenance and allow targeted re-reading rather than assuming compression preserves every fact.",
+  "readings": [
+    {
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "url": "https://arxiv.org/abs/2307.03172",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Position-dependent use of evidence in long-context inputs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "YaRN: Efficient Context Window Extension",
+      "url": "https://arxiv.org/abs/2309.00071",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Frequency-dependent RoPE extension and attention temperature scaling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Retrieval-conditioned generation and the distinction between parameters and external evidence.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "RAGAS: Automated Evaluation of Retrieval Augmented Generation",
+      "url": "https://arxiv.org/abs/2309.15217",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Context relevance, faithfulness, and answer relevance evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally",
+      "url": "https://arxiv.org/abs/2408.03314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Adaptive inference-time compute allocation and comparison with model scaling.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

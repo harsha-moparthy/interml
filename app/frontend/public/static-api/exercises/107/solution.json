@@ -1,1 +1,1 @@
-{"id":107,"language":"Python","code":"def q107(x, weights, upstream):\n    return (upstream @ weights.T, x.T @ upstream, upstream.sum(axis=0))\n","answer":"","content_kind":"coding"}
+{"id":107,"language":"Python","code":"def q107(x, weights, upstream):\n    \"\"\"Backpropagate y=x@weights+b. Shapes are x=(n,d), weights=(d,k), upstream=(n,k).\n    Return gradients for x, weights, and bias.\n    \"\"\"\n    return (upstream @ weights.T, x.T @ upstream, upstream.sum(axis=0))\n","answer":"","content_kind":"coding"}

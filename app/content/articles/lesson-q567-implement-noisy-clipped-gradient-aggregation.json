@@ -2,7 +2,7 @@
   "id": "lesson-q567-implement-noisy-clipped-gradient-aggregation",
   "kind": "lesson",
   "title": "Implement noisy clipped-gradient aggregation",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            5,
-            6
+            11,
+            11
           ],
           "match": "if clip <= 0 or sigma < 0 or",
           "text": "Sum each parameter tensor. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            7,
-            7
+            13,
+            13
           ],
           "match": "output = []",
           "text": "Sample Gaussian noise. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            8,
-            16
+            14,
+            14
           ],
           "match": "for g in clipped:",
           "text": "Scale noise by sigma C. This is the code stage shown in the mechanism animation."

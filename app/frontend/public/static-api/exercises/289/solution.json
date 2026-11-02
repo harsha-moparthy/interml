@@ -1,1 +1,1 @@
-{"id":289,"language":"Python","code":"import re\n\n\ndef q289(text):\n    return re.findall(\"\\\\w+|[^\\\\w\\\\s]\", text, flags=re.UNICODE)\n","answer":"","content_kind":"coding"}
+{"id":289,"language":"Python","code":"import re\n\n\ndef q289(text):\n    \"\"\"Tokenize Unicode text into word runs and individual non-whitespace punctuation\n    symbols. Preserve case and token order.\n    \"\"\"\n    return re.findall(\"\\\\w+|[^\\\\w\\\\s]\", text, flags=re.UNICODE)\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,47 @@
+{
+  "id": 634,
+  "code_file": "q634.py",
+  "answer": "For Linear weights shaped (fan_out,fan_in), Kaiming-normal variance is 2/fan_in for ReLU. Xavier-normal variance is 2/(fan_in+fan_out). These scales preserve approximate signal/gradient variance under their assumptions; different nonlinearities require different gains. Initialize under no_grad with an optional local generator. Bias initialization is separate.\n\n**Mathematical and practical explanation.** Under independent zero-mean inputs, a linear output's variance is approximately $fan_{in}\\operatorname{Var}(W)\\operatorname{Var}(x)$. ReLU discards about half the second moment under symmetric assumptions, motivating Kaiming variance $2/fan_{in}$. Xavier balances forward/backward scales. These approximations are useful initializations, not guarantees that every deep architecture preserves variance indefinitely. [3](https://www.deeplearningbook.org/)\n\nFor the implementation or system context discussed above, see [1](https://pouannes.github.io/blog/initialization/) and [2](https://docs.pytorch.org/docs/stable/nn.init.html).",
+  "readings": [
+    {
+      "title": "Initializing neural networks",
+      "url": "https://pouannes.github.io/blog/initialization/",
+      "publisher": "Pierre Ouannes",
+      "tags": "",
+      "why": "Derives Xavier and Kaiming initialization from variance propagation, forward and backward.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Neural network initialization",
+      "url": "https://docs.pytorch.org/docs/stable/nn.init.html",
+      "publisher": "PyTorch",
+      "tags": "",
+      "why": "Compare fan-in/fan-out assumptions for Xavier and Kaiming initialization.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

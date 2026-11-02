@@ -1,0 +1,46 @@
+{
+  "id": 966,
+  "answer": "Bagging changes training samples, but a dominant feature may still drive nearly every tree's early splits. Random forests also restrict candidate features at each split, encouraging different structures and reducing error correlation. [1](https://scikit-learn.org/stable/modules/ensemble.html)\n\nUsing roughly $\\sqrt p$ candidates is a common classification setting, not a defining fixed rule for every task/library. Smaller subsets can increase individual-tree bias while improving diversity; the ensemble tradeoff must be tuned. Random thresholds and leaf/depth constraints affect it too. Measure validation/OOB quality and stability rather than assuming the lowest correlation alone gives the best predictor.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "XGBoost: A Scalable Tree Boosting System",
+      "url": "https://arxiv.org/abs/1603.02754",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order tree objectives and sparsity-aware split finding.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

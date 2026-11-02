@@ -1,0 +1,46 @@
+{
+  "id": 907,
+  "answer": "Generative retrieval predicts an item's identifier token sequence conditioned on the query/user context. DSI learns document IDs as model outputs; TIGER builds hierarchical semantic IDs using residual-quantized item representations and trains a sequence model to generate them. [1](https://arxiv.org/abs/2305.05065)\n\n$$p(item\\mid x)=\\prod_{t=1}^Kp(code_t\\mid x,code_{<t}).$$\n\nThis replaces explicit nearest-neighbor scoring with constrained sequence generation and an ID-to-item lookup. Beam search returns candidates, but invalid IDs, collisions, catalog updates, and exposure of new items need handling. The “index” is partly encoded in model parameters/ID structure, so freshness may be harder than updating a vector index. Compare retrieval recall, latency, update cost, and tail-item coverage; generative IDs do not remove the need for eligibility filtering and reranking.",
+  "readings": [
+    {
+      "title": "Recommender Systems with Generative Retrieval",
+      "url": "https://arxiv.org/abs/2305.05065",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Semantic item IDs from residual quantization and autoregressive retrieval.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sampling-Bias-Corrected Neural Modeling for Large Corpus Item Recommendations",
+      "url": "https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Two-tower retrieval, sampled negatives, and popularity correction.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The FAISS Library",
+      "url": "https://arxiv.org/abs/2401.08281",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Exact and approximate search, compression, and index tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

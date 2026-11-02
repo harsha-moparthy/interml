@@ -1,0 +1,46 @@
+{
+  "id": 888,
+  "answer": "A post-corrector can turn an uncertain transcript into a confidently wrong sentence, change numbers/negation, or insert contextually plausible words absent from the audio. Added model calls also increase latency and privacy exposure. [1](https://arxiv.org/abs/2212.04356)\n\nConstrain candidates using N-best hypotheses, aligned timestamps, phonetic similarity, and a small edit budget. Preserve high-confidence spans and expose unresolved uncertainty instead of inventing completion. Require evidence for entity/number changes and retain the original transcript for audit.\n\nEvaluate against human transcripts with a metric that separates beneficial corrections from harmful edits, especially on rare names and silence. An LLM judge alone may reward fluency over fidelity. A lower text-only language-model loss is not proof that the corrected words were spoken.",
+  "readings": [
+    {
+      "title": "Robust Speech Recognition via Large-Scale Weak Supervision",
+      "url": "https://arxiv.org/abs/2212.04356",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder speech recognition, training data, and error behavior.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sequence Transduction with Recurrent Neural Networks",
+      "url": "https://arxiv.org/abs/1211.3711",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Transducer alignment, prediction network, and streaming sequence modeling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Connectionist Temporal Classification",
+      "url": "https://www.cs.toronto.edu/~graves/icml_2006.pdf",
+      "publisher": "www.cs.toronto.edu",
+      "tags": "",
+      "why": "Alignment marginalization with blanks and repeated-label collapse.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Position, verbosity, and self-enhancement bias in model judging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

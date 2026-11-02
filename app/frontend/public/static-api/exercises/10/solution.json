@@ -1,1 +1,1 @@
-{"id":10,"language":"Python","code":"def q010(frame, dtypes):\n    return frame.astype(dtypes)\n","answer":"","content_kind":"coding"}
+{"id":10,"language":"Python","code":"def q010(frame, dtypes):\n    \"\"\"Convert columns to the requested dtypes; invalid conversions raise errors.\"\"\"\n    return frame.astype(dtypes)\n","answer":"","content_kind":"coding"}

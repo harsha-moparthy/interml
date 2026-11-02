@@ -2,7 +2,7 @@
   "id": "lesson-q339-build-a-tiny-gpt",
   "kind": "lesson",
   "title": "Build a Tiny GPT",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,8 +89,8 @@
         },
         {
           "lines": [
-            8,
-            48
+            12,
+            12
           ],
           "match": "class GPT(nn.Module):",
           "text": "Run pre-norm blocks. This is the code stage shown in the mechanism animation."

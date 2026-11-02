@@ -1,0 +1,46 @@
+{
+  "id": 790,
+  "answer": "SMOTE interpolates between minority examples in feature space. In high dimensions, nearest neighbors may not be meaningful; interpolation can cross class boundaries or create impossible categorical/structured combinations. It also changes the training class balance, which can distort probability calibration. [1](https://scikit-learn.org/stable/modules/clustering.html) [2](https://scikit-learn.org/stable/modules/calibration.html)\n\nXGBoost is not inherently well calibrated, so the question's premise should not be assumed. Compare class weighting, threshold tuning, balanced sampling, and SMOTE using a realistic untouched validation distribution. Apply any resampling only within training folds; synthetic points generated before splitting can leak neighbor information.\n\nJudge precision/recall at operational capacity and probability quality separately. Synthetic sample count is not equivalent to new independent information, and improvement on a balanced test set may disappear at the true deployment prevalence.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Clustering",
+      "url": "https://scikit-learn.org/stable/modules/clustering.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Cluster assumptions, linkage choices, density clustering, and silhouette evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Common Pitfalls",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Preprocessing leakage, pipelines, and reproducible evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

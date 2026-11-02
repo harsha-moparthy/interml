@@ -1,0 +1,46 @@
+{
+  "id": 769,
+  "answer": "GOSS retains large-gradient examples and subsamples small-gradient ones with reweighting, targeting examples that strongly influence split gain. EFB bundles sparse, nearly mutually exclusive features to reduce effective dimensionality. Leaf-wise growth splits the currently most promising leaf; depth-wise growth expands a level more uniformly. [1](https://proceedings.neurips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html)\n\nBest-first growth can reduce training loss with fewer leaves but may create deep, specialized branches and overfit small datasets. Limit leaves, depth, and minimum leaf data. XGBoost also supports multiple growth/histogram strategies, so “LightGBM leaf-wise, XGBoost always depth-wise” is outdated as a universal distinction. [2](https://arxiv.org/abs/1603.02754)\n\nCompare actual configurations, categorical handling, memory, training time, and held-out quality. Neither GOSS nor EFB guarantees a speedup or quality match on dense or highly interacting features.",
+  "readings": [
+    {
+      "title": "LightGBM: A Highly Efficient Gradient Boosting Decision Tree",
+      "url": "https://proceedings.neurips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html",
+      "publisher": "proceedings.neurips.cc",
+      "tags": "",
+      "why": "GOSS and exclusive feature bundling from the original paper.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "XGBoost: A Scalable Tree Boosting System",
+      "url": "https://arxiv.org/abs/1603.02754",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order tree objectives and sparsity-aware split finding.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CatBoost: Unbiased Boosting with Categorical Features",
+      "url": "https://arxiv.org/abs/1706.09516",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Ordered boosting, target statistics, and prediction shift.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,1 +1,1 @@
-{"id":4,"language":"Python","code":"def q004(frame, column, low, high):\n    mask = frame[column].between(low, high).fillna(False)\n    return frame.loc[mask].copy()\n","answer":"","content_kind":"coding"}
+{"id":4,"language":"Python","code":"def q004(frame, column, low, high):\n    \"\"\"Keep rows inside the inclusive interval [low, high]; exclude missing values.\"\"\"\n    mask = frame[column].between(low, high).fillna(False)\n    return frame.loc[mask].copy()\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,46 @@
+{
+  "id": 805,
+  "answer": "A p-value is the probability, **assuming the null model and test procedure**, of a statistic at least as extreme as observed. It is not the probability that the null is true. Power is the probability of rejecting the null under a specified alternative effect, $1-\\beta$. [1](https://docs.scipy.org/doc/scipy/reference/stats.html)\n\nA p-value of 0.04 says neither “96% chance the treatment works” nor that the effect is practically important. Report effect size, uncertainty interval, design, sample size, and relevant assumptions. Power depends on the alternative, noise, allocation, and significance threshold; it is not a fixed property of a metric alone. Repeated looks, selective reporting, and multiple comparisons can invalidate an unadjusted interpretation.",
+  "readings": [
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Causal Inference: What If",
+      "url": "https://miguelhernan.org/whatifbook",
+      "publisher": "miguelhernan.org",
+      "tags": "",
+      "why": "Hernán and Robins' open book on identification, confounding, weighting, and longitudinal causal inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

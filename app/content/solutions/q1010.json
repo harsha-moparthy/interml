@@ -1,0 +1,46 @@
+{
+  "id": 1010,
+  "answer": "For the partially linear model $Y=\\theta T+g(X)+\\epsilon$, estimate $m(X)=E[T\\mid X]$ and $\\ell(X)=E[Y\\mid X]$ on folds excluding each scored observation. Form residuals $\\tilde T=T-\\hat m(X)$ and $\\tilde Y=Y-\\hat\\ell(X)$. [1](https://arxiv.org/abs/1608.00060)\n\n$$\\hat\\theta=\\frac{\\sum_i\\tilde T_i\\tilde Y_i}{\\sum_i\\tilde T_i^2}.$$\n\nCross-fitting reduces overfitting dependence, and the orthogonal score reduces first-order sensitivity to nuisance-estimation errors under regularity conditions. Causal interpretation still needs exogeneity/appropriate confounder adjustment and variation/overlap. Use robust or clustered standard errors matching the sampling design. DML is not a license to include mediators/colliders or ignore hidden confounding.",
+  "readings": [
+    {
+      "title": "Double/Debiased Machine Learning for Treatment and Structural Parameters",
+      "url": "https://arxiv.org/abs/1608.00060",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Orthogonal scores, cross-fitting, and nuisance-model error control.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Causal Inference: What If",
+      "url": "https://miguelhernan.org/whatifbook",
+      "publisher": "miguelhernan.org",
+      "tags": "",
+      "why": "Hernán and Robins' open book on identification, confounding, weighting, and longitudinal causal inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

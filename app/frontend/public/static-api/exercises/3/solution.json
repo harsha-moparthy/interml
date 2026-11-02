@@ -1,1 +1,1 @@
-{"id":3,"language":"Python","code":"def q003(frame, row_label, row_position):\n    return (frame.loc[row_label].copy(), frame.iloc[row_position].copy())\n","answer":"","content_kind":"coding"}
+{"id":3,"language":"Python","code":"def q003(frame, row_label, row_position):\n    \"\"\"Return independent rows selected by label and by zero-based position.\"\"\"\n    return (frame.loc[row_label].copy(), frame.iloc[row_position].copy())\n","answer":"","content_kind":"coding"}

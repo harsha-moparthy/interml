@@ -2,7 +2,7 @@
   "id": "lesson-q162",
   "kind": "lesson",
   "title": "A tree chooses a question, then asks again",
-  "revision": 7,
+  "revision": 8,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,24 +90,24 @@
       "notes": [
         {
           "lines": [
-            16,
-            16
+            20,
+            20
           ],
           "match": "for threshold in (values[:-1] + values[1:]) / 2:",
           "text": "Candidate thresholds sit between distinct observed values."
         },
         {
           "lines": [
-            21,
-            21
+            25,
+            25
           ],
           "match": "score += len(child) * (1 - p @ p)",
           "text": "Each child impurity is weighted by its number of rows."
         },
         {
           "lines": [
-            31,
-            31
+            35,
+            35
           ],
           "match": "left=build(a[mask], b[mask], depth - 1)",
           "text": "The same builder recurses with one less remaining depth."

@@ -1,0 +1,46 @@
+{
+  "id": 968,
+  "answer": "For binary AdaBoost with weighted error $\\epsilon_t<1/2$, the learner weight is $\\alpha_t=\\tfrac12\\log((1-\\epsilon_t)/\\epsilon_t)$. Update example weights proportionally to $w_i e^{-\\alpha_ty_ih_t(x_i)}$, then normalize. [1](https://scikit-learn.org/stable/modules/ensemble.html)\n\nMistakes gain relative weight and correct examples lose it. This corresponds to reducing an exponential margin loss, so persistently mislabeled outliers can attract extreme attention. Shrinkage, early stopping, robust variants, or better labels may help. Random forests do not repeatedly reweight the same errors this way, though they can still overfit noise. Handle zero/error-one edge cases rather than evaluating an infinite coefficient blindly.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

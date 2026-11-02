@@ -2,7 +2,7 @@
   "id": "lesson-q168",
   "kind": "lesson",
   "title": "Fit the error, then add a little correction",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            7,
-            7
+            10,
+            10
           ],
           "match": "residual = np.asarray(y) - prediction",
           "text": "Residuals provide the training targets for the new tree."
         },
         {
           "lines": [
-            11,
-            11
+            12,
+            12
           ],
           "match": "prediction + learning_rate * tree.predict(x)",
           "text": "The fitted correction is scaled and added to the existing predictions."

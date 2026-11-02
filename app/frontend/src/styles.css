@@ -216,3 +216,8 @@ label.speed { display:flex; flex-direction:row; align-items:center; gap:6px; fon
 .gallery figure { margin:0; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--panel); }
 .gallery img { display:block; width:100%; height:auto; background:transparent; } .gallery figcaption { padding:8px 14px 12px; font-size:.9rem; }
 @media (max-width:760px) { .gallery { grid-template-columns:minmax(0,1fr); } }
+
+.answer-figure { margin: 1.5rem 0; }
+.answer-figure img { display: block; width: 100%; max-width: 800px; height: auto; border-radius: 12px; }
+.answer-figure figcaption { margin-top: .5rem; font-size: .9rem; line-height: 1.5; }
+.answer-guide .prompt-equation { overflow-x: auto; padding: .5rem 0; }

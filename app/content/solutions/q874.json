@@ -1,0 +1,46 @@
+{
+  "id": 874,
+  "answer": "A collective can time out because one rank never entered it, entered a different collective, failed earlier, or progressed too slowly. Start with the earliest rank-local error and synchronized step IDs, not only the final timeout emitted everywhere. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nCompare dataloader lengths, conditional branches, tensor sizes, hardware health, temperature/clocks, network counters, and timeline gaps. Run isolated communication and hardware diagnostics after preserving evidence. A bad link, crashed worker, or uneven batch count requires different repairs.\n\nFail the distributed job coherently and resume from a validated checkpoint with optimizer/RNG/data progress as needed. Blindly increasing the timeout can hide a deadlock. At 512 GPUs, include fault detection, checkpoint cadence, and reproducible rank/topology logs in the operating design.",
+  "readings": [
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+attention	Attention Is All You Need	https://arxiv.org/abs/1706.03762	Attention scaling, multi-head projections, and the original encoder–decoder architecture.
+norm	Root Mean Square Layer Normalization	https://arxiv.org/abs/1910.07467	RMS normalization, invariances, and measured rather than universal efficiency gains.
+prenorm	On Layer Normalization in the Transformer Architecture	https://arxiv.org/abs/2002.04745	Gradient behavior at initialization and normalization placement.
+rope	RoFormer: Enhanced Transformer with Rotary Position Embedding	https://arxiv.org/abs/2104.09864	Rotation matrices and the relative-position dot-product identity.
+yarn	YaRN: Efficient Context Window Extension	https://arxiv.org/abs/2309.00071	Frequency-dependent RoPE extension and attention temperature scaling.
+gqa	GQA: Training Generalized Multi-Query Transformer Models	https://arxiv.org/abs/2305.13245	The quality, bandwidth, and cache tradeoff between MHA, MQA, and GQA.
+v3	DeepSeek-V3 Technical Report	https://arxiv.org/abs/2412.19437	MLA, expert routing, multi-token prediction, and mixed-precision training.
+mamba	Mamba: Linear-Time Sequence Modeling with Selective State Spaces	https://arxiv.org/abs/2312.00752	Input-dependent recurrence, selective scanning, and sequence-memory tradeoffs.
+ssd	Transformers are SSMs: Structured State Space Duality	https://arxiv.org/abs/2405.21060	Semiseparable matrices, chunked recurrence, and the Mamba-2 algorithm.
+sink	Efficient Streaming Language Models with Attention Sinks	https://arxiv.org/abs/2309.17453	Why retaining initial tokens stabilizes bounded-cache streaming.
+flash	FlashAttention: Exact Attention with IO-Awareness	https://arxiv.org/abs/2205.14135	Online softmax, SRAM tiling, and recomputation in the backward pass.
+flash2	FlashAttention-2: Better Parallelism and Work Partitioning	https://arxiv.org/abs/2307.08691	Reducing non-matmul work and improving GPU work partitioning.
+flash3	FlashAttention-3: Asynchrony and Low-precision	https://arxiv.org/abs/2407.08608	Hopper-specific pipelining and low-precision attention.
+paged	Efficient Memory Management for LLM Serving with PagedAttention	https://arxiv.org/abs/2309.06180	Block tables, fragmentation, shared prefixes, and serving throughput.
+spec	Fast Inference from Transformers via Speculative Decoding	https://arxiv.org/abs/2211.17192	Acceptance and residual-sampling proof preserving the target distribution.
+medusa	Medusa: Simple LLM Inference Acceleration Framework	https://arxiv.org/abs/2401.10774	Multiple decoding heads, tree attention, and verification choices.
+eagle	EAGLE: Speculative Sampling Requires Rethinking Feature Uncertainty	https://arxiv.org/abs/2401.15077	Feature-level drafting and how it differs from an independent draft model.
+gptq	GPTQ: Accurate Post-Training Quantization	https://arxiv.org/abs/2210.17323	Second-order reconstruction and sequential quantization error compensation.
+awq	AWQ: Activation-aware Weight Quantization	https://arxiv.org/abs/2306.00978	Activation-informed protection of important weight channels.
+smooth	SmoothQuant: Accurate and Efficient Post-Training Quantization	https://arxiv.org/abs/2211.10438	Moving activation-channel scale into weights for easier quantization.
+qlora	QLoRA: Efficient Finetuning of Quantized LLMs	https://arxiv.org/abs/2305.14314	NF4, double quantization, and paged optimizers with trainable adapters.
+lora	LoRA: Low-Rank Adaptation of Large Language Models	https://arxiv.org/abs/2106.09685	Low-rank updates, initialization, parameter cost, and inference merging.
+dora	DoRA: Weight-Decomposed Low-Rank Adaptation	https://arxiv.org/abs/2402.09353	Separating weight magnitude and direction in parameter-efficient tuning.
+prefix	Prefix-Tuning: Optimizing Continuous Prompts for Generation	https://arxiv.org/abs/2101.00190	Learned prefix activations and their capacity and serving costs.
+zero	ZeRO: Memory Optimizations Toward Training Trillion Parameter Models	https://arxiv.org/abs/1910.02054	Optimizer, gradient, and parameter sharding with communication accounting.
+megatron	Megatron-LM: Training Multi-Billion Parameter Language Models	https://arxiv.org/abs/1909.08053	Column/row parallel linear layers and communication placement.
+checkpoint	Training Deep Nets with Sublinear Memory Cost	https://arxiv.org/abs/1604.06174	Activation recomputation and memory–compute tradeoffs.
+ppo	Proximal Policy Optimization Algorithms	https://arxiv.org/abs/1707.06347	Clipped policy ratios, advantage estimates, and policy optimization.
+rlhf	Training Language Models to Follow Instructions with Human Feedback	https://arxiv.org/abs/2203.02155	SFT, reward modeling, PPO, and human evaluation in an RLHF pipeline.
+dpo	Direct Preference Optimization	https://arxiv.org/abs/2305.18290	KL-regularized optimal policies and the preference logistic objective.
+ipo	A General Theoretical Paradigm to Understand Learning from Human Preferences	https://arxiv.org/abs/2310.12036	Preference optimization assumptions and the IPO objective.
+kto	KTO: Model Alignment as Prospect Theoretic Optimization	https://arxiv.org/abs/2402.01306	Learning from desirable/undesirable examples without paired preferences.
+simpo	SimPO: Simple Preference Optimization with a Reference-Free Reward	https://arxiv.org/abs/2405.14734	Length-normalized log probability and target margins.
+r1	DeepSeek-R1: Incentivizing Reasoning Capability via Reinforcement Learning	https://arxiv.org/abs/2501.12948	Group-relative rewards, reasoning training, and reported limitations.
+prm	Let's Verify Step by Step	https://arxiv.org/abs/2305.20050	Process supervision, outcome supervision, and verifier evaluation.
+rag	Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks	https://arxiv.org/abs/2005.11401	Retrieval-conditioned generation and the distinction between parameters and external evidence.
+faiss	The FAISS Library	https://arxiv.org/abs/2401.08281	Exact and approximate search, compression, and index tradeoffs.
+hnsw	Efficient and Robust Approximate Nearest Neighbor Search Using HNSW	https://arxiv.org/abs/1603.09320	Graph construction, search breadth, and recall/latency tradeoffs.
+colbert	ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction	https://arxiv.org/abs/2004.12832	Token-level MaxSim and late interaction storage costs.
+mrl	Matryoshka Representation Learning	https://arxiv.org/abs/2205.13147	Training useful nested embedding prefixes for adaptive cost.
+sbert	Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks	https://arxiv.org/abs/1908.10084	Bi-encoder representations and their difference from joint pair scoring.
+splade	SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking	https://arxiv.org/abs/2107.05720	Learned sparse term weights and vocabulary expansion.
+judge	Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena	https://arxiv.org/abs/2306.05685	Position, verbosity, and self-enhancement bias in model judging.
+ragas	RAGAS: Automated Evaluation of Retrieval Augmented Generation	https://arxiv.org/abs/2309.15217	Context relevance, faithfulness, and answer relevance evaluation.
+ddpm	Denoising Diffusion Probabilistic Models	https://arxiv.org/abs/2006.11239	Forward diffusion, reverse Gaussian transitions, and noise-prediction training.
+ddim	Denoising Diffusion Implicit Models	https://arxiv.org/abs/2010.02502	Non-Markovian paths and deterministic accelerated sampling.
+ldm	High-Resolution Image Synthesis with Latent Diffusion Models	https://arxiv.org/abs/2112.10752	Autoencoder compression and conditioning in latent-space diffusion.
+cfg	Classifier-Free Diffusion Guidance	https://arxiv.org/abs/2207.12598	Conditional/unconditional prediction mixing and quality/diversity tradeoffs.
+dit	Scalable Diffusion Models with Transformers	https://arxiv.org/abs/2212.09748	Transformer denoisers, latent patching, and conditioning.
+flow	Flow Matching for Generative Modeling	https://arxiv.org/abs/2210.02747	Velocity-field training, probability paths, and ODE sampling.
+vit	An Image is Worth 16x16 Words	https://arxiv.org/abs/2010.11929	Patch tokenization and the data/inductive-bias tradeoff of ViTs.
+clip	Learning Transferable Visual Models From Natural Language Supervision	https://arxiv.org/abs/2103.00020	Image–text contrastive learning, zero-shot transfer, and limitations.
+blip	BLIP-2: Bootstrapping Language-Image Pre-training	https://arxiv.org/abs/2301.12597	The Q-Former bridge between frozen vision and language models.
+flamingo	Flamingo: a Visual Language Model for Few-Shot Learning	https://arxiv.org/abs/2204.14198	Visual resampling and gated cross-attention for multimodal sequences.
+llava	Visual Instruction Tuning	https://arxiv.org/abs/2304.08485	Projection-based visual instruction tuning and evaluation.
+glu	GLU Variants Improve Transformer	https://arxiv.org/abs/2002.05202	Gated feed-forward activations and parameter-matched comparisons.
+gemma	Gemma 2: Improving Open Language Models at a Practical Size	https://arxiv.org/abs/2408.00118	Soft-capping and the model's specific normalization and attention design.
+bert	BERT: Pre-training of Deep Bidirectional Transformers	https://arxiv.org/abs/1810.04805	Masked language modeling and bidirectional representations.
+t5	Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer	https://arxiv.org/abs/1910.10683	Encoder–decoder pretraining objectives and controlled architecture comparisons.
+dl	Deep Learning — Goodfellow, Bengio, Courville	https://www.deeplearningbook.org/	Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.
+d2l	Dive into Deep Learning	https://d2l.ai/	Open textbook with mathematical explanations and runnable neural-network implementations.
+prml	Probabilistic Machine Learning: An Introduction	https://probml.github.io/pml-book/book1.html	Open author-hosted textbook covering probabilistic modeling and classical ML derivations.
+pml2	Probabilistic Machine Learning: Advanced Topics	https://probml.github.io/pml-book/book2.html	Open textbook on approximate inference, generative models, and advanced probabilistic methods.
+islp	An Introduction to Statistical Learning with Python	https://www.statlearning.com/	Author-hosted book and labs for regression, classification, validation, and statistical learning.
+causal	Causal Inference: What If	https://miguelhernan.org/whatifbook	Hernán and Robins' open book on identification, confounding, weighting, and longitudinal causal inference.
+forecast	Forecasting: Principles and Practice	https://otexts.com/fpp3/	Open textbook on evaluation, temporal validation, reconciliation, and forecasting methods.
+sre	Site Reliability Engineering — Google	https://sre.google/sre-book/table-of-contents/	Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.
+rules	Rules of Machine Learning — Google	https://developers.google.com/machine-learning/guides/rules-of-ml	Production guidance on baselines, feature pipelines, validation, and training-serving consistency.
+mltest	The ML Test Score: A Rubric for ML Production Readiness	https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/	Concrete tests for data, models, infrastructure, and production monitoring.
+scikit	Scikit-learn User Guide	https://scikit-learn.org/stable/user_guide.html	Maintainer documentation with estimator equations, assumptions, and executable examples.
+scipy	SciPy Statistics Reference	https://docs.scipy.org/doc/scipy/reference/stats.html	Distribution parameterizations, statistical tests, and numerical implementation references.
+torch	PyTorch Documentation	https://docs.pytorch.org/docs/stable/index.html	Official operator, autograd, numerical, and distributed-training contracts.
+cuda	CUDA C++ Programming Guide	https://docs.nvidia.com/cuda/cuda-c-programming-guide/	Thread hierarchy, memory access, synchronization, and device execution details.
+scaling	How to Scale Your Model	https://jax-ml.github.io/scaling-book/	Author-written systems math for hardware limits, training, sharding, and inference.
+irl	Introduction to Information Retrieval	https://nlp.stanford.edu/IR-book/	Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.
+rl	Reinforcement Learning: An Introduction	https://incompleteideas.net/book/the-book-2nd.html	Sutton and Barto's open textbook on bandits, value functions, and policy gradients.
+optim	Deep Learning, Chapter 8: Optimization	https://www.deeplearningbook.org/contents/optimization.html	Derivations and failure modes of gradient-based neural-network optimization.
+reg	Deep Learning, Chapter 7: Regularization	https://www.deeplearningbook.org/contents/regularization.html	Regularization, parameter penalties, dropout, and generalization.
+resnet	Deep Residual Learning for Image Recognition	https://arxiv.org/abs/1512.03385	Residual blocks and empirical evidence about depth and optimization.
+bn	Batch Normalization	https://arxiv.org/abs/1502.03167	Batch statistics, learned affine parameters, and inference behavior.
+adamw	Decoupled Weight Decay Regularization	https://arxiv.org/abs/1711.05101	Why adaptive optimization separates weight decay from an L2 gradient penalty.
+distill	Distilling the Knowledge in a Neural Network	https://arxiv.org/abs/1503.02531	Soft targets, temperature, and student training objectives.
+ensemble	Scikit-learn: Ensemble Methods	https://scikit-learn.org/stable/modules/ensemble.html	Bagging, boosting, tree regularization, and practical model comparisons.
+linear	Scikit-learn: Linear Models	https://scikit-learn.org/stable/modules/linear_model.html	OLS, ridge, lasso, elastic net, and logistic-regression objectives.
+metrics	Scikit-learn: Model Evaluation	https://scikit-learn.org/stable/modules/model_evaluation.html	Metric definitions, averaging conventions, and classification/regression caveats.
+calibration	Scikit-learn: Probability Calibration	https://scikit-learn.org/stable/modules/calibration.html	Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.
+svm	Scikit-learn: Support Vector Machines	https://scikit-learn.org/stable/modules/svm.html	Margin objectives, kernel parameters, and scaling requirements.
+cluster	Scikit-learn: Clustering	https://scikit-learn.org/stable/modules/clustering.html	Cluster assumptions, linkage choices, density clustering, and silhouette evaluation.
+pca	Scikit-learn: Matrix Decomposition	https://scikit-learn.org/stable/modules/decomposition.html	PCA, SVD, centering, whitening, and decomposition variants.
+cv	Scikit-learn: Cross-validation	https://scikit-learn.org/stable/modules/cross_validation.html	Group-aware and temporal splitting and validation methodology.
+leak	Scikit-learn: Common Pitfalls	https://scikit-learn.org/stable/common_pitfalls.html	Preprocessing leakage, pipelines, and reproducible evaluation.
+xgb	XGBoost: A Scalable Tree Boosting System	https://arxiv.org/abs/1603.02754	Second-order tree objectives and sparsity-aware split finding.
+catboost	CatBoost: Unbiased Boosting with Categorical Features	https://arxiv.org/abs/1706.09516	Ordered boosting, target statistics, and prediction shift.
+lightgbm	LightGBM: A Highly Efficient Gradient Boosting Decision Tree	https://proceedings.neurips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html	GOSS and exclusive feature bundling from the original paper.
+shap	A Unified Approach to Interpreting Model Predictions	https://arxiv.org/abs/1705.07874	Shapley attribution axioms and their interpretation.
+whisper	Robust Speech Recognition via Large-Scale Weak Supervision	https://arxiv.org/abs/2212.04356	Encoder–decoder speech recognition, training data, and error behavior.
+ctc	Connectionist Temporal Classification	https://www.cs.toronto.edu/~graves/icml_2006.pdf	Alignment marginalization with blanks and repeated-label collapse.
+rnnt	Sequence Transduction with Recurrent Neural Networks	https://arxiv.org/abs/1211.3711	Transducer alignment, prediction network, and streaming sequence modeling.
+gcn	Semi-Supervised Classification with Graph Convolutional Networks	https://arxiv.org/abs/1609.02907	Normalized graph propagation and semi-supervised node classification.
+detr	End-to-End Object Detection with Transformers	https://arxiv.org/abs/2005.12872	Set prediction, bipartite matching, and duplicate suppression without NMS.
+unet	U-Net: Convolutional Networks for Biomedical Image Segmentation	https://arxiv.org/abs/1505.04597	Encoder–decoder localization and high-resolution skip connections.
+focal	Focal Loss for Dense Object Detection	https://arxiv.org/abs/1708.02002	Down-weighting easy examples and dense detector imbalance.
+experiments	Microsoft Research: Experimentation Platform	https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/	Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.
+cuped	From Augmentation to Decomposition: A New Look at CUPED	https://arxiv.org/abs/2312.02935	CUPED variance reduction, regression adjustment, and metric decomposition by its original author and collaborators.
+feast	Feast: Point-in-time Joins	https://docs.feast.dev/getting-started/concepts/point-in-time-joins	Historical feature retrieval with event-time correctness.
+triton	Triton: Dynamic Batcher	https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/batcher.html	Batch size, preferred sizes, and queue-delay configuration.
+compile	PyTorch: torch.compile Troubleshooting	https://docs.pytorch.org/docs/stable/torch.compiler_troubleshooting.html	Guards, recompilation, graph breaks, and diagnosis.
+amp	PyTorch: Automatic Mixed Precision Examples	https://docs.pytorch.org/docs/stable/notes/amp_examples.html	Autocast, scaling, gradient accumulation, and clipping order.
+ope	Doubly Robust Policy Evaluation and Learning	https://arxiv.org/abs/1103.4601	Combining reward models and logged propensities for off-policy evaluation.
+sequential	Always Valid Inference: Bringing Sequential Analysis to A/B Testing	https://arxiv.org/abs/1512.04922	Valid inference with continuous monitoring and data-dependent stopping.
+lottery	The Lottery Ticket Hypothesis	https://arxiv.org/abs/1803.03635	Sparse subnetworks, initialization, and iterative pruning experiments.
+double	Reconciling Modern ML Practice and the Bias-Variance Trade-off	https://arxiv.org/abs/1812.11118	Interpolation thresholds and the double-descent risk curve.
+react	ReAct: Synergizing Reasoning and Acting in Language Models	https://arxiv.org/abs/2210.03629	Interleaving observations, reasoning, and tool actions.
+agents	Building Effective Agents — Anthropic	https://www.anthropic.com/research/building-effective-agents	Workflow patterns, tool interfaces, evaluation, and when agent complexity is justified.
+retry	Timeouts, Retries, and Backoff with Jitter — AWS	https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/	Bounded retries, timeout budgets, jitter, and idempotency.
+logq	Sampling-Bias-Corrected Neural Modeling for Large Corpus Item Recommendations	https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/	Two-tower retrieval, sampled negatives, and popularity correction.
+als	Collaborative Filtering for Implicit Feedback Datasets	https://yifanhu.net/PUB/cf.pdf	Confidence-weighted implicit feedback and efficient alternating least squares.
+arbitrage	Arbitrage-free Neural-SDE Market Models	https://arxiv.org/abs/2105.11053	Learning option dynamics subject to financial no-arbitrage restrictions.
+chinchilla	Training Compute-Optimal Large Language Models	https://arxiv.org/abs/2203.15556	Parameter/data allocation under a fixed pretraining compute budget.
+testtime	Scaling LLM Test-Time Compute Optimally	https://arxiv.org/abs/2408.03314	Adaptive inference-time compute allocation and comparison with model scaling.
+lost	Lost in the Middle: How Language Models Use Long Contexts	https://arxiv.org/abs/2307.03172	Position-dependent use of evidence in long-context inputs.
+star	STaR: Bootstrapping Reasoning With Reasoning	https://arxiv.org/abs/2203.14465	Iterative generation, correctness filtering, and rationale fine-tuning.
+caiai	Constitutional AI: Harmlessness from AI Feedback	https://arxiv.org/abs/2212.08073	Principle-based critique/revision and AI preference feedback.
+ties	TIES-Merging: Resolving Interference When Merging Models	https://arxiv.org/abs/2306.01708	Trimming, sign conflicts, and combining task updates.
+ewc	Overcoming Catastrophic Forgetting in Neural Networks	https://arxiv.org/abs/1612.00796	Importance-weighted parameter penalties for retaining earlier tasks.
+sentencepiece	SentencePiece: A Simple and Language Independent Subword Tokenizer	https://arxiv.org/abs/1808.06226	Unigram/BPE tokenization, normalization, and raw-text training.
+sae	Towards Monosemanticity: Decomposing Language Models With Dictionary Learning	https://transformer-circuits.pub/2023/monosemantic-features/index.html	Sparse autoencoders, feature decomposition, and interpretability limitations.
+drgrpo	Understanding R1-Zero-Like Training: A Critical Perspective	https://arxiv.org/abs/2503.20783	Response-length and reward-normalization biases and the Dr. GRPO objective.
+xgrammar	XGrammar: Flexible and Efficient Structured Generation	https://arxiv.org/abs/2411.15100	Grammar state, token masks, and efficient constrained decoding.
+siglip	Sigmoid Loss for Language Image Pre-Training	https://arxiv.org/abs/2303.15343	Pairwise logistic image–text training and distributed scaling comparisons.
+dino	DINOv2: Learning Robust Visual Features without Supervision	https://arxiv.org/abs/2304.07193	Self-distillation, curated visual data, and transferable dense features.
+mae	Masked Autoencoders Are Scalable Vision Learners	https://arxiv.org/abs/2111.06377	Masked-patch reconstruction and asymmetric visual encoders/decoders.
+codec	High Fidelity Neural Audio Compression	https://arxiv.org/abs/2210.13438	EnCodec residual vector quantization and bitrate/quality tradeoffs.
+donut	OCR-free Document Understanding Transformer	https://arxiv.org/abs/2111.15664	Document image encoding and structured text generation without a separate OCR stage.
+sam	Segment Anything	https://arxiv.org/abs/2304.02643	Promptable masks, model design, and segmentation evaluation.
+teds	Image-based Table Recognition: Data, Model, and Evaluation	https://arxiv.org/abs/1911.10683	Table structure/content evaluation with tree-edit distance.
+calib	OpenCV: Camera Calibration and 3D Reconstruction	https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html	Camera projection, lens distortion, rectification, and stereo geometry.
+bev	BEVFormer: Learning Bird's-Eye-View Representation	https://arxiv.org/abs/2203.17270	Spatial/temporal attention for multi-camera bird's-eye-view perception.
+librosa	Librosa: Feature Extraction	https://librosa.org/doc/latest/feature.html	STFT-derived features, mel spectrograms, and audio-processing parameter conventions.
+ring	Ring Attention with Blockwise Transformers	https://arxiv.org/abs/2310.01889	Sequence sharding and online attention over circulating KV blocks.
+din	Deep Interest Network for Click-Through Rate Prediction	https://arxiv.org/abs/1706.06978	Candidate-aware attention over user behavior history.
+deepfm	DeepFM: A Factorization-Machine based Neural Network for CTR Prediction	https://arxiv.org/abs/1703.04247	Shared embeddings for explicit pairwise and learned higher-order interactions.
+dcn	DCN V2: Improved Deep and Cross Network	https://arxiv.org/abs/2008.13535	Explicit feature crossing, low-rank structure, and recommendation experiments.
+dlrm	Deep Learning Recommendation Model for Personalization and Recommendation Systems	https://arxiv.org/abs/1906.00091	Categorical embeddings, dense features, and interaction/serving costs.
+tiger	Recommender Systems with Generative Retrieval	https://arxiv.org/abs/2305.05065	Semantic item IDs from residual quantization and autoregressive retrieval.
+dien	Deep Interest Evolution Network for Click-Through Rate Prediction	https://arxiv.org/abs/1809.03672	Sequential user-interest extraction and candidate-aware evolution.
+sim	Search-based User Interest Modeling with Lifelong Sequential Behavior Data	https://arxiv.org/abs/2006.05639	Hard retrieval followed by fine attention over long histories.
+esmm	Entire Space Multi-Task Model	https://arxiv.org/abs/1804.07931	Impression-space CTR/CTCVR learning and post-click conversion modeling.
+snorkel	Snorkel: Rapid Training Data Creation with Weak Supervision	https://arxiv.org/abs/1711.10160	Combining noisy labeling functions with a probabilistic label model.
+conformal	A Gentle Introduction to Conformal Prediction	https://arxiv.org/abs/2107.07511	Finite-sample marginal coverage, calibration scores, and exchangeability assumptions.
+dp	Deep Learning with Differential Privacy	https://arxiv.org/abs/1607.00133	Per-example clipping, Gaussian noise, and privacy accounting in DP-SGD.
+fedavg	Communication-Efficient Learning of Deep Networks from Decentralized Data	https://arxiv.org/abs/1602.05629	Federated averaging and communication/data-distribution tradeoffs.
+membership	Membership Inference Attacks Against Machine Learning Models	https://arxiv.org/abs/1610.05820	Threat model, confidence-based inference, and empirical privacy leakage.
+adversarial	Explaining and Harnessing Adversarial Examples	https://arxiv.org/abs/1412.6572	Input-gradient perturbations and adversarial training.
+mixup	mixup: Beyond Empirical Risk Minimization	https://arxiv.org/abs/1710.09412	Convex combinations of examples/targets and regularization experiments.
+swa	Averaging Weights Leads to Wider Optima and Better Generalization	https://arxiv.org/abs/1803.05407	Stochastic weight averaging and its relation to optimization trajectories.
+watermark	A Watermark for Large Language Models	https://arxiv.org/abs/2301.10226	Keyed token partitions, logit bias, and statistical watermark detection.
+dml	Double/Debiased Machine Learning for Treatment and Structural Parameters	https://arxiv.org/abs/1608.00060	Orthogonal scores, cross-fitting, and nuisance-model error control.
+mup	Tensor Programs V: Tuning Large Neural Networks via Zero-Shot Hyperparameter Transfer	https://arxiv.org/abs/2203.03466	Maximal-update parameterization and the scope of width-wise hyperparameter transfer.
+cleanlab	Confident Learning: Estimating Uncertainty in Dataset Labels	https://arxiv.org/abs/1911.00068	Out-of-sample label-error estimation and data-quality auditing.
+graphrag	From Local to Global: A Graph RAG Approach to Query-Focused Summarization	https://arxiv.org/abs/2404.16130	Entity graphs, community summaries, and global corpus questions.
+contextual	Introducing Contextual Retrieval	https://www.anthropic.com/news/contextual-retrieval	Context-enriched chunks, hybrid retrieval, and reranking experiments.
+fno	Fourier Neural Operator for Parametric Partial Differential Equations	https://arxiv.org/abs/2010.08895	Spectral operator learning and discretization/generalization limits.
+pinn	Physics-informed Neural Networks	https://www.sciencedirect.com/science/article/pii/S0021999118307125	Differential-equation residuals, boundary conditions, and neural PDE approximation.
+tabpfn	TabPFN: A Transformer That Solves Small Tabular Classification Problems	https://arxiv.org/abs/2207.01848	Synthetic-task pretraining and in-context tabular inference assumptions.
+kan	KAN: Kolmogorov-Arnold Networks	https://arxiv.org/abs/2404.19756	Learned edge functions, spline parameterization, and computational tradeoffs.
+fda	FDA: Transparency for Machine Learning-Enabled Medical Devices	https://www.fda.gov/medical-devices/artificial-intelligence-enabled-medical-devices/transparency-machine-learning-enabled-medical-devices-guiding-principles	Intended use, human–AI team performance, limitations, and clinical transparency.
+credit	CFPB: Adverse Action Reasons and Complex Algorithms	https://www.consumerfinance.gov/compliance/circulars/circular-2022-03-adverse-action-notification-requirements-in-connection-with-credit-decisions-based-on-complex-algorithms/	US guidance illustrating the need for accurate specific reasons; verify current applicable jurisdictional requirements.
+byol	Bootstrap Your Own Latent	https://arxiv.org/abs/2006.07733	Online predictor, momentum target, and learning without negative pairs.
+fedprox	Federated Optimization in Heterogeneous Networks	https://arxiv.org/abs/1812.06127	Proximal client objectives for heterogeneous federated learning.
+scaffold	SCAFFOLD: Stochastic Controlled Averaging for Federated Learning	https://arxiv.org/abs/1910.06378	Control variates that reduce client drift.
+deeponet	DeepONet: Learning Nonlinear Operators	https://arxiv.org/abs/1910.03193	Branch/trunk operator approximation and sensor discretization.
+sleeper	Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training	https://arxiv.org/abs/2401.05566	Controlled evidence about persistent backdoors and evaluation limitations.
+interleave	Comparing the Sensitivity of Information Retrieval Metrics	https://www.microsoft.com/en-us/research/wp-content/uploads/2010/07/fp146-radlinski.pdf	Team-draft interleaving and sensitivity of online ranking evaluation.
+giou	Generalized Intersection over Union	https://arxiv.org/abs/1902.09630	Bounding-box overlap loss and enclosing-box correction.
+diou	Distance-IoU Loss	https://arxiv.org/abs/1911.08287	Center-distance and aspect-ratio penalties for box regression.
+fixmatch	FixMatch: Simplifying Semi-Supervised Learning	https://arxiv.org/abs/2001.07685	Confidence-filtered pseudo-labels and weak/strong augmentation consistency.
+dann	Domain-Adversarial Training of Neural Networks	https://arxiv.org/abs/1505.07818	Gradient reversal and domain-invariant representation learning.
+coco	COCO Detection Evaluation	https://cocodataset.org/#detection-eval	Official matching rules, IoU thresholds, recall interpolation, and size/max-detection settings.
+vae	Auto-Encoding Variational Bayes	https://arxiv.org/abs/1312.6114	ELBO optimization and the Gaussian reparameterization trick.
+wgan	Improved Training of Wasserstein GANs	https://arxiv.org/abs/1704.00028	Wasserstein critics, Lipschitz constraints, and gradient penalty.
+gp	Gaussian Processes for Machine Learning	https://gaussianprocess.org/gpml/	Free textbook covering GP posterior inference and kernel methods.
+tabnet	TabNet: Attentive Interpretable Tabular Learning	https://arxiv.org/abs/1908.07442	Sequential attentive feature selection in tabular networks.
+fttransformer	Revisiting Deep Learning Models for Tabular Data	https://arxiv.org/abs/2106.11959	Feature tokenization, Transformer baselines, and tabular benchmarking.
+safetensors	Safetensors Documentation	https://huggingface.co/docs/safetensors/index	Tensor-only serialization, zero-copy access, and loading behavior.
+prefixcache	vLLM Prefix Caching Design	https://docs.vllm.ai/en/latest/design/prefix_caching/	Hash-chained cache blocks, extra hash inputs, and cache isolation.
+flink	Flink Windows	https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/operators/windows/	Event-time windows, triggers, watermarks, and late data.
+collapse	The Curse of Recursion: Training on Generated Data Makes Models Forget	https://arxiv.org/abs/2305.17493	Distributional degradation when repeatedly training on generated data.
+unlearn	Machine Unlearning: A Comprehensive Survey	https://arxiv.org/abs/2405.07406	Removal objectives, retraining baselines, evaluation, and approximate unlearning.
+ngjordan	On Discriminative vs. Generative Classifiers	https://proceedings.neurips.cc/paper_files/paper/2001/hash/7b7a53e239400a13bd6be6c91c4f6c4e-Abstract.html	Sample-size and asymptotic comparisons between logistic regression and naive Bayes.
+mmoe	Modeling Task Relationships with Multi-gate Mixture-of-Experts	https://research.google/pubs/modeling-task-relationships-in-multi-task-learning-with-multi-gate-mixture-of-experts/	Task-specific gates over shared experts and empirical task-transfer behavior.
+fastspeech	FastSpeech 2: Fast and High-Quality End-to-End Text-to-Speech	https://arxiv.org/abs/2006.04558	Duration, pitch, and energy conditioning for non-autoregressive synthesis.
+vits	Conditional Variational Autoencoder with Adversarial Learning for End-to-End Text-to-Speech	https://arxiv.org/abs/2106.06103	Variational inference, flows, adversarial waveform synthesis, and duration modeling.

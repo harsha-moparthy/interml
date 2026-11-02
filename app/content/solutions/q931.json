@@ -1,0 +1,46 @@
+{
+  "id": 931,
+  "answer": "In the SVM dual, only examples with nonzero multipliers contribute to $w=\\sum_i\\alpha_i y_ix_i$. Removing examples known to have zero multipliers can leave the same optimum feasible and optimal under the same objective and constraints. [1](https://scikit-learn.org/stable/modules/svm.html)\n\nHowever, the prompt's “zero change” needs qualifications: changing sample count can change effective regularization in average-loss parameterizations; numerical tolerances and nonunique intercepts can matter; and identifying non-support vectors from an approximate fit can be imperfect. Soft-margin support vectors may lie inside the margin or be misclassified.\n\nDo not remove points merely because a heuristic says they look far away. Verify exact objective conventions and refit behavior, especially when class weights or per-example penalties change with the dataset.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Support Vector Machines",
+      "url": "https://scikit-learn.org/stable/modules/svm.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Margin objectives, kernel parameters, and scaling requirements.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 942,
+  "answer": "ACF measures correlation at each lag, including indirect effects through intermediate lags. PACF measures lag association after accounting for intervening lags. For ideal stationary models, an AR($p$) has PACF cutoff after $p$, while an MA($q$) has ACF cutoff after $q$; the other function generally tails off. [1](https://otexts.com/fpp3/)\n\nARIMA first differences $d$ times, then fits AR and MA structure. Real finite samples, mixed ARMA processes, seasonality, and structural breaks rarely produce perfect cutoffs. Use plots as candidates, then compare information criteria and rolling-origin forecasts, inspecting residual autocorrelation.\n\nOver-differencing can introduce artificial dependence and inflate uncertainty. Select seasonal components and deterministic terms deliberately rather than reading one significant bar as a complete model specification.",
+  "readings": [
+    {
+      "title": "Forecasting: Principles and Practice",
+      "url": "https://otexts.com/fpp3/",
+      "publisher": "otexts.com",
+      "tags": "",
+      "why": "Open textbook on evaluation, temporal validation, reconciliation, and forecasting methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

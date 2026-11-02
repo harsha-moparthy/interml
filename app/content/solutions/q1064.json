@@ -1,0 +1,46 @@
+{
+  "id": 1064,
+  "answer": "Key the event stream by card ID and maintain time-indexed counts rather than scanning the full transaction history. For exact rolling windows, keep event timestamps/counts in state and expire contributions as event time advances; aggregate equal timestamps or use bounded buckets when approximation is acceptable. Maintain separate 10-minute and 24-hour totals, updating both on each event and expiration. [1](https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/operators/windows/)\n\nUse watermarks and a stated late-event policy, idempotent transaction IDs, checkpointed state, and retention beyond allowed lateness. Redis can serve materialized values with timestamps/version metadata; the stream processor remains the consistency authority. Define whether the current transaction is included and avoid future information in training features. Minute buckets reduce state but create boundary approximation unless partial buckets retain finer detail. Monitor lag, hot keys, duplicates, and recovery behavior.",
+  "readings": [
+    {
+      "title": "Flink Windows",
+      "url": "https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/operators/windows/",
+      "publisher": "nightlies.apache.org",
+      "tags": "",
+      "why": "Event-time windows, triggers, watermarks, and late data.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Feast: Point-in-time Joins",
+      "url": "https://docs.feast.dev/getting-started/concepts/point-in-time-joins",
+      "publisher": "docs.feast.dev",
+      "tags": "",
+      "why": "Historical feature retrieval with event-time correctness.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

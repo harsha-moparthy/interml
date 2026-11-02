@@ -1,0 +1,46 @@
+{
+  "id": 749,
+  "answer": "A teacher's soft probability vector contains relationships absent from a one-hot label: an image may resemble two dog breeds much more than a truck. Raising temperature softens the distribution and exposes these relative preferences. [1](https://arxiv.org/abs/1503.02531)\n\n$$p_i^{(T)}=\\frac{e^{z_i/T}}{\\sum_j e^{z_j/T}},\\quad \\mathcal L=\\alpha\\mathcal L_{hard}+(1-\\alpha)T^2D_{KL}(p_T^{(T)}\\|p_S^{(T)}).$$\n\nThe $T^2$ factor compensates the usual temperature-induced gradient scaling. Use $T=1$ at ordinary inference unless calibration dictates otherwise. Students can inherit teacher errors and biases; soft targets are useful only insofar as they encode relevant information. Compare against training the student directly under equal data and compute, and assess real deployment latency rather than parameter count alone.",
+  "readings": [
+    {
+      "title": "Distilling the Knowledge in a Neural Network",
+      "url": "https://arxiv.org/abs/1503.02531",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Soft targets, temperature, and student training objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

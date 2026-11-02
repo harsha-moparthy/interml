@@ -1,0 +1,46 @@
+{
+  "id": 1056,
+  "answer": "The identity $(X^TX+\\lambda I_d)X^T=X^T(XX^T+\\lambda I_n)$ implies $(X^TX+\\lambda I_d)^{-1}X^T=X^T(XX^T+\\lambda I_n)^{-1}$ for $\\lambda>0$, the same result obtained from Woodbury. Therefore solve $(XX^T+\\lambda I_n)\\alpha=y$ and set $w=X^T\\alpha$. [1](https://scikit-learn.org/stable/modules/linear_model.html) [3](https://gaussianprocess.org/gpml/)\n\nDense primal construction/factorization costs roughly $O(nd^2+d^3)$ and $O(d^2)$ memory; the dual costs $O(n^2d+n^3)$ and $O(n^2)$ memory. Thus the dual is attractive when $d\\gg n$, though sparsity and iterative solvers can change the comparison. Kernel ridge replaces $XX^T$ by $K$, predicting $k(x,X)^T\\alpha$ without explicitly constructing feature weights. The formula is an algebraic equivalence, not a requirement to compute either inverse explicitly.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Gaussian Processes for Machine Learning",
+      "url": "https://gaussianprocess.org/gpml/",
+      "publisher": "gaussianprocess.org",
+      "tags": "",
+      "why": "Free textbook covering GP posterior inference and kernel methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

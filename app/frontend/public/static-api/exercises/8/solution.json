@@ -1,1 +1,1 @@
-{"id":8,"language":"Python","code":"def q008(frame, mapping):\n    return frame.rename(columns=mapping, errors=\"raise\")\n","answer":"","content_kind":"coding"}
+{"id":8,"language":"Python","code":"def q008(frame, mapping):\n    \"\"\"Rename columns; raise KeyError when a requested source column is absent.\"\"\"\n    return frame.rename(columns=mapping, errors=\"raise\")\n","answer":"","content_kind":"coding"}

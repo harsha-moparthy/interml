@@ -1,1 +1,1 @@
-{"id":304,"language":"Python","code":"import numpy as np\n\n\ndef q304(tokens):\n    tokens = np.asarray(tokens, dtype=int)\n    return (tokens[:-1], tokens[1:])\n","answer":"","content_kind":"coding"}
+{"id":304,"language":"Python","code":"import numpy as np\n\n\ndef q304(tokens):\n    \"\"\"Construct next-token prediction inputs and targets by shifting a one-dimensional\n    token sequence by one position.\n    \"\"\"\n    tokens = np.asarray(tokens, dtype=int)\n    return (tokens[:-1], tokens[1:])\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,46 @@
+{
+  "id": 1087,
+  "answer": "A state-space recurrence produces a structured sequence mixing matrix whose entries factor through transitions between time steps. In Mamba-2's SSD formulation, this semiseparable structure connects recurrent state updates with masked matrix operations. Chunking the sequence allows efficient within-chunk matrix multiplication, compact propagation of boundary states, and cross-chunk contributions. [1](https://arxiv.org/abs/2405.21060)\n\nThis exposes large regular operations suited to Tensor Cores while retaining a fixed-size recurrent state for decoding. It does not turn the model into ordinary softmax attention: the structured mixing imposes different representational constraints. Compare sequence length, state size, chunk size, numerical stability, and hardware utilization. The benefit is an algorithm/hardware match, not simply replacing every recurrence with a dense quadratic matrix and hoping a faster kernel offsets the extra work.",
+  "readings": [
+    {
+      "title": "Transformers are SSMs: Structured State Space Duality",
+      "url": "https://arxiv.org/abs/2405.21060",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Semiseparable matrices, chunked recurrence, and the Mamba-2 algorithm.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+      "url": "https://arxiv.org/abs/2312.00752",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Input-dependent recurrence, selective scanning, and sequence-memory tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention: Exact Attention with IO-Awareness",
+      "url": "https://arxiv.org/abs/2205.14135",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Online softmax, SRAM tiling, and recomputation in the backward pass.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention-2: Better Parallelism and Work Partitioning",
+      "url": "https://arxiv.org/abs/2307.08691",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Reducing non-matmul work and improving GPU work partitioning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 1026,
+  "answer": "Fixed token windows are cheap and predictable but split arguments and tables; overlap reduces boundary loss while duplicating evidence. Recursive splitting respects paragraph/heading boundaries until a size limit. Structure-aware chunks preserve sections, tables, and parent metadata. Semantic splitting groups related sentences but adds embedding cost and can still separate necessary definitions. [1](https://www.anthropic.com/news/contextual-retrieval) [2](https://arxiv.org/abs/2005.11401)\n\nContextual retrieval prepends a short document-specific explanation before indexing each chunk; keep original text and provenance so generated context cannot silently become evidence. Compare alternatives on answer-bearing retrieval recall, grounded answer accuracy, citation correctness, index size, and latency. Tune chunk size jointly with reranking and context budgets. There is no universally optimal chunk length: a short factual lookup and a cross-section synthesis require different evidence granularity.",
+  "readings": [
+    {
+      "title": "Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Context-enriched chunks, hybrid retrieval, and reranking experiments.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Retrieval-conditioned generation and the distinction between parameters and external evidence.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction",
+      "url": "https://arxiv.org/abs/2004.12832",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Token-level MaxSim and late interaction storage costs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "RAGAS: Automated Evaluation of Retrieval Augmented Generation",
+      "url": "https://arxiv.org/abs/2309.15217",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Context relevance, faithfulness, and answer relevance evaluation.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

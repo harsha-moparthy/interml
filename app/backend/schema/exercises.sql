@@ -53,11 +53,11 @@ CREATE TABLE exercise_topic (               -- search by topic: subsection title
   PRIMARY KEY (exercise_id, topic)
 );
 
--- Two ranked, technical readings for every question. These are maintained as
+-- Two readings for workbook exercises; five for authored appendix answers.
 -- structured data so coverage and ordering are testable.
 CREATE TABLE exercise_resource (
   exercise_id INTEGER NOT NULL REFERENCES exercise(id),
-  rank        INTEGER NOT NULL CHECK (rank IN (1, 2)),
+  rank        INTEGER NOT NULL CHECK (rank BETWEEN 1 AND 5),
   title       TEXT NOT NULL,
   url         TEXT NOT NULL,
   publisher   TEXT NOT NULL,

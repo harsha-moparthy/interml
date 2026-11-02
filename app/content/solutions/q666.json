@@ -1,0 +1,46 @@
+{
+  "id": 666,
+  "answer": "Use a multi-stage funnel: candidate pools from followed creators, content similarity, collaborative retrieval, and controlled exploration; a ranking stage predicts satisfaction signals; a final layer enforces diversity, safety, and repetition limits. Capture swipe, dwell, completion, replay, explicit feedback, and exposure position with reliable event IDs.\n\nA streaming feature path updates session state after each interaction, allowing the last few swipes to change ranking. Handle event-time ordering, duplicate events, late arrivals, and feature freshness; the request can also carry its latest confirmed actions to bridge stream lag. Keep persistent interests and short-session interests distinct.\n\nWatch time favors longer videos, while completion favors shorter ones. Model multiple outcomes and normalize/segment by length; optimize a validated satisfaction objective with negative-feedback and retention guardrails. Do not interpret every rapid swipe identically. Evaluate session satisfaction, creator diversity, repeats, harmful exposure, and long-term retention. A stale-stream fallback uses durable user features and safe popular candidates rather than blocking the feed.\n\n**Mathematical and practical explanation.** A multi-objective score might combine expected satisfaction, completion, and negative-feedback costs, but weights encode product tradeoffs rather than universal constants. Use long-term holdouts to detect novelty effects and feedback loops. Diversity constraints and exploration preserve coverage; training only on previous top-ranked impressions can reinforce a narrow view of user preference. [3](https://arxiv.org/abs/1706.06978)\n\nFor the implementation or system context discussed above, see [1](https://engineering.fb.com/2023/08/09/ml-applications/scaling-instagram-explore-recommendations-system/) and [2](https://engineering.fb.com/2026/01/14/ml-applications/adapting-the-facebook-reels-recsys-ai-model-based-on-user-feedback/).",
+  "readings": [
+    {
+      "title": "Scaling the Instagram Explore recommendations system",
+      "url": "https://engineering.fb.com/2023/08/09/ml-applications/scaling-instagram-explore-recommendations-system/",
+      "publisher": "Engineering at Meta",
+      "tags": "",
+      "why": "Concrete retrieval and ranking stages; Explore is an architectural reference, not a claim about Reels internals.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Adapting the Facebook Reels RecSys AI Model Based on User Feedback",
+      "url": "https://engineering.fb.com/2026/01/14/ml-applications/adapting-the-facebook-reels-recsys-ai-model-based-on-user-feedback/",
+      "publisher": "Engineering at Meta",
+      "tags": "",
+      "why": "Shows how survey feedback complements noisy watch-time and engagement objectives.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Deep Interest Network for Click-Through Rate Prediction",
+      "url": "https://arxiv.org/abs/1706.06978",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Candidate-aware attention over user behavior history.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sampling-Bias-Corrected Neural Modeling for Large Corpus Item Recommendations",
+      "url": "https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Two-tower retrieval, sampled negatives, and popularity correction.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

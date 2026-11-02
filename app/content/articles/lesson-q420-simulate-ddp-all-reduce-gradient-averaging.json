@@ -2,7 +2,7 @@
   "id": "lesson-q420-simulate-ddp-all-reduce-gradient-averaging",
   "kind": "lesson",
   "title": "Simulate DDP All-Reduce Gradient Averaging",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,16 +89,16 @@
         },
         {
           "lines": [
-            5,
-            6
+            9,
+            9
           ],
           "match": "if not worker_gradients:",
           "text": "Stack worker values. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            7,
-            10
+            11,
+            11
           ],
           "match": "return [",
           "text": "Average elementwise. This is the code stage shown in the mechanism animation."

@@ -1,0 +1,46 @@
+{
+  "id": 1045,
+  "answer": "Let the network output $\\mu(x)$ and $s(x)=\\log\\sigma^2(x)$. Ignoring a constant, Gaussian negative log likelihood is $L=\\tfrac12[e^{-s}(y-\\mu)^2+s]$. Its gradients are $\\partial L/\\partial\\mu=e^{-s}(\\mu-y)$ and $\\partial L/\\partial s=\\tfrac12[1-e^{-s}(y-\\mu)^2]$. [1](https://probml.github.io/pml-book/book2.html)\n\nA large residual increases predicted variance, while the log-variance penalty prevents increasing variance without cost. For residual 2 and variance 1, the variance gradient is -1.5, so gradient descent raises $s$. Predicting log variance enforces positivity after exponentiation; use stable bounds or parameterization to avoid overflow. Validate interval coverage and residual behavior. A single Gaussian captures input-dependent spread but cannot represent two separated likely outcomes at the same input.",
+  "readings": [
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

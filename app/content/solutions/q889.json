@@ -1,0 +1,46 @@
+{
+  "id": 889,
+  "answer": "Acoustic-model pipelines predict features such as mel spectrograms, then synthesize waveform with a vocoder. FastSpeech-style duration modeling enables parallel generation; VITS combines variational modeling, flows, and adversarial waveform generation, so it is not simply the same architecture. [1](https://arxiv.org/abs/2006.04558) [2](https://arxiv.org/abs/2106.06103)\n\nCodec language models generate discrete audio-code sequences and decode them to waveform; some use autoregression, others masked parallel refinement. Flow-matching TTS learns a conditional velocity field and integrates from noise to speech representations. These categories can overlap.\n\nCompare intelligibility, prosody, speaker similarity, first-audio latency, real-time factor, and robustness to long or unusual text. Fewer autoregressive steps do not guarantee lower end-to-end latency if iterative refinement or vocoding is expensive. Evaluate consent and intended speaker controls when using voice-conditioning data.",
+  "readings": [
+    {
+      "title": "FastSpeech 2: Fast and High-Quality End-to-End Text-to-Speech",
+      "url": "https://arxiv.org/abs/2006.04558",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Duration, pitch, and energy conditioning for non-autoregressive synthesis.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Conditional Variational Autoencoder with Adversarial Learning for End-to-End Text-to-Speech",
+      "url": "https://arxiv.org/abs/2106.06103",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Variational inference, flows, adversarial waveform synthesis, and duration modeling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Robust Speech Recognition via Large-Scale Weak Supervision",
+      "url": "https://arxiv.org/abs/2212.04356",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder speech recognition, training data, and error behavior.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Flow Matching for Generative Modeling",
+      "url": "https://arxiv.org/abs/2210.02747",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Velocity-field training, probability paths, and ODE sampling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "High Fidelity Neural Audio Compression",
+      "url": "https://arxiv.org/abs/2210.13438",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "EnCodec residual vector quantization and bitrate/quality tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

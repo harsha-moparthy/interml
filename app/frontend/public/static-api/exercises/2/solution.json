@@ -1,1 +1,1 @@
-{"id":2,"language":"Python","code":"def q002(frame, columns):\n    return frame.loc[:, columns].copy()\n","answer":"","content_kind":"coding"}
+{"id":2,"language":"Python","code":"def q002(frame, columns):\n    \"\"\"Select columns in the requested order and return an independent frame.\"\"\"\n    return frame.loc[:, columns].copy()\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,46 @@
+{
+  "id": 974,
+  "answer": "One-vs-rest trains $K$ classifiers, each separating one class from all others. One-vs-one trains $K(K-1)/2$ classifiers on class pairs and combines their votes or scores. [1](https://scikit-learn.org/stable/user_guide.html)\n\nOvO has more models but each can train on fewer examples; this can benefit some kernel methods. OvR scores may have different scales and need consistent decision/calibration handling. Neither scheme inherently exploits class hierarchy or guarantees optimal multiclass probabilities. Compare class imbalance, model size, training complexity, and prediction cost. A native multiclass objective such as softmax is a third option rather than merely a voting wrapper.",
+  "readings": [
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Support Vector Machines",
+      "url": "https://scikit-learn.org/stable/modules/svm.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Margin objectives, kernel parameters, and scaling requirements.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

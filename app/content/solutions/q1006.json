@@ -1,0 +1,46 @@
+{
+  "id": 1006,
+  "answer": "Treat “top three reasons” as the scenario's product requirement, not a universal legal rule. The applicable jurisdiction and decision process determine required notices. US guidance illustrates that complex models still need accurate, specific principal reasons. [1](https://www.consumerfinance.gov/compliance/circulars/circular-2022-03-adverse-action-notification-requirements-in-connection-with-credit-decisions-based-on-complex-algorithms/)\n\nMonotonic constraints can enforce a chosen direction for a feature while holding others fixed, but the direction must be justified; income effects conditional on debt and other variables are not a universal causal law. TreeSHAP decomposes a prediction relative to a background and dependence convention. It does not automatically produce legally sufficient adverse-action reasons. [2](https://arxiv.org/abs/1603.02754) [3](https://arxiv.org/abs/1705.07874)\n\nMap validated feature contributions to understandable reason codes, audit their fidelity to the actual decision including policy rules, and test stability, fairness, calibration, and counterfactual examples. Obtain domain/legal review of the complete notice process.",
+  "readings": [
+    {
+      "title": "CFPB: Adverse Action Reasons and Complex Algorithms",
+      "url": "https://www.consumerfinance.gov/compliance/circulars/circular-2022-03-adverse-action-notification-requirements-in-connection-with-credit-decisions-based-on-complex-algorithms/",
+      "publisher": "www.consumerfinance.gov",
+      "tags": "",
+      "why": "US guidance illustrating the need for accurate specific reasons; verify current applicable jurisdictional requirements.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "XGBoost: A Scalable Tree Boosting System",
+      "url": "https://arxiv.org/abs/1603.02754",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order tree objectives and sparsity-aware split finding.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "A Unified Approach to Interpreting Model Predictions",
+      "url": "https://arxiv.org/abs/1705.07874",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Shapley attribution axioms and their interpretation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

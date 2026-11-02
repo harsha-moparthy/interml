@@ -1,1 +1,1 @@
-{"id":40,"language":"Python","code":"import torch\n\n\ndef q040(values):\n    return torch.tensor(values, dtype=torch.float32)\n","answer":"","content_kind":"coding"}
+{"id":40,"language":"Python","code":"import torch\n\n\ndef q040(values):\n    \"\"\"Create an independent float32 CPU tensor from a Python sequence.\"\"\"\n    return torch.tensor(values, dtype=torch.float32)\n","answer":"","content_kind":"coding"}

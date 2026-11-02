@@ -1,0 +1,46 @@
+{
+  "id": 706,
+  "answer": "A standalone draft model has its own parameters and autoregressive state. Medusa attaches multiple prediction heads to target-model hidden states, creating candidate continuation trees that can be verified with tree-structured attention. EAGLE drafts using target features and token information, rather than independently modeling only token history. [1](https://arxiv.org/abs/2401.10774) [2](https://arxiv.org/abs/2401.15077)\n\nThese approaches reduce drafting overhead and share information with the target, but require extra training and architecture support. Their speedup depends on how many proposed tokens survive verification relative to proposal and verification cost.\n\nDo not infer distributional exactness solely from “multi-head decoding.” Exact speculative sampling needs the appropriate proposal probabilities and rejection/residual rule; some practical acceptance modes trade exactness for speed. Compare acceptance rate, quality, latency, and memory under the actual decoding configuration. [3](https://arxiv.org/abs/2211.17192)",
+  "readings": [
+    {
+      "title": "Medusa: Simple LLM Inference Acceleration Framework",
+      "url": "https://arxiv.org/abs/2401.10774",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Multiple decoding heads, tree attention, and verification choices.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "EAGLE: Speculative Sampling Requires Rethinking Feature Uncertainty",
+      "url": "https://arxiv.org/abs/2401.15077",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Feature-level drafting and how it differs from an independent draft model.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Fast Inference from Transformers via Speculative Decoding",
+      "url": "https://arxiv.org/abs/2211.17192",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Acceptance and residual-sampling proof preserving the target distribution.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Efficient Memory Management for LLM Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Block tables, fragmentation, shared prefixes, and serving throughput.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

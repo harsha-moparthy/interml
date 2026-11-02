@@ -1,0 +1,22 @@
+{
+  "id": 316,
+  "code_file": "q316.py",
+  "readings": [
+    {
+      "title": "Multi-Head Attention: implementation and shape transformations",
+      "url": "https://d2l.ai/chapter_attention-mechanisms-and-transformers/multihead-attention.html",
+      "publisher": "Dive into Deep Learning",
+      "tags": "",
+      "why": "Follow the split-head, attention, and concatenate operations used in this solution.",
+      "access": "Free to read"
+    },
+    {
+      "title": "NumPy matmul: batched matrix products",
+      "url": "https://numpy.org/doc/stable/reference/generated/numpy.matmul.html",
+      "publisher": "NumPy",
+      "tags": "",
+      "why": "Verify which axes are multiplied and how batch dimensions broadcast.",
+      "access": "Free to read"
+    }
+  ]
+}

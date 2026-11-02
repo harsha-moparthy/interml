@@ -2,7 +2,7 @@
   "id": "lesson-q248-implement-adam-optimization-algorithm",
   "kind": "lesson",
   "title": "Implement Adam Optimization Algorithm",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -81,32 +81,32 @@
       "notes": [
         {
           "lines": [
-            4,
-            4
+            6,
+            6
           ],
           "match": "def adam_optimizer(",
           "text": "Read gradient. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            14,
-            14
+            16,
+            16
           ],
           "match": "x = x0",
           "text": "Update first moment. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            15,
-            15
+            17,
+            17
           ],
           "match": "m = np.zeros_like(x)",
           "text": "Update second moment. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            17,
-            23
+            19,
+            19
           ],
           "match": "for t in range(1, num_iterat",
           "text": "Correct startup bias. This is the code stage shown in the mechanism animation."

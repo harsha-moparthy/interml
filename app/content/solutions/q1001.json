@@ -1,0 +1,46 @@
+{
+  "id": 1001,
+  "answer": "For tomorrow, define a narrow supported task, collect a small human-reviewed evaluation set, and ship a reversible baseline with abstention. Zero-shot prompting is fast for language tasks but needs evidence and output checks. Heuristics/weak supervision encode domain knowledge and are easy to inspect. Transfer learning reuses a pretrained representation with limited adaptation. [1](https://developers.google.com/machine-learning/guides/rules-of-ml) [2](https://arxiv.org/abs/1711.10160)\n\nSynthetic examples plus distillation can reduce serving cost later, but generated labels need independent verification and diversity; zero real labels means quality is not established. Compare correctness, coverage, latency, and cost on the same examples. Start with human review for uncertain cases and collect corrections for training. A launch deadline does not substitute for an evaluation baseline.",
+  "readings": [
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Snorkel: Rapid Training Data Creation with Weak Supervision",
+      "url": "https://arxiv.org/abs/1711.10160",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Combining noisy labeling functions with a probabilistic label model.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "STaR: Bootstrapping Reasoning With Reasoning",
+      "url": "https://arxiv.org/abs/2203.14465",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Iterative generation, correctness filtering, and rationale fine-tuning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Distilling the Knowledge in a Neural Network",
+      "url": "https://arxiv.org/abs/1503.02531",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Soft targets, temperature, and student training objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

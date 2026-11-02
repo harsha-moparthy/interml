@@ -1,0 +1,46 @@
+{
+  "id": 691,
+  "answer": "Removing biases slightly reduces parameters, memory traffic, and operations, and simplifies some fused kernels. Large matrix weights dominate parameter count, so the savings are usually modest. A surrounding normalization may also make certain offsets redundant, but this depends on placement: RMSNorm does not subtract the mean and does not generally cancel an arbitrary bias. [2](https://arxiv.org/abs/1910.07467)\n\n$$y=Wx+b,\\qquad \\Delta P=d_{out}\\ \\text{when the bias is removed}.$$\n\nFor a square $d\\times d$ projection the removed fraction is about $1/d$, not a dramatic reduction. Bias-free training is an architectural choice validated by experiments, not a theorem that biases are useless. Some successful architectures retain biases or use special learned offsets. Inspect the model definition rather than generalizing “almost all layers” to every LLM. [3](https://arxiv.org/abs/2408.00118) [4](https://arxiv.org/abs/2412.19437)",
+  "readings": [
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Root Mean Square Layer Normalization",
+      "url": "https://arxiv.org/abs/1910.07467",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "RMS normalization, invariances, and measured rather than universal efficiency gains.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Gemma 2: Improving Open Language Models at a Practical Size",
+      "url": "https://arxiv.org/abs/2408.00118",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Soft-capping and the model's specific normalization and attention design.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DeepSeek-V3 Technical Report",
+      "url": "https://arxiv.org/abs/2412.19437",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "MLA, expert routing, multi-token prediction, and mixed-precision training.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

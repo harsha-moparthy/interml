@@ -1,0 +1,46 @@
+{
+  "id": 954,
+  "answer": "Do not arbitrarily reorder chunks when hidden state is carried from one chunk to the next, or when an online learner must simulate chronological availability. A deliberate curriculum also has an intended order. [1](https://otexts.com/fpp3/)\n\nHowever, time-series **training windows** can often be shuffled if each window is self-contained, hidden state is reset correctly, and train/validation splits remain chronological. “Never shuffle time series” is therefore too broad. Separate the ordering needed inside an example, across stateful batches, and between independent examples. Check labels and timestamps before deciding the sampling policy.",
+  "readings": [
+    {
+      "title": "Forecasting: Principles and Practice",
+      "url": "https://otexts.com/fpp3/",
+      "publisher": "otexts.com",
+      "tags": "",
+      "why": "Open textbook on evaluation, temporal validation, reconciliation, and forecasting methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

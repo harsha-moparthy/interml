@@ -1,0 +1,46 @@
+{
+  "id": 1044,
+  "answer": "Aleatoric uncertainty is conditional outcome variability under the observed features; epistemic uncertainty concerns the fitted model or unknown parameters. With $\\theta$ distributed according to model uncertainty, total variance decomposes as $\\operatorname{Var}(Y|x,D)=\\mathbb E_\\theta\\operatorname{Var}(Y|x,\\theta)+\\operatorname{Var}_\\theta\\mathbb E(Y|x,\\theta)$. [1](https://probml.github.io/pml-book/book2.html)\n\nMore representative data can reduce the second term. The first may remain even with infinite data under the same features, though better sensors/features can reduce it; thus the distinction is relative to the information and model available. A noisy thermometer illustrates measurement variability, while an unfamiliar climate illustrates lack of knowledge. Estimate both with calibrated models and check shift: a neat decomposition inside a misspecified model does not guarantee correct real-world uncertainty.",
+  "readings": [
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "A Gentle Introduction to Conformal Prediction",
+      "url": "https://arxiv.org/abs/2107.07511",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Finite-sample marginal coverage, calibration scores, and exchangeability assumptions.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

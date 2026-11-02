@@ -1,0 +1,46 @@
+{
+  "id": 971,
+  "answer": "Mixup forms convex combinations of two inputs and their target vectors, encouraging smoother behavior between examples. CutMix replaces an image region with a region from another image and weights labels by the mixed area. [1](https://arxiv.org/abs/1710.09412)\n\n$$\\tilde x=\\lambda x_i+(1-\\lambda)x_j,\\quad \\tilde y=\\lambda y_i+(1-\\lambda)y_j.$$\n\nThese are task-dependent augmentations: mixing may create unrealistic data or violate labels for detection, segmentation, or structured inputs unless targets are transformed consistently. Validate augmentation strength and calibration as well as accuracy. Area-based CutMix labels approximate semantic contribution; a small pasted region can contain the only relevant object.",
+  "readings": [
+    {
+      "title": "mixup: Beyond Empirical Risk Minimization",
+      "url": "https://arxiv.org/abs/1710.09412",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Convex combinations of examples/targets and regularization experiments.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Patch tokenization and the data/inductive-bias tradeoff of ViTs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

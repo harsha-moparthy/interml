@@ -1,0 +1,46 @@
+{
+  "id": 759,
+  "answer": "Two-stage detectors first propose regions and then classify/refine them. Single-stage detectors predict classes and boxes densely in one pass; focal loss addresses the many easy background candidates. DETR uses a fixed set of learned object queries and matches predicted objects to ground truth during training. [1](https://arxiv.org/abs/2005.12872) [2](https://arxiv.org/abs/1708.02002)\n\n$$\\hat\\sigma=\\arg\\min_\\sigma\\sum_i\\mathcal C(y_i,\\hat y_{\\sigma(i)}).$$\n\nThe matching cost combines class and box terms. Each target matches one prediction; unmatched predictions learn “no object,” discouraging duplicates without conventional NMS. This avoids hand-designed anchor assignment in original DETR, but does not imply every later transformer detector uses identical mechanisms. Compare small-object performance, convergence, latency, and recall; architecture family alone does not determine those outcomes.",
+  "readings": [
+    {
+      "title": "End-to-End Object Detection with Transformers",
+      "url": "https://arxiv.org/abs/2005.12872",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Set prediction, bipartite matching, and duplicate suppression without NMS.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Focal Loss for Dense Object Detection",
+      "url": "https://arxiv.org/abs/1708.02002",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Down-weighting easy examples and dense detector imbalance.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Patch tokenization and the data/inductive-bias tradeoff of ViTs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

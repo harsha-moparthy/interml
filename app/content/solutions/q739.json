@@ -1,0 +1,46 @@
+{
+  "id": 739,
+  "answer": "A residual block learns a correction to its input. When the correction is unnecessary, setting it near zero approximates identity without forcing many nonlinear layers to reproduce identity individually. The backward signal contains a direct path. [1](https://arxiv.org/abs/1512.03385)\n\n$$y=x+F(x),\\qquad \\nabla_x\\mathcal L=\\nabla_y\\mathcal L+J_F(x)^T\\nabla_y\\mathcal L.$$\n\nThis makes optimization easier but does not prove an unimpeded gradient through arbitrary depth: the two terms can cancel, and successive blocks can amplify directions. Dimension-changing skips need projections, whose derivative is not identity. Normalization placement and residual scaling also matter. Distinguish optimization degradation—deeper models fit training data worse—from ordinary overfitting, where training improves but held-out performance worsens.",
+  "readings": [
+    {
+      "title": "Deep Residual Learning for Image Recognition",
+      "url": "https://arxiv.org/abs/1512.03385",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Residual blocks and empirical evidence about depth and optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "On Layer Normalization in the Transformer Architecture",
+      "url": "https://arxiv.org/abs/2002.04745",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Gradient behavior at initialization and normalization placement.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,1 +1,1 @@
-{"id":1,"language":"Python","code":"import pandas as pd\n\n\ndef q001(columns):\n    return pd.DataFrame(columns)\n","answer":"","content_kind":"coding"}
+{"id":1,"language":"Python","code":"import pandas as pd\n\n\ndef q001(columns):\n    \"\"\"Build a DataFrame from column data; pandas validates column lengths.\"\"\"\n    return pd.DataFrame(columns)\n","answer":"","content_kind":"coding"}

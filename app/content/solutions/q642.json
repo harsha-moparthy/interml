@@ -1,0 +1,47 @@
+{
+  "id": 642,
+  "code_file": "q642.py",
+  "answer": "A random forest bootstraps training rows independently for each tree and samples candidate features again at every split. Sampling features once for the whole tree is not the usual random-forest algorithm. Aggregate class votes with a deterministic tie rule. The file includes the CART implementation so it runs independently. Out-of-bag evaluation and probabilistic averaging are useful extensions, not implemented here.\n\n**Mathematical and practical explanation.** If trees had equal variance $\\sigma^2$ and pairwise correlation $\\rho$, averaging $T$ predictions would give variance $\\sigma^2[\\rho+(1-\\rho)/T]$. This illustrates why decorrelating trees through row/feature randomness matters: adding trees cannot remove a shared correlated error component. Classification vote behavior is not exactly this regression variance formula, but the intuition remains useful. [3](https://scikit-learn.org/stable/modules/ensemble.html)\n\nFor the implementation or system context discussed above, see [1](https://mlcourse.ai/book/topic05/topic5_part2_random_forest.html) and [2](https://scikit-learn.org/stable/modules/ensemble.html#forest).",
+  "readings": [
+    {
+      "title": "Topic 5. Bagging and Random Forest (mlcourse.ai)",
+      "url": "https://mlcourse.ai/book/topic05/topic5_part2_random_forest.html",
+      "publisher": "mlcourse.ai",
+      "tags": "",
+      "why": "Bagging, out-of-bag error and random forests with experiments.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Random forests",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html#forest",
+      "publisher": "scikit-learn",
+      "tags": "",
+      "why": "Read bootstrap sampling and feature randomness at tree splits.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

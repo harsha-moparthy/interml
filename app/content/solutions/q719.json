@@ -1,0 +1,46 @@
+{
+  "id": 719,
+  "answer": "A reward model is a proxy, so unconstrained optimization can exploit its mistakes. A KL penalty charges the policy for moving too far from a trusted reference and balances score improvement against distributional drift. [1](https://arxiv.org/abs/2203.02155) [2](https://arxiv.org/abs/2305.18290)\n\n$$\\max_\\pi E_{y\\sim\\pi}[r(x,y)]-\\beta D_{KL}(\\pi(\\cdot\\mid x)\\|\\pi_{ref}(\\cdot\\mid x)).$$\n\nLarge $\\beta$ constrains adaptation; small $\\beta$ permits larger changes. Reward hacking occurs when behavior improves the proxy while worsening the intended objective—for example, verbose answers exploiting a length-biased scorer. KL does not guarantee safety or truth: the reference and scorer can both be wrong. Use independent evaluations, adversarial cases, reward-distribution monitoring, and human review. Also specify whether KL is estimated tokenwise, sequencewise, or through an approximation.",
+  "readings": [
+    {
+      "title": "Training Language Models to Follow Instructions with Human Feedback",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "SFT, reward modeling, PPO, and human evaluation in an RLHF pipeline.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Direct Preference Optimization",
+      "url": "https://arxiv.org/abs/2305.18290",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "KL-regularized optimal policies and the preference logistic objective.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Proximal Policy Optimization Algorithms",
+      "url": "https://arxiv.org/abs/1707.06347",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Clipped policy ratios, advantage estimates, and policy optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Let's Verify Step by Step",
+      "url": "https://arxiv.org/abs/2305.20050",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Process supervision, outcome supervision, and verifier evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability via Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2501.12948",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Group-relative rewards, reasoning training, and reported limitations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

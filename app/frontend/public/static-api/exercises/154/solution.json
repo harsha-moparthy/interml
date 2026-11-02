@@ -1,1 +1,1 @@
-{"id":154,"language":"Python","code":"import numpy as np\n\n\ndef q154(targets, count):\n    return np.full(count, np.mean(targets))\n","answer":"","content_kind":"coding"}
+{"id":154,"language":"Python","code":"import numpy as np\n\n\ndef q154(targets, count):\n    \"\"\"Build a constant regression baseline that predicts the training-target mean for\n    count test examples.\n    \"\"\"\n    return np.full(count, np.mean(targets))\n","answer":"","content_kind":"coding"}

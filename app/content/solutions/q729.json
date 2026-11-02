@@ -1,0 +1,46 @@
+{
+  "id": 729,
+  "answer": "Matryoshka training applies objectives to nested prefixes of one representation, so early coordinates are explicitly useful rather than arbitrary slices of a full embedding. [1](https://arxiv.org/abs/2205.13147)\n\n$$\\mathcal L=\\sum_{d\\in\\mathcal D}w_d\\,\\mathcal L_d(z_{1:d}).$$\n\nAt retrieval time a short prefix can support cheap coarse search; longer vectors refine shortlisted candidates. For 1 million float32 vectors, reducing 768 to 128 dimensions reduces raw vector storage from 3.072 GB to 0.512 GB, before index overhead. Normalize consistently after truncation when using cosine similarity. This behavior requires compatible training: truncating an ordinary embedding is not equivalent. Measure recall at each dimension and account for whether the encoder still computes the full vector even when the index stores only a prefix.",
+  "readings": [
+    {
+      "title": "Matryoshka Representation Learning",
+      "url": "https://arxiv.org/abs/2205.13147",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Training useful nested embedding prefixes for adaptive cost.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The FAISS Library",
+      "url": "https://arxiv.org/abs/2401.08281",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Exact and approximate search, compression, and index tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction",
+      "url": "https://arxiv.org/abs/2004.12832",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Token-level MaxSim and late interaction storage costs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "url": "https://arxiv.org/abs/2103.00020",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Image–text contrastive learning, zero-shot transfer, and limitations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

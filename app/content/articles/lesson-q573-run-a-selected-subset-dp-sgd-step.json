@@ -2,7 +2,7 @@
   "id": "lesson-q573-run-a-selected-subset-dp-sgd-step",
   "kind": "lesson",
   "title": "Run a selected-subset DP-SGD step",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -81,23 +81,23 @@
       "notes": [
         {
           "lines": [
-            57,
-            57
+            56,
+            56
           ],
           "match": "def q573(",
           "text": "Select example subset. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            70,
-            70
+            75,
+            75
           ],
           "match": "parameters = [p for p in mod",
           "text": "Compute per-example gradients. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            71,
+            76,
             76
           ],
           "match": "if indices:",
@@ -105,8 +105,8 @@
         },
         {
           "lines": [
-            79,
-            80
+            84,
+            84
           ],
           "match": "for p, g in zip(parameters, ",
           "text": "Add Gaussian aggregation. This is the code stage shown in the mechanism animation."

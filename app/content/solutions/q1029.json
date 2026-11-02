@@ -1,0 +1,46 @@
+{
+  "id": 1029,
+  "answer": "An intrinsic hallucination contradicts the supplied evidence; an extrinsic one adds a claim not supported by it, even if that claim happens to be true elsewhere. Split the response into atomic claims, retrieve each claim's evidence, and use entailment/contradiction scoring with an explicit unsupported category. [1](https://arxiv.org/abs/2309.15217) [2](https://arxiv.org/abs/2306.05685)\n\nFor example, a passage reporting revenue of 10 million does not support a claim about profit, and contradicts revenue of 20 million for the same period. Negation, dates, arithmetic, and incomplete context need dedicated checks. A compact NLI model, batching, caching, and short evidence windows can reduce latency, but “under 20 ms” depends on hardware and workload. Measure end-to-end tail latency and calibrated error rates; abstain when evidence is insufficient.",
+  "readings": [
+    {
+      "title": "RAGAS: Automated Evaluation of Retrieval Augmented Generation",
+      "url": "https://arxiv.org/abs/2309.15217",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Context relevance, faithfulness, and answer relevance evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Position, verbosity, and self-enhancement bias in model judging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Retrieval-conditioned generation and the distinction between parameters and external evidence.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Distilling the Knowledge in a Neural Network",
+      "url": "https://arxiv.org/abs/1503.02531",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Soft targets, temperature, and student training objectives.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

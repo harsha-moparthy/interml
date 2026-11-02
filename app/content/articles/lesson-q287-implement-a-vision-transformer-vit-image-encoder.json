@@ -2,7 +2,7 @@
   "id": "lesson-q287-implement-a-vision-transformer-vit-image-encoder",
   "kind": "lesson",
   "title": "Implement a Vision Transformer (ViT) Image Encoder",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,16 +89,16 @@
         },
         {
           "lines": [
-            7,
-            32
+            11,
+            11
           ],
           "match": "class ViT(nn.Module):",
           "text": "Add class and positions. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            34,
-            34
+            35,
+            35
           ],
           "match": "return ViT()",
           "text": "Mix tokens in encoder. This is the code stage shown in the mechanism animation."

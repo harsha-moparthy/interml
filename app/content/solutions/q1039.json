@@ -1,0 +1,46 @@
+{
+  "id": 1039,
+  "answer": "A token watermark uses a secret, context-dependent partition of vocabulary into favored and unfavored tokens, then biases generation toward the favored set. A detector counts favored tokens and compares with the null expectation. In a simplified independent null with favored fraction $\\gamma$, $z=(G-\\gamma T)/\\sqrt{T\\gamma(1-\\gamma)}$. [1](https://arxiv.org/abs/2301.10226)\n\nReal text violates simple independence assumptions, and detection power depends on length, entropy, edits, and the chosen key. Paraphrasing or mixed authorship can reduce the signal; repeated testing needs calibrated thresholds. A positive score is statistical evidence for a particular watermarking mechanism, not proof of authorship or a universal AI-text detector. Validate false positives on relevant human text and protect keys; do not equate missing watermark evidence with human origin.",
+  "readings": [
+    {
+      "title": "A Watermark for Large Language Models",
+      "url": "https://arxiv.org/abs/2301.10226",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Keyed token partitions, logit bias, and statistical watermark detection.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Membership Inference Attacks Against Machine Learning Models",
+      "url": "https://arxiv.org/abs/1610.05820",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Threat model, confidence-based inference, and empirical privacy leakage.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning with Differential Privacy",
+      "url": "https://arxiv.org/abs/1607.00133",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Per-example clipping, Gaussian noise, and privacy accounting in DP-SGD.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Position, verbosity, and self-enhancement bias in model judging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

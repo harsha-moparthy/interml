@@ -1,0 +1,46 @@
+{
+  "id": 867,
+  "answer": "Split each $N$-byte tensor into $P$ chunks. Ring reduce-scatter takes $P-1$ rounds, sending one $N/P$ chunk per round; ring all-gather takes another $P-1$ rounds. Thus each rank sends [1](https://jax-ml.github.io/scaling-book/)\n\n$$2(P-1)N/P$$\n\nbytes and receives the same amount. For large $P$, this approaches $2N$ sent per rank, not counting receive bytes again. The bandwidth-volume term is nearly independent of $P$, but latency grows with the $2(P-1)$ steps and topology contention can worsen. Small tensors can favor tree or other algorithms. AllReduce also requires consistent collective order and participation; equal byte count alone does not prevent deadlocks or stragglers.",
+  "readings": [
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+      "url": "https://arxiv.org/abs/1910.02054",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Optimizer, gradient, and parameter sharding with communication accounting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Megatron-LM: Training Multi-Billion Parameter Language Models",
+      "url": "https://arxiv.org/abs/1909.08053",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Column/row parallel linear layers and communication placement.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

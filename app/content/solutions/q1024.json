@@ -1,0 +1,46 @@
+{
+  "id": 1024,
+  "answer": "The prompt omits layer count, KV-head count, head width, dtype, and batch size, so one exact bandwidth number cannot be determined. The required payload is [1](https://arxiv.org/abs/2305.13245)\n\n$$M=2BLSH_{KV}d_hb,\\qquad BW_{required}>M/0.020.$$\n\nUsing the earlier 70B example's $L=80,H_{KV}=8,d_h=128$, with $B=1,S=4096,b=2$, gives 1,342,177,280 bytes = 1.25 GiB. Transfer within 20ms requires more than **67.11 GB/s**, or **536.87 Gb/s**, of effective payload bandwidth. Protocol overhead, serialization, synchronization, and contention require additional headroom. A nominal 400Gb/s link alone is insufficient for that payload/deadline; sharding and parallel links change per-link requirements.",
+  "readings": [
+    {
+      "title": "GQA: Training Generalized Multi-Query Transformer Models",
+      "url": "https://arxiv.org/abs/2305.13245",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "The quality, bandwidth, and cache tradeoff between MHA, MQA, and GQA.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Efficient Memory Management for LLM Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Block tables, fragmentation, shared prefixes, and serving throughput.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+      "url": "https://arxiv.org/abs/1910.02054",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Optimizer, gradient, and parameter sharding with communication accounting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

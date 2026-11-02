@@ -73,8 +73,8 @@
     },
     {
      "lines": [
-      5,
-      5
+      7,
+      7
      ],
      "match": "[:, None, :]",
      "text": "`x[:, None, :]` has shape `(n, 1, d)` and `y[None, :, :]` has shape `(1, m, d)`. Subtraction broadcasts them to `(n, m, d)`."

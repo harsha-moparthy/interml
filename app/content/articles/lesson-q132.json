@@ -2,7 +2,7 @@
   "id": "lesson-q132",
   "kind": "lesson",
   "title": "Fit once. Transform both datasets consistently.",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,24 +90,24 @@
       "notes": [
         {
           "lines": [
-            9,
-            9
+            12,
+            12
           ],
           "match": "current.fit_transform(a, y)",
           "text": "Training data learns and receives the transformation."
         },
         {
           "lines": [
-            10,
-            10
+            13,
+            13
           ],
           "match": "b = current.transform(b)",
           "text": "Test data receives the learned rule without fitting again."
         },
         {
           "lines": [
-            12,
-            12
+            15,
+            15
           ],
           "match": "model = clone(estimator).fit(a, y)",
           "text": "The final estimator learns only from transformed training data."

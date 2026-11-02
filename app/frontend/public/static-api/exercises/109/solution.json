@@ -1,1 +1,1 @@
-{"id":109,"language":"Python","code":"import numpy as np\n\n\ndef q109(gradient, original_shape):\n    return np.asarray(gradient).reshape(original_shape)\n","answer":"","content_kind":"coding"}
+{"id":109,"language":"Python","code":"import numpy as np\n\n\ndef q109(gradient, original_shape):\n    \"\"\"Implement backward through a row-major reshape: restore the gradient's original\n    input shape without changing element order.\n    \"\"\"\n    return np.asarray(gradient).reshape(original_shape)\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,46 @@
+{
+  "id": 899,
+  "answer": "For rectified pinhole cameras with parallel image planes, $x_L=fX/Z$ and $x_R=f(X-B)/Z$. Subtracting gives disparity $d=fB/Z$, hence depth $Z=fB/d$. Use consistent units: if disparity is in pixels, focal length must be in pixels. [1](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html)\n\n$$\\left|\\frac{dZ}{dd}\\right|=\\frac{fB}{d^2}=\\frac{Z^2}{fB},\\quad \\sigma_Z\\approx\\frac{Z^2}{fB}\\sigma_d.$$\n\nFar objects have small disparity, so a fixed pixel error creates rapidly growing depth uncertainty. Calibration error, occlusion, textureless regions, and correspondence mistakes add errors beyond this local approximation. Larger baseline improves depth sensitivity but increases occlusions and matching difficulty. Report uncertainty rather than treating every disparity as equally reliable.",
+  "readings": [
+    {
+      "title": "OpenCV: Camera Calibration and 3D Reconstruction",
+      "url": "https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html",
+      "publisher": "docs.opencv.org",
+      "tags": "",
+      "why": "Camera projection, lens distortion, rectification, and stereo geometry.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Patch tokenization and the data/inductive-bias tradeoff of ViTs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

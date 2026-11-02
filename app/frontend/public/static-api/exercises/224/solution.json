@@ -1,1 +1,1 @@
-{"id":224,"language":"Python","code":"import numpy as np\n\n\ndef log_softmax(scores: list) -> np.ndarray:\n    scores = scores - np.max(scores)\n    return scores - np.log(np.sum(np.exp(scores)))\n","answer":"","content_kind":"coding"}
+{"id":224,"language":"Python","code":"\"\"\"Compute log-softmax directly in log space for numerical stability.\"\"\"\n\nimport numpy as np\n\n\ndef log_softmax(scores: list) -> np.ndarray:\n    scores = scores - np.max(scores)\n    return scores - np.log(np.sum(np.exp(scores)))\n","answer":"","content_kind":"coding"}

@@ -2,7 +2,7 @@
   "id": "lesson-q515-insert-q-v-only-lora-into-a-fused-qkv-layer",
   "kind": "lesson",
   "title": "Insert Q/V-only LoRA into a fused QKV layer",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            7,
-            8
+            11,
+            11
           ],
           "match": "if base.out_features != 3 * ",
           "text": "Split Q, K, and V. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            10,
-            29
+            15,
+            15
           ],
           "match": "class QVLoRA(nn.Module):",
           "text": "Compute low-rank Q delta. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            31,
-            31
+            30,
+            30
           ],
           "match": "return QVLoRA()",
           "text": "Compute low-rank V delta. This is the code stage shown in the mechanism animation."

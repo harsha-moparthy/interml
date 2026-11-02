@@ -2,7 +2,7 @@
   "id": "lesson-q331-rotary-positional-embeddings-rope",
   "kind": "lesson",
   "title": "Rotary Positional Embeddings (RoPE)",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            6,
-            6
+            9,
+            9
           ],
-          "match": "d = x.shape[-1]",
+          "match": "head_dim = x.shape[-1]",
           "text": "Compute position angles. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            9,
-            11
+            12,
+            12
           ],
           "match": "angle = np.asarray(positions",
           "text": "Rotate every pair. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            14,
-            14
+            18,
+            18
           ],
           "match": "output = np.empty_like(x)",
           "text": "Preserve pair norm. This is the code stage shown in the mechanism animation."

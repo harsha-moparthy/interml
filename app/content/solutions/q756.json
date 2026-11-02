@@ -1,0 +1,46 @@
+{
+  "id": 756,
+  "answer": "A 1×1 convolution mixes channels independently at each spatial location. It can reduce width before an expensive spatial convolution, expand width afterward, project residual dimensions, or create new channel features with a following nonlinearity. [1](https://arxiv.org/abs/1512.03385)\n\n$$y_{n,o,h,w}=\\sum_cW_{o,c}x_{n,c,h,w}+b_o.$$\n\nIt does not directly combine neighboring pixels when stride is one. In a bottleneck, reducing $C$ channels to $r$ makes the central 3×3 convolution cost $9r^2$ rather than $9C^2$, with projection costs $Cr+rC$. If $r=C/4$, the saving can be large. Too narrow a bottleneck loses information, and stride greater than one also subsamples spatial positions. Treat it as a shared per-pixel linear map, not a spatial averaging operation.",
+  "readings": [
+    {
+      "title": "Deep Residual Learning for Image Recognition",
+      "url": "https://arxiv.org/abs/1512.03385",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Residual blocks and empirical evidence about depth and optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Patch tokenization and the data/inductive-bias tradeoff of ViTs.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 1023,
+  "answer": "TTFT includes queueing, prompt processing, scheduling, and initial decode; ITL measures gaps after generation starts. Good 8ms/token ITL with 4.5s TTFT can indicate queueing, long prefill, cold loading, or scheduling starvation, so inspect traces before choosing a fix. [1](https://arxiv.org/abs/2309.06180)\n\nChunked prefill interleaves bounded prompt chunks with decoding. Disaggregated serving separates prefill and decode capacity, potentially reducing interference, but transfers KV state and adds network/coordination costs. Neither automatically improves latency under light load or short prompts.\n\nMeasure TTFT and ITL distributions by input/output length at controlled arrival rates, including overload. Optimize admission, fairness, caching, and warm capacity along with kernels; a high-throughput benchmark can conceal unacceptable interactive queueing.",
+  "readings": [
+    {
+      "title": "Efficient Memory Management for LLM Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Block tables, fragmentation, shared prefixes, and serving throughput.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention: Exact Attention with IO-Awareness",
+      "url": "https://arxiv.org/abs/2205.14135",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Online softmax, SRAM tiling, and recomputation in the backward pass.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "GQA: Training Generalized Multi-Query Transformer Models",
+      "url": "https://arxiv.org/abs/2305.13245",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "The quality, bandwidth, and cache tradeoff between MHA, MQA, and GQA.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

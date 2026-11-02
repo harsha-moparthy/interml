@@ -1,1 +1,1 @@
-{"id":33,"language":"Python","code":"import numpy as np\n\n\ndef q033(matrix, axis=0):\n    x = np.asarray(matrix, float)\n    return (x.sum(axis=axis), x.mean(axis=axis), x.std(axis=axis))\n","answer":"","content_kind":"coding"}
+{"id":33,"language":"Python","code":"import numpy as np\n\n\ndef q033(matrix, axis=0):\n    \"\"\"Return sum, mean, and population standard deviation along the requested axis.\"\"\"\n    x = np.asarray(matrix, float)\n    return (x.sum(axis=axis), x.mean(axis=axis), x.std(axis=axis))\n","answer":"","content_kind":"coding"}

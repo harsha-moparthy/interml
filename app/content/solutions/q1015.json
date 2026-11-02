@@ -1,0 +1,46 @@
+{
+  "id": 1015,
+  "answer": "Generate out-of-fold probabilities so suspicious labels are not judged by a model trained to memorize them. Confident learning estimates label-noise structure; high loss or disagreement helps prioritize examples for human review. [1](https://arxiv.org/abs/1911.00068)\n\nDo not automatically flip every high-loss label: rare valid cases, subgroup shift, and model bias also look difficult. Audit a stratified sample, document annotation rules, adjudicate disagreements, and preserve provenance. Correct train labels without using test labels to tune the model.\n\nCompare old/new data and old/new architectures on a fixed clean evaluation set, reporting slice changes and uncertainty. The claimed 15% noise rate needs measurement. Cleaning may lower an inflated offline score while improving actual validity, so interpret gains in context.",
+  "readings": [
+    {
+      "title": "Confident Learning: Estimating Uncertainty in Dataset Labels",
+      "url": "https://arxiv.org/abs/1911.00068",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Out-of-sample label-error estimation and data-quality auditing.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Common Pitfalls",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Preprocessing leakage, pipelines, and reproducible evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

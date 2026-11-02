@@ -1,0 +1,46 @@
+{
+  "id": 831,
+  "answer": "There is no universal out-of-sample $R^2$ for short-horizon returns; values depend on horizon, universe, labels, benchmark, and costs, and can be near zero or negative. Small cross-sectional rank correlation can still be economically useful if it yields many genuinely diversified decisions. [1](https://otexts.com/fpp3/) [2](https://scikit-learn.org/stable/modules/model_evaluation.html)\n\n$$IR\\approx IC\\sqrt{BR}.$$\n\nFor illustrative $IC=0.03$ and 10,000 independent equally useful bets, the idealized expression gives 3. This is not a realized Sharpe forecast: correlations, turnover, fees, capacity, estimation error, and imperfect portfolio construction reduce effective breadth and transfer. Count independent opportunities rather than ticker-time rows. Report confidence intervals, net performance, exposure controls, and robustness across regimes; repeated strategy selection can inflate an apparently tiny but significant IC.",
+  "readings": [
+    {
+      "title": "Forecasting: Principles and Practice",
+      "url": "https://otexts.com/fpp3/",
+      "publisher": "otexts.com",
+      "tags": "",
+      "why": "Open textbook on evaluation, temporal validation, reconciliation, and forecasting methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

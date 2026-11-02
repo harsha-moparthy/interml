@@ -1,0 +1,46 @@
+{
+  "id": 1027,
+  "answer": "Vector retrieval answers local questions by finding nearby chunks. For “what are the main themes across the entire corpus?”, top-k similarity can overrepresent a few documents. GraphRAG extracts entities/relations, clusters the resulting graph, and summarizes communities, giving global questions a broader route to evidence. [1](https://arxiv.org/abs/2404.16130)\n\nThe tradeoff is extraction/summarization expense, update complexity, and compounded errors: an invented relation can contaminate summaries. Keep links from summaries to original passages and evaluate coverage/diversity alongside factuality. Use ordinary hybrid retrieval for precise local lookups and graph/community summaries for corpus-level synthesis. GraphRAG is a workload-specific complement, not a guarantee of correctness or a replacement for access control on source documents and derived summaries.",
+  "readings": [
+    {
+      "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+      "url": "https://arxiv.org/abs/2404.16130",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Entity graphs, community summaries, and global corpus questions.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Retrieval-conditioned generation and the distinction between parameters and external evidence.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Context-enriched chunks, hybrid retrieval, and reranking experiments.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "RAGAS: Automated Evaluation of Retrieval Augmented Generation",
+      "url": "https://arxiv.org/abs/2309.15217",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Context relevance, faithfulness, and answer relevance evaluation.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

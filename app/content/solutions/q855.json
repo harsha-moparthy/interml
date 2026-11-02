@@ -1,0 +1,46 @@
+{
+  "id": 855,
+  "answer": "Fine-tuned models from the same initialization often preserve parameter alignment, making interpolation or task-vector addition more meaningful than averaging independently initialized networks. Define $\\Delta_i=\\theta_i-\\theta_0$ and merge $\\theta=\\theta_0+\\sum_i\\alpha_i\\Delta_i$. [1](https://arxiv.org/abs/2306.01708)\n\nOrdinary averaging combines weights directly; task arithmetic combines deltas; SLERP interpolates directions on a sphere; TIES trims small deltas and resolves sign conflicts before merging. These are empirical methods, not guarantees of a low-loss path. Different architectures/tokenizers or neuron permutations can make merging invalid.\n\nTune coefficients on a held-out multi-task suite and test interference, retention, and safety-relevant behaviors. Do not optimize the merge on the final test set. A merged model can fail tasks that every source checkpoint handled well.",
+  "readings": [
+    {
+      "title": "TIES-Merging: Resolving Interference When Merging Models",
+      "url": "https://arxiv.org/abs/2306.01708",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Trimming, sign conflicts, and combining task updates.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Overcoming Catastrophic Forgetting in Neural Networks",
+      "url": "https://arxiv.org/abs/1612.00796",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Importance-weighted parameter penalties for retaining earlier tasks.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Low-rank updates, initialization, parameter cost, and inference merging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 1063,
+  "answer": "Activation memory depends on what backward saves, precision, fusion, dropout, and checkpointing, so there is no single exact per-token number without an implementation. Saved residual/projection tensors scale like $O(BSd)$ and FFN intermediates like $O(BSd_{ff})$. Conventional attention additionally materializes attention scores/probabilities of shape $B\\times H\\times S\\times S$. [1](https://arxiv.org/abs/2205.14135)\n\nFlashAttention computes exact attention by tiling and recomputing needed quantities during backward, avoiding storage of that full quadratic matrix. Its saved activations therefore scale linearly in sequence length for fixed model width, although arithmetic remains quadratic for full attention. Multiply saved element counts by bytes per element, then account separately for parameters, gradients, optimizer state, and KV cache. Measure peak allocated memory with a realistic backward pass; allocator reservations and temporary workspaces can exceed a simple tensor sum.",
+  "readings": [
+    {
+      "title": "FlashAttention: Exact Attention with IO-Awareness",
+      "url": "https://arxiv.org/abs/2205.14135",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Online softmax, SRAM tiling, and recomputation in the backward pass.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention-2: Better Parallelism and Work Partitioning",
+      "url": "https://arxiv.org/abs/2307.08691",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Reducing non-matmul work and improving GPU work partitioning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Training Deep Nets with Sublinear Memory Cost",
+      "url": "https://arxiv.org/abs/1604.06174",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Activation recomputation and memory–compute tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

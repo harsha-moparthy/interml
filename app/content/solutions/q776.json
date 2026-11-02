@@ -1,0 +1,46 @@
+{
+  "id": 776,
+  "answer": "Elastic net combines sparse selection with quadratic shrinkage. Lasso can arbitrarily choose one feature from a correlated group; an L2 component encourages more stable sharing of coefficients and can help when features greatly outnumber samples. [1](https://scikit-learn.org/stable/modules/linear_model.html)\n\n$$\\min_w\\frac1{2n}\\|y-Xw\\|^2+\\lambda\\left[\\alpha\\|w\\|_1+\\frac{1-\\alpha}{2}\\|w\\|_2^2\\right].$$\n\nTune both total penalty and mixing weight inside the validation procedure. Scale features using training folds only. Elastic net does not identify causal variables, and selecting a whole correlated group can be less interpretable than one representative. Compare predictive error, coefficient stability, sparsity, and domain constraints; choose pure ridge when dense small effects are plausible and sparse selection is unnecessary.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

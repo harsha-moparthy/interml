@@ -1,0 +1,46 @@
+{
+  "id": 1088,
+  "answer": "A hybrid keeps recurrent/linear-state layers for efficient long-context processing and selected full-attention layers for explicit content-based retrieval from previous tokens. If only one of eight otherwise comparable layers stores a conventional attention KV cache, that portion of cache storage is roughly one eighth of an all-attention model. Recurrent state and architecture-specific buffers still consume memory. [1](https://arxiv.org/abs/2312.00752) [2](https://arxiv.org/abs/2405.21060)\n\nAlmost-perfect needle retrieval is an empirical benchmark result under specific architectures and training, not guaranteed by a 7:1 ratio. Needle placement, distractors, multi-hop reasoning, context length, and precision affect performance. Compare full-task quality and total serving memory/latency, including attention head counts and state sizes. A single successful synthetic retrieval benchmark does not establish equivalent long-context reasoning or an exact eightfold reduction in all memory.",
+  "readings": [
+    {
+      "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+      "url": "https://arxiv.org/abs/2312.00752",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Input-dependent recurrence, selective scanning, and sequence-memory tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Transformers are SSMs: Structured State Space Duality",
+      "url": "https://arxiv.org/abs/2405.21060",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Semiseparable matrices, chunked recurrence, and the Mamba-2 algorithm.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DeepSeek-V3 Technical Report",
+      "url": "https://arxiv.org/abs/2412.19437",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "MLA, expert routing, multi-token prediction, and mixed-precision training.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

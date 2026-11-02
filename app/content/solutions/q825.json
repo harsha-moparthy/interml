@@ -1,0 +1,46 @@
+{
+  "id": 825,
+  "answer": "Pointwise learning predicts a relevance/click label for each item. Pairwise learning prefers one item over another, for example a logistic loss on score differences. Listwise learning considers the ordering of a whole candidate list. [1](https://nlp.stanford.edu/IR-book/)\n\n$$L_{pair}=\\log(1+e^{-(s_i-s_j)}).$$\n\nCross-entropy treats examples separately and does not directly weight errors by their effect on ranked utility. LambdaMART constructs pairwise pseudo-gradients weighted by the absolute NDCG change from swapping items, then fits boosted trees to those signals. Queries must remain grouped; mixing items across queries changes the task. Click labels also reflect exposure and position, so optimizing any ranking loss on biased logs can reproduce the old policy's biases. Evaluate both retrieval coverage and final ranking quality.",
+  "readings": [
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "XGBoost: A Scalable Tree Boosting System",
+      "url": "https://arxiv.org/abs/1603.02754",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order tree objectives and sparsity-aware split finding.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Doubly Robust Policy Evaluation and Learning",
+      "url": "https://arxiv.org/abs/1103.4601",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Combining reward models and logged propensities for off-policy evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

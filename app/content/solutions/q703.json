@@ -1,0 +1,46 @@
+{
+  "id": 703,
+  "answer": "PagedAttention divides each sequence's logical KV cache into fixed-size token blocks. A block table maps logical positions to physical GPU blocks, allowing sequences to grow without reserving one large contiguous allocation. Freed blocks can be reused by other requests; compatible prefixes can share blocks with reference counts and copy-on-write. [1](https://arxiv.org/abs/2309.06180)\n\nIf a block holds $b$ tokens, the last block wastes at most $b-1$ token slots per sequence. Thus paging reduces fragmentation; it does not literally eliminate all internal waste. Metadata, partially used tail blocks, and non-cache allocations remain.\n\nThis increases useful cache occupancy and supports dynamic scheduling, but does not reduce the mathematical KV values needed for an uncompressed sequence. Admission control must still reserve room for growth, and a shared cache must respect tenant, model, and adapter identity.",
+  "readings": [
+    {
+      "title": "Efficient Memory Management for LLM Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Block tables, fragmentation, shared prefixes, and serving throughput.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "GQA: Training Generalized Multi-Query Transformer Models",
+      "url": "https://arxiv.org/abs/2305.13245",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "The quality, bandwidth, and cache tradeoff between MHA, MQA, and GQA.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention: Exact Attention with IO-Awareness",
+      "url": "https://arxiv.org/abs/2205.14135",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Online softmax, SRAM tiling, and recomputation in the backward pass.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DeepSeek-V3 Technical Report",
+      "url": "https://arxiv.org/abs/2412.19437",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "MLA, expert routing, multi-token prediction, and mixed-precision training.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

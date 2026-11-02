@@ -2,7 +2,7 @@
   "id": "lesson-q294-byte-pair-encoding-bpe-tokenizer",
   "kind": "lesson",
   "title": "Byte Pair Encoding (BPE) Tokenizer",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            5,
-            5
+            9,
+            9
           ],
           "match": "sequences = [list(word) + [\"",
           "text": "Count adjacent pairs. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            6,
-            6
+            10,
+            10
           ],
           "match": "learned = []",
           "text": "Choose frequent pair. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            7,
-            27
+            11,
+            11
           ],
           "match": "for _ in range(merges):",
           "text": "Merge every occurrence. This is the code stage shown in the mechanism animation."

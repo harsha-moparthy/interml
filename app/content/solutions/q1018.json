@@ -1,0 +1,46 @@
+{
+  "id": 1018,
+  "answer": "Maximal-update parameterization scales initialization, learning rates, and related quantities with width so feature updates remain meaningful as width changes. Under a compatible model family, this can make useful hyperparameters transfer from smaller proxies. [1](https://arxiv.org/abs/2203.03466)\n\nIt is not a guarantee that an arbitrary 40M model's exact optimum transfers to an arbitrary 70B model. Depth, architecture, data, batch size, training duration, optimizer details, and finite-width effects can invalidate the comparison. Apply the parameterization consistently to input, hidden, and output layers and verify coordinate/update behavior.\n\nRun small width-scaling tests and limited large-model sanity checks before committing the full budget. Report the transfer domain and residual tuning rather than presenting proxy tuning as a universal zero-risk shortcut.",
+  "readings": [
+    {
+      "title": "Tensor Programs V: Tuning Large Neural Networks via Zero-Shot Hyperparameter Transfer",
+      "url": "https://arxiv.org/abs/2203.03466",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Maximal-update parameterization and the scope of width-wise hyperparameter transfer.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Training Compute-Optimal Large Language Models",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Parameter/data allocation under a fixed pretraining compute budget.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 807,
+  "answer": "A fixed-horizon p-value controls error for one prespecified analysis, not for stopping whenever repeated checks look favorable. Noise eventually creates apparently significant excursions more often than the nominal threshold permits. [1](https://arxiv.org/abs/1512.04922)\n\nChoose a fixed sample/time horizon, a prespecified group-sequential alpha-spending design, or an always-valid procedure such as a valid mixture likelihood-ratio/e-process. Under its null assumptions, a nonnegative test supermartingale can bound the probability of ever crossing $1/\\alpha$.\n\nThese methods do not make arbitrary peeking harmless: the statistic, treatment assignment, dependence assumptions, and stopping rule must match the guarantee. Report effect estimates and time-uniform intervals where appropriate. Operational safety monitoring can continue even when efficacy decisions follow a fixed-horizon plan.",
+  "readings": [
+    {
+      "title": "Always Valid Inference: Bringing Sequential Analysis to A/B Testing",
+      "url": "https://arxiv.org/abs/1512.04922",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Valid inference with continuous monitoring and data-dependent stopping.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "From Augmentation to Decomposition: A New Look at CUPED",
+      "url": "https://arxiv.org/abs/2312.02935",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "CUPED variance reduction, regression adjustment, and metric decomposition by its original author and collaborators.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Causal Inference: What If",
+      "url": "https://miguelhernan.org/whatifbook",
+      "publisher": "miguelhernan.org",
+      "tags": "",
+      "why": "Hernán and Robins' open book on identification, confounding, weighting, and longitudinal causal inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

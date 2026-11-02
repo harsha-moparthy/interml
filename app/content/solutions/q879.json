@@ -1,0 +1,46 @@
+{
+  "id": 879,
+  "answer": "QAT inserts fake quantization into training: forward rounds/clips values as a target quantizer would, while retaining trainable high-precision parameters. Since the true derivative of rounding is zero almost everywhere, the straight-through estimator substitutes a useful surrogate gradient. [1](https://docs.pytorch.org/docs/stable/index.html)\n\n$$\\hat x=s\\,\\operatorname{round}(x/s),\\qquad \\frac{\\partial\\hat x}{\\partial x}\\approx1$$\n\ninside a chosen clipping range, often zero outside. This gradient is biased; it is an optimization heuristic, not the exact derivative. Training can adapt weights and activations to quantization noise. The fake quantizer, scale granularity, rounding, and deployment kernels must match closely. Validate the exported integer/low-precision model, because good fake-quantized training metrics do not guarantee identical deployed behavior.",
+  "readings": [
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SmoothQuant: Accurate and Efficient Post-Training Quantization",
+      "url": "https://arxiv.org/abs/2211.10438",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Moving activation-channel scale into weights for easier quantization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "url": "https://arxiv.org/abs/2305.14314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "NF4, double quantization, and paged optimizers with trainable adapters.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

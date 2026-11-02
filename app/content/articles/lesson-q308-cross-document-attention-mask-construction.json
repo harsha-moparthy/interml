@@ -2,7 +2,7 @@
   "id": "lesson-q308-cross-document-attention-mask-construction",
   "kind": "lesson",
   "title": "Cross-Document Attention Mask Construction",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            5,
-            5
+            9,
+            9
           ],
           "match": "ids = np.asarray(document_id",
           "text": "Compare document identity. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            6,
-            6
+            10,
+            10
           ],
           "match": "n = len(ids)",
           "text": "Compare token order. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            7,
-            9
+            11,
+            11
           ],
           "match": "return (ids[:, None] == ids[",
           "text": "Return causal block mask. This is the code stage shown in the mechanism animation."

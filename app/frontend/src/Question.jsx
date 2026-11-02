@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { CodeView } from "./code/CodeView.jsx";
 import { Inline, Tex } from "./Inline.jsx";
 import { useFetch, useAllQuestions, pad } from "./lib.js";
-import { apiFetch } from "./staticApi.js";
+import { apiFetch, asset } from "./staticApi.js";
 import { progress } from "./progress.js";
 import { useProgress } from "./useProgress.js";
 import { useShortcuts } from "./shortcuts.js";
@@ -26,7 +26,12 @@ export function MarkdownPrompt({ text }) {
   const parts = text.split(/(\$\$[\s\S]*?\$\$)/g);
   return parts.map((part, i) => part.startsWith("$$")
     ? <div className="prompt-equation" key={i}><Tex tex={part.slice(2, -2).trim()} display /></div>
-    : part.split(/\n\s*\n/).filter((p) => p.trim()).map((p, j) => <p key={`${i}-${j}`}><Inline text={p.replace(/\n/g, " ")} /></p>)
+    : part.split(/\n\s*\n/).filter((p) => p.trim()).map((p, j) => {
+      const figure = p.trim().match(/^!\[([^\]]+)\]\(\/answer-diagrams\/([a-z0-9-]+\.svg)\)$/);
+      return figure
+        ? <figure className="answer-figure" key={`${i}-${j}`}><img src={asset(`answer-diagrams/${figure[2]}`)} alt={figure[1]} loading="lazy" /><figcaption>{figure[1]}</figcaption></figure>
+        : <p key={`${i}-${j}`}><Inline text={p.replace(/\n/g, " ")} /></p>;
+    })
   );
 }
 
@@ -45,12 +50,12 @@ export function QuestionPage({ id }) {
   const { data: q, error, retry } = useFetch(`/api/exercises/${id}`);
   const all = useAllQuestions();
   const prog = useProgress();
-  const [shown, setShown] = useState(false);
+  const [shown, setShown] = useState(id >= 601);
   const [sol, setSol] = useState({ data: null, error: null });
   const [attempt, setAttempt] = useState(0);
 
-  // Each question starts with the solution hidden.
-  useEffect(() => { setShown(false); setSol({ data: null, error: null }); window.scrollTo(0, 0); progress.touch("question", id); }, [id]);
+  // Appendix answers appear beneath the question; workbook solutions remain opt-in.
+  useEffect(() => { setShown(id >= 601); setSol({ data: null, error: null }); window.scrollTo(0, 0); progress.touch("question", id); }, [id]);
   useEffect(() => {
     if (!shown || sol.data) return;
     let live = true;
@@ -78,7 +83,7 @@ export function QuestionPage({ id }) {
 
   const done = prog.done[q.id] !== undefined;
   const marked = prog.bookmarks[q.id] !== undefined;
-  const guide = q.supplemental ? "answer guide" : "solution";
+  const guide = q.answer_type === "answer" ? "answer" : q.answer_type === "solution" ? "solution" : q.supplemental ? "answer guide" : "solution";
 
   return (
     <main className="question">
@@ -118,8 +123,8 @@ export function QuestionPage({ id }) {
       </section>
 
       <section aria-labelledby="sol-h">
-        <h2 id="sol-h">{q.supplemental ? "Answer guide" : "Solution"}</h2>
-        <p className="sub">Try it first, then check your work.</p>
+        <h2 id="sol-h">{guide.charAt(0).toUpperCase() + guide.slice(1)}</h2>
+        <p className="sub">{q.supplemental ? "Worked answer with citations and further reading below." : "Try it first, then check your work."}</p>
         <button type="button" aria-expanded={shown} aria-controls="solution-panel" onClick={() => setShown((v) => !v)}>
           {shown ? `Hide ${guide}` : `Show ${guide}`}
         </button>
@@ -132,8 +137,8 @@ export function QuestionPage({ id }) {
       </section>
 
       <section aria-labelledby="reading-h" className="readings">
-        <h2 id="reading-h">Best readings (easy to follow)</h2>
-        <p className="sub">Two ranked references selected for technical depth, equations, implementation detail, or primary-source authority.</p>
+        <h2 id="reading-h">{q.supplemental ? "Top 5 resources for a deeper answer" : "Best readings (easy to follow)"}</h2>
+        <p className="sub">{q.supplemental ? "References cited in the answer, followed by further reading on the derivation and practical tradeoffs." : "Two ranked references selected for technical depth, equations, implementation detail, or primary-source authority."}</p>
         <ol>
           {q.resources.map((r) => (
             <li key={r.rank}>

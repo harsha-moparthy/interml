@@ -1,0 +1,22 @@
+{
+  "id": 320,
+  "code_file": "q320.py",
+  "readings": [
+    {
+      "title": "Grouped-Query Attention (GQA) Explained",
+      "url": "https://aiexpjourney.substack.com/p/grouped-query-attention-gqa-explained-5f3dbbfe013b",
+      "publisher": "AI Exploration Journey",
+      "tags": "",
+      "why": "Starts from multi-head attention, shows how MQA and GQA share key/value heads, and what that saves in the KV cache.",
+      "access": "Free to read"
+    },
+    {
+      "title": "NumPy matmul: batched matrix products",
+      "url": "https://numpy.org/doc/stable/reference/generated/numpy.matmul.html",
+      "publisher": "NumPy",
+      "tags": "",
+      "why": "Verify which axes are multiplied and how batch dimensions broadcast.",
+      "access": "Free to read"
+    }
+  ]
+}

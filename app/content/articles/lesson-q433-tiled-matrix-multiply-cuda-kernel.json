@@ -2,7 +2,7 @@
   "id": "lesson-q433-tiled-matrix-multiply-cuda-kernel",
   "kind": "lesson",
   "title": "Tiled Matrix Multiply CUDA Kernel",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -81,32 +81,32 @@
       "notes": [
         {
           "lines": [
-            4,
-            4
+            8,
+            8
           ],
           "match": "__global__ void matmul(const",
           "text": "Map thread to output. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            10,
-            10
+            13,
+            13
           ],
-          "match": "for(int t=0;t<(k+15)/16;++t)",
+          "match": "for (int t = 0; t < (k + 15) / 16; ++t)",
           "text": "Load A and B tiles. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            14,
-            14
+            18,
+            18
           ],
-          "match": "for(int j=0;j<16;++j) sum+=a",
+          "match": "sum += as[y][j] * bs[j][x]",
           "text": "Synchronize the block. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            15,
-            15
+            16,
+            16
           ],
           "match": "__syncthreads();",
           "text": "Accumulate tile products. This is the code stage shown in the mechanism animation."

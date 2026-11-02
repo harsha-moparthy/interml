@@ -1,0 +1,46 @@
+{
+  "id": 993,
+  "answer": "Greedy decoding repeatedly chooses the highest conditional probability and can enter self-reinforcing loops under the model's learned distribution. Low temperature sharpens that preference. Repetition penalties reduce scores of previously used tokens; min-p sampling retains tokens whose probability exceeds a fraction of the current maximum. [1](https://arxiv.org/abs/2211.17192)\n\n$$A=\\{i:p_i\\ge p_{min}\\max_jp_j\\}.$$\n\nNeither guarantees no repetition or factuality. Penalizing repeated tokens can damage names, code, or legitimate repeated phrases; min-p may retain only the dominant loop token if the distribution is very peaked. Evaluate task-specific decoding and consider model/data issues rather than treating a sampling knob as a universal cure.",
+  "readings": [
+    {
+      "title": "Fast Inference from Transformers via Speculative Decoding",
+      "url": "https://arxiv.org/abs/2211.17192",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Acceptance and residual-sampling proof preserving the target distribution.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally",
+      "url": "https://arxiv.org/abs/2408.03314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Adaptive inference-time compute allocation and comparison with model scaling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SentencePiece: A Simple and Language Independent Subword Tokenizer",
+      "url": "https://arxiv.org/abs/1808.06226",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Unigram/BPE tokenization, normalization, and raw-text training.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

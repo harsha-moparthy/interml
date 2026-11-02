@@ -1,1 +1,1 @@
-{"id":150,"language":"Python","code":"import numpy as np\n\n\ndef q150(scores, labels):\n    return float(np.maximum(0, 1 - np.asarray(labels) * scores).mean())\n","answer":"","content_kind":"coding"}
+{"id":150,"language":"Python","code":"import numpy as np\n\n\ndef q150(scores, labels):\n    \"\"\"Return mean binary hinge loss for labels in {-1,+1} and unrestricted decision\n    scores.\n    \"\"\"\n    return float(np.maximum(0, 1 - np.asarray(labels) * scores).mean())\n","answer":"","content_kind":"coding"}

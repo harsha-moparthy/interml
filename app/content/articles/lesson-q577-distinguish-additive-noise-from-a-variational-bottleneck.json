@@ -2,7 +2,7 @@
   "id": "lesson-q577-distinguish-additive-noise-from-a-variational-bottleneck",
   "kind": "lesson",
   "title": "Distinguish additive noise from a variational bottleneck",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            7,
-            8
+            12,
+            12
           ],
           "match": "if logvar is None:",
           "text": "Sample caller noise. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            9,
-            10
+            14,
+            14
           ],
           "match": "if logvar.shape != h.shape:",
           "text": "Perturb or reparameterize. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            11,
-            11
+            16,
+            16
           ],
           "match": "z = h + torch.exp(0.5 * logv",
           "text": "Compute KL when variational. This is the code stage shown in the mechanism animation."

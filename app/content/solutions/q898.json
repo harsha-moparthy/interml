@@ -1,0 +1,46 @@
+{
+  "id": 898,
+  "answer": "Freezing a visual backbone preserves its stored weights, while LoRA learns a restricted update or a separate task head. This can reduce overfitting and training memory when downstream data are limited. It does **not** guarantee that the adapted model preserves spatial priors better than carefully regularized full fine-tuning. [1](https://arxiv.org/abs/2106.09685) [2](https://arxiv.org/abs/2304.07193)\n\nSuper-resolution needs fine detail, segmentation needs localization, and defect grading may require tiny texture cues; a single adaptation recipe may not suit all three. Compare frozen probes, selected-layer adaptation, LoRA ranks/targets, and full fine-tuning on held-out domains. Track both task quality and retained general features. Keep an untouched base checkpoint and evaluate resolution/normalization compatibility before attributing a poor result to adaptation capacity.",
+  "readings": [
+    {
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Low-rank updates, initialization, parameter cost, and inference merging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DINOv2: Learning Robust Visual Features without Supervision",
+      "url": "https://arxiv.org/abs/2304.07193",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Self-distillation, curated visual data, and transferable dense features.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Segment Anything",
+      "url": "https://arxiv.org/abs/2304.02643",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Promptable masks, model design, and segmentation evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Overcoming Catastrophic Forgetting in Neural Networks",
+      "url": "https://arxiv.org/abs/1612.00796",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Importance-weighted parameter penalties for retaining earlier tasks.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

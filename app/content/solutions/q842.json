@@ -1,0 +1,46 @@
+{
+  "id": 842,
+  "answer": "**Illustrative interview answer:** “I compared candidate models on a quality–latency–cost frontier at representative traffic. The larger model improved ranking quality but increased p99 latency and GPU cost. We measured how latency affected completed actions with a controlled experiment, then combined that estimate with incremental quality value.” [1](https://scikit-learn.org/stable/modules/model_evaluation.html) [2](https://sre.google/sre-book/table-of-contents/)\n\n$$\\Delta value\\approx Q(\\Delta value_{quality}-\\Delta value_{latency})-\\Delta serving\\ cost.$$\n\n“Ten milliseconds has no universal monetary value; it depends on user behavior and where the request sits in the end-to-end budget. We selected the highest-value feasible model under guardrails, keeping a fast fallback.” Substitute real estimates, uncertainty, and tradeoff ownership. AUC/NDCG deltas cannot be converted directly into revenue without a justified link to outcomes.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Distilling the Knowledge in a Neural Network",
+      "url": "https://arxiv.org/abs/1503.02531",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Soft targets, temperature, and student training objectives.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

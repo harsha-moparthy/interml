@@ -1,0 +1,46 @@
+{
+  "id": 676,
+  "answer": "Start with a loss matrix: expected fraud loss, false-decline cost, review cost, and customer friction. At 0.02% prevalence, raw accuracy is useless; evaluate precision/recall and expected loss at the operational review/decline thresholds, then calibrate probabilities on representative prevalence.\n\nA sub-50ms path should use precomputed velocity counters, device/account aggregates, and cached graph-risk features. Fetch them with parallel bounded calls, not an unbounded graph traversal at authorization time. Deduplicate payment events and distinguish event time from ingestion time. A fallback policy for missing features should be explicitly risk-tiered, not universally approve or decline.\n\nTrain on chargebacks and confirmed reviews with delay-aware labels. Review outcomes are selectively observed, so log selection and retain controlled audits where feasible. A review queue needs capacity-aware prioritization and SLA monitoring. Track fraud tactics, feature drift, false declines by cohort, and model calibration; use champion/challenger deployment and rapid rollback. Treat external features and identity signals as sensitive, access-controlled data.\n\n**Mathematical and practical explanation.** For a simple approve/decline choice, decline when predicted expected fraud loss exceeds expected false-decline and intervention cost, using a validated cost model. At very low prevalence, precision depends heavily on false positives and calibration. Include review capacity as a constraint, and test delayed labels and missing-feature fallback behavior before deploying a threshold. [3](https://scikit-learn.org/stable/modules/model_evaluation.html)\n\nFor the implementation or system context discussed above, see [1](https://stripe.dev/blog/how-we-built-it-stripe-radar) and [2](https://stripe.com/radar/guide).",
+  "readings": [
+    {
+      "title": "How we built it: Stripe Radar",
+      "url": "https://stripe.dev/blog/how-we-built-it-stripe-radar",
+      "publisher": "Stripe Engineering",
+      "tags": "",
+      "why": "Production fraud modeling, features, and the false-positive tradeoff.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Radar guide to fraud detection",
+      "url": "https://stripe.com/radar/guide",
+      "publisher": "Stripe",
+      "tags": "",
+      "why": "Fraud patterns, rules and machine learning in payments.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Feast: Point-in-time Joins",
+      "url": "https://docs.feast.dev/getting-started/concepts/point-in-time-joins",
+      "publisher": "docs.feast.dev",
+      "tags": "",
+      "why": "Historical feature retrieval with event-time correctness.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

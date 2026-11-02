@@ -1,0 +1,46 @@
+{
+  "id": 760,
+  "answer": "Semantic segmentation assigns a class to each pixel, so two people may share one class region. Instance segmentation distinguishes individual objects and supplies a mask for each. Panoptic segmentation combines uniquely identified “thing” instances with semantic “stuff” regions such as road or sky. [1](https://arxiv.org/abs/1505.04597)\n\nEncoder downsampling captures context but loses fine spatial detail. U-Net skips pass high-resolution encoder features to the decoder, helping recover boundaries and localization. They do not automatically guarantee precise masks: alignment, sampling, loss, and annotation quality matter.\n\nUse IoU/Dice for semantic masks, detection-style mask AP for instances, and panoptic quality for panoptic output. Evaluate thin structures and small objects separately; a good aggregate score can hide systematic boundary errors.",
+  "readings": [
+    {
+      "title": "U-Net: Convolutional Networks for Biomedical Image Segmentation",
+      "url": "https://arxiv.org/abs/1505.04597",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder localization and high-resolution skip connections.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "End-to-End Object Detection with Transformers",
+      "url": "https://arxiv.org/abs/2005.12872",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Set prediction, bipartite matching, and duplicate suppression without NMS.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Focal Loss for Dense Object Detection",
+      "url": "https://arxiv.org/abs/1708.02002",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Down-weighting easy examples and dense detector imbalance.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Patch tokenization and the data/inductive-bias tradeoff of ViTs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": 598,
+  "code_file": "q598.py",
+  "readings": [
+    {
+      "title": "Timeouts, retries, and backoff with jitter",
+      "url": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/",
+      "publisher": "AWS Builders’ Library",
+      "tags": "",
+      "why": "Relate retry budgets and idempotency to deciding whether a failed request can be retried.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Server-sent events: event stream format",
+      "url": "https://html.spec.whatwg.org/dev/server-sent-events.html",
+      "publisher": "WHATWG",
+      "tags": "",
+      "why": "Check UTF-8 encoding, blank-line event boundaries, comments, and CR/LF line endings.",
+      "access": "Free to read"
+    }
+  ]
+}

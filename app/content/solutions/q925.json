@@ -1,0 +1,46 @@
+{
+  "id": 925,
+  "answer": "MSE on raw targets selects arithmetic means in leaves and rewards splits according to raw squared-error reduction. MSE on log targets instead selects mean log values and uses a different error geometry, so both leaf values and split choices can change. [1](https://scikit-learn.org/stable/modules/ensemble.html)\n\n$$\\exp\\left(\\frac1n\\sum_i\\log y_i\\right)$$\n\nis the geometric mean, not generally the conditional arithmetic mean of $Y$. Exponentiating a predicted mean log target therefore introduces retransformation bias for mean forecasting; a distributional correction or smearing estimate may be appropriate. Log transforms require positive targets or an explicitly justified alternative. They emphasize relative errors and downweight large absolute values, which may or may not match the application's costs.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Forecasting: Principles and Practice",
+      "url": "https://otexts.com/fpp3/",
+      "publisher": "otexts.com",
+      "tags": "",
+      "why": "Open textbook on evaluation, temporal validation, reconciliation, and forecasting methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

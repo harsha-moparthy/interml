@@ -1,0 +1,46 @@
+{
+  "id": 891,
+  "answer": "A pipeline detects text regions, recognizes characters, then reconstructs reading order/layout. It exposes intermediate boxes and confidence for debugging but propagates detection/OCR errors. An OCR-free VLM maps document pixels directly to text/structure, simplifying interfaces and using broader context but potentially hallucinating plausible content. [1](https://arxiv.org/abs/2111.15664)\n\nDense tables are especially sensitive to resolution: downsampling can erase decimal points, minus signs, and superscripts. Tiling preserves detail but must retain page coordinates and cross-tile relationships. Evaluate cell text, row/column structure, numeric fidelity, and evidence localization separately.\n\nFor financial documents, verify totals and units against image regions rather than trusting fluent generated HTML. Hybrid systems can combine high-resolution OCR with a layout-aware model and explicit validation; OCR-free does not mean evidence-free.",
+  "readings": [
+    {
+      "title": "OCR-free Document Understanding Transformer",
+      "url": "https://arxiv.org/abs/2111.15664",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Document image encoding and structured text generation without a separate OCR stage.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Image-based Table Recognition: Data, Model, and Evaluation",
+      "url": "https://arxiv.org/abs/1911.10683",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Table structure/content evaluation with tree-edit distance.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Patch tokenization and the data/inductive-bias tradeoff of ViTs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Visual Instruction Tuning",
+      "url": "https://arxiv.org/abs/2304.08485",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Projection-based visual instruction tuning and evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "BLIP-2: Bootstrapping Language-Image Pre-training",
+      "url": "https://arxiv.org/abs/2301.12597",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "The Q-Former bridge between frozen vision and language models.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

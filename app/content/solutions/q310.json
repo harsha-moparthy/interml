@@ -1,0 +1,22 @@
+{
+  "id": 310,
+  "code_file": "q310.py",
+  "readings": [
+    {
+      "title": "Understanding and Coding the Self-Attention Mechanism of LLMs From Scratch",
+      "url": "https://magazine.sebastianraschka.com/p/understanding-and-coding-self-attention",
+      "publisher": "Sebastian Raschka",
+      "tags": "",
+      "why": "Walks from a simplified attention to trainable query, key and value projections.",
+      "access": "Free to read"
+    },
+    {
+      "title": "NumPy matmul: batched matrix products",
+      "url": "https://numpy.org/doc/stable/reference/generated/numpy.matmul.html",
+      "publisher": "NumPy",
+      "tags": "",
+      "why": "Verify which axes are multiplied and how batch dimensions broadcast.",
+      "access": "Free to read"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 897,
+  "answer": "SimCLR contrasts augmented views against negatives; MoCo maintains a momentum encoder/queue for negatives. BYOL and DINO use teacher–student consistency with mechanisms that discourage collapse, without explicit negative pairs. MAE reconstructs masked image patches from visible ones. [1](https://arxiv.org/abs/2304.07193) [2](https://arxiv.org/abs/2111.06377)\n\nDINO-style features can organize object-related regions because augmentations, patch interactions, and self-distillation encourage shared semantic structure. Attention maps can highlight objects, but they are not guaranteed segmentation masks or causal explanations. DINOv2 also depends on data curation and its specific training objectives.\n\nCompare linear probing, dense prediction, robustness, and transfer with appropriate heads. A representation good for classification may not preserve all detail required for reconstruction. Evaluate the trained features rather than inferring capability from whether the loss uses negatives.",
+  "readings": [
+    {
+      "title": "DINOv2: Learning Robust Visual Features without Supervision",
+      "url": "https://arxiv.org/abs/2304.07193",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Self-distillation, curated visual data, and transferable dense features.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Masked Autoencoders Are Scalable Vision Learners",
+      "url": "https://arxiv.org/abs/2111.06377",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Masked-patch reconstruction and asymmetric visual encoders/decoders.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "url": "https://arxiv.org/abs/2103.00020",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Image–text contrastive learning, zero-shot transfer, and limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Patch tokenization and the data/inductive-bias tradeoff of ViTs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

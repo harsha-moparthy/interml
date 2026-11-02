@@ -1,0 +1,46 @@
+{
+  "id": 864,
+  "answer": "HBM provides large device-wide storage; registers and shared memory provide much smaller, faster on-chip storage close to execution units. Shared memory is explicitly managed, while caches have hardware-managed behavior. Capacity and bandwidth figures depend on GPU, allocation, and how aggregate bandwidth is measured. [1](https://docs.nvidia.com/cuda/cuda-c-programming-guide/)\n\nKernel fusion keeps intermediate values in registers/shared memory instead of writing them to HBM and reading them in another kernel. For a sequence of elementwise operations, one input read and one final output write can replace several full-tensor passes. Fusion also reduces launches.\n\nToo much fusion can increase register pressure, reduce occupancy, or force spills back to memory. Synchronization boundaries and incompatible tiling can prevent profitable fusion. Measure memory traffic and execution time rather than assuming every fused graph is faster.",
+  "readings": [
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention: Exact Attention with IO-Awareness",
+      "url": "https://arxiv.org/abs/2205.14135",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Online softmax, SRAM tiling, and recomputation in the backward pass.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention-2: Better Parallelism and Work Partitioning",
+      "url": "https://arxiv.org/abs/2307.08691",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Reducing non-matmul work and improving GPU work partitioning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch: torch.compile Troubleshooting",
+      "url": "https://docs.pytorch.org/docs/stable/torch.compiler_troubleshooting.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Guards, recompilation, graph breaks, and diagnosis.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

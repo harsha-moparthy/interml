@@ -1,0 +1,46 @@
+{
+  "id": 761,
+  "answer": "An RNN repeatedly applies a recurrent weight matrix and activation. Backpropagation through time multiplies their Jacobians, so directions can shrink or grow exponentially with sequence length. LSTM introduces an additive cell-state path controlled by gates. [1](https://www.deeplearningbook.org/) [2](https://d2l.ai/)\n\n$$c_t=f_t\\odot c_{t-1}+i_t\\odot g_t,\\qquad \\frac{\\partial c_t}{\\partial c_{t-1}}\\bigg|_{gates}=f_t.$$\n\nWhen forget gates remain near one, information and direct gradients can persist. The qualification “holding gates fixed” matters: the full derivative also includes gate dependencies. LSTM does not eliminate all vanishing/exploding gradients, and saturated gates can block learning. Initialization, clipping, sequence truncation, and task length remain important. The additive path makes retention learnable instead of forcing it through a new nonlinear transformation at every step.",
+  "readings": [
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Residual Learning for Image Recognition",
+      "url": "https://arxiv.org/abs/1512.03385",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Residual blocks and empirical evidence about depth and optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

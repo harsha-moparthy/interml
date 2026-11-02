@@ -1,0 +1,46 @@
+{
+  "id": 1059,
+  "answer": "An ordinary sampling operation does not expose a deterministic differentiable path from its random output to distribution parameters. The gradient of an expectation also includes how the distribution changes; differentiating a fixed sampled value as a constant misses that dependence. For a Gaussian, sample parameter-independent $\\epsilon\\sim\\mathcal N(0,I)$ and set $z=\\mu_\\phi(x)+\\sigma_\\phi(x)\\odot\\epsilon$. [1](https://arxiv.org/abs/1312.6114)\n\nNow gradients pass through $\\mu$ and $\\sigma$ while averaging over fixed-noise draws: $\\nabla_\\phi\\mathbb E_\\epsilon f(z_\\phi)=\\mathbb E_\\epsilon\\nabla_\\phi f(z_\\phi)$ under suitable regularity. This is a pathwise estimator, often lower variance than a score-function estimator. It does not mean stochastic computation is inherently undifferentiable; it means the estimator must account for distributional dependence. Discrete sampling generally needs other estimators or relaxations, with their own bias/variance tradeoffs.",
+  "readings": [
+    {
+      "title": "Auto-Encoding Variational Bayes",
+      "url": "https://arxiv.org/abs/1312.6114",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "ELBO optimization and the Gaussian reparameterization trick.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

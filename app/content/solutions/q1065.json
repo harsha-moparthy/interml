@@ -1,0 +1,46 @@
+{
+  "id": 1065,
+  "answer": "The bound depends on the number of watched user–video pairs, not just the catalog size. For $n$ inserted pairs and false-positive probability $p$, a Bloom filter needs approximately $m=-n\\ln p/(\\ln2)^2$ bits and $k=(m/n)\\ln2$ hashes. At $p=0.01$, this is about 9.6 bits per pair. [1](https://nlp.stanford.edu/IR-book/)\n\nFifty decimal GB provides about 800 bits per user for 500 million users, enough for only about 83 retained pairs per user at that error rate, before overhead. Thus unrestricted lifetime history cannot meet the stated limit. Choose a retention window, higher tolerated false positives, tiered durable history, or larger budget. Bloom false positives suppress unseen items; standard Bloom filters lack safe deletions. Count-Min Sketch estimates frequencies with overestimation and is not an exact substitute for arbitrary membership history.",
+  "readings": [
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The FAISS Library",
+      "url": "https://arxiv.org/abs/2401.08281",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Exact and approximate search, compression, and index tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

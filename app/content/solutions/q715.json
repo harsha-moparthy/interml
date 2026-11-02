@@ -1,0 +1,46 @@
+{
+  "id": 715,
+  "answer": "There is no universal best LoRA target set. Updating only query/value projections is cheap and can work well when attention adaptation dominates the task. Updating all attention projections and MLP projections gives more capacity to change representations and often helps harder domain adaptation, at higher optimizer/activation cost. [1](https://arxiv.org/abs/2106.09685) [2](https://arxiv.org/abs/2305.14314)\n\n$$P_{adapter}=r(d_{in}+d_{out})\\quad\\text{per adapted linear layer}.$$\n\nChoose targets, rank, scaling, and training data jointly. Compare on a held-out task set, including retention of general capabilities, rather than training loss alone. A rank budget spread across many layers differs from the same number of parameters concentrated in a few. Mergeability, quantized-base precision, adapter switching, and inference kernel support are additional practical constraints. Report the exact target module names to make results reproducible.",
+  "readings": [
+    {
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Low-rank updates, initialization, parameter cost, and inference merging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "url": "https://arxiv.org/abs/2305.14314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "NF4, double quantization, and paged optimizers with trainable adapters.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DoRA: Weight-Decomposed Low-Rank Adaptation",
+      "url": "https://arxiv.org/abs/2402.09353",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Separating weight magnitude and direction in parameter-efficient tuning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Prefix-Tuning: Optimizing Continuous Prompts for Generation",
+      "url": "https://arxiv.org/abs/2101.00190",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Learned prefix activations and their capacity and serving costs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

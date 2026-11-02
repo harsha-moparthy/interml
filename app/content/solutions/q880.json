@@ -1,0 +1,46 @@
+{
+  "id": 880,
+  "answer": "For a dense linear weight used once per token, forward costs about two FLOPs per parameter (multiply plus add). Backward computes gradients with respect to input and weight, approximately two comparable operations, yielding roughly six FLOPs per parameter per training token. [1](https://jax-ml.github.io/scaling-book/)\n\n$$F_{model}\\approx6ND,\\qquad MFU=\\frac{6N\\cdot tokens/second}{GPU\\ count\\cdot peak\\ FLOPs/second}.$$\n\nUse the peak for the actual compute precision and dense/sparse mode. Attention's sequence-dependent work, embeddings, MoE active parameters, and recomputation can make the approximation inaccurate. MFU counts useful model work; hardware utilization may include extra checkpoint recomputation or padding. State the FLOP convention and timing window, exclude or separately report startup, and do not compare percentages computed with incompatible denominators.",
+  "readings": [
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Training Compute-Optimal Large Language Models",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Parameter/data allocation under a fixed pretraining compute budget.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+      "url": "https://arxiv.org/abs/1910.02054",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Optimizer, gradient, and parameter sharding with communication accounting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention: Exact Attention with IO-Awareness",
+      "url": "https://arxiv.org/abs/2205.14135",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Online softmax, SRAM tiling, and recomputation in the backward pass.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

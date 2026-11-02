@@ -1,0 +1,46 @@
+{
+  "id": 854,
+  "answer": "Narrow fine-tuning can overwrite behavior useful on the original distribution. Replay mixes representative old-task examples into training. LoRA limits the update subspace and leaves base weights intact, making adapter removal easy, but an active adapter can still degrade general behavior. EWC penalizes changes to parameters estimated important for prior tasks. [1](https://arxiv.org/abs/1612.00796) [2](https://arxiv.org/abs/2106.09685)\n\n$$L=L_{new}+\\frac\\lambda2\\sum_iF_i(\\theta_i-\\theta_i^*)^2.$$\n\nModel merging combines updates or checkpoints; TIES/DARE/SLERP use different heuristics and do not guarantee retention. Evaluate old and new tasks, calibration, and worst slices across tuning strengths. Replay quality and legal data availability matter, and approximate importance estimates can become stale. Retaining a frozen base checkpoint is a recovery mechanism, not proof of no forgetting.",
+  "readings": [
+    {
+      "title": "Overcoming Catastrophic Forgetting in Neural Networks",
+      "url": "https://arxiv.org/abs/1612.00796",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Importance-weighted parameter penalties for retaining earlier tasks.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Low-rank updates, initialization, parameter cost, and inference merging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "TIES-Merging: Resolving Interference When Merging Models",
+      "url": "https://arxiv.org/abs/2306.01708",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Trimming, sign conflicts, and combining task updates.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "url": "https://arxiv.org/abs/2305.14314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "NF4, double quantization, and paged optimizers with trainable adapters.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

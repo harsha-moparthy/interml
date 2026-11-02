@@ -1,0 +1,47 @@
+{
+  "id": 627,
+  "code_file": "q627.py",
+  "answer": "Normalize embeddings and form a cosine-similarity matrix divided by temperature. CLIP uses cross-view matrices in both directions; SimCLR uses all 2N embeddings and excludes only each example’s self-match. The paired alternate view remains the positive. In-batch negatives can include semantically valid matches, so a multi-positive objective may be needed in real retrieval data.\n\n**Mathematical and practical explanation.** For paired embeddings, $L_i=-\\log\\frac{e^{s_{i,i^+}/\\tau}}{\\sum_{j\\in C(i)}e^{s_{ij}/\\tau}}$. Temperature controls concentration and gradient scale. Correct candidate sets matter: exclude self-comparisons for SimCLR while preserving the alternate-view positive, and use symmetric image-to-text/text-to-image objectives for CLIP-style training. [3](https://arxiv.org/abs/2103.00020)\n\nFor the implementation or system context discussed above, see [1](https://lilianweng.github.io/posts/2021-05-31-contrastive/) and [2](https://gombru.github.io/2018/05/23/cross_entropy_loss/).",
+  "readings": [
+    {
+      "title": "Contrastive Representation Learning",
+      "url": "https://lilianweng.github.io/posts/2021-05-31-contrastive/",
+      "publisher": "Lilian Weng",
+      "tags": "",
+      "why": "Covers contrastive, triplet and InfoNCE losses with the role of temperature and negatives.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Understanding Categorical Cross-Entropy Loss and friends",
+      "url": "https://gombru.github.io/2018/05/23/cross_entropy_loss/",
+      "publisher": "Raúl Gómez",
+      "tags": "",
+      "why": "Cross-entropy background for InfoNCE as a softmax over similarities.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "url": "https://arxiv.org/abs/2103.00020",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Image–text contrastive learning, zero-shot transfer, and limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Bootstrap Your Own Latent",
+      "url": "https://arxiv.org/abs/2006.07733",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Online predictor, momentum target, and learning without negative pairs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "id": "lesson-q509-implement-the-original-dino-training-step",
   "kind": "lesson",
   "title": "Implement the original-DINO training step",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            49,
-            50
+            52,
+            52
           ],
           "match": "if teacher is None:",
           "text": "Compute old teacher targets. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            53,
-            53
+            56,
+            56
           ],
           "match": "student.train()",
           "text": "Update student by loss. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            59,
-            59
+            62,
+            62
           ],
           "match": "optimizer.zero_grad(set_to_n",
           "text": "EMA-update teacher. This is the code stage shown in the mechanism animation."

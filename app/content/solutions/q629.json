@@ -1,0 +1,47 @@
+{
+  "id": 629,
+  "code_file": "q629.py",
+  "answer": "Warmup raises the learning rate linearly to its peak, followed by cosine decay to a minimum. The code defines zero-based optimizer-update indexing and both endpoints explicitly; apply the rate before the update. Accumulating several microbatches counts as one optimizer step. A common off-by-one error either misses the peak or never reaches the minimum.\n\n**Mathematical and practical explanation.** After warmup, cosine decay can use $\\eta(t)=\\eta_{min}+\\tfrac12(\\eta_{max}-\\eta_{min})[1+\\cos(\\pi u)]$ for progress $u\\in[0,1]$. Explicitly map update indices to that interval. Changing batch size or accumulation changes updates per epoch, so schedule comparisons should state whether the budget is tokens, samples, or optimizer steps. [3](https://www.deeplearningbook.org/contents/optimization.html)\n\nFor the implementation or system context discussed above, see [1](https://d2l.ai/chapter_optimization/lr-scheduler.html) and [2](https://www.jeremyjordan.me/nn-learning-rate/).",
+  "readings": [
+    {
+      "title": "Learning Rate Scheduling (Dive into Deep Learning)",
+      "url": "https://d2l.ai/chapter_optimization/lr-scheduler.html",
+      "publisher": "Dive into Deep Learning",
+      "tags": "",
+      "why": "Step, factor, cosine and warmup schedules with plots and code.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Setting the learning rate of your neural network",
+      "url": "https://www.jeremyjordan.me/nn-learning-rate/",
+      "publisher": "Jeremy Jordan",
+      "tags": "",
+      "why": "Learning rate finders, decay schedules and cosine annealing with warm restarts.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Decoupled Weight Decay Regularization",
+      "url": "https://arxiv.org/abs/1711.05101",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Why adaptive optimization separates weight decay from an L2 gradient penalty.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

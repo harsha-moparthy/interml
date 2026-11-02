@@ -1,0 +1,46 @@
+{
+  "id": 934,
+  "answer": "Isolation Forest scores points by average path length under random feature/threshold partitions: unusual points can often be isolated with fewer splits. One-class SVM learns a support boundary; LOF compares local density to neighbors; autoencoders use reconstruction error, which may also be low for some anomalies. [1](https://scikit-learn.org/stable/user_guide.html)\n\nIsolation Forest's cost is better stated using tree count $T$ and subsample size $\\psi$: training is roughly $O(T\\psi\\log\\psi)$ under typical balanced behavior, and scoring $O(NT\\log\\psi)$. It is not universally $O(N\\log N)$ or guaranteed shallow for every anomaly.\n\nEvaluate contamination assumptions, high-dimensional noise, and deployment novelty separately. Thresholds need operational calibration; an anomaly score is not automatically a fraud probability or a reason to take action.",
+  "readings": [
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Clustering",
+      "url": "https://scikit-learn.org/stable/modules/clustering.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Cluster assumptions, linkage choices, density clustering, and silhouette evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

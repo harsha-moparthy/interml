@@ -1,1 +1,1 @@
-{"id":17,"language":"Python","code":"def q017(left, right, keys, how=\"left\"):\n    return left.merge(\n        right, on=keys, how=how, sort=False, validate=\"many_to_one\"\n    )\n","answer":"","content_kind":"coding"}
+{"id":17,"language":"Python","code":"def q017(left, right, keys, how=\"left\"):\n    \"\"\"Join on keys, rejecting duplicate keys on the right to prevent row expansion.\"\"\"\n    return left.merge(right, on=keys, how=how, sort=False, validate=\"many_to_one\")\n","answer":"","content_kind":"coding"}

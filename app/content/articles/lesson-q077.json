@@ -2,7 +2,7 @@
   "id": "lesson-q077",
   "kind": "lesson",
   "title": "Keep the strongest matrix directions",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            8,
-            8
+            11,
+            11
           ],
           "match": "np.linalg.svd(a, full_matrices=False)",
           "text": "The reduced SVD avoids unnecessary extra orthogonal columns."
         },
         {
           "lines": [
-            9,
-            9
+            12,
+            12
           ],
           "match": "return u[:, :rank] * s[:rank] @ vh[:rank]",
           "text": "Scale retained U columns and multiply by retained rows of Vh."

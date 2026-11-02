@@ -1,0 +1,22 @@
+{
+  "id": 27,
+  "code_file": "q027.py",
+  "readings": [
+    {
+      "title": "Copies and views",
+      "url": "https://numpy.org/doc/stable/user/basics.copies.html",
+      "publisher": "NumPy docs",
+      "tags": "",
+      "why": "Explains when slicing returns a view and when an operation copies.",
+      "access": "Free to read"
+    },
+    {
+      "title": "NumPy indexing: basic slices and advanced indexing",
+      "url": "https://numpy.org/doc/stable/user/basics.indexing.html",
+      "publisher": "NumPy",
+      "tags": "",
+      "why": "Check view/copy behavior and Cartesian indexing against the indexing rules.",
+      "access": "Free to read"
+    }
+  ]
+}

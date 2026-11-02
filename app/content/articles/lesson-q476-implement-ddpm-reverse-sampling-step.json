@@ -2,7 +2,7 @@
   "id": "lesson-q476-implement-ddpm-reverse-sampling-step",
   "kind": "lesson",
   "title": "Implement DDPM Reverse Sampling Step",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            7,
-            10
+            9,
+            9
           ],
           "match": "mean = (",
           "text": "Predict added noise. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            11,
-            11
+            13,
+            13
           ],
           "match": "variance = beta_t * (1 - alp",
           "text": "Estimate clean sample. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            12,
-            12
+            14,
+            14
           ],
           "match": "return mean + np.sqrt(max(0,",
           "text": "Add scheduled noise. This is the code stage shown in the mechanism animation."

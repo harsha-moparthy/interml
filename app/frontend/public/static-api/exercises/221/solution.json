@@ -1,1 +1,1 @@
-{"id":221,"language":"Python","code":"import math\n\n\ndef swish(x: float) -> float:\n    return x * (1 / (1 + math.exp(-x)))\n","answer":"","content_kind":"coding"}
+{"id":221,"language":"Python","code":"\"\"\"Compute the Swish activation x * sigmoid(beta * x).\"\"\"\n\nimport math\n\n\ndef swish(x: float) -> float:\n    return x * (1 / (1 + math.exp(-x)))\n","answer":"","content_kind":"coding"}

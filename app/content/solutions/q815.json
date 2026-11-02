@@ -1,0 +1,46 @@
+{
+  "id": 815,
+  "answer": "Covariate shift changes $P(X)$ while assuming $P(Y\\mid X)$ stays fixed. Label shift changes $P(Y)$ while assuming $P(X\\mid Y)$ stays fixed. Concept drift changes the predictive relationship $P(Y\\mid X)$. Real deployments can exhibit mixtures. [1](https://docs.scipy.org/doc/scipy/reference/stats.html) [2](https://probml.github.io/pml-book/book1.html)\n\nKS compares one-dimensional empirical distributions; PSI summarizes binned proportion changes but has no universal alarm threshold; Jensen–Shannon divergence compares distributions; MMD uses a kernel to detect multivariate discrepancies. Multiple features and repeated checks require calibrated alerting.\n\nUnlabeled feature drift does not prove accuracy degradation, and concept drift can occur without a large marginal feature change. Monitor data quality, prediction distributions, delayed labels, calibration, and business outcomes. Diagnose a shift before retraining: an upstream schema bug should be repaired rather than learned.",
+  "readings": [
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

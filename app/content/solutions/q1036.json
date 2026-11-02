@@ -1,0 +1,46 @@
+{
+  "id": 1036,
+  "answer": "When adding 10 classes to a 50-class classifier, training only on new-class data shifts representations and logits toward the new labels. Retain a bounded, representative exemplar buffer from old classes and mix it with new examples. Distill the old model's outputs/features on replayed examples to preserve useful behavior. [1](https://arxiv.org/abs/1612.00796) [2](https://arxiv.org/abs/1503.02531)\n\nA cosine classifier $z_k=s\\,w_k^Th/(\\|w_k\\|\\|h\\|)$ reduces logit differences caused solely by weight norms, but does not by itself correct class-prior or sampling bias. Calibrate old/new scores on a balanced validation set and report per-class accuracy, forgetting, and new-class learning. Buffer selection, privacy/deletion constraints, and memory budget determine what replay is feasible; evaluate alternatives such as regularization when raw examples cannot be retained.",
+  "readings": [
+    {
+      "title": "Overcoming Catastrophic Forgetting in Neural Networks",
+      "url": "https://arxiv.org/abs/1612.00796",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Importance-weighted parameter penalties for retaining earlier tasks.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Distilling the Knowledge in a Neural Network",
+      "url": "https://arxiv.org/abs/1503.02531",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Soft targets, temperature, and student training objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "url": "https://arxiv.org/abs/2103.00020",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Image–text contrastive learning, zero-shot transfer, and limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

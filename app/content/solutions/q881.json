@@ -1,0 +1,46 @@
+{
+  "id": 881,
+  "answer": "Decode PCM into floating amplitudes, resample to the model's expected rate, and apply the intended channel handling. Split into overlapping frames, multiply by a Hann window, take an STFT, convert magnitudes to power if required, apply triangular mel filters, then log-compress with a finite floor. [1](https://librosa.org/doc/latest/feature.html)\n\n$$S_{m,t}=\\log\\left(\\epsilon+\\sum_kH_{m,k}|X_{k,t}|^2\\right).$$\n\nWindow length controls frequency/time resolution; hop controls frame rate; mel filters approximate a perceptual frequency scale. The exact log base, normalization, centering, padding, and power convention must match training. A spectrogram is not simply an image with arbitrary resizing: changing its axes changes time/frequency meaning. Preserve silence and clipping diagnostics rather than normalizing away every audio-quality problem.",
+  "readings": [
+    {
+      "title": "Librosa: Feature Extraction",
+      "url": "https://librosa.org/doc/latest/feature.html",
+      "publisher": "librosa.org",
+      "tags": "",
+      "why": "STFT-derived features, mel spectrograms, and audio-processing parameter conventions.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Robust Speech Recognition via Large-Scale Weak Supervision",
+      "url": "https://arxiv.org/abs/2212.04356",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder speech recognition, training data, and error behavior.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Connectionist Temporal Classification",
+      "url": "https://www.cs.toronto.edu/~graves/icml_2006.pdf",
+      "publisher": "www.cs.toronto.edu",
+      "tags": "",
+      "why": "Alignment marginalization with blanks and repeated-label collapse.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sequence Transduction with Recurrent Neural Networks",
+      "url": "https://arxiv.org/abs/1211.3711",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Transducer alignment, prediction network, and streaming sequence modeling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

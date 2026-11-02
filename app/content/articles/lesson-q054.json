@@ -2,7 +2,7 @@
   "id": "lesson-q054",
   "kind": "lesson",
   "title": "Backward needs the gradient that arrives",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            10,
-            10
+            13,
+            13
           ],
           "match": "ctx.save_for_backward(x)",
           "text": "The saved input supplies the sign and magnitude needed by the local derivative."
         },
         {
           "lines": [
-            16,
-            16
+            19,
+            19
           ],
           "match": "return 2 * x * gradient",
           "text": "Multiply the local derivative by the upstream gradient rather than assuming it is one."

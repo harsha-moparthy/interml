@@ -1,0 +1,46 @@
+{
+  "id": 788,
+  "answer": "MCAR means missingness is independent of observed and missing values. MAR allows dependence on observed variables, after conditioning on which missingness does not depend on the unobserved value. MNAR retains dependence on the missing value itself. These are assumptions about the missingness mechanism, not labels identifiable from the observed table alone. [1](https://probml.github.io/pml-book/book1.html)\n\nA missingness indicator can be highly predictive when measurement is a decision—for example, a specialist orders a test only for concerning cases. That signal may fail if workflow changes and can leak post-outcome actions. Imputation plus an indicator can help prediction but does not solve MNAR identification. Examine collection timing, subgroup missingness, and sensitivity to plausible unobserved values before interpreting effects.",
+  "readings": [
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Causal Inference: What If",
+      "url": "https://miguelhernan.org/whatifbook",
+      "publisher": "miguelhernan.org",
+      "tags": "",
+      "why": "Hernán and Robins' open book on identification, confounding, weighting, and longitudinal causal inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Common Pitfalls",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Preprocessing leakage, pipelines, and reproducible evaluation.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

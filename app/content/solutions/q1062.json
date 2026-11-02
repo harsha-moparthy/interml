@@ -1,0 +1,46 @@
+{
+  "id": 1062,
+  "answer": "Ignoring biases, normalization parameters, and positional embeddings, standard MHA has four $d\\times d$ projections per layer, contributing $4d^2$. A two-matrix FFN contributes $2dd_{ff}$. With tied token embeddings the total is $L(4d^2+2dd_{ff})+Vd$. Setting $d_{ff}=4d$ gives $12Ld^2+Vd$. [1](https://arxiv.org/abs/1706.03762)\n\nThat expression is not an exact universal Transformer count. With projection biases and two affine LayerNorms, a common block adds $9d+d_{ff}$ parameters; a final LayerNorm adds $2d$. Learned positional embeddings, untied output weights, output biases, gated FFNs, GQA, and MoE alter the result. Specify the actual architecture and whether embeddings/norms are shared. For a gated FFN with three matrices, substitute $3dd_{ff}$ for the two-matrix FFN term.",
+  "readings": [
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DeepSeek-V3 Technical Report",
+      "url": "https://arxiv.org/abs/2412.19437",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "MLA, expert routing, multi-token prediction, and mixed-precision training.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

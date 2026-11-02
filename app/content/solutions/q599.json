@@ -1,0 +1,22 @@
+{
+  "id": 599,
+  "code_file": "q599.py",
+  "readings": [
+    {
+      "title": "Prompt caching (Anthropic docs)",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching",
+      "publisher": "Anthropic",
+      "tags": "",
+      "why": "Cache hits require an exact prefix match, so any earlier change invalidates later cached blocks.",
+      "access": "Free to read"
+    },
+    {
+      "title": "JSON serialization: deterministic keys and invalid numbers",
+      "url": "https://docs.python.org/3/library/json.html",
+      "publisher": "Python",
+      "tags": "",
+      "why": "Check sort_keys, separators, and allow_nan=False used to encode stable cache identities.",
+      "access": "Free to read"
+    }
+  ]
+}

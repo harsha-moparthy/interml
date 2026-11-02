@@ -1,0 +1,46 @@
+{
+  "id": 673,
+  "answer": "Treat “send nothing” as an explicit action. Estimate incremental long-term benefit of a notification relative to no notification, conditioned on user context, message type, prior contact frequency, and local time. High open probability alone can select users who would return anyway.\n\nEnforce quiet hours, consent, deduplication, channel limits, and per-user frequency caps before optimization. Choose send time with a contextual policy or hazard model, and use a durable scheduler with idempotent delivery keys. A model retry must not produce duplicate pushes. Keep suppression fast when the underlying event becomes stale or the user has already acted.\n\nRandomize holdouts to measure causal retention lift and negative outcomes such as opt-outs and uninstalls. Delayed reward means the policy cannot be judged by immediate clicks alone. Account for interference between multiple campaigns competing for the same attention budget. Monitor subgroup fatigue and delivery failures; when features are missing, conservative suppression is often preferable to an aggressive generic notification.\n\n**Mathematical and practical explanation.** The relevant quantity is incremental value $\\mathbb E[Y(1)-Y(0)|X]$ minus notification cost, not simply $P(open|send,X)$. Maintain randomized no-send controls where appropriate and include fatigue/opt-out outcomes. A user who would return anyway can have high open probability and near-zero incremental benefit, illustrating why predictive propensity and causal uplift differ. [3](https://miguelhernan.org/whatifbook)\n\nFor the implementation or system context discussed above, see [1](https://engineering.fb.com/2022/10/31/ml-applications/instagram-notification-management-machine-learning/) and [2](https://www.linkedin.com/blog/engineering/member-customer-experience/bringing-project-every-member-to-life).",
+  "readings": [
+    {
+      "title": "Improving Instagram notification management with machine learning and causal inference",
+      "url": "https://engineering.fb.com/2022/10/31/ml-applications/instagram-notification-management-machine-learning/",
+      "publisher": "Engineering at Meta",
+      "tags": "",
+      "why": "A concrete uplift-model design: randomized send/drop data and online thresholds for incremental value.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Bringing Project Every Member to life",
+      "url": "https://www.linkedin.com/blog/engineering/member-customer-experience/bringing-project-every-member-to-life",
+      "publisher": "LinkedIn Engineering",
+      "tags": "",
+      "why": "Notification experiments show why average engagement can hide different effects across member groups.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Causal Inference: What If",
+      "url": "https://miguelhernan.org/whatifbook",
+      "publisher": "miguelhernan.org",
+      "tags": "",
+      "why": "Hernán and Robins' open book on identification, confounding, weighting, and longitudinal causal inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Doubly Robust Policy Evaluation and Learning",
+      "url": "https://arxiv.org/abs/1103.4601",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Combining reward models and logged propensities for off-policy evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

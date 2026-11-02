@@ -1,0 +1,46 @@
+{
+  "id": 1040,
+  "answer": "Model extraction may appear as broad systematic probing, repeated boundary-focused queries, unusually high coverage, or account coordination. These signals also occur in legitimate evaluation, accessibility, and bulk integration, so combine them with authenticated usage context rather than making accusations from query volume alone. [1](https://arxiv.org/abs/1610.05820) [2](https://sre.google/sre-book/table-of-contents/)\n\nApply documented quotas, anomaly review, credential controls, and response minimization appropriate to the product. Track quality/cost impact and false positives, with an escalation path for legitimate high-volume clients. Watermarking or fingerprints can supply additional evidence but are not perfect ownership tests. Avoid returning unnecessary internal logits or training information. Monitoring can raise the cost of extraction; it cannot guarantee prevention when an API intentionally exposes enough useful input–output behavior for imitation.",
+  "readings": [
+    {
+      "title": "Membership Inference Attacks Against Machine Learning Models",
+      "url": "https://arxiv.org/abs/1610.05820",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Threat model, confidence-based inference, and empirical privacy leakage.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning with Differential Privacy",
+      "url": "https://arxiv.org/abs/1607.00133",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Per-example clipping, Gaussian noise, and privacy accounting in DP-SGD.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

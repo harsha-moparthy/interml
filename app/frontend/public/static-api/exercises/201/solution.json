@@ -1,1 +1,1 @@
-{"id":201,"language":"Python","code":"import numpy as np\n\n\ndef q201(truth, prediction):\n    return float(np.mean(np.asarray(truth) != np.asarray(prediction)))\n","answer":"","content_kind":"coding"}
+{"id":201,"language":"Python","code":"import numpy as np\n\n\ndef q201(truth, prediction):\n    \"\"\"Compute Hamming loss: the fraction of incorrect entries in equally shaped, nonempty\n    multilabel indicator arrays.\n    \"\"\"\n    return float(np.mean(np.asarray(truth) != np.asarray(prediction)))\n","answer":"","content_kind":"coding"}

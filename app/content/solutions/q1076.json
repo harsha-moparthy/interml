@@ -1,0 +1,46 @@
+{
+  "id": 1076,
+  "answer": "With prior $\\theta\\sim Beta(\\alpha,\\beta)$ and Bernoulli observations containing $s$ successes and $f$ failures, the likelihood multiplies the prior into $Beta(\\alpha+s,\\beta+f)$. Thus A has posterior $Beta(11,11)$ and B has $Beta(2,2)$ from uniform priors. Both have mean 0.5, but B has greater uncertainty. [1](https://incompleteideas.net/book/the-book-2nd.html) [2](https://probml.github.io/pml-book/book1.html)\n\nThompson sampling draws one conversion probability independently from each arm's posterior and selects the arm with the highest draw, then updates after observing its outcome. This naturally balances exploitation and exploration under the model. Account for delayed feedback, changing populations, and the randomization unit in deployment. Equal observed rates do not mean equal evidence, and a stationary Beta–Bernoulli model does not automatically handle drift or contextual differences.",
+  "readings": [
+    {
+      "title": "Reinforcement Learning: An Introduction",
+      "url": "https://incompleteideas.net/book/the-book-2nd.html",
+      "publisher": "incompleteideas.net",
+      "tags": "",
+      "why": "Sutton and Barto's open textbook on bandits, value functions, and policy gradients.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

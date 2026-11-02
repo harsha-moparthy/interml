@@ -1,0 +1,46 @@
+{
+  "id": 903,
+  "answer": "Retrieval uses precomputed vectors, inverted indexes, and simple rules to reduce millions of items to thousands. Pre-ranking applies a cheap scorer to reduce thousands to hundreds. Heavy ranking uses richer interactions and histories on that shortlist. Re-ranking enforces diversity, eligibility, and business constraints. [1](https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/) [2](https://arxiv.org/abs/1706.06978)\n\nAn **illustrative** 100ms server budget might allocate 15ms retrieval, 10ms pre-ranking, 40ms heavy ranking, 10ms re-ranking, and 25ms for feature/network overhead; these are design assumptions, not industry constants. Stages may overlap.\n\nMeasure candidate recall after every filter and p99 under load. Later stages cannot recover excluded items. Choose model complexity by candidate count, feature-fetch cost, and measured marginal quality, not just by nominal FLOPs. Preserve policy/eligibility checks even in fallback paths.",
+  "readings": [
+    {
+      "title": "Sampling-Bias-Corrected Neural Modeling for Large Corpus Item Recommendations",
+      "url": "https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Two-tower retrieval, sampled negatives, and popularity correction.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Interest Network for Click-Through Rate Prediction",
+      "url": "https://arxiv.org/abs/1706.06978",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Candidate-aware attention over user behavior history.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning Recommendation Model for Personalization and Recommendation Systems",
+      "url": "https://arxiv.org/abs/1906.00091",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Categorical embeddings, dense features, and interaction/serving costs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "id": "lesson-q397-implement-speculative-decoding-verification",
   "kind": "lesson",
   "title": "Implement Speculative Decoding Verification",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            2,
-            3
+            6,
+            6
           ],
           "match": "if len(target_argmax) != len",
           "text": "Run target verification. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            4,
-            4
+            8,
+            8
           ],
           "match": "result = []",
           "text": "Accept matching prefix. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            9,
-            9
+            13,
+            13
           ],
           "match": "result.append(int(target_arg",
           "text": "Correct first mismatch. This is the code stage shown in the mechanism animation."

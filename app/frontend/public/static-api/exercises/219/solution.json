@@ -1,1 +1,1 @@
-{"id":219,"language":"Python","code":"import numpy as np\n\n\ndef q219(x):\n    return np.tanh(np.asarray(x, float))\n","answer":"","content_kind":"coding"}
+{"id":219,"language":"Python","code":"import numpy as np\n\n\ndef q219(x):\n    \"\"\"Compute tanh elementwise with a numerically stable library primitive, preserving\n    input array shape.\n    \"\"\"\n    return np.tanh(np.asarray(x, float))\n","answer":"","content_kind":"coding"}

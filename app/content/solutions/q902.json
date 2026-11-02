@@ -1,0 +1,46 @@
+{
+  "id": 902,
+  "answer": "Early fusion combines sensor measurements/features before final detection; late fusion combines independently predicted objects; BEV fusion projects or attends sensor features into a common ground-plane representation. Camera images offer texture/semantics, while LiDAR supplies geometric range. [1](https://arxiv.org/abs/2203.17270) [2](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html)\n\nA BEV representation supports spatial and temporal reasoning, but needs accurate calibration, timestamps, ego-motion compensation, and uncertainty handling. BEVFormer itself is a multi-camera temporal/spatial attention design, not proof that every BEV model fuses LiDAR. Distinguish it from explicit camera–LiDAR fusion variants.\n\nTest missing sensors, weather, occlusion, range, and timing errors. Late fusion offers modularity but may discard complementary low-level evidence; early/feature fusion can exploit it while becoming more sensitive to alignment and sensor-domain shifts.",
+  "readings": [
+    {
+      "title": "BEVFormer: Learning Bird's-Eye-View Representation",
+      "url": "https://arxiv.org/abs/2203.17270",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Spatial/temporal attention for multi-camera bird's-eye-view perception.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "OpenCV: Camera Calibration and 3D Reconstruction",
+      "url": "https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html",
+      "publisher": "docs.opencv.org",
+      "tags": "",
+      "why": "Camera projection, lens distortion, rectification, and stereo geometry.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Patch tokenization and the data/inductive-bias tradeoff of ViTs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "End-to-End Object Detection with Transformers",
+      "url": "https://arxiv.org/abs/2005.12872",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Set prediction, bipartite matching, and duplicate suppression without NMS.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Segment Anything",
+      "url": "https://arxiv.org/abs/2304.02643",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Promptable masks, model design, and segmentation evaluation.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

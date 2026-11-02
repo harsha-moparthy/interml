@@ -1,1 +1,1 @@
-{"id":35,"language":"Python","code":"import numpy as np\n\n\ndef q035(x, weights, threshold):\n    x = np.asarray(x, float)\n    return x @ weights * (np.linalg.norm(x, axis=1) >= threshold)[:, None]\n","answer":"","content_kind":"coding"}
+{"id":35,"language":"Python","code":"import numpy as np\n\n\ndef q035(x, weights, threshold):\n    \"\"\"Project rows through weights and zero rows whose input norm is below threshold.\"\"\"\n    x = np.asarray(x, float)\n    return x @ weights * (np.linalg.norm(x, axis=1) >= threshold)[:, None]\n","answer":"","content_kind":"coding"}

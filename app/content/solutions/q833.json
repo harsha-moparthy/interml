@@ -1,0 +1,46 @@
+{
+  "id": 833,
+  "answer": "Event-time bars preserve order-book updates; clock-time bars impose regular intervals but aggregate variable activity; volume bars normalize by traded volume. Point-process models such as Hawkes processes represent event intensity and self/cross-excitation rather than assuming equally spaced arrivals. [1](https://otexts.com/fpp3/)\n\nPredict mid-price movement using only information available after the modeled feed/decision delay. Mid-price $m=(bid+ask)/2$ is not necessarily an executable price. A favorable mid-price forecast may still lose after paying spread, fees, slippage, and adverse selection.\n\nEvaluate through a latency-aware execution model with queue position and fill probability for passive orders. Avoid future book snapshots, synchronized timestamps that hide delays, and random train/test splits. Report prediction quality separately from net trading performance; “without crossing the spread” requires an actual passive execution policy.",
+  "readings": [
+    {
+      "title": "Forecasting: Principles and Practice",
+      "url": "https://otexts.com/fpp3/",
+      "publisher": "otexts.com",
+      "tags": "",
+      "why": "Open textbook on evaluation, temporal validation, reconciliation, and forecasting methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

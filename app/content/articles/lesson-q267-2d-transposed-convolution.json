@@ -2,7 +2,7 @@
   "id": "lesson-q267-2d-transposed-convolution",
   "kind": "lesson",
   "title": "2D Transposed Convolution",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            3,
-            3
+            6,
+            6
           ],
           "match": "_, cout, kh, kw = weights.sh",
           "text": "Place kernel footprint. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            4,
-            4
+            7,
+            7
           ],
           "match": "oh = (h - 1) * stride - 2 * ",
           "text": "Multiply channels. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            6,
-            6
+            9,
+            9
           ],
           "match": "out = x.new_zeros((n, cout, ",
           "text": "Scatter-add overlaps. This is the code stage shown in the mechanism animation."

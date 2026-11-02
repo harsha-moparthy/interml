@@ -1,0 +1,46 @@
+{
+  "id": 936,
+  "answer": "For relevance sequence $(1,0,1,0,1)$, precision at relevant ranks is $P@1=1$, $P@3=2/3$, and $P@5=3/5$. If there are exactly three relevant documents in the corpus, [1](https://nlp.stanford.edu/IR-book/)\n\n$$AP=\\frac{1+2/3+3/5}{3}=\\frac{34}{45}\\approx0.7556.$$\n\nPrecision@5 is $3/5=0.6$ and recall@5 is $3/3=1$. If additional relevant documents exist outside the returned list, recall decreases and AP's denominator must reflect the chosen definition. MAP averages AP over queries. “AP@K” conventions vary between total relevant count and a capped denominator; specify yours and do not compare numbers computed with different conventions. Unjudged documents also need a documented policy.",
+  "readings": [
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

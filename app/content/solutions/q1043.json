@@ -1,0 +1,46 @@
+{
+  "id": 1043,
+  "answer": "A softmax score describes relative class preference under one fitted model; it does not directly measure how uncertain the model is about its parameters or unsupported inputs. Deep ensembles approximate model disagreement, while MC dropout samples predictions under stochastic dropout. Both can provide useful uncertainty signals but require calibration and out-of-distribution evaluation. [1](https://scikit-learn.org/stable/modules/calibration.html) [3](https://probml.github.io/pml-book/book2.html)\n\nFor classification, compare entropy of the mean predictive distribution with mean member entropy; their difference estimates disagreement under the chosen approximation. Evidential models parameterize distributions over class probabilities, but their uncertainty depends on training assumptions and can be overconfident under shift. Evaluate risk–coverage curves, calibration, and abstention behavior. Neither a single low-confidence score nor ensemble agreement establishes that a prediction is reliable outside the data-generating regime.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "A Gentle Introduction to Conformal Prediction",
+      "url": "https://arxiv.org/abs/2107.07511",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Finite-sample marginal coverage, calibration scores, and exchangeability assumptions.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

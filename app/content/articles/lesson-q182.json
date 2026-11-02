@@ -2,7 +2,7 @@
   "id": "lesson-q182",
   "kind": "lesson",
   "title": "Find the axis that keeps the most variation",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,24 +90,24 @@
       "notes": [
         {
           "lines": [
-            12,
-            12
+            17,
+            17
           ],
           "match": "covariance = centered.T @ centered / (len(x) - 1)",
           "text": "The covariance is formed from the chosen centered working coordinates."
         },
         {
           "lines": [
-            14,
-            14
+            19,
+            19
           ],
           "match": "order = np.argsort(eigen)[::-1][:components]",
           "text": "Largest eigenvalues select directions with greatest retained variance."
         },
         {
           "lines": [
-            20,
-            20
+            23,
+            23
           ],
           "match": "centered @ loading",
           "text": "Projected scores are coordinates along the loading directions."

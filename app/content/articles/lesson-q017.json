@@ -2,7 +2,7 @@
   "id": "lesson-q017",
   "kind": "lesson",
   "title": "A join is a lookup with a contract",
-  "revision": 7,
+  "revision": 8,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,8 +90,8 @@
       "notes": [
         {
           "lines": [
-            2,
-            2
+            3,
+            3
           ],
           "match": "left.merge(",
           "text": "The merge matches keys between two independent tables."

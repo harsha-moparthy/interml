@@ -1,0 +1,46 @@
+{
+  "id": 1079,
+  "answer": "A GP assigns jointly Gaussian values to every finite set of input locations with mean $m$ and covariance kernel $k$. With Gaussian observation noise $\\sigma^2$, let $K_y=K(X,X)+\\sigma^2I$. The posterior mean at $x_*$ is $m_*+k_*^TK_y^{-1}(y-m)$ and variance is $k_{**}-k_*^TK_y^{-1}k_*$. [1](https://gaussianprocess.org/gpml/)\n\nUse Cholesky solves, not an explicit inverse; dense factorization costs $O(N^3)$ time and $O(N^2)$ storage. For maximization, expected improvement is $(\\mu-f_{best}-\\xi)\\Phi(z)+\\sigma\\phi(z)$ with $z=(\\mu-f_{best}-\\xi)/\\sigma$, using the zero-variance limit when needed. GPs are a strong Bayesian-optimization baseline for expensive, modest-dimensional smooth problems, not universally the gold standard. Kernel mismatch, noise, constraints, and large/high-dimensional datasets motivate alternative surrogates or approximations.",
+  "readings": [
+    {
+      "title": "Gaussian Processes for Machine Learning",
+      "url": "https://gaussianprocess.org/gpml/",
+      "publisher": "gaussianprocess.org",
+      "tags": "",
+      "why": "Free textbook covering GP posterior inference and kernel methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

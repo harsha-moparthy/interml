@@ -1,0 +1,46 @@
+{
+  "id": 1008,
+  "answer": "Generate or retrieve a larger pool, score relevance to the email, then cluster or rerank for distinct **intent**, not merely different wording. MMR can penalize semantic similarity to already selected replies while retaining relevance. [1](https://arxiv.org/abs/1908.10084) [2](https://nlp.stanford.edu/IR-book/)\n\nFor example, offer acceptance, a clarifying question, and a polite decline when context supports all three, rather than three synonyms of agreement. Do not force diversity by proposing an inappropriate or contradictory answer. Exclude unsupported commitments, sensitive content, and replies requiring information the user has not provided. Evaluate selection rate, edit burden, semantic coverage, and accidental-send risk. Suggestions remain drafts until the user chooses to send.",
+  "readings": [
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Building Effective Agents — Anthropic",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Workflow patterns, tool interfaces, evaluation, and when agent complexity is justified.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

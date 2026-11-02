@@ -1,0 +1,46 @@
+{
+  "id": 1067,
+  "answer": "Hierarchical softmax factors a class probability along a tree path, reducing a balanced-tree target evaluation to roughly $O(\\log V)$. Tree structure affects computation and statistical sharing; frequent classes can have shorter paths. Sampled softmax approximates training with a subset of classes and sampling-probability corrections, but a small sampled denominator is generally not identical to full softmax. [1](https://nlp.stanford.edu/IR-book/) [2](https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/)\n\nNCE instead trains a classifier to distinguish data from a specified noise distribution, enabling estimation of an unnormalized model under its assumptions. These methods differ in objective and bias, not merely implementation. At ten million classes, consider frequency skew, distributed embedding lookup, negative sampling quality, and inference retrieval separately. Cheap training does not automatically make exact top-k inference over the entire catalog cheap.",
+  "readings": [
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sampling-Bias-Corrected Neural Modeling for Large Corpus Item Recommendations",
+      "url": "https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Two-tower retrieval, sampled negatives, and popularity correction.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 808,
+  "answer": "With 20 independent true null tests at 0.05, the chance of at least one false rejection is $1-0.95^{20}\\approx64.2\\%$. Bonferroni tests each of $m$ hypotheses at $\\alpha/m$, controlling family-wise error even without independence. [1](https://docs.scipy.org/doc/scipy/reference/stats.html)\n\nBenjamini–Hochberg sorts p-values and finds the largest $k$ satisfying $p_{(k)}\\le kq/m$, then rejects through $k$. Under its required dependence conditions, it controls expected false-discovery proportion rather than probability of any false discovery.\n\nDefine the family before inspecting results. Correlated metrics, exploratory slices, and selective reporting complicate guarantees; use appropriate dependence-robust methods when necessary. Pick control according to decision cost: a safety-critical confirmatory claim may require stronger error protection than an exploratory discovery screen.",
+  "readings": [
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,1 +1,1 @@
-{"id":295,"language":"Python","code":"def q295(text):\n    return [\"\\u2581\" + word for word in text.split()]\n","answer":"","content_kind":"coding"}
+{"id":295,"language":"Python","code":"def q295(text):\n    \"\"\"Create simple whitespace-marked BPE pre-tokens: prefix each whitespace-delimited\n    word with the visible marker U+2581. This educational variant collapses whitespace\n    runs.\n    \"\"\"\n    return [\"\\u2581\" + word for word in text.split()]\n","answer":"","content_kind":"coding"}

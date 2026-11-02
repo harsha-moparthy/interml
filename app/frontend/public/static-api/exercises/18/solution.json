@@ -1,1 +1,1 @@
-{"id":18,"language":"Python","code":"import pandas as pd\n\n\ndef q018(frames):\n    return (\n        pd.concat(frames, ignore_index=True, sort=False)\n        if frames\n        else pd.DataFrame()\n    )\n","answer":"","content_kind":"coding"}
+{"id":18,"language":"Python","code":"import pandas as pd\n\n\ndef q018(frames):\n    \"\"\"Stack frames with a fresh row index; return an empty frame for an empty list.\"\"\"\n    return (\n        pd.concat(frames, ignore_index=True, sort=False) if frames else pd.DataFrame()\n    )\n","answer":"","content_kind":"coding"}

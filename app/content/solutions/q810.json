@@ -1,0 +1,46 @@
+{
+  "id": 810,
+  "answer": "Interference means one user's outcome depends on others' treatment assignments. A treated driver or feed user can change the environment experienced by control users, so an individual-level contrast may not estimate the all-treated versus all-control policy effect. [1](https://miguelhernan.org/whatifbook)\n\nGraph clusters reduce cross-arm edges; geographic splits separate markets but provide fewer independent units; switchbacks alternate treatment over time in a market, requiring washout and control of temporal effects. Each trades bias, variance, and operational feasibility.\n\nDefine the exposure and estimand first. Analyze at the randomization unit, account for within-cluster dependence, and test carryover/spillover sensitivity. Increasing the number of logged events does not compensate for having very few independent markets. Cluster boundaries and time blocks must reflect how interference actually propagates.",
+  "readings": [
+    {
+      "title": "Causal Inference: What If",
+      "url": "https://miguelhernan.org/whatifbook",
+      "publisher": "miguelhernan.org",
+      "tags": "",
+      "why": "Hernán and Robins' open book on identification, confounding, weighting, and longitudinal causal inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Reinforcement Learning: An Introduction",
+      "url": "https://incompleteideas.net/book/the-book-2nd.html",
+      "publisher": "incompleteideas.net",
+      "tags": "",
+      "why": "Sutton and Barto's open textbook on bandits, value functions, and policy gradients.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

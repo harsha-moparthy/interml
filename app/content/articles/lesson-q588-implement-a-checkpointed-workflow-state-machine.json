@@ -2,7 +2,7 @@
   "id": "lesson-q588-implement-a-checkpointed-workflow-state-machine",
   "kind": "lesson",
   "title": "Implement a checkpointed workflow state machine",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            7,
-            7
+            14,
+            14
           ],
           "match": "pending = set(names)",
           "text": "Persist matching configuration. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            8,
-            8
+            15,
+            15
           ],
           "match": "done = set()",
           "text": "Claim one ready node. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            15,
-            17
+            24,
+            24
           ],
           "match": "config = json.dumps(",
           "text": "Finish terminal state. This is the code stage shown in the mechanism animation."

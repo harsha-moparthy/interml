@@ -1,0 +1,46 @@
+{
+  "id": 935,
+  "answer": "Take labels $(1,1,0,0)$ with predictions $(0.02,0.02,0.01,0.01)$. Every positive outranks every negative, so ROC-AUC is exactly one. But the probabilities are severely underconfident for positives. [1](https://scikit-learn.org/stable/modules/calibration.html)\n\n$$logloss=-\\tfrac14[2\\log0.02+2\\log0.99]\\approx1.961.$$\n\nThe constant 0.5 predictor has log loss about 0.693, so the perfectly ranking model is worse under this probability score. Calibration checks frequency conditional on predicted probability, not ranking. A monotone calibration map can preserve AUC while improving probability quality. Use separate calibration data and test distribution; perfectly fitting a calibration map to these four observed points would not establish generalization.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

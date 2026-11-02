@@ -1,0 +1,46 @@
+{
+  "id": 677,
+  "answer": "Use a cascaded pipeline: exact/perceptual hashes for known content, cheap modality-specific models for broad triage, expensive multimodal analysis for ambiguous cases, and trained human review for high-impact uncertainty. Moderation decisions must bind to a policy version and distinguish removal, reduced distribution, labeling, and escalation.\n\nFuse text, image, audio, temporal context, and behavior where permitted. A hash match can be high precision for a known item but is not a general misinformation detector; semantic classifiers also need context and uncertainty. Propagate decisions consistently across copies while preserving appealability and evidence.\n\nSet thresholds from false-positive/negative costs and review capacity. Evaluate languages, dialects, minority contexts, and adversarial edits separately; aggregate accuracy can hide serious failures. Maintain an appeal workflow, reviewer quality audits, and sampled checks of automatically cleared content. Queue outages should trigger a defined distribution/review policy. New policy and model releases need shadow tests and rollback because disagreement may reflect policy ambiguity rather than a model bug.\n\n**Mathematical and practical explanation.** For review capacity C, choose thresholds jointly with the expected arrival rate into each queue. A model with better aggregate accuracy can still overload reviewers or miss a rare severe category. Measure policy-specific precision/recall, turnaround time, appeal overturns, and subgroup slices, preserving evidence and policy versions so disagreements can be audited. [3](https://arxiv.org/abs/2103.00020)\n\nFor the implementation or system context discussed above, see [1](https://www.microsoft.com/en-us/DigitalSafety/moderation-and-enforcement) and [2](https://about.fb.com/news/2020/08/how-we-review-content/).",
+  "readings": [
+    {
+      "title": "How Microsoft enforces its policies",
+      "url": "https://www.microsoft.com/en-us/DigitalSafety/moderation-and-enforcement",
+      "publisher": "Microsoft Digital Safety",
+      "tags": "",
+      "why": "Explains hash detection, classifier triage, human review, proportionate actions, and appeals.",
+      "access": "Free to read"
+    },
+    {
+      "title": "How We Review Content",
+      "url": "https://about.fb.com/news/2020/08/how-we-review-content/",
+      "publisher": "Meta",
+      "tags": "",
+      "why": "Historical engineering context for prioritizing uncertain and high-impact cases for human review.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "url": "https://arxiv.org/abs/2103.00020",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Image–text contrastive learning, zero-shot transfer, and limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Position, verbosity, and self-enhancement bias in model judging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

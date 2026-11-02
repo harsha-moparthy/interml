@@ -1,1 +1,1 @@
-{"id":258,"language":"Python","code":"import numpy as np\n\n\ndef q258(image):\n    return np.asarray(image, float) @ np.array([0.299, 0.587, 0.114])\n","answer":"","content_kind":"coding"}
+{"id":258,"language":"Python","code":"import numpy as np\n\n\ndef q258(image):\n    \"\"\"Convert an RGB image with channels last to floating-point grayscale using\n    coefficients 0.299, 0.587, 0.114.\n    \"\"\"\n    return np.asarray(image, float) @ np.array([0.299, 0.587, 0.114])\n","answer":"","content_kind":"coding"}

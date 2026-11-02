@@ -1,0 +1,47 @@
+{
+  "id": 621,
+  "code_file": "q621.py",
+  "answer": "Inverted dropout multiplies retained values by 1/(1−p), preserving their expectation during training. DropPath samples one keep decision per batch example and broadcasts it over the residual branch; apply it before adding the skip connection. Evaluation is identity. p=1 is explicitly zero, avoiding division by zero. Element dropout and path dropout have different correlation structures despite sharing the scaling rule.\n\n**Mathematical and practical explanation.** For keep probability $q$, inverted dropout is $\\tilde x=mx/q$ with $m\\sim Bernoulli(q)$, so $\\mathbb E[\\tilde x]=x$ when $q>0$. DropPath shares one mask across a whole example's residual branch. Matching expectations does not make the two operations equivalent: their noise covariance and regularization effects differ. [3](https://www.deeplearningbook.org/contents/regularization.html)\n\nFor the implementation or system context discussed above, see [1](https://d2l.ai/chapter_multilayer-perceptrons/dropout.html) and [2](https://docs.pytorch.org/vision/stable/generated/torchvision.ops.stochastic_depth.html).",
+  "readings": [
+    {
+      "title": "Dropout (Dive into Deep Learning)",
+      "url": "https://d2l.ai/chapter_multilayer-perceptrons/dropout.html",
+      "publisher": "Dive into Deep Learning",
+      "tags": "",
+      "why": "Derives dropout, why it rescales activations and implements it from scratch.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Stochastic depth operator",
+      "url": "https://docs.pytorch.org/vision/stable/generated/torchvision.ops.stochastic_depth.html",
+      "publisher": "Torchvision",
+      "tags": "",
+      "why": "Distinguish row-wise path dropping from independent element dropout.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

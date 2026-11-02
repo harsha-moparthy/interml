@@ -2,7 +2,7 @@
   "id": "lesson-q593-implement-a-sequential-count-min-sketch",
   "kind": "lesson",
   "title": "Implement a sequential Count-Min Sketch",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            5,
-            6
+            10,
+            10
           ],
           "match": "if min(width, depth) < 1:",
           "text": "Increment selected counters. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            8,
-            45
+            13,
+            13
           ],
           "match": "class Sketch:",
           "text": "Accumulate collisions. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            47,
-            47
+            50,
+            50
           ],
           "match": "return Sketch()",
           "text": "Return minimum estimate. This is the code stage shown in the mechanism animation."

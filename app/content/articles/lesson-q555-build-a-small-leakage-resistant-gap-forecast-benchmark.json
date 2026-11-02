@@ -2,7 +2,7 @@
   "id": "lesson-q555-build-a-small-leakage-resistant-gap-forecast-benchmark",
   "kind": "lesson",
   "title": "Build a small leakage-resistant gap forecast benchmark",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -81,8 +81,8 @@
       "notes": [
         {
           "lines": [
-            82,
-            82
+            76,
+            76
           ],
           "match": "def q555(series, cutoffs, ho",
           "text": "Choose common forecast origins. This is the code stage shown in the mechanism animation."
@@ -98,7 +98,7 @@
         {
           "lines": [
             86,
-            89
+            86
           ],
           "match": "models = {",
           "text": "Generate both forecasts. This is the code stage shown in the mechanism animation."

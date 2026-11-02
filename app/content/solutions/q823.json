@@ -1,0 +1,46 @@
+{
+  "id": 823,
+  "answer": "User-user CF recommends items liked by similar users; item-item CF finds items with similar interaction profiles. Matrix factorization learns low-dimensional user/item vectors, scoring their dot product. For implicit data, confidence-weighted objectives distinguish strong positive evidence from weak unobserved preferences. [1](https://yifanhu.net/PUB/cf.pdf)\n\n$$\\min_{U,V}\\sum_{ui}c_{ui}(p_{ui}-u_u^Tv_i)^2+\\lambda(\\|U\\|_F^2+\\|V\\|_F^2).$$\n\nALS alternates solving regularized least-squares problems for one factor matrix with the other fixed, enabling efficient parallel blocks and structured handling of many missing entries. It is not universally preferred over SGD: objective, sparsity, distributed architecture, online updates, and negative sampling matter. Neither factorization nor nearest-neighbor CF handles new users/items without side information or a fallback.",
+  "readings": [
+    {
+      "title": "Collaborative Filtering for Implicit Feedback Datasets",
+      "url": "https://yifanhu.net/PUB/cf.pdf",
+      "publisher": "yifanhu.net",
+      "tags": "",
+      "why": "Confidence-weighted implicit feedback and efficient alternating least squares.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Reinforcement Learning: An Introduction",
+      "url": "https://incompleteideas.net/book/the-book-2nd.html",
+      "publisher": "incompleteideas.net",
+      "tags": "",
+      "why": "Sutton and Barto's open textbook on bandits, value functions, and policy gradients.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

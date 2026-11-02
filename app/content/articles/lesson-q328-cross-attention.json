@@ -2,7 +2,7 @@
   "id": "lesson-q328-cross-attention",
   "kind": "lesson",
   "title": "Cross-attention with different sequence lengths",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -118,48 +118,48 @@
       "notes": [
         {
           "lines": [
-            30,
-            30
+            31,
+            31
           ],
           "match": "def q328",
           "text": "The function gets the two sequences, the four weight matrices, the number of heads, and an optional source mask."
         },
         {
           "lines": [
-            33,
-            33
+            38,
+            38
           ],
           "match": "if d % heads:",
           "text": "The width must divide evenly into heads."
         },
         {
           "lines": [
-            35,
-            39
+            40,
+            40
           ],
           "match": "(decoder @ wq)",
           "text": "Queries come from the **decoder**. Shape `(B, L, D)` becomes `(B, H, L, D/H)`."
         },
         {
           "lines": [
-            40,
-            44
+            41,
+            41
           ],
           "match": "(encoder @ wk)",
           "text": "Keys come from the **encoder**. The sequence length is `S`, not `L`."
         },
         {
           "lines": [
-            53,
-            53
+            43,
+            43
           ],
           "match": "[:, None, None, :]",
           "text": "The source mask `(B, S)` becomes `(B, 1, 1, S)`. It lines up with the last axis of the scores."
         },
         {
           "lines": [
-            56,
-            56
+            44,
+            44
           ],
           "match": "q309(q, k, v, allowed)",
           "text": "Scaled dot-product attention with a mask. This is the helper that returns zeros for fully masked rows."
@@ -174,8 +174,8 @@
         },
         {
           "lines": [
-            56,
-            56
+            44,
+            44
           ],
           "match": ".reshape(b, l, d) @ wo",
           "text": "The heads are joined back to width `D` and mixed with $W_O$."

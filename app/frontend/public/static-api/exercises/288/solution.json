@@ -1,1 +1,1 @@
-{"id":288,"language":"Python","code":"import unicodedata\n\n\ndef q288(text):\n    return \" \".join(unicodedata.normalize(\"NFKC\", text).lower().split())\n","answer":"","content_kind":"coding"}
+{"id":288,"language":"Python","code":"import unicodedata\n\n\ndef q288(text):\n    \"\"\"Normalize Unicode text with NFKC, lowercase it, and collapse all whitespace to\n    single spaces. Strip leading and trailing whitespace.\n    \"\"\"\n    return \" \".join(unicodedata.normalize(\"NFKC\", text).lower().split())\n","answer":"","content_kind":"coding"}

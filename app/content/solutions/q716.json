@@ -1,0 +1,46 @@
+{
+  "id": 716,
+  "answer": "QLoRA stores a frozen base model in 4-bit quantized form while training small higher-precision LoRA updates. During computation, needed base blocks are dequantized into a compute dtype; gradients update adapters, not the discrete base codes. [1](https://arxiv.org/abs/2305.14314)\n\nNF4 uses nonuniform levels designed around a normal weight distribution. Double quantization compresses the block-scale metadata as well as weights. Paged optimizers use managed memory to accommodate optimizer-memory spikes, with potential transfer overhead.\n\n$$W_{effective}=\\operatorname{dequant}(W_{4bit})+sBA.$$\n\nFour-bit storage does not mean every multiplication or activation is four-bit. Include quantization metadata, adapters, gradients, optimizer states, activations, and temporary dequantized tiles in capacity estimates. Calibration/quantization choices and adapter capacity still affect quality; QLoRA is parameter-efficient fine-tuning, not unrestricted full-parameter training at four bits.",
+  "readings": [
+    {
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "url": "https://arxiv.org/abs/2305.14314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "NF4, double quantization, and paged optimizers with trainable adapters.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Low-rank updates, initialization, parameter cost, and inference merging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "GPTQ: Accurate Post-Training Quantization",
+      "url": "https://arxiv.org/abs/2210.17323",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order reconstruction and sequential quantization error compensation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "AWQ: Activation-aware Weight Quantization",
+      "url": "https://arxiv.org/abs/2306.00978",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Activation-informed protection of important weight channels.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+      "url": "https://arxiv.org/abs/1910.02054",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Optimizer, gradient, and parameter sharding with communication accounting.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

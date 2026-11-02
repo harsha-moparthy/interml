@@ -1,1 +1,1 @@
-{"id":123,"language":"Python","code":"import pandas as pd\n\n\ndef q123(categories):\n    return pd.Series(categories).value_counts(normalize=True).to_dict()\n","answer":"","content_kind":"coding"}
+{"id":123,"language":"Python","code":"import pandas as pd\n\n\ndef q123(categories):\n    \"\"\"Return a dictionary of relative category frequencies for a nonempty sequence of\n    hashable, nonmissing categories.\n    \"\"\"\n    return pd.Series(categories).value_counts(normalize=True).to_dict()\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,46 @@
+{
+  "id": 853,
+  "answer": "Direct prompt injection places adversarial instructions in a user's input; indirect injection places them in material the agent retrieves, such as a webpage, email, or source file. The central failure is promoting untrusted content into authority over goals or tools. [1](https://www.anthropic.com/research/building-effective-agents)\n\nEnforce authorization outside the model: least-privilege tools, scoped credentials, filesystem/network isolation, validated destinations, and separate read/write capabilities. Treat retrieved instructions as data unless explicitly authorized. Sensitive side effects should require a valid user intent and policy check independent of the page's wording.\n\nTest attacks that attempt tool misuse, data exfiltration, and instruction override in an isolated harness. Input filtering and a warning prompt alone are insufficient; constrain what the system can actually do, log decisions, and limit damage when a model misinterprets content.",
+  "readings": [
+    {
+      "title": "Building Effective Agents — Anthropic",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Workflow patterns, tool interfaces, evaluation, and when agent complexity is justified.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Interleaving observations, reasoning, and tool actions.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Timeouts, Retries, and Backoff with Jitter — AWS",
+      "url": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/",
+      "publisher": "aws.amazon.com",
+      "tags": "",
+      "why": "Bounded retries, timeout budgets, jitter, and idempotency.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,1 +1,1 @@
-{"id":20,"language":"Python","code":"def q020(series, level=-1):\n    return series.unstack(level=level, fill_value=0)\n","answer":"","content_kind":"coding"}
+{"id":20,"language":"Python","code":"def q020(series, level=-1):\n    \"\"\"Move an index level into columns and fill missing combinations with zero.\"\"\"\n    return series.unstack(level=level, fill_value=0)\n","answer":"","content_kind":"coding"}

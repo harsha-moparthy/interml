@@ -1,0 +1,46 @@
+{
+  "id": 900,
+  "answer": "Mask R-CNN uses region proposals and per-region mask prediction, offering strong instance localization with proposal overhead. YOLO-style segmentation emphasizes fast single-stage detection/masks. SAM is promptable segmentation with broad transfer, but still needs prompts or an automatic mask proposal/selection pipeline and may be costly at required resolution. [1](https://arxiv.org/abs/2304.02643) [2](https://arxiv.org/abs/2005.12872)\n\nFor industrial use, compare end-to-end latency, tiny-defect recall, instance separation, mask-boundary accuracy, and robustness to lighting/material changes on the target hardware. Model-family names do not establish a universal speed ranking.\n\nPixel masks alone do not yield physical size. Calibrate optics and scale, correct perspective, and use depth or a known measurement plane. Evaluate measurement error in physical units and reject uncertain/occluded parts rather than reporting precise-looking dimensions from unreliable masks.",
+  "readings": [
+    {
+      "title": "Segment Anything",
+      "url": "https://arxiv.org/abs/2304.02643",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Promptable masks, model design, and segmentation evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "End-to-End Object Detection with Transformers",
+      "url": "https://arxiv.org/abs/2005.12872",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Set prediction, bipartite matching, and duplicate suppression without NMS.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "U-Net: Convolutional Networks for Biomedical Image Segmentation",
+      "url": "https://arxiv.org/abs/1505.04597",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder localization and high-resolution skip connections.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Focal Loss for Dense Object Detection",
+      "url": "https://arxiv.org/abs/1708.02002",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Down-weighting easy examples and dense detector imbalance.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "OpenCV: Camera Calibration and 3D Reconstruction",
+      "url": "https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html",
+      "publisher": "docs.opencv.org",
+      "tags": "",
+      "why": "Camera projection, lens distortion, rectification, and stereo geometry.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

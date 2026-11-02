@@ -1,0 +1,46 @@
+{
+  "id": 1005,
+  "answer": "Split data into model-training and calibration sets. Fit the model without calibration labels, compute calibration nonconformity scores, and take the order statistic at rank $\\lceil(n+1)(1-\\alpha)\\rceil$, with the appropriate infinite-threshold convention if rank exceeds $n$. [1](https://arxiv.org/abs/2107.07511)\n\n$$C(x)=\\{y:s(x,y)\\le\\hat q\\}.$$\n\nExchangeability makes the new example's score rank uniform, giving marginal coverage at least $1-\\alpha$ with conservative tie handling. No parametric outcome distribution is required, but exchangeability is a substantive assumption. Coverage is not conditional correctness for each individual or subgroup, and sets can be unhelpfully large. Evaluate size/coverage by relevant slices and reassess under deployment shift; using calibration data to tune repeatedly can break the guarantee.",
+  "readings": [
+    {
+      "title": "A Gentle Introduction to Conformal Prediction",
+      "url": "https://arxiv.org/abs/2107.07511",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Finite-sample marginal coverage, calibration scores, and exchangeability assumptions.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

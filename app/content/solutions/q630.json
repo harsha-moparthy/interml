@@ -1,0 +1,47 @@
+{
+  "id": 630,
+  "code_file": "q630.py",
+  "answer": "Momentum SGD keeps an exponentially decayed gradient sum. AdamW keeps first and second moments, corrects their initialization bias, and applies parameter decay outside those moments. State is owned by torch.optim.Optimizer so state_dict works normally. Parameters without gradients are skipped. These implementations support dense gradients and closures but omit performance options such as fused/foreach updates.\n\n**Mathematical and practical explanation.** Adam maintains $m_t=\\beta_1m_{t-1}+(1-\\beta_1)g_t$ and $v_t=\\beta_2v_{t-1}+(1-\\beta_2)g_t^2$, then uses bias-corrected moments. AdamW applies a separate shrinkage factor approximately $1-\\eta\\lambda$. Adding L2 gradients before adaptive normalization is generally different because coordinate-wise preconditioning also rescales that penalty. [3](https://arxiv.org/abs/1711.05101)\n\nFor the implementation or system context discussed above, see [1](https://www.fast.ai/posts/2018-07-02-adam-weight-decay.html) and [2](https://docs.pytorch.org/docs/stable/generated/torch.optim.AdamW.html).",
+  "readings": [
+    {
+      "title": "AdamW and Super-convergence is now the fastest way to train neural nets",
+      "url": "https://www.fast.ai/posts/2018-07-02-adam-weight-decay.html",
+      "publisher": "fast.ai",
+      "tags": "",
+      "why": "Explains why L2 regularisation and weight decay differ for Adam and what AdamW changes.",
+      "access": "Free to read"
+    },
+    {
+      "title": "AdamW",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.optim.AdamW.html",
+      "publisher": "PyTorch",
+      "tags": "",
+      "why": "Compare decoupled decay, moments, and bias correction with the reference implementation.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Decoupled Weight Decay Regularization",
+      "url": "https://arxiv.org/abs/1711.05101",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Why adaptive optimization separates weight decay from an L2 gradient penalty.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

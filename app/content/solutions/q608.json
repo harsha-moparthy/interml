@@ -1,0 +1,47 @@
+{
+  "id": 608,
+  "code_file": "q608.py",
+  "answer": "The adapter adds (alpha/rank)·BA to the frozen weight. A is random and B starts at zero, so the initial model exactly matches the base while B can receive gradients. Only adapter parameters should enter the optimizer. merge_weights returns a separate frozen Linear containing the combined weight and original bias; calling it twice cannot accidentally double the update. This API deliberately treats the merged layer as an inference artifact.\n\n**Mathematical and practical explanation.** The update is $W'=W+(\\alpha/r)BA$ with $A\\in\\mathbb R^{r\\times d_{in}}$ and $B\\in\\mathbb R^{d_{out}\\times r}$. Trainable weight count becomes $r(d_{in}+d_{out})$ instead of $d_{in}d_{out}$. At initialization $B=0$ makes the update zero, while gradients can first reach $B$ through nonzero $A$. [3](https://arxiv.org/abs/2106.09685)\n\nFor the implementation or system context discussed above, see [1](https://magazine.sebastianraschka.com/p/lora-and-dora-from-scratch) and [2](https://magazine.sebastianraschka.com/p/practical-tips-for-finetuning-llms).",
+  "readings": [
+    {
+      "title": "Code LoRA from Scratch: LoRA and DoRA From Scratch",
+      "url": "https://magazine.sebastianraschka.com/p/lora-and-dora-from-scratch",
+      "publisher": "Sebastian Raschka",
+      "tags": "",
+      "why": "Builds a LoRA layer in PyTorch, counts the trainable parameters and merges the weights back.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Practical Tips for Finetuning LLMs Using LoRA",
+      "url": "https://magazine.sebastianraschka.com/p/practical-tips-for-finetuning-llms",
+      "publisher": "Sebastian Raschka",
+      "tags": "",
+      "why": "Experiments on rank, alpha and which layers to adapt, with measured results.",
+      "access": "Free to read"
+    },
+    {
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Low-rank updates, initialization, parameter cost, and inference merging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "url": "https://arxiv.org/abs/2305.14314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "NF4, double quantization, and paged optimizers with trainable adapters.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DoRA: Weight-Decomposed Low-Rank Adaptation",
+      "url": "https://arxiv.org/abs/2402.09353",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Separating weight magnitude and direction in parameter-efficient tuning.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

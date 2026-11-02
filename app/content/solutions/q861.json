@@ -1,0 +1,46 @@
+{
+  "id": 861,
+  "answer": "Activation steering adds a chosen direction to hidden states, often derived from contrasting example sets. It can change behavior without updating weights, but effects depend on layer, strength, prompt, and off-target changes. [1](https://transformer-circuits.pub/2023/monosemantic-features/index.html)\n\nA sparse autoencoder reconstructs activations through an overcomplete sparse code:\n\n$$z=\\operatorname{ReLU}(W_ex+b_e),\\quad \\hat x=W_dz+b_d,\\quad L=\\|x-\\hat x\\|^2+\\lambda\\|z\\|_1.$$\n\nSparsity encourages features that activate selectively, helping separate concepts superposed in neuron coordinates. “Monosemantic” is an interpretive goal, not a guarantee that each feature has one complete human-readable meaning. Validate with interventions and held-out examples; correlated activation labels alone do not establish causal control or exhaustive understanding of the model.",
+  "readings": [
+    {
+      "title": "Towards Monosemanticity: Decomposing Language Models With Dictionary Learning",
+      "url": "https://transformer-circuits.pub/2023/monosemantic-features/index.html",
+      "publisher": "transformer-circuits.pub",
+      "tags": "",
+      "why": "Sparse autoencoders, feature decomposition, and interpretability limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Low-rank updates, initialization, parameter cost, and inference merging.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

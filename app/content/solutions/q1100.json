@@ -1,0 +1,46 @@
+{
+  "id": 1100,
+  "answer": "Day 1: define the business decision, target, costs, and success metric; inspect schema, missingness, duplicates, timestamps, and label availability. Create a leak-free temporal/entity split, then compare a dumb heuristic with a fast linear/GBDT or pretrained baseline. By 5 PM, deliver reproducible code, held-out metrics, representative errors, and known limitations. [1](https://developers.google.com/machine-learning/guides/rules-of-ml)\n\nWeek 1: audit labels and worst errors, fix data/split issues, establish versioned datasets and a reproducible pipeline. Week 2: iterate on the highest-value data/features, build serving with input/schema checks, monitoring, load tests, and rollback. Week 3: shadow, canary, evaluate guardrails, document ownership, and expand only if criteria pass. [2](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/) [3](https://sre.google/sre-book/table-of-contents/)\n\nThree weeks is a planning target, not a universal promise: missing labels, integrations, validation requirements, or poor baseline quality can change scope. Agree on a narrow supported release and make unresolved risks visible through explicit launch criteria.",
+  "readings": [
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Common Pitfalls",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Preprocessing leakage, pipelines, and reproducible evaluation.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

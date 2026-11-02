@@ -12,10 +12,13 @@ from placement.main import app
 
 def full_lesson(id, **kw):
     """A lesson that meets every completion rule."""
+    from placement.curated import load_solutions
+    code = load_solutions()[30]["code"].splitlines()
+    anchor = next(i for i, line in enumerate(code, 1) if "return np.asarray(x)" in line)
     base = art(id, kind="lesson", review_state="complete", exercises=[{"id": 30, "purpose": "deep-lesson", "order": 1}],
                blocks=[{"type": "check", "id": "p1"}, {"type": "check", "id": "n1"},
                        {"type": "callout", "kind": "mistake", "text": "x"},
-                       {"type": "walkthrough", "exercise_id": 30, "notes": [{"lines": [5, 5], "match": "np.asarray(x)", "text": "Insert axes."}]}],
+                       {"type": "walkthrough", "exercise_id": 30, "notes": [{"lines": [anchor, anchor], "match": "np.asarray(x)", "text": "Insert axes."}]}],
                demonstrations=[],
                checks=[{"id": "p1", "kind": "prediction", "prompt": "?", "answer_type": "choice", "options": ["a", "b"],
                         "answer": "a", "explanation": {"correct": "yes", "default": "no"}},

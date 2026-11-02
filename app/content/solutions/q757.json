@@ -1,0 +1,46 @@
+{
+  "id": 757,
+  "answer": "A standard convolution uses $K^2C_{in}C_{out}$ weights. Depthwise convolution filters each input channel separately with $K^2C_{in}$ weights, followed by a 1×1 pointwise mix with $C_{in}C_{out}$ weights. Ignoring biases and equal output spatial size, [1](https://docs.pytorch.org/docs/stable/index.html)\n\n$$\\frac{cost_{sep}}{cost_{standard}}=\\frac{1}{C_{out}}+\\frac{1}{K^2}.$$\n\nFor $K=3,C_{out}=256$, the ratio is about 0.115, or 8.7× fewer multiply-accumulates. This factor does not automatically translate into latency: depthwise kernels can have low arithmetic intensity, and extra launches/reads matter. The factorization restricts representational structure; intermediate nonlinearities and additional layers affect both quality and the fair comparison.",
+  "readings": [
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Residual Learning for Image Recognition",
+      "url": "https://arxiv.org/abs/1512.03385",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Residual blocks and empirical evidence about depth and optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 877,
+  "answer": "W4A16 compresses weights to four bits but typically computes with higher-precision activations and dequantized weights. It can speed small-batch decode by reducing bandwidth. W8A8/FP8 also lowers activation precision and may use faster low-precision tensor-core operations. [1](https://arxiv.org/abs/2306.00978) [2](https://arxiv.org/abs/2210.17323)\n\nAs batch size grows, each weight is reused for more arithmetic and the workload can become compute-bound. Dequantization overhead may then erase W4A16's bandwidth benefit. There is **no universal crossover batch size**: matrix shapes, kernel fusion, hardware, scales, and quantization format determine it. Some kernels exploit packed weights differently.\n\nBenchmark the intended prefill/decode mixture, not only a single GEMM. Include quality, memory capacity, and concurrency: a slower isolated kernel may still enable higher total serving throughput by fitting more requests.",
+  "readings": [
+    {
+      "title": "AWQ: Activation-aware Weight Quantization",
+      "url": "https://arxiv.org/abs/2306.00978",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Activation-informed protection of important weight channels.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "GPTQ: Accurate Post-Training Quantization",
+      "url": "https://arxiv.org/abs/2210.17323",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order reconstruction and sequential quantization error compensation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SmoothQuant: Accurate and Efficient Post-Training Quantization",
+      "url": "https://arxiv.org/abs/2211.10438",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Moving activation-channel scale into weights for easier quantization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

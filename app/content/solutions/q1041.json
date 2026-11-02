@@ -1,0 +1,46 @@
+{
+  "id": 1041,
+  "answer": "Five hundred poisoned examples can be consequential, but the count alone predicts neither success nor detectability: dataset size, duplication, model capacity, trigger coverage, and training choices matter. A backdoor can preserve ordinary validation accuracy while changing behavior on a narrow condition. Controlled sleeper-agent research illustrates why subsequent safety training is not proof that a backdoor was removed. [1](https://arxiv.org/abs/2401.05566)\n\nDefensively preserve data provenance, audit unexpected clusters and label changes, constrain dataset access, and compare clean and targeted evaluation slices in an isolated environment. Use trusted held-out data, model/version lineage, and rollback. Test for persistence after mitigation and monitor suspicious conditional behavior. Do not infer cleanliness from average benchmark scores; equally, an unusual input response is not sufficient evidence that deliberate poisoning occurred.",
+  "readings": [
+    {
+      "title": "Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training",
+      "url": "https://arxiv.org/abs/2401.05566",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Controlled evidence about persistent backdoors and evaluation limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Confident Learning: Estimating Uncertainty in Dataset Labels",
+      "url": "https://arxiv.org/abs/1911.00068",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Out-of-sample label-error estimation and data-quality auditing.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Constitutional AI: Harmlessness from AI Feedback",
+      "url": "https://arxiv.org/abs/2212.08073",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Principle-based critique/revision and AI preference feedback.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

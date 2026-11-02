@@ -2,7 +2,7 @@
   "id": "lesson-q581-implement-a-small-complete-u-net",
   "kind": "lesson",
   "title": "Implement a small complete U-Net",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            8,
-            14
+            13,
+            13
           ],
           "match": "def block(a, b):",
           "text": "Downsample into context. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            16,
-            61
+            21,
+            21
           ],
           "match": "class UNet(nn.Module):",
           "text": "Process bottleneck. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            63,
-            63
+            68,
+            68
           ],
           "match": "return UNet()",
           "text": "Predict one logit per pixel. This is the code stage shown in the mechanism animation."

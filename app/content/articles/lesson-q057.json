@@ -2,7 +2,7 @@
   "id": "lesson-q057",
   "kind": "lesson",
   "title": "Spend computation to save activations",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            5,
-            5
+            7,
+            7
           ],
           "match": "use_reentrant=False",
           "text": "The wrapper deliberately uses PyTorch’s non-reentrant checkpoint variant."
         },
         {
           "lines": [
-            5,
-            5
+            7,
+            7
           ],
           "match": "preserve_rng_state=True",
           "text": "Consistent randomness protects the connection between forward values and recomputation."

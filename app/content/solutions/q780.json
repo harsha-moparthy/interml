@@ -1,0 +1,46 @@
+{
+  "id": 780,
+  "answer": "Many algorithms depend only on inner products. A positive-semidefinite kernel supplies those products in an implicit feature space without explicitly constructing all features. [1](https://scikit-learn.org/stable/modules/svm.html)\n\n$$e^{-\\gamma\\|x-x'\\|^2}=e^{-\\gamma\\|x\\|^2}e^{-\\gamma\\|x'\\|^2}\\sum_{n=0}^{\\infty}\\frac{(2\\gamma x^Tx')^n}{n!}.$$\n\nEach polynomial term corresponds to finite-degree monomials; all degrees together yield an infinite-dimensional representation. Infinite dimension does not mean infinite computational cost per kernel evaluation, nor automatic overfitting: regularization and $\\gamma$ control the function class used. The $N\\times N$ Gram matrix can still be expensive in data size. Validate scaling and kernel width, and use approximations when sample count makes exact kernel methods impractical.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Support Vector Machines",
+      "url": "https://scikit-learn.org/stable/modules/svm.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Margin objectives, kernel parameters, and scaling requirements.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

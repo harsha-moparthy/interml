@@ -2,7 +2,7 @@
   "id": "lesson-q113",
   "kind": "lesson",
   "title": "One input can reach the loss along several paths",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            4,
-            4
+            8,
+            8
           ],
           "match": "gradient[output] = 1.0",
           "text": "The output’s derivative with respect to itself seeds the reverse pass."
         },
         {
           "lines": [
-            18,
-            18
+            22,
+            22
           ],
           "match": "gradient[parent] += g * multiplier",
           "text": "Every occurrence of a parent adds a contribution; it must not overwrite earlier paths."

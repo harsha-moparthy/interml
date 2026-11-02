@@ -1,0 +1,46 @@
+{
+  "id": 1050,
+  "answer": "Define one primary outcome tied to the decision, diagnostics that explain changes, guardrails limiting harm, and invariants checking experiment integrity. For a recommender, these might be qualified engagement, click/coverage breakdowns, complaints/latency, and allocation or logging consistency respectively. State exposure unit, duration, minimum effect, and stopping rules before launch. [1](https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/) [2](https://arxiv.org/abs/1512.04922)\n\nA statistically positive primary metric does not justify launch if a prespecified safety/quality guardrail fails, sample-ratio mismatch invalidates assignment, or instrumentation is broken. Distinguish confidence intervals from practical importance and account for repeated looks or multiple comparisons. Diagnose failures before rerunning; do not discard inconvenient metrics after seeing results. Ship only when the experiment supports the intended causal claim and the total product tradeoff is acceptable.",
+  "readings": [
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Always Valid Inference: Bringing Sequential Analysis to A/B Testing",
+      "url": "https://arxiv.org/abs/1512.04922",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Valid inference with continuous monitoring and data-dependent stopping.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "From Augmentation to Decomposition: A New Look at CUPED",
+      "url": "https://arxiv.org/abs/2312.02935",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "CUPED variance reduction, regression adjustment, and metric decomposition by its original author and collaborators.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

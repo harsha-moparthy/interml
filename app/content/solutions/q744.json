@@ -1,0 +1,46 @@
+{
+  "id": 744,
+  "answer": "SGD with momentum sometimes performs well on vision benchmarks, while AdamW is widely effective for transformers. Neither observation makes AdamW mathematically mandatory or SGD universally better at generalization. Architecture, data, tuning budget, schedules, and regularization confound simple comparisons. [1](https://arxiv.org/abs/1711.05101) [2](https://www.deeplearningbook.org/contents/optimization.html)\n\n“Flat minima generalize better” is a useful hypothesis with caveats: parameter rescaling can change apparent sharpness without changing the represented function. Adaptive preconditioning and stochastic-gradient noise influence which solutions training reaches, but do not establish a universal ranking.\n\nA fair experiment tunes learning rate and decay independently for each optimizer, matches training compute and augmentation, and measures held-out quality across seeds. Include optimizer-state memory and convergence speed when selecting for a production training budget.",
+  "readings": [
+    {
+      "title": "Decoupled Weight Decay Regularization",
+      "url": "https://arxiv.org/abs/1711.05101",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Why adaptive optimization separates weight decay from an L2 gradient penalty.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Residual Learning for Image Recognition",
+      "url": "https://arxiv.org/abs/1512.03385",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Residual blocks and empirical evidence about depth and optimization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 961,
+  "answer": "Subtracting the maximum keeps exponent arguments nonpositive while preserving the normalized result. [1](https://docs.pytorch.org/docs/stable/index.html)\n\n$$\\log\\sum_i e^{x_i}=m+\\log\\sum_i e^{x_i-m},\\qquad m=\\max_i x_i.$$\n\nWithout stabilization, large positive logits can overflow and produce infinity divided by infinity in softmax. Subtraction prevents that overflow for finite inputs, but does not repair NaNs or an all-negative-infinity masked row. Such rows need an explicit policy, often zero output with safe normalization. Use library log-sum-exp/log-softmax operations, especially when computing cross-entropy, rather than taking a log of already rounded tiny probabilities.",
+  "readings": [
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

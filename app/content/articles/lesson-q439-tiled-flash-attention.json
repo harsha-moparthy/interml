@@ -2,7 +2,7 @@
   "id": "lesson-q439-tiled-flash-attention",
   "kind": "lesson",
   "title": "Tiled Flash Attention",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -81,34 +81,34 @@
       "notes": [
         {
           "lines": [
-            4,
-            4
+            9,
+            9
           ],
           "match": "__global__ void attention(co",
           "text": "Load one query. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            7,
-            7
+            12,
+            12
           ],
-          "match": "if(row>=n) return;",
+          "match": "if (row >= n)",
           "text": "Stream a key/value tile. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            10,
-            10
+            18,
+            18
           ],
-          "match": "for(int tile=0;tile<=row;til",
+          "match": "for (int tile = 0; tile <= row; tile += 32)",
           "text": "Update running maximum. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            11,
-            11
+            19,
+            19
           ],
-          "match": "for(int j=tile;j<tile+32 && ",
+          "match": "for (int j = tile; j < tile + 32 && j <= row; ++j)",
           "text": "Rescale old accumulator. This is the code stage shown in the mechanism animation."
         }
       ],

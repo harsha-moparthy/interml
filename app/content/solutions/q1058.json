@@ -1,0 +1,46 @@
+{
+  "id": 1058,
+  "answer": "For differentiable convex $g$, the supporting-line inequality is $g(x)\\ge g(m)+g'(m)(x-m)$ at $m=\\mathbb E[X]$. Taking expectations cancels the linear term, giving Jensen's inequality. Subgradients extend the argument to suitable nondifferentiable convex functions. Concave $\\log$ reverses the inequality. [2](https://probml.github.io/pml-book/book1.html)\n\nWrite $\\log p_\\theta(x)=\\log\\mathbb E_{q_\\phi(z|x)}[p_\\theta(x,z)/q_\\phi(z|x)]$. Applying concavity yields $\\mathbb E_q[\\log p_\\theta(x,z)-\\log q_\\phi(z|x)]$, which expands into the expected reconstruction log likelihood minus $D_{KL}(q_\\phi(z|x)\\|p(z))$. [1](https://arxiv.org/abs/1312.6114)\n\nThe gap is $D_{KL}(q_\\phi(z|x)\\|p_\\theta(z|x))\\ge0$. Equality holds when the variational posterior equals the true posterior, subject to support and integrability requirements. Optimizing the bound jointly improves the generative model and its approximate posterior; a restricted variational family can leave a nonzero inference gap.",
+  "readings": [
+    {
+      "title": "Auto-Encoding Variational Bayes",
+      "url": "https://arxiv.org/abs/1312.6114",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "ELBO optimization and the Gaussian reparameterization trick.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

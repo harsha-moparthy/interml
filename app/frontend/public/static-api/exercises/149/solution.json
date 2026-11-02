@@ -1,1 +1,1 @@
-{"id":149,"language":"Python","code":"import numpy as np\n\n\ndef q149(x, y, degree=3, gamma=1, offset=1):\n    return (gamma * np.asarray(x) @ np.asarray(y).T + offset) ** degree\n","answer":"","content_kind":"coding"}
+{"id":149,"language":"Python","code":"import numpy as np\n\n\ndef q149(x, y, degree=3, gamma=1, offset=1):\n    \"\"\"Compute a polynomial kernel matrix (gamma*x_i dot y_j+offset)^degree.\"\"\"\n    return (gamma * np.asarray(x) @ np.asarray(y).T + offset) ** degree\n","answer":"","content_kind":"coding"}

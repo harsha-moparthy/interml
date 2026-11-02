@@ -1,0 +1,46 @@
+{
+  "id": 875,
+  "answer": "Pinned host memory cannot be paged out, allowing efficient DMA to the GPU. With appropriate nonblocking copies and streams, transfers can overlap computation. Worker processes prepare data concurrently so the training loop need not serialize decoding/transforms with GPU work. [1](https://docs.pytorch.org/docs/stable/index.html) [2](https://docs.nvidia.com/cuda/cuda-c-programming-guide/)\n\nNeither option guarantees speed: too many workers cause CPU/I/O contention, excessive pinned memory pressures the host, and tiny batches can be overhead-bound. `non_blocking=True` alone does not create useful overlap if the consumer immediately synchronizes or shares a blocking stream dependency.\n\nProfile dataloader wait, H2D copy, and GPU compute separately. Tune workers, prefetch, persistent workers, affinity, and batch size on the actual storage/CPU/GPU topology, while preserving deterministic sampling and avoiding duplicate worker data.",
+  "readings": [
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch: torch.compile Troubleshooting",
+      "url": "https://docs.pytorch.org/docs/stable/torch.compiler_troubleshooting.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Guards, recompilation, graph breaks, and diagnosis.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

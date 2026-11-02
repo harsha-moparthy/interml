@@ -1,0 +1,47 @@
+{
+  "id": 650,
+  "code_file": "q650.py",
+  "answer": "TF-IDF weights raw term counts with smoothed inverse document frequency and uses cosine similarity here. BM25 instead saturates term frequency and adjusts for document length; its score is not a probability. The file explicitly fixes tokenization and IDF conventions so results are reproducible. An empty query or all-empty corpus produces zero scores. Real search systems add an inverted index rather than scanning every document.\n\n**Mathematical and practical explanation.** BM25 sums $IDF(t)\\,tf(t,d)(k_1+1)/[tf(t,d)+k_1(1-b+b|d|/avgdl)]$ over query terms under a stated convention. Term-frequency saturation limits repeated-word benefit, and length normalization reduces the advantage of long documents. Compare lexical retrieval with dense/hybrid alternatives using relevance judgments rather than assuming semantic embeddings always dominate exact matching. [3](https://nlp.stanford.edu/IR-book/)\n\nFor the implementation or system context discussed above, see [1](https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables) and [2](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).",
+  "readings": [
+    {
+      "title": "Practical BM25, Part 2",
+      "url": "https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables",
+      "publisher": "Elastic",
+      "tags": "",
+      "why": "Explains each BM25 term with worked numbers.",
+      "access": "Free to read"
+    },
+    {
+      "title": "tf-idf",
+      "url": "https://en.wikipedia.org/wiki/Tf%E2%80%93idf",
+      "publisher": "Wikipedia",
+      "tags": "",
+      "why": "Term frequency and inverse document frequency variants.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "url": "https://arxiv.org/abs/2107.05720",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Learned sparse term weights and vocabulary expansion.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction",
+      "url": "https://arxiv.org/abs/2004.12832",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Token-level MaxSim and late interaction storage costs.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

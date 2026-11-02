@@ -1,0 +1,46 @@
+{
+  "id": 909,
+  "answer": "Rank by expected value per impression under the bid's payment basis. For a cost-per-action bid, expected value is $bid\\times P(click)\\times P(conversion\\mid click)$; multiply by 1,000 to express expected value per thousand impressions. For CPC bids, use bid times CTR; CPM bids already have an impression-based unit. [1](https://arxiv.org/abs/1804.07931)\n\nHighest bid alone ignores conversion likelihood; highest CTR alone ignores value. Real auctions also include quality, relevance, reserve, budget, pacing, and policy constraints. Predicted probabilities must correspond to the auction's outcome definitions and attribution window.\n\nExpected-value ranking does not fully specify pricing: GSP, VCG, and first-price mechanisms differ. Analyze allocation, payment, incentives, and user impact separately instead of treating the eCPM score as the whole auction.",
+  "readings": [
+    {
+      "title": "Entire Space Multi-Task Model",
+      "url": "https://arxiv.org/abs/1804.07931",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Impression-space CTR/CTCVR learning and post-click conversion modeling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Doubly Robust Policy Evaluation and Learning",
+      "url": "https://arxiv.org/abs/1103.4601",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Combining reward models and logged propensities for off-policy evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

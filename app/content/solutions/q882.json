@@ -1,0 +1,46 @@
+{
+  "id": 882,
+  "answer": "WER counts substitutions, deletions, and insertions equally relative to reference word count. It can be low while a crucial entity, negation, dosage, or ticker is wrong; common filler words may dominate the denominator. [1](https://arxiv.org/abs/2212.04356)\n\n$$WER=(S+D+I)/N.$$\n\nReport ordinary WER for comparability, plus entity/number accuracy, negation errors, and task-specific weighted consequences. Keep normalization rules explicit: punctuation, casing, scripts, and number expansion can change scores substantially. Evaluate noisy, accented, and code-switched slices, with human review for consequential errors. Semantic similarity alone is insufficient because “fifteen” and “fifty” can be embedding-near but operationally very different. Separate transcription fidelity from downstream summarization or decision accuracy.",
+  "readings": [
+    {
+      "title": "Robust Speech Recognition via Large-Scale Weak Supervision",
+      "url": "https://arxiv.org/abs/2212.04356",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder speech recognition, training data, and error behavior.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Connectionist Temporal Classification",
+      "url": "https://www.cs.toronto.edu/~graves/icml_2006.pdf",
+      "publisher": "www.cs.toronto.edu",
+      "tags": "",
+      "why": "Alignment marginalization with blanks and repeated-label collapse.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sequence Transduction with Recurrent Neural Networks",
+      "url": "https://arxiv.org/abs/1211.3711",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Transducer alignment, prediction network, and streaming sequence modeling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

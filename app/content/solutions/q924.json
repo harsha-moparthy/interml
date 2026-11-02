@@ -1,0 +1,46 @@
+{
+  "id": 924,
+  "answer": "A strictly increasing transform preserves feature order, so an exact tree splitter can form the same left/right partitions with transformed thresholds. Log on positive values and cube are examples. In ideal arithmetic the fitted partitions are unchanged. [1](https://scikit-learn.org/stable/modules/ensemble.html)\n\nHistogram binning, finite precision, ties, random thresholds, and implementation details can break exact practical invariance. The result also says nothing about changing the **target**.\n\nLinear regression changes its hypothesis class from linear-in-$x$ to linear-in-$f(x)$. kNN distances change, and neural optimization/representations can change. Fit transforms only where mathematically defined and use training-only learned parameters. Tree invariance does not mean preprocessing is irrelevant: missing values, categorical encoding, and leakage still matter.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "XGBoost: A Scalable Tree Boosting System",
+      "url": "https://arxiv.org/abs/1603.02754",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order tree objectives and sparsity-aware split finding.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Support Vector Machines",
+      "url": "https://scikit-learn.org/stable/modules/svm.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Margin objectives, kernel parameters, and scaling requirements.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Clustering",
+      "url": "https://scikit-learn.org/stable/modules/clustering.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Cluster assumptions, linkage choices, density clustering, and silhouette evaluation.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

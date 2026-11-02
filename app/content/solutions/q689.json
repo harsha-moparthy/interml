@@ -1,0 +1,46 @@
+{
+  "id": 689,
+  "answer": "Position interpolation maps a new position $m$ to $m/s$, where $s=L_{new}/L_{train}$; extending 8k to 128k gives $s=16$. This keeps angles within the old range but compresses distinctions between nearby positions. Frequency-aware methods adjust different RoPE frequencies differently, rather than uniformly shrinking every angle. [1](https://arxiv.org/abs/2309.00071) [2](https://arxiv.org/abs/2104.09864)\n\n$$\\phi_j(m)=m\\theta_j\\quad\\longrightarrow\\quad \\phi'_j(m)=m\\theta'_j.$$\n\nNTK-aware scaling changes the frequency base; YaRN blends interpolation and extrapolation across frequency bands and adjusts attention scaling. These modify positional encoding, not the information capacity of a fixed-size KV cache. Short continued training is often used; “without full retraining” does not mean no adaptation or no quality loss. Evaluate short-context regression, long-document tasks, retrieval across positions, and latency—not just whether 128k tokens fit.",
+  "readings": [
+    {
+      "title": "YaRN: Efficient Context Window Extension",
+      "url": "https://arxiv.org/abs/2309.00071",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Frequency-dependent RoPE extension and attention temperature scaling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+      "url": "https://arxiv.org/abs/2104.09864",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Rotation matrices and the relative-position dot-product identity.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Gemma 2: Improving Open Language Models at a Practical Size",
+      "url": "https://arxiv.org/abs/2408.00118",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Soft-capping and the model's specific normalization and attention design.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DeepSeek-V3 Technical Report",
+      "url": "https://arxiv.org/abs/2412.19437",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "MLA, expert routing, multi-token prediction, and mixed-precision training.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

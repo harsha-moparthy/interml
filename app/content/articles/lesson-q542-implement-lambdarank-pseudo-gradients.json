@@ -2,7 +2,7 @@
   "id": "lesson-q542-implement-lambdarank-pseudo-gradients",
   "kind": "lesson",
   "title": "Implement LambdaRank pseudo-gradients",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            6,
-            6
+            11,
+            11
           ],
           "match": "y = np.asarray(labels, float",
           "text": "Compute gains and discounts. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            11,
-            11
+            16,
+            16
           ],
           "match": "positions = np.empty(n, int)",
           "text": "Measure swap NDCG change. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            16,
-            16
+            21,
+            21
           ],
           "match": "gradient = np.zeros(n)",
           "text": "Scale pair pressure. This is the code stage shown in the mechanism animation."

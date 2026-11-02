@@ -1,0 +1,46 @@
+{
+  "id": 705,
+  "answer": "Let the draft distribution be $q$ and target be $p$ at the same prefix. Sample $x\\sim q$ and accept with $a(x)=\\min(1,p(x)/q(x))$. If rejected, sample from the normalized positive residual $r(x)\\propto[p(x)-q(x)]_+$. [1](https://arxiv.org/abs/2211.17192)\n\n$$P(output=x)=\\min(p(x),q(x))+[p(x)-q(x)]_+=p(x).$$\n\nThe residual is weighted by total rejection probability, equal to its normalizing mass. For a proposed block, verify conditioned prefixes in parallel, stop at the first rejection, and discard later proposals because their prefixes are now wrong. If all proposals pass, draw the extra target token. Exactness requires consistent temperature/filter transformations and correct residual sampling; approximate acceptance rules can change the distribution. Speed depends on draft cost, acceptance, and verification hardware utilization.",
+  "readings": [
+    {
+      "title": "Fast Inference from Transformers via Speculative Decoding",
+      "url": "https://arxiv.org/abs/2211.17192",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Acceptance and residual-sampling proof preserving the target distribution.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Medusa: Simple LLM Inference Acceleration Framework",
+      "url": "https://arxiv.org/abs/2401.10774",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Multiple decoding heads, tree attention, and verification choices.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "EAGLE: Speculative Sampling Requires Rethinking Feature Uncertainty",
+      "url": "https://arxiv.org/abs/2401.15077",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Feature-level drafting and how it differs from an independent draft model.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

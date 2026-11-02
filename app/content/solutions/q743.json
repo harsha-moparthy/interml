@@ -1,0 +1,46 @@
+{
+  "id": 743,
+  "answer": "Adding $\\lambda\\|\\theta\\|^2/2$ to the objective changes the gradient to $g+\\lambda\\theta$. Adam then feeds that combination into both moment estimators, entangling shrinkage with gradient history and coordinatewise preconditioning. Decoupled decay applies shrinkage separately. [1](https://arxiv.org/abs/1711.05101)\n\n$$\\theta_{t+1}=(1-\\eta\\lambda)\\theta_t-\\eta\\frac{\\hat m_t}{\\sqrt{\\hat v_t}+\\epsilon}.$$\n\nIf the adaptive denominator is large, a coupled penalty's immediate contribution is attenuated; the full dynamics are more complex because the penalty also changes the moments. Ordinary SGD makes L2 and weight decay equivalent under matched conventions, but adaptive optimization generally does not. Biases and normalization scales are often excluded by deliberate parameter groups; this is a tunable practice rather than an algebraic necessity.",
+  "readings": [
+    {
+      "title": "Decoupled Weight Decay Regularization",
+      "url": "https://arxiv.org/abs/1711.05101",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Why adaptive optimization separates weight decay from an L2 gradient penalty.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

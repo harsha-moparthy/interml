@@ -2,7 +2,7 @@
   "id": "lesson-q598-route-requests-and-fail-over-streamed-responses",
   "kind": "lesson",
   "title": "Route requests and fail over streamed responses",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            2,
-            2
+            9,
+            9
           ],
           "match": "attempts = []",
           "text": "Read streamed chunks. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            3,
-            19
+            10,
+            10
           ],
           "match": "for name, provider in provid",
           "text": "Classify failure timing. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            20,
-            20
+            28,
+            28
           ],
           "match": "return ([], attempts, \"unava",
           "text": "Return complete or partial status. This is the code stage shown in the mechanism animation."

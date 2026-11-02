@@ -1,0 +1,46 @@
+{
+  "id": 783,
+  "answer": "The elbow method looks for diminishing reductions in within-cluster squared error, but there may be no clear elbow. Silhouette compares each point's average within-cluster distance $a$ with its nearest alternative-cluster average $b$. [1](https://scikit-learn.org/stable/modules/clustering.html)\n\n$$s=(b-a)/\\max(a,b).$$\n\nIt favors certain geometries and can mislead on nonconvex or highly unequal clusters. GMM AIC/BIC compare penalized likelihoods for probabilistic models; they are not k-means objectives and depend on covariance assumptions. Use multiple initializations, resampling stability, downstream utility, and plausible segment sizes. There may be no uniquely “optimal” $K$: two resolutions can answer different business questions. Avoid choosing $K$ on test outcomes that will later be reported as independent evidence.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Clustering",
+      "url": "https://scikit-learn.org/stable/modules/clustering.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Cluster assumptions, linkage choices, density clustering, and silhouette evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

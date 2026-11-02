@@ -1,0 +1,46 @@
+{
+  "id": 835,
+  "answer": "A contextual bandit chooses an action based on observed context and receives a reward, but typically does not model how today's action changes future state. LinUCB assumes a linear expected reward and adds an uncertainty bonus. [1](https://incompleteideas.net/book/the-book-2nd.html)\n\n$$a_t=\\arg\\max_a\\left[x_{t,a}^T\\hat\\theta_a+\\alpha\\sqrt{x_{t,a}^TA_a^{-1}x_{t,a}}\\right].$$\n\nIt personalizes exploration using user/item context, whereas a simple A/B test randomizes among fixed policies to estimate their average effects. Full RL models sequential state transitions and delayed consequences. If recommendations alter future preferences, a bandit approximation may miss important effects. Log contexts, chosen actions, rewards, and selection probabilities; evaluate support and delayed feedback before using off-policy estimates to promote a new policy.",
+  "readings": [
+    {
+      "title": "Reinforcement Learning: An Introduction",
+      "url": "https://incompleteideas.net/book/the-book-2nd.html",
+      "publisher": "incompleteideas.net",
+      "tags": "",
+      "why": "Sutton and Barto's open textbook on bandits, value functions, and policy gradients.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Doubly Robust Policy Evaluation and Learning",
+      "url": "https://arxiv.org/abs/1103.4601",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Combining reward models and logged propensities for off-policy evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

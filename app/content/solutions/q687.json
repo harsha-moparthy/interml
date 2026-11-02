@@ -1,0 +1,46 @@
+{
+  "id": 687,
+  "answer": "LayerNorm subtracts the feature mean and divides by the centered standard deviation; RMSNorm divides by root mean square without centering. Both usually learn a featurewise scale. RMSNorm removes a reduction and subtraction while controlling overall feature magnitude. It sacrifices invariance to adding a constant offset. [1](https://arxiv.org/abs/1910.07467)\n\n$$\\operatorname{RMSNorm}(x)_i=\\gamma_i\\frac{x_i}{\\sqrt{d^{-1}\\sum_jx_j^2+\\epsilon}}.$$\n\nFor $x=(3,4)$ the RMS is $\\sqrt{12.5}$, so the normalized vector keeps its direction. LayerNorm instead centers it to $(-0.5,0.5)$. Similar downstream accuracy is empirical, not mathematical equivalence. The claimed 10–15% saving is not universal: fused kernels, tensor sizes, precision, and the share of runtime spent in normalization determine end-to-end speed. Benchmark both latency and validation quality on the intended workload.",
+  "readings": [
+    {
+      "title": "Root Mean Square Layer Normalization",
+      "url": "https://arxiv.org/abs/1910.07467",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "RMS normalization, invariances, and measured rather than universal efficiency gains.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "On Layer Normalization in the Transformer Architecture",
+      "url": "https://arxiv.org/abs/2002.04745",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Gradient behavior at initialization and normalization placement.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Gemma 2: Improving Open Language Models at a Practical Size",
+      "url": "https://arxiv.org/abs/2408.00118",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Soft-capping and the model's specific normalization and attention design.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

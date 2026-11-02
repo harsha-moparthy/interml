@@ -33,6 +33,10 @@ Not measured: browsers other than Chromium, phones, mobile data, and screen read
 
 ## About the solutions
 
+Maintained, commented implementations for C01–C36 live in `app/content/solutions/`.
+The importer applies them over the original workbook, preserving source attribution.
+See [solution editing and verification](app/content/solutions/README.md).
+
 The site contains every supplied solution as a JSON file (`static-api/exercises/<id>/solution.json`).
 A GitHub Pages site is public even when the repository is private.
 79 questions carry a license note in the data. Check those terms before you share the address.

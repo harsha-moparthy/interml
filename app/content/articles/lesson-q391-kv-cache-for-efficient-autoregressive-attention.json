@@ -2,7 +2,7 @@
   "id": "lesson-q391-kv-cache-for-efficient-autoregressive-attention",
   "kind": "lesson",
   "title": "KV Cache for Efficient Autoregressive Attention",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,7 +89,7 @@
         },
         {
           "lines": [
-            5,
+            9,
             9
           ],
           "match": "if cache is None:",
@@ -98,7 +98,7 @@
         {
           "lines": [
             10,
-            13
+            10
           ],
           "match": "return (",
           "text": "Reuse all old cache entries. This is the code stage shown in the mechanism animation."

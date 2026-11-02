@@ -1,0 +1,46 @@
+{
+  "id": 995,
+  "answer": "BLEU measures clipped n-gram precision with a brevity penalty, often aggregated at corpus level. ROUGE variants emphasize reference overlap through recall, longest common subsequences, or related formulations. BERTScore compares contextual token embeddings; MoverScore uses transport-like semantic alignment. [1](https://scikit-learn.org/stable/modules/model_evaluation.html) [3](https://arxiv.org/abs/1908.10084)\n\nLexical metrics penalize valid paraphrases; semantic metrics can overlook changed numbers, negation, or unsupported facts. No single score establishes summary faithfulness. Use multiple references where appropriate, report exact variants/tokenization, and combine automated metrics with source-grounded human or executable checks. Comparing one sentence's BLEU to corpus BLEU is especially misleading.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Position, verbosity, and self-enhancement bias in model judging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+      "url": "https://arxiv.org/abs/1910.10683",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder pretraining objectives and controlled architecture comparisons.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 929,
+  "answer": "Expand the squared norm:\n\n$$\\|u-v\\|^2=\\|u\\|^2+\\|v\\|^2-2u^Tv=2(1-\\cos(u,v))$$\n\nwhen both norms equal one. Minimizing Euclidean distance then produces the same ordering as maximizing cosine similarity, with ties preserved. [1](https://arxiv.org/abs/2401.08281)\n\nFor unnormalized vectors, maximum inner product search also rewards candidate magnitude; cosine removes that magnitude, and Euclidean distance adds the candidate norm term. They can rank items differently. Normalizing vectors is therefore a modeling choice, not merely an implementation optimization. A trained retrieval model may intentionally encode popularity or confidence in norms. Use an index and distance convention matching training, and handle zero vectors explicitly because cosine normalization is undefined there.",
+  "readings": [
+    {
+      "title": "The FAISS Library",
+      "url": "https://arxiv.org/abs/2401.08281",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Exact and approximate search, compression, and index tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Matryoshka Representation Learning",
+      "url": "https://arxiv.org/abs/2205.13147",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Training useful nested embedding prefixes for adaptive cost.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

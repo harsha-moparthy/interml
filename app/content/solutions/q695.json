@@ -1,0 +1,46 @@
+{
+  "id": 695,
+  "answer": "With $T$ tokens, $E$ experts, and top-$k$ routing, average assignments per expert are $kT/E$. A capacity-limited implementation may reserve approximately $\\lceil c kT/E\\rceil$ slots per expert. If more tokens select an expert, excess assignments must be dropped, rerouted, or processed with variable-size work. Dropping is an implementation choice, not inherent to MoE. [1](https://arxiv.org/abs/2412.19437)\n\nA router can amplify its own early advantage: an expert receives more tokens, learns faster, and becomes even more attractive. This produces unbalanced load and poorly trained alternatives. Balancing penalties, router noise, capacity choices, and load-dependent selection biases address different parts of the problem. DeepSeek-V3 adjusts expert-selection biases for balancing while retaining affinity-based combination weights. Track load histograms, overflow, throughput, and quality, not only the mean routing probability.",
+  "readings": [
+    {
+      "title": "DeepSeek-V3 Technical Report",
+      "url": "https://arxiv.org/abs/2412.19437",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "MLA, expert routing, multi-token prediction, and mixed-precision training.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+      "url": "https://arxiv.org/abs/2312.00752",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Input-dependent recurrence, selective scanning, and sequence-memory tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

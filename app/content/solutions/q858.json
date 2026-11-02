@@ -1,0 +1,46 @@
+{
+  "id": 858,
+  "answer": "Knowledge is distributed across shared parameters, so increasing loss on a forget set can damage neighboring useful capabilities and still fail to remove all recoverable information. Paraphrases, alternate prompts, and memorized fragments may survive. [1](https://arxiv.org/abs/2405.07406) [2](https://www.deeplearningbook.org/contents/regularization.html)\n\nEvaluate unlearning against a retrained-without-data reference where feasible, using held-out related facts, extraction attempts, membership tests with known limitations, and retained-task utility. Combine targeted updates with retention objectives or localized mechanisms, but do not equate refusal at inference with deletion from weights.\n\nTrack training-data provenance and exact scope of the removal request. Gradient ascent is an optimization operation, not a certificate of legal or technical erasure. Strong claims require defined adversary/access assumptions and evidence beyond a small set of prompted examples.",
+  "readings": [
+    {
+      "title": "Machine Unlearning: A Comprehensive Survey",
+      "url": "https://arxiv.org/abs/2405.07406",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Removal objectives, retraining baselines, evaluation, and approximate unlearning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

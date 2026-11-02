@@ -1,0 +1,46 @@
+{
+  "id": 710,
+  "answer": "Under the commonly specified mixed-precision AdamW layout: FP16/BF16 model weights use 2 bytes/parameter, low-precision gradients 2, FP32 master weights 4, and FP32 first/second moments 4 each. Total persistent parameter-related storage is 16 bytes/parameter. [1](https://arxiv.org/abs/1910.02054)\n\n$$7\\times10^9\\times(2+2+4+4+4)=112\\times10^9\\ \\text{bytes}\\approx104.31\\ \\text{GiB}.$$\n\nThis excludes activations, attention/KV-like training intermediates, temporary optimizer buffers, communication buffers, and allocator overhead. If gradients are FP32, the corresponding layout uses 18 bytes/parameter. Some implementations keep FP32 parameters directly and use autocast without a separate master copy. State the actual optimizer and dtype layout before quoting a number. Sharding and quantized optimizer states change per-device memory without changing the parameter count.",
+  "readings": [
+    {
+      "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+      "url": "https://arxiv.org/abs/1910.02054",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Optimizer, gradient, and parameter sharding with communication accounting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "url": "https://arxiv.org/abs/2305.14314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "NF4, double quantization, and paged optimizers with trainable adapters.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Training Deep Nets with Sublinear Memory Cost",
+      "url": "https://arxiv.org/abs/1604.06174",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Activation recomputation and memory–compute tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

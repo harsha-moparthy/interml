@@ -1,0 +1,46 @@
+{
+  "id": 868,
+  "answer": "Backward usually produces gradients from the last layers toward the first. DDP groups gradients into buckets and launches an asynchronous reduction when a bucket is ready, allowing earlier-layer backward computation to overlap communication. Registration order is a scheduling cue; actual bucket construction/rebuilding and static-graph behavior depend on implementation. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nTiny buckets launch too many collectives; huge buckets wait too long and leave a communication tail after computation ends. Tune bucket size against gradient readiness, link bandwidth, and network latency. Unused parameters or divergent control flow can change readiness or hang collectives.\n\nA correct overlap optimization preserves the gradient scaling and optimizer-step barrier: parameters must not update before required reductions finish. Inspect the timeline rather than assuming all communication is hidden.",
+  "readings": [
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+      "url": "https://arxiv.org/abs/1910.02054",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Optimizer, gradient, and parameter sharding with communication accounting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Megatron-LM: Training Multi-Billion Parameter Language Models",
+      "url": "https://arxiv.org/abs/1909.08053",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Column/row parallel linear layers and communication placement.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 690,
+  "answer": "MHA has separate keys and values for every query head. MQA shares one KV head across all query heads; GQA shares each KV head within a group. Thus MQA/GQA reduce cached state and decode-time KV reads, at a possible quality cost. Query-head count and attention score work can remain unchanged. [1](https://arxiv.org/abs/2305.13245)\n\n$$M_{KV}=2BLSH_{KV}d_hb.$$\n\nHere $b$ is bytes per scalar; the factor 2 counts keys and values. MLA instead caches a compressed latent representation plus positional information and uses compatible projections to recover attention behavior. Its saving is not simply “one KV head”: account for latent and positional dimensions and implementation details. [2](https://arxiv.org/abs/2412.19437) These methods primarily relieve memory capacity/bandwidth pressure during decoding; they do not remove autoregressive dependence or make all attention computation constant-time.",
+  "readings": [
+    {
+      "title": "GQA: Training Generalized Multi-Query Transformer Models",
+      "url": "https://arxiv.org/abs/2305.13245",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "The quality, bandwidth, and cache tradeoff between MHA, MQA, and GQA.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DeepSeek-V3 Technical Report",
+      "url": "https://arxiv.org/abs/2412.19437",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "MLA, expert routing, multi-token prediction, and mixed-precision training.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Efficient Memory Management for LLM Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Block tables, fragmentation, shared prefixes, and serving throughput.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

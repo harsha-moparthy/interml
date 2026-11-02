@@ -2,7 +2,7 @@
   "id": "lesson-q519-build-a-shifted-window-attention-mask",
   "kind": "lesson",
   "title": "Build a shifted-window attention mask",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            8,
-            8
+            13,
+            13
           ],
           "match": "hp = math.ceil(height / wind",
           "text": "Apply cyclic shift. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            11,
-            11
+            16,
+            16
           ],
           "match": "oy = (y + shift) % hp",
           "text": "Recover original regions. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            15,
-            15
+            20,
+            20
           ],
           "match": "rx = (ox - shift) // window",
           "text": "Partition shifted windows. This is the code stage shown in the mechanism animation."

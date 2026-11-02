@@ -1,0 +1,46 @@
+{
+  "id": 843,
+  "answer": "Pretraining scaling allocates a one-time compute budget between parameters and training tokens. Test-time scaling allocates per-request compute to additional samples, search, verification, or longer generated reasoning. The two are complementary, not replacements. [1](https://arxiv.org/abs/2408.03314) [2](https://arxiv.org/abs/2203.15556)\n\n$$C_{total}=C_{train}+Q\\,C_{request}.$$\n\nFor a hard but solvable prompt, a capable smaller model plus a reliable verifier can use extra attempts more effectively than a modest parameter increase. For problems beyond the model's proposal capability or a weak verifier, extra inference may just repeat errors. Compare matched total FLOPs, latency, query volume, and difficulty. The “often beats doubling” claim is conditional on benchmark and budget; at very large serving volume, repeated inference costs can outweigh one-time training savings.",
+  "readings": [
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally",
+      "url": "https://arxiv.org/abs/2408.03314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Adaptive inference-time compute allocation and comparison with model scaling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Training Compute-Optimal Large Language Models",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Parameter/data allocation under a fixed pretraining compute budget.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability via Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2501.12948",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Group-relative rewards, reasoning training, and reported limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Let's Verify Step by Step",
+      "url": "https://arxiv.org/abs/2305.20050",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Process supervision, outcome supervision, and verifier evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 878,
+  "answer": "Static activation quantization estimates scales and zero points from representative calibration inputs, then reuses them at inference. Dynamic quantization derives scales from current activations, adapting to changing ranges but adding reductions and scale-handling overhead. [1](https://arxiv.org/abs/2211.10438)\n\n$$q=\\operatorname{clip}(\\operatorname{round}(x/s)+z,q_{min},q_{max}),\\quad \\hat x=s(q-z).$$\n\nStatic calibration can fail on out-of-distribution outliers; dynamic methods can still lose precision when a single outlier determines a coarse shared scale. Per-channel/token/block granularity changes this tradeoff. Calibration data must reflect real preprocessing, shapes, and sequence lengths. Evaluate clipping rates, task quality, and kernel support; quantization range selection is distinct from calibrating predicted probabilities.",
+  "readings": [
+    {
+      "title": "SmoothQuant: Accurate and Efficient Post-Training Quantization",
+      "url": "https://arxiv.org/abs/2211.10438",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Moving activation-channel scale into weights for easier quantization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "GPTQ: Accurate Post-Training Quantization",
+      "url": "https://arxiv.org/abs/2210.17323",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order reconstruction and sequential quantization error compensation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "AWQ: Activation-aware Weight Quantization",
+      "url": "https://arxiv.org/abs/2306.00978",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Activation-informed protection of important weight channels.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

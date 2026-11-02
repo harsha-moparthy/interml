@@ -2,7 +2,7 @@
   "id": "lesson-q562-accumulate-unequal-micro-batches-by-valid-tokens",
   "kind": "lesson",
   "title": "Accumulate unequal micro-batches by valid tokens",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            4,
-            4
+            9,
+            9
           ],
           "match": "count = sum((int(m.sum()) fo",
           "text": "Select valid losses. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            5,
-            6
+            10,
+            10
           ],
           "match": "if count == 0:",
           "text": "Sum each micro-batch. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            7,
-            7
+            12,
+            12
           ],
           "match": "value = 0.0",
           "text": "Divide by global count. This is the code stage shown in the mechanism animation."

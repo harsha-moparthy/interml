@@ -1,1 +1,1 @@
-{"id":25,"language":"Python","code":"import numpy as np\n\n\ndef q025(matrix, rows, columns):\n    return np.asarray(matrix)[np.ix_(rows, columns)]\n","answer":"","content_kind":"coding"}
+{"id":25,"language":"Python","code":"import numpy as np\n\n\ndef q025(matrix, rows, columns):\n    \"\"\"Select the Cartesian product of row and column indices, rather than paired entries.\"\"\"\n    # ix_ adds singleton axes so rows and columns form a Cartesian product.\n    return np.asarray(matrix)[np.ix_(rows, columns)]\n","answer":"","content_kind":"coding"}

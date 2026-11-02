@@ -1,0 +1,46 @@
+{
+  "id": 1037,
+  "answer": "FedAvg averages client updates, usually weighted by participating clients' sample counts. With non-IID data, several local steps move each client toward its own objective and can produce client drift. FedProx adds $\\frac\\mu2\\|w-w_t\\|^2$ to each client's objective, discouraging excessive departure from the current global model. SCAFFOLD uses client/server control variates to correct update directions. [1](https://arxiv.org/abs/1602.05629) [2](https://arxiv.org/abs/1812.06127) [3](https://arxiv.org/abs/1910.06378)\n\nTune local steps, learning rate, participation, and proximal strength under realistic heterogeneity and stragglers. Compare global accuracy with worst-client and subgroup performance, communication rounds, and compute. Averaging is not automatically privacy-preserving: gradients can leak information. Secure aggregation and properly accounted differential privacy address distinct threats, and neither eliminates statistical heterogeneity or guarantees every client benefits equally.",
+  "readings": [
+    {
+      "title": "Communication-Efficient Learning of Deep Networks from Decentralized Data",
+      "url": "https://arxiv.org/abs/1602.05629",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Federated averaging and communication/data-distribution tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Federated Optimization in Heterogeneous Networks",
+      "url": "https://arxiv.org/abs/1812.06127",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Proximal client objectives for heterogeneous federated learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SCAFFOLD: Stochastic Controlled Averaging for Federated Learning",
+      "url": "https://arxiv.org/abs/1910.06378",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Control variates that reduce client drift.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning with Differential Privacy",
+      "url": "https://arxiv.org/abs/1607.00133",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Per-example clipping, Gaussian noise, and privacy accounting in DP-SGD.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

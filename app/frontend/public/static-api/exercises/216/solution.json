@@ -1,1 +1,1 @@
-{"id":216,"language":"Python","code":"import math\n\n\ndef sigmoid(z: float) -> float:\n    result = 1 / (1 + math.exp(-z))\n    return round(result, 4)\n","answer":"","content_kind":"coding"}
+{"id":216,"language":"Python","code":"\"\"\"Evaluate sigmoid and return the exercise-required four-decimal result.\"\"\"\n\nimport math\n\n\ndef sigmoid(z: float) -> float:\n    result = 1 / (1 + math.exp(-z))\n    return round(result, 4)\n","answer":"","content_kind":"coding"}

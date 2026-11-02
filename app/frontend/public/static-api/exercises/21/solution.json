@@ -1,1 +1,1 @@
-{"id":21,"language":"Python","code":"def q021(frame, column, transform):\n    result = frame.copy()\n    result[column] = result[column].map(transform, na_action=\"ignore\")\n    return result\n","answer":"","content_kind":"coding"}
+{"id":21,"language":"Python","code":"def q021(frame, column, transform):\n    \"\"\"Map nonmissing column values through transform on an independent frame.\"\"\"\n    result = frame.copy()\n    result[column] = result[column].map(transform, na_action=\"ignore\")\n    return result\n","answer":"","content_kind":"coding"}

@@ -1,0 +1,46 @@
+{
+  "id": 873,
+  "answer": "Context parallelism assigns different query-token blocks to different devices. Key/value blocks circulate through a ring; each rank updates its local attention outputs using online softmax statistics across blocks. It never needs the complete score matrix at once. [1](https://arxiv.org/abs/2310.01889) [2](https://jax-ml.github.io/scaling-book/)\n\n$$m'=\\max(m,m_b),\\quad \\ell'=e^{m-m'}\\ell+e^{m_b-m'}\\ell_b.$$\n\nThe weighted numerator is rescaled analogously, preserving dense attention semantics up to rounding. Causal masks and backward communication must reflect global token positions. This distributes activation storage, but full attention still has quadratic arithmetic; a million-token sequence is not made cheap by sharding alone. Communication must overlap enough block compute to help. Compare ring bandwidth, per-rank memory, imbalance, and recomputation with sparse or recurrent alternatives when exact dense attention is unnecessary.",
+  "readings": [
+    {
+      "title": "Ring Attention with Blockwise Transformers",
+      "url": "https://arxiv.org/abs/2310.01889",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Sequence sharding and online attention over circulating KV blocks.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+      "url": "https://arxiv.org/abs/1910.02054",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Optimizer, gradient, and parameter sharding with communication accounting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

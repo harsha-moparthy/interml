@@ -2,7 +2,7 @@
   "id": "lesson-q499-purged-walk-forward-cross-validation",
   "kind": "lesson",
   "title": "Purged Walk-Forward Cross-Validation",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            5,
-            5
+            9,
+            9
           ],
           "match": "times = np.asarray(feature_t",
           "text": "Reserve purge gap. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            6,
-            6
+            10,
+            10
           ],
           "match": "ends = np.asarray(label_end_",
           "text": "Keep earlier training rows. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            8,
-            12
+            13,
+            13
           ],
           "match": "for start, stop in test_bloc",
           "text": "Move origin forward. This is the code stage shown in the mechanism animation."

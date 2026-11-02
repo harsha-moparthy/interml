@@ -1,0 +1,46 @@
+{
+  "id": 1030,
+  "answer": "For 500 million embeddings, build a new versioned index alongside the old one. Backfill with checkpointed jobs, dual-write document updates, maintain stable document IDs, and compare retrieval on held-out queries. Switch query encoder and index version atomically, canary traffic, retain rollback, then retire the old index after verification. [1](https://arxiv.org/abs/2401.08281) [2](https://arxiv.org/abs/1603.09320)\n\nA learned alignment can provide a temporary bridge: fit an orthogonal map on paired old/new embeddings if their geometry is approximately related by rotation. Different dimensions or changed semantic structure violate that assumption; a low alignment error alone does not establish retrieval recall. Evaluate top-k overlap, judged relevance, and slices. Account for peak storage, embedding throughput, deletions during backfill, and consistency rather than assuming migration is only an offline matrix multiplication.",
+  "readings": [
+    {
+      "title": "The FAISS Library",
+      "url": "https://arxiv.org/abs/2401.08281",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Exact and approximate search, compression, and index tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Efficient and Robust Approximate Nearest Neighbor Search Using HNSW",
+      "url": "https://arxiv.org/abs/1603.09320",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Graph construction, search breadth, and recall/latency tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Matryoshka Representation Learning",
+      "url": "https://arxiv.org/abs/2205.13147",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Training useful nested embedding prefixes for adaptive cost.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

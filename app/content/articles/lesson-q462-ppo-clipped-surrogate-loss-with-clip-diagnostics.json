@@ -2,7 +2,7 @@
   "id": "lesson-q462-ppo-clipped-surrogate-loss-with-clip-diagnostics",
   "kind": "lesson",
   "title": "PPO Clipped Surrogate Loss with Clip Diagnostics",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            5,
-            5
+            8,
+            8
           ],
           "match": "difference = new_logp - old_",
           "text": "Exponentiate probability ratio. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            6,
-            6
+            9,
+            9
           ],
           "match": "ratio = difference.exp()",
           "text": "Form unclipped objective. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            8,
-            10
+            11,
+            11
           ],
           "match": "loss = -torch.minimum(",
           "text": "Form clipped objective. This is the code stage shown in the mechanism animation."

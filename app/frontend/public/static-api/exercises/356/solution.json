@@ -1,1 +1,1 @@
-{"id":356,"language":"Python","code":"def q356(weight, a, b, alpha):\n    return weight + alpha / a.shape[0] * (b @ a)\n","answer":"","content_kind":"coding"}
+{"id":356,"language":"Python","code":"def q356(weight, a, b, alpha):\n    \"\"\"Merge LoRA adapter matrices into a base (out,in) weight for inference. Return a new\n    matrix, leaving the originals unchanged.\n    \"\"\"\n    return weight + alpha / a.shape[0] * (b @ a)\n","answer":"","content_kind":"coding"}

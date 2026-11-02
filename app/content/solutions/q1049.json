@@ -1,0 +1,46 @@
+{
+  "id": 1049,
+  "answer": "Team-draft interleaving alternates between two rankers' result lists, randomizes the initial team, avoids duplicate results, and attributes subsequent clicks to the contributing ranker. Comparing preferences within a shared impression can be more sensitive than comparing independent traffic groups for ranking changes. [1](https://www.microsoft.com/en-us/research/wp-content/uploads/2010/07/fp146-radlinski.pdf)\n\nIt is not a universal 10–50-fold speedup: sensitivity depends on ranker differences, click noise, attribution, and the metric. Interleaving mainly estimates relative ranking preference, not every business impact. Shadow traffic runs a candidate without showing its output, revealing latency/errors and offline differences but not the user's causal response. Use shadowing for operational checks, interleaving for suitable ranking comparisons, and randomized A/B tests for downstream outcomes and guardrails.",
+  "readings": [
+    {
+      "title": "Comparing the Sensitivity of Information Retrieval Metrics",
+      "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2010/07/fp146-radlinski.pdf",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Team-draft interleaving and sensitivity of online ranking evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Doubly Robust Policy Evaluation and Learning",
+      "url": "https://arxiv.org/abs/1103.4601",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Combining reward models and logged propensities for off-policy evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

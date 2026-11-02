@@ -1,0 +1,22 @@
+{
+  "id": 597,
+  "code_file": "q597.py",
+  "readings": [
+    {
+      "title": "Server-sent events: event stream format",
+      "url": "https://html.spec.whatwg.org/dev/server-sent-events.html",
+      "publisher": "WHATWG",
+      "tags": "",
+      "why": "Check UTF-8 encoding, blank-line event boundaries, comments, and CR/LF line endings.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Incremental decoder objects",
+      "url": "https://docs.python.org/3/library/codecs.html#incrementaldecoder-objects",
+      "publisher": "Python",
+      "tags": "",
+      "why": "Understand retaining decoder state when a UTF-8 character spans transport chunks.",
+      "access": "Free to read"
+    }
+  ]
+}

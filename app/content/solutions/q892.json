@@ -1,0 +1,46 @@
+{
+  "id": 892,
+  "answer": "Spanning cells break a simple one-box-per-grid-slot assumption; borderless tables require alignment cues; rotation changes geometry; mixed scripts complicate recognition and reading order. Box-plus-graph methods predict cells and relations such as same-row/column or adjacency, preserving explicit geometry. Sequence methods generate HTML or a compact structural grammar such as OTSL. [1](https://arxiv.org/abs/1911.10683)\n\nGraph methods need consistent relation decoding; sequence methods can produce syntactically valid but geometrically inconsistent tables or drift after one token error. Separate structure from text recognition when diagnosing failures. Validate rowspan/colspan coverage, nonoverlapping cell occupancy, row lengths, and reading order.\n\nUse high-resolution crops with global page context and evaluate difficult table categories separately. A table that looks plausible visually may still attach a value to the wrong header, which is often the consequential error.",
+  "readings": [
+    {
+      "title": "Image-based Table Recognition: Data, Model, and Evaluation",
+      "url": "https://arxiv.org/abs/1911.10683",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Table structure/content evaluation with tree-edit distance.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "OCR-free Document Understanding Transformer",
+      "url": "https://arxiv.org/abs/2111.15664",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Document image encoding and structured text generation without a separate OCR stage.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Patch tokenization and the data/inductive-bias tradeoff of ViTs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "End-to-End Object Detection with Transformers",
+      "url": "https://arxiv.org/abs/2005.12872",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Set prediction, bipartite matching, and duplicate suppression without NMS.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -32,6 +32,10 @@ def record(n: int) -> dict:
 
 
 def solution_source(n: int) -> str:
+    manifest = APP / "content" / "solutions" / f"q{n:03d}.json"
+    if manifest.exists():
+        source = manifest.parent / json.loads(manifest.read_text())["code_file"]
+        return source.read_text()
     return record(n)["code"]
 
 

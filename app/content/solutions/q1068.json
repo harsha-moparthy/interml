@@ -1,0 +1,46 @@
+{
+  "id": 1068,
+  "answer": "Label propagation spreads labels through a similarity graph, assuming connected/high-density neighborhoods tend to share labels. Pseudo-labeling trains on the model's own confident predictions. FixMatch obtains a target from a weakly augmented unlabeled example and enforces it on a strongly augmented view when confidence exceeds a threshold. [1](https://arxiv.org/abs/2001.07685) [2](https://scikit-learn.org/stable/user_guide.html)\n\nConfirmation bias appears when wrong but confident predictions become new training targets, particularly under class imbalance, domain shift, poor graph edges, or augmentations that change the label. Use a trusted validation set, calibration checks, class-aware thresholds or sampling, and a ramped unlabeled-loss weight. Monitor class coverage and error accumulation over iterations. More unlabeled data helps only when its structure and distribution support the assumptions; confidence is not an independent source of ground truth.",
+  "readings": [
+    {
+      "title": "FixMatch: Simplifying Semi-Supervised Learning",
+      "url": "https://arxiv.org/abs/2001.07685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Confidence-filtered pseudo-labels and weak/strong augmentation consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Snorkel: Rapid Training Data Creation with Weak Supervision",
+      "url": "https://arxiv.org/abs/1711.10160",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Combining noisy labeling functions with a probabilistic label model.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Confident Learning: Estimating Uncertainty in Dataset Labels",
+      "url": "https://arxiv.org/abs/1911.00068",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Out-of-sample label-error estimation and data-quality auditing.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "id": "lesson-q379-pass-k-and-majority-voting-evaluation-metrics",
   "kind": "lesson",
   "title": "Pass@k and Majority Voting Evaluation Metrics",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,18 +89,18 @@
         },
         {
           "lines": [
-            6,
-            7
+            10,
+            10
           ],
           "match": "if not 1 <= k <= n or not 0 ",
           "text": "Count all size-k subsets. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            8,
+            12,
             12
           ],
-          "match": "failure = (",
+          "match": "failure = 0 if n - correct < k",
           "text": "Count all-failure subsets. This is the code stage shown in the mechanism animation."
         },
         {

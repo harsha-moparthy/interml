@@ -1,0 +1,46 @@
+{
+  "id": 813,
+  "answer": "DiD compares changes between treated and comparison groups and requires a credible parallel-trends counterfactual. Propensity matching seeks comparable observed covariates but cannot remove unmeasured confounding. Synthetic control builds a weighted donor counterfactual, relying on pre-treatment fit and suitable unaffected donors. [1](https://miguelhernan.org/whatifbook)\n\nRDD identifies a local effect near a cutoff when potential outcomes vary smoothly and assignment is not precisely manipulated. IV uses variation affecting treatment but not outcomes except through treatment, plus relevance and additional assumptions; it often identifies a local effect for compliers.\n\nChoose by the actual assignment mechanism, not which estimator is easiest. Run placebo/pretrend/sensitivity checks, define the population and effect, and distinguish lack of evidence against an assumption from proof it holds. None automatically recreates randomization from arbitrary observational logs.",
+  "readings": [
+    {
+      "title": "Causal Inference: What If",
+      "url": "https://miguelhernan.org/whatifbook",
+      "publisher": "miguelhernan.org",
+      "tags": "",
+      "why": "Hernán and Robins' open book on identification, confounding, weighting, and longitudinal causal inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

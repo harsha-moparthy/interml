@@ -2,7 +2,7 @@
   "id": "lesson-q137",
   "kind": "lesson",
   "title": "L1 shrinks weights—but inspect the actual update",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,8 +90,8 @@
       "notes": [
         {
           "lines": [
-            18,
-            18
+            20,
+            20
           ],
           "match": "alpha * np.sign(",
           "text": "This is an L1 subgradient term, not a proximal soft-threshold operation."

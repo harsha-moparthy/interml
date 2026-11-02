@@ -1,0 +1,46 @@
+{
+  "id": 846,
+  "answer": "For rewards $r_1,\\ldots,r_G$, group-standardized advantages are $A_i=(r_i-\\bar r)/(s_r+\\epsilon)$. All-equal rewards produce no comparative signal. In common GRPO objectives, averaging each response's token losses by its own length changes the per-token weight of long versus short responses; reward-standard-deviation scaling separately changes weighting across prompt difficulties. [1](https://arxiv.org/abs/2503.20783)\n\nDr. GRPO analyzes these as distinct biases and uses a constant length normalization and removes group standard-deviation scaling in its proposed correction. “Token-level normalization fixes it” is too vague: averaging across all batch tokens and normalizing every response independently are different objectives.\n\nTrack correct/incorrect response lengths, truncation, reward variance, and gradient contribution by prompt. The exact loss reduction is part of the algorithm, not an innocuous implementation detail. [2](https://arxiv.org/abs/2501.12948)",
+  "readings": [
+    {
+      "title": "Understanding R1-Zero-Like Training: A Critical Perspective",
+      "url": "https://arxiv.org/abs/2503.20783",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Response-length and reward-normalization biases and the Dr. GRPO objective.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability via Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2501.12948",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Group-relative rewards, reasoning training, and reported limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Proximal Policy Optimization Algorithms",
+      "url": "https://arxiv.org/abs/1707.06347",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Clipped policy ratios, advantage estimates, and policy optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SimPO: Simple Preference Optimization with a Reference-Free Reward",
+      "url": "https://arxiv.org/abs/2405.14734",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Length-normalized log probability and target margins.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Let's Verify Step by Step",
+      "url": "https://arxiv.org/abs/2305.20050",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Process supervision, outcome supervision, and verifier evaluation.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

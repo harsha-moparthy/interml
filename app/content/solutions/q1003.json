@@ -1,0 +1,46 @@
+{
+  "id": 1003,
+  "answer": "At 5,000 tickets/day, start with lexical/dense retrieval of recent tickets and incidents, then a pair classifier/reranker for duplicate confidence. Separate duplicate detection, 40-way routing, urgency, and resolution eligibility; their costs and labels differ. [1](https://arxiv.org/abs/1908.10084) [2](https://arxiv.org/abs/2004.12832)\n\nUse timestamps, service/entity identifiers, and permissions when clustering. A similar symptom is not necessarily the same incident. Auto-route high-confidence cases, queue uncertain ones, and allow auto-resolution only for verified low-risk workflows with reversible actions and user confirmation where needed. Track duplicate precision, routing accuracy, escalation errors, time-to-resolution, and reopened tickets. Evaluate chronologically to avoid duplicate leakage, and feed corrected routing/merge decisions back with provenance.",
+  "readings": [
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction",
+      "url": "https://arxiv.org/abs/2004.12832",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Token-level MaxSim and late interaction storage costs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

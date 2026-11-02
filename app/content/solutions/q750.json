@@ -1,0 +1,46 @@
+{
+  "id": 750,
+  "answer": "First reproduce on one fixed batch in FP32 and locate the **first** nonfinite tensor, rather than inspecting only the final loss. Check input/target ranges and label validity; then intermediate activations, the custom loss, gradients, and optimizer state. [1](https://docs.pytorch.org/docs/stable/index.html) [2](https://docs.pytorch.org/docs/stable/notes/amp_examples.html)\n\nUse stable primitives such as log-softmax/BCE-with-logits; avoid evaluating invalid operations before masking them. Verify learning rate, initialization, reduction denominators, normalization, and gradient clipping after unscaling. If FP32 works but FP16 fails, inspect overflow and scaler behavior. If both fail at the same operation, precision is probably not the root cause.\n\nAfter the first bad operation is understood, fix it and rerun the minimal batch before returning to distributed training. Save the triggering data and state as a regression case; blindly reducing learning rate can hide a genuine formula or data error.",
+  "readings": [
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch: Automatic Mixed Precision Examples",
+      "url": "https://docs.pytorch.org/docs/stable/notes/amp_examples.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Autocast, scaling, gradient accumulation, and clipping order.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 1055,
+  "answer": "Expand $L=(Xw-y)^T(Xw-y)+\\lambda w^Tw$. Its gradient is $2X^T(Xw-y)+2\\lambda w$. Setting it to zero gives $(X^TX+\\lambda I)\\hat w=X^Ty$, hence $\\hat w=(X^TX+\\lambda I)^{-1}X^Ty$. For $\\lambda>0$ the matrix is positive definite even when columns are dependent. [1](https://scikit-learn.org/stable/modules/linear_model.html) [2](https://www.statlearning.com/)\n\nIn code solve the linear system, preferably with an appropriate factorization, rather than explicitly forming an inverse. An unpenalized intercept can be handled by centering or excluding its coefficient from the penalty. Standardize features if a common penalty should act comparably across units. If the data-fit term is averaged over samples, the numerical relationship between its lambda and this summed-loss lambda changes by a factor of sample count.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

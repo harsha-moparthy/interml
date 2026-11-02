@@ -1,0 +1,46 @@
+{
+  "id": 1077,
+  "answer": "Conjugacy means prior times likelihood has the same distributional family as the prior. Beta–Bernoulli updates add successes/failures; Dirichlet–categorical updates add category counts; a Gamma(shape, rate) prior with Poisson counts adds total counts to shape and total exposure to rate. Gaussian observations with known variance add precision and precision-weighted observations to a Gaussian prior. [1](https://probml.github.io/pml-book/book1.html)\n\nFor a scalar observation with fixed-dimensional sufficient statistics, these updates can be constant time per event and need no MCMC. The blanket $O(1)$ claim is false when dimension grows: storing a K-category posterior takes $O(K)$ space, and multivariate Gaussian covariance updates involve matrix operations. Conjugacy gives analytical tractability, not dimension-free computation. The posterior is exact only under the selected likelihood/prior assumptions, which still require validation.",
+  "readings": [
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Reinforcement Learning: An Introduction",
+      "url": "https://incompleteideas.net/book/the-book-2nd.html",
+      "publisher": "incompleteideas.net",
+      "tags": "",
+      "why": "Sutton and Barto's open textbook on bandits, value functions, and policy gradients.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Gaussian Processes for Machine Learning",
+      "url": "https://gaussianprocess.org/gpml/",
+      "publisher": "gaussianprocess.org",
+      "tags": "",
+      "why": "Free textbook covering GP posterior inference and kernel methods.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

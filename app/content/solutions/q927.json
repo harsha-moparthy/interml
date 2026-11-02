@@ -1,0 +1,46 @@
+{
+  "id": 927,
+  "answer": "Test $R^2$ is negative when squared prediction error exceeds the error of predicting that test set's mean. An intercept-free regression can also have negative conventional centered $R^2$ even in sample. A constant target makes the denominator zero, requiring an explicit convention. [1](https://scikit-learn.org/stable/modules/model_evaluation.html)\n\n$$\\bar R^2=1-(1-R^2)\\frac{n-1}{n-p-1}$$\n\nis the usual adjusted in-sample formula for $p$ predictors plus an intercept, when the denominator is positive. It penalizes additional predictors but is not a substitute for held-out validation and is not directly appropriate for arbitrary model complexity. Report absolute error, baseline comparison, and split design. A high $R^2$ on a nonstationary or leaked time series can be misleading.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

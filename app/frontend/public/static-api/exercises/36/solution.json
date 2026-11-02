@@ -1,1 +1,1 @@
-{"id":36,"language":"Python","code":"import numpy as np\n\n\ndef q036(matrix):\n    x = np.asarray(matrix)\n    return (x.min(axis=1), x.max(axis=1), x.argmax(axis=1))\n","answer":"","content_kind":"coding"}
+{"id":36,"language":"Python","code":"import numpy as np\n\n\ndef q036(matrix):\n    \"\"\"Return each row’s minimum, maximum, and first maximum’s column index.\"\"\"\n    x = np.asarray(matrix)\n    return (x.min(axis=1), x.max(axis=1), x.argmax(axis=1))\n","answer":"","content_kind":"coding"}

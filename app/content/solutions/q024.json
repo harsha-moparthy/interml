@@ -1,0 +1,22 @@
+{
+  "id": 24,
+  "code_file": "q024.py",
+  "readings": [
+    {
+      "title": "NumPy: the absolute basics for beginners",
+      "url": "https://numpy.org/doc/stable/user/absolute_beginners.html",
+      "publisher": "NumPy docs",
+      "tags": "",
+      "why": "Covers array creation, reshaping, indexing and aggregation from scratch.",
+      "access": "Free to read"
+    },
+    {
+      "title": "NumPy indexing: basic slices and advanced indexing",
+      "url": "https://numpy.org/doc/stable/user/basics.indexing.html",
+      "publisher": "NumPy",
+      "tags": "",
+      "why": "Check view/copy behavior and Cartesian indexing against the indexing rules.",
+      "access": "Free to read"
+    }
+  ]
+}

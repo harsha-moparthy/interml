@@ -1,0 +1,46 @@
+{
+  "id": 928,
+  "answer": "The claim needs sampling assumptions; it is not true for arbitrary chosen points or an exponentially growing dataset. For independent uniform points in a unit cube, each squared coordinate difference has mean $1/6$ and finite variance, so the sum has mean $d/6$ and relative fluctuation $O(d^{-1/2})$. [1](https://probml.github.io/pml-book/book1.html)\n\nFor a fixed finite number of sampled pairs, their distances concentrate near $\\sqrt{d/6}$, making the farthest/nearest ratio approach one in probability. This reduces relative distance contrast.\n\nReal data may lie on a low-dimensional manifold or have informative sparse coordinates, so Euclidean distance is not universally meaningless. Feature selection, metric learning, appropriate normalization, and domain-specific representations can restore useful neighborhoods. State sample-size growth and distribution before claiming an asymptotic result.",
+  "readings": [
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Clustering",
+      "url": "https://scikit-learn.org/stable/modules/clustering.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Cluster assumptions, linkage choices, density clustering, and silhouette evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Matrix Decomposition",
+      "url": "https://scikit-learn.org/stable/modules/decomposition.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "PCA, SVD, centering, whitening, and decomposition variants.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

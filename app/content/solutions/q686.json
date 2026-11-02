@@ -1,0 +1,46 @@
+{
+  "id": 686,
+  "answer": "Pre-norm computes $x_{l+1}=x_l+F_l(N(x_l))$. The residual branch therefore retains a direct identity path through each block. Post-norm computes $x_{l+1}=N(x_l+F_l(x_l))$; even the skip path passes through a normalization Jacobian. This changes initialization-scale gradients and helps explain why some post-norm configurations need careful warmup. [1](https://arxiv.org/abs/2002.04745)\n\n$$J_{\\rm pre}=I+J_FJ_N,\\qquad J_{\\rm post}=J_N(I+J_F).$$\n\nNeither formula promises perfect gradient preservation: products of many Jacobians can still amplify or shrink directions. RMSNorm versus LayerNorm is a separate choice from placement. Also, the question's model list is not uniform: Gemma 2 uses additional normalization around sublayers rather than only the simplest pre-norm layout. Check the actual architecture, depth, residual scaling, and training recipe. [2](https://arxiv.org/abs/1910.07467) [4](https://arxiv.org/abs/2408.00118)",
+  "readings": [
+    {
+      "title": "On Layer Normalization in the Transformer Architecture",
+      "url": "https://arxiv.org/abs/2002.04745",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Gradient behavior at initialization and normalization placement.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Root Mean Square Layer Normalization",
+      "url": "https://arxiv.org/abs/1910.07467",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "RMS normalization, invariances, and measured rather than universal efficiency gains.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Gemma 2: Improving Open Language Models at a Practical Size",
+      "url": "https://arxiv.org/abs/2408.00118",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Soft-capping and the model's specific normalization and attention design.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

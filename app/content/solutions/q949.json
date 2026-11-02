@@ -1,0 +1,46 @@
+{
+  "id": 949,
+  "answer": "Let $F$ contain cross-sectional factor exposures and $a$ the raw alpha vector. Regress alpha on exposures and keep the residual, using an intercept and weights where appropriate. [1](https://scikit-learn.org/stable/modules/linear_model.html)\n\n$$\\hat\\beta=(F^TWF)^{-1}F^TWa,\\qquad a_\\perp=a-F\\hat\\beta,\\qquad F^TWa_\\perp=0.$$\n\nUse QR/SVD for numerical stability; Gram–Schmidt expresses the same projection idea with an orthonormal basis. This removes linear exposure to the included factors under the chosen weighting, not every nonlinear or future risk. Rank deficiency, changing exposures, constraints, and transaction costs matter.\n\nNeutralizing predictions is different from constructing a factor-neutral portfolio: portfolio weights and risk estimates must also satisfy exposure constraints. Validate whether the removed component was unwanted risk or legitimate predictive signal.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Matrix Decomposition",
+      "url": "https://scikit-learn.org/stable/modules/decomposition.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "PCA, SVD, centering, whitening, and decomposition variants.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Forecasting: Principles and Practice",
+      "url": "https://otexts.com/fpp3/",
+      "publisher": "otexts.com",
+      "tags": "",
+      "why": "Open textbook on evaluation, temporal validation, reconciliation, and forecasting methods.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 740,
+  "answer": "For NCHW images, BatchNorm computes statistics per channel across batch and spatial axes; InstanceNorm uses spatial axes per sample/channel; GroupNorm uses spatial axes and a channel group per sample. LayerNorm normalizes a chosen feature shape per example or token. [1](https://arxiv.org/abs/1502.03167) [4](https://docs.pytorch.org/docs/stable/index.html)\n\n$$\\hat x=(x-\\mu)/\\sqrt{\\sigma^2+\\epsilon},\\qquad y=\\gamma\\hat x+\\beta.$$\n\nSmall batches make BN estimates noisy, but batch size one is not automatically invalid if there are many spatial observations. A channel with only one training value cannot supply meaningful variance. Autoregressive models need consistent per-token behavior and must avoid leaking future positions through statistics. LN/RMSNorm avoid dependence on other examples; GN offers a batch-independent alternative for vision. Check train/eval running-stat behavior explicitly.",
+  "readings": [
+    {
+      "title": "Batch Normalization",
+      "url": "https://arxiv.org/abs/1502.03167",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Batch statistics, learned affine parameters, and inference behavior.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Root Mean Square Layer Normalization",
+      "url": "https://arxiv.org/abs/1910.07467",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "RMS normalization, invariances, and measured rather than universal efficiency gains.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "On Layer Normalization in the Transformer Architecture",
+      "url": "https://arxiv.org/abs/2002.04745",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Gradient behavior at initialization and normalization placement.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

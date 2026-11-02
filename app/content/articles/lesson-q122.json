@@ -2,7 +2,7 @@
   "id": "lesson-q122",
   "kind": "lesson",
   "title": "Borrow strength without borrowing future labels",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            6,
-            6
+            11,
+            11
           ],
           "match": "global_mean = float(frame.y.mean())",
           "text": "The fallback and prior mean must be learned only from eligible training rows."
         },
         {
           "lines": [
-            8,
-            8
+            13,
+            13
           ],
           "match": "stats[\"sum\"] + smoothing * global_mean",
           "text": "The numerator combines observed target mass and smoothing pseudo-observations."

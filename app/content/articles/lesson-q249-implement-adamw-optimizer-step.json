@@ -2,7 +2,7 @@
   "id": "lesson-q249-implement-adamw-optimizer-step",
   "kind": "lesson",
   "title": "Implement AdamW Optimizer Step",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            16,
-            16
+            19,
+            19
           ],
           "match": "m = beta1 * np.asarray(first",
           "text": "Update moments. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            17,
-            17
+            20,
+            20
           ],
           "match": "v = beta2 * np.asarray(secon",
           "text": "Correct bias. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            18,
-            20
+            22,
+            22
           ],
           "match": "updated = np.asarray(paramet",
           "text": "Shrink parameter. This is the code stage shown in the mechanism animation."

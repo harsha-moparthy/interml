@@ -1,0 +1,46 @@
+{
+  "id": 717,
+  "answer": "LoRA learns an additive low-rank matrix update; it can usually be merged into a compatible dense weight for inference. DoRA separates weight magnitude from direction, applying low-rank adaptation to the direction with a separately learned magnitude. Prefix tuning learns continuous prefix states that attention can consult. Bottleneck adapters insert trainable down-projection, nonlinearity, and up-projection modules between frozen layers. [1](https://arxiv.org/abs/2106.09685) [2](https://arxiv.org/abs/2402.09353) [3](https://arxiv.org/abs/2101.00190)\n\n$$\\Delta W_{LoRA}=BA,\\qquad W_{DoRA}=m\\frac{W_0+BA}{\\|W_0+BA\\|}\\ \\text{along the chosen weight axis}.$$\n\nPrefix tuning increases attention/cache work; unmerged adapters add computation; merged LoRA avoids its extra matrix operations but requires storing or materializing a merged model. Compare trainable parameter count, activation memory, task quality, switching latency, and multi-adapter serving—not just checkpoint size.",
+  "readings": [
+    {
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Low-rank updates, initialization, parameter cost, and inference merging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DoRA: Weight-Decomposed Low-Rank Adaptation",
+      "url": "https://arxiv.org/abs/2402.09353",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Separating weight magnitude and direction in parameter-efficient tuning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Prefix-Tuning: Optimizing Continuous Prompts for Generation",
+      "url": "https://arxiv.org/abs/2101.00190",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Learned prefix activations and their capacity and serving costs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "url": "https://arxiv.org/abs/2305.14314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "NF4, double quantization, and paged optimizers with trainable adapters.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

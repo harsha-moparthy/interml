@@ -1,0 +1,46 @@
+{
+  "id": 992,
+  "answer": "Sequence log probability sums nonpositive token log probabilities, so extending a fixed prefix lowers its probability. Beam search may favor early EOS, though normalization across all possible sequences is valid and model/length biases also matter. [1](https://arxiv.org/abs/1706.03762)\n\nA heuristic uses $score(y)=\\log P(y)/((5+|y|)/6)^\\alpha$ or another length penalty. This changes the decoding objective and must be tuned on task quality, not assumed probabilistically exact. Include EOS consistently and define whether prompt length is excluded. Longer output is not inherently better, and a loose stopping bound can discard a future better normalized beam.",
+  "readings": [
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+      "url": "https://arxiv.org/abs/1910.10683",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder pretraining objectives and controlled architecture comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally",
+      "url": "https://arxiv.org/abs/2408.03314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Adaptive inference-time compute allocation and comparison with model scaling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Fast Inference from Transformers via Speculative Decoding",
+      "url": "https://arxiv.org/abs/2211.17192",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Acceptance and residual-sampling proof preserving the target distribution.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

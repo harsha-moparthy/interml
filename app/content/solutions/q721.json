@@ -1,0 +1,46 @@
+{
+  "id": 721,
+  "answer": "DPO optimizes a relative chosen/rejected log-ratio, so both absolute probabilities can decrease while the preferred response decreases less. Noisy or separable preference data can also encourage excessive margins; length and reference-policy effects complicate evaluation. [1](https://arxiv.org/abs/2305.18290)\n\nIPO uses a squared target for a preference-related log-ratio rather than continually increasing a logistic margin. KTO learns from individual desirable/undesirable labels using a prospect-theoretic utility formulation. SimPO uses length-normalized sequence log probability and a target margin without a separate reference model. [2](https://arxiv.org/abs/2310.12036) [3](https://arxiv.org/abs/2402.01306) [4](https://arxiv.org/abs/2405.14734)\n\nThese are different objectives, not universal fixes for every DPO failure. Compare absolute likelihoods, length distributions, win rates under controlled judging, and out-of-distribution tasks. Preserve the distinction between an observed training dynamic and proof that a new objective improves the underlying human preference.",
+  "readings": [
+    {
+      "title": "Direct Preference Optimization",
+      "url": "https://arxiv.org/abs/2305.18290",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "KL-regularized optimal policies and the preference logistic objective.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "A General Theoretical Paradigm to Understand Learning from Human Preferences",
+      "url": "https://arxiv.org/abs/2310.12036",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Preference optimization assumptions and the IPO objective.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "KTO: Model Alignment as Prospect Theoretic Optimization",
+      "url": "https://arxiv.org/abs/2402.01306",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Learning from desirable/undesirable examples without paired preferences.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SimPO: Simple Preference Optimization with a Reference-Free Reward",
+      "url": "https://arxiv.org/abs/2405.14734",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Length-normalized log probability and target margins.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Training Language Models to Follow Instructions with Human Feedback",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "SFT, reward modeling, PPO, and human evaluation in an RLHF pipeline.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

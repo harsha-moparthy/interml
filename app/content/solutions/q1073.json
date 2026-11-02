@@ -1,0 +1,46 @@
+{
+  "id": 1073,
+  "answer": "Direct forecasting trains a separate model for each horizon, avoiding recursive error propagation but requiring more models and potentially inconsistent trajectories. Recursive forecasting repeatedly applies a one-step model and feeds predictions back as inputs; it shares parameters efficiently but accumulates errors and sees a different input distribution from training. Joint/vector forecasting predicts the full horizon together, sharing information and modeling dependencies across steps. [1](https://otexts.com/fpp3/)\n\nChoose using rolling-origin validation at each operational horizon, not a random split. Provide only covariates known at the forecast origin; future observed weather or realized promotions can leak information. Compare trajectory coherence, per-horizon error, intervals, compute, and robustness to missing inputs. A seq2seq model can itself decode recursively, so distinguish architecture from whether inference conditions on earlier predicted outputs.",
+  "readings": [
+    {
+      "title": "Forecasting: Principles and Practice",
+      "url": "https://otexts.com/fpp3/",
+      "publisher": "otexts.com",
+      "tags": "",
+      "why": "Open textbook on evaluation, temporal validation, reconciliation, and forecasting methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

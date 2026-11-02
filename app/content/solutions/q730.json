@@ -1,0 +1,46 @@
+{
+  "id": 730,
+  "answer": "Context relevance asks whether retrieved passages help answer the query. Groundedness asks whether claims in the answer are supported by those passages. Answer relevance asks whether the response actually addresses the question. A response can pass one and fail another: faithfully repeating an irrelevant passage is grounded but unhelpful. [1](https://arxiv.org/abs/2309.15217)\n\nBuild examples with known relevant evidence, independently check claims against cited spans, and score answer completeness and correctness. Include abstention when evidence is missing. Use retrieval metrics such as recall@k only when relevance labels exist; reference-free LLM scores are noisy proxies, not ground truth.\n\nSeparate retrieval failures from generation failures by rerunning generation with gold context. Calibrate automated graders on human-reviewed slices, track judge agreement, and version prompts, evidence, and models so regression comparisons are meaningful. [3](https://arxiv.org/abs/2306.05685)",
+  "readings": [
+    {
+      "title": "RAGAS: Automated Evaluation of Retrieval Augmented Generation",
+      "url": "https://arxiv.org/abs/2309.15217",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Context relevance, faithfulness, and answer relevance evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Retrieval-conditioned generation and the distinction between parameters and external evidence.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Position, verbosity, and self-enhancement bias in model judging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

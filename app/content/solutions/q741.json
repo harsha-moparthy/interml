@@ -1,0 +1,46 @@
+{
+  "id": 741,
+  "answer": "BatchNorm with affine parameters learns one scale and one shift for each of $C$ channels, hence **$2C$ trainable parameters**. Running mean and variance are buffers, not gradient-trained parameters. Some implementations also store a batch counter. [1](https://arxiv.org/abs/1502.03167) [2](https://docs.pytorch.org/docs/stable/index.html)\n\nFor a convolutional bias $b_c$ constant over the normalized elements, centering cancels it:\n\n$$\\frac{(z+b_c)-(\\mu_z+b_c)}{\\sqrt{\\sigma_z^2+\\epsilon}}=\\frac{z-\\mu_z}{\\sqrt{\\sigma_z^2+\\epsilon}}.$$\n\nBN's learned shift supplies the channel offset, so an immediately preceding convolution typically uses no bias. This reasoning assumes compatible normalization and a correctly maintained train/eval state; it does not apply blindly across an intervening nonlinearity or to RMSNorm, which does not center.",
+  "readings": [
+    {
+      "title": "Batch Normalization",
+      "url": "https://arxiv.org/abs/1502.03167",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Batch statistics, learned affine parameters, and inference behavior.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Residual Learning for Image Recognition",
+      "url": "https://arxiv.org/abs/1512.03385",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Residual blocks and empirical evidence about depth and optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

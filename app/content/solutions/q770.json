@@ -1,0 +1,46 @@
+{
+  "id": 770,
+  "answer": "Naive target encoding leaks each row's label into its own feature. Ordered target statistics use a random permutation and compute a row's category statistic from earlier rows, with prior smoothing; ordered boosting also addresses prediction shift caused by reusing labels in residual estimation. [1](https://arxiv.org/abs/1706.09516)\n\n$$enc_i=\\frac{\\sum_{j<i:c_j=c_i}y_j+a\\mu}{\\#\\{j<i:c_j=c_i\\}+a}.$$\n\nFor validation/inference, use statistics learned from allowed training data only. Symmetric or oblivious trees use the same split at every node of a depth, so the path can be encoded by a compact bit pattern and evaluated efficiently. This regularizes tree structure but restricts expressiveness. Chronological or group constraints still matter: a random permutation does not make future information legitimate for a time-dependent task.",
+  "readings": [
+    {
+      "title": "CatBoost: Unbiased Boosting with Categorical Features",
+      "url": "https://arxiv.org/abs/1706.09516",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Ordered boosting, target statistics, and prediction shift.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "XGBoost: A Scalable Tree Boosting System",
+      "url": "https://arxiv.org/abs/1603.02754",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order tree objectives and sparsity-aware split finding.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Common Pitfalls",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Preprocessing leakage, pipelines, and reproducible evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

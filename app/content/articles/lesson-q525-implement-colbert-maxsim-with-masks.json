@@ -2,7 +2,7 @@
   "id": "lesson-q525-implement-colbert-maxsim-with-masks",
   "kind": "lesson",
   "title": "Implement ColBERT MaxSim with masks",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            7,
-            7
+            11,
+            11
           ],
           "match": "d = F.normalize(documents, d",
           "text": "Compute every token similarity. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            8,
-            8
+            12,
+            12
           ],
           "match": "sim = torch.einsum(\"bqd,bnld",
           "text": "Mask padded document tokens. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            10,
-            10
+            14,
+            14
           ],
           "match": "best = sim.max(-1).values",
           "text": "Take max per query token. This is the code stage shown in the mechanism animation."

@@ -1,0 +1,46 @@
+{
+  "id": 819,
+  "answer": "Profile first: data conversion, CPU dispatch, transfers, kernels, and queueing can dominate different workloads. Compilation/fusion removes Python and intermediate-memory overhead; ONNX Runtime or TensorRT can optimize supported graphs; quantization reduces storage or arithmetic cost when kernels support the chosen dtype. Structured pruning removes channels/heads, while distillation trains a smaller model. [1](https://docs.pytorch.org/docs/stable/torch.compiler_troubleshooting.html) [4](https://arxiv.org/abs/1503.02531) [5](https://arxiv.org/abs/2306.00978)\n\nValidate numerical and task-level parity after each step, including dynamic shapes and unusual inputs. Measure cold start separately from steady-state latency. Compilation can incur guards, graph breaks, and recompilation; compressed weights can still require expensive dequantization. TorchScript is a legacy choice in many current PyTorch paths, so follow the supported export/compiler route for the deployed version. Optimize the measured bottleneck, then rerun end-to-end load tests.",
+  "readings": [
+    {
+      "title": "PyTorch: torch.compile Troubleshooting",
+      "url": "https://docs.pytorch.org/docs/stable/torch.compiler_troubleshooting.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Guards, recompilation, graph breaks, and diagnosis.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Triton: Dynamic Batcher",
+      "url": "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/batcher.html",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Batch size, preferred sizes, and queue-delay configuration.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Distilling the Knowledge in a Neural Network",
+      "url": "https://arxiv.org/abs/1503.02531",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Soft targets, temperature, and student training objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "AWQ: Activation-aware Weight Quantization",
+      "url": "https://arxiv.org/abs/2306.00978",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Activation-informed protection of important weight channels.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

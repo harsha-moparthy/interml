@@ -2,7 +2,7 @@
   "id": "lesson-q316-multi-head-attention",
   "kind": "lesson",
   "title": "Multi-head attention",
-  "revision": 6,
+  "revision": 8,
   "review_state": "complete",
   "blocks": [
     {
@@ -113,7 +113,7 @@
     {
       "type": "callout",
       "kind": "boundary",
-      "text": "If `d_model` is not divisible by `n_heads`, the supplied function stops with an assertion error. A model width of 6 with 4 heads cannot be split."
+      "text": "If `d_model` is not divisible by `n_heads`, the supplied function raises ValueError. A model width of 6 with 4 heads cannot be split."
     },
     {
       "type": "heading",
@@ -126,67 +126,67 @@
       "notes": [
         {
           "lines": [
-            8,
-            8
+            12,
+            12
           ],
-          "match": "Q = np.dot(X, W_q)",
-          "text": "Three projections. They give `Q`, `K`, and `V` from the same input `X` with different weights."
+          "match": "return X @ W_q",
+          "text": "Project the same input into queries, keys, and values with separate weights."
         },
         {
           "lines": [
-            18,
-            18
+            24,
+            24
           ],
-          "match": "np.sqrt(d_k)",
-          "text": "Scaled scores: the dot products of all query-key pairs divided by $\\sqrt{d_k}$."
+          "match": "scores = queries @",
+          "text": "Scale dot products by the square root of the per-head width."
         },
         {
           "lines": [
-            19,
-            22
+            26,
+            26
           ],
-          "match": "np.max(scores",
-          "text": "A stable softmax. The maximum is subtracted before the exponential. See the softmax article."
+          "match": "weights = np.exp",
+          "text": "Subtract each row maximum before exponentiation to keep softmax stable."
         },
         {
           "lines": [
-            23,
-            23
+            28,
+            28
           ],
-          "match": "np.matmul(attention_weights, V)",
-          "text": "The weighted sum of values."
+          "match": "return weights @ values",
+          "text": "Weight the value vectors by the attention probabilities."
         },
         {
           "lines": [
-            31,
-            31
+            44,
+            44
           ],
-          "match": "assert d_model % n_heads == 0",
-          "text": "The width must split evenly into heads."
+          "match": "or model_dim % n_heads",
+          "text": "Require a positive head count that divides the model width."
         },
         {
           "lines": [
-            33,
-            33
+            52,
+            52
           ],
-          "match": ".transpose(1, 0, 2)",
-          "text": "The correct head split: first `reshape(T, H, d_k)`, then move the head axis to the front."
+          "match": "return array.reshape",
+          "text": "Reshape into heads and move the head axis to the front."
         },
         {
           "lines": [
-            38,
-            38
+            55,
+            55
           ],
-          "match": "self_attention(",
-          "text": "Each head runs the same single-head attention on its own slice."
+          "match": "context = self_attention",
+          "text": "A batched matrix product evaluates independent attention for all heads."
         },
         {
           "lines": [
-            40,
-            40
+            58,
+            58
           ],
-          "match": "np.concatenate(attentions, axis=-1)",
-          "text": "The heads are joined along the feature axis. This restores the width `d_model`."
+          "match": "return context.transpose",
+          "text": "Move the head axis back and combine features into the model width."
         }
       ],
       "title": "Question 316: three small functions"

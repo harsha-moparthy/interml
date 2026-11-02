@@ -2,7 +2,7 @@
   "id": "lesson-q545-build-and-evaluate-a-two-stage-ranking-pipeline",
   "kind": "lesson",
   "title": "Build and evaluate a two-stage ranking pipeline",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -81,32 +81,32 @@
       "notes": [
         {
           "lines": [
-            29,
-            29
+            24,
+            24
           ],
           "match": "def q545(queries, retrieve, ",
           "text": "Retrieve candidate IDs. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            30,
-            30
+            31,
+            31
           ],
           "match": "results = []",
           "text": "Deduplicate candidates. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            31,
-            42
+            32,
+            32
           ],
           "match": "for query, truth in zip(quer",
           "text": "Score candidates. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            43,
-            50
+            40,
+            40
           ],
           "match": "return (",
           "text": "Measure recall and NDCG. This is the code stage shown in the mechanism animation."

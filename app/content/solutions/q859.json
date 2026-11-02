@@ -1,0 +1,46 @@
+{
+  "id": 859,
+  "answer": "BPE repeatedly merges frequent symbol pairs. WordPiece selects subwords using a likelihood-related training criterion and commonly decodes via longest matching pieces. Unigram tokenization starts from a candidate vocabulary and prunes it under a probabilistic segmentation model; SentencePiece is a toolkit supporting multiple algorithms, not one algorithm itself. [1](https://arxiv.org/abs/1808.06226)\n\nByte-level/token-free models avoid a fixed subword vocabulary but face longer raw sequences; latent patching can group bytes adaptively. A larger vocabulary can encode frequent multilingual/code substrings more compactly, at the cost of larger embedding/output matrices and fewer observations per rare token.\n\nCompression depends on training corpus and vocabulary allocation, not size alone. Evaluate bytes or characters per token by language, normalization reversibility, rare scripts, latency, and downstream accuracy.",
+  "readings": [
+    {
+      "title": "SentencePiece: A Simple and Language Independent Subword Tokenizer",
+      "url": "https://arxiv.org/abs/1808.06226",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Unigram/BPE tokenization, normalization, and raw-text training.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers",
+      "url": "https://arxiv.org/abs/1810.04805",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Masked language modeling and bidirectional representations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+      "url": "https://arxiv.org/abs/1910.10683",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder pretraining objectives and controlled architecture comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

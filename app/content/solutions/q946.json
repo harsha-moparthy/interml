@@ -1,0 +1,46 @@
+{
+  "id": 946,
+  "answer": "Linear interpolation between a missing point and a later observed point uses future information. In a historical backtest, that future value was unavailable when the prediction would have been made. A centered rolling window creates a similar leak. [1](https://scikit-learn.org/stable/common_pitfalls.html)\n\nA trailing 20-day z-score is valid only if every included observation was available at decision time; predicting before today's close means shifting the window to exclude today's closing value. Forward fill may be causal but can create stale values, so include age/missingness indicators and expiration rules.\n\nReconstruct data as-of timestamps, account for publication/revision delays, and test preprocessing with a streaming replay. Running a causal model on noncausal features still produces an invalid backtest.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Common Pitfalls",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Preprocessing leakage, pipelines, and reproducible evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Forecasting: Principles and Practice",
+      "url": "https://otexts.com/fpp3/",
+      "publisher": "otexts.com",
+      "tags": "",
+      "why": "Open textbook on evaluation, temporal validation, reconciliation, and forecasting methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Feast: Point-in-time Joins",
+      "url": "https://docs.feast.dev/getting-started/concepts/point-in-time-joins",
+      "publisher": "docs.feast.dev",
+      "tags": "",
+      "why": "Historical feature retrieval with event-time correctness.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

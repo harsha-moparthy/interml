@@ -1,1 +1,1 @@
-{"id":256,"language":"Python","code":"import numpy as np\n\n\ndef q256(gradient, bound):\n    if bound < 0:\n        raise ValueError(\"negative bound\")\n    return np.clip(gradient, -bound, bound)\n","answer":"","content_kind":"coding"}
+{"id":256,"language":"Python","code":"import numpy as np\n\n\ndef q256(gradient, bound):\n    \"\"\"Clip every gradient entry to [-bound,bound], requiring a nonnegative bound.\"\"\"\n    if bound < 0:\n        raise ValueError(\"negative bound\")\n    return np.clip(gradient, -bound, bound)\n","answer":"","content_kind":"coding"}

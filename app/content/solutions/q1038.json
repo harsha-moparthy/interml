@@ -1,0 +1,46 @@
+{
+  "id": 1038,
+  "answer": "A shared gradient is a constraint on the examples that generated it. Conceptually, an observer could seek candidate inputs whose model gradients match the observed update, making small batches and informative early layers especially concerning. This explains why “raw data never leaves the device” is not a complete privacy claim. [1](https://arxiv.org/abs/1607.00133) [2](https://arxiv.org/abs/1602.05629)\n\nDefenses include secure aggregation over sufficiently many clients, clipping plus calibrated differential-privacy noise, reduced update exposure, and strict authorization/retention controls. Aggregation hides individual updates under its threat assumptions; DP bounds participation-dependent information under its accountant. Evaluate leakage in an authorized test environment across batch sizes and adversary knowledge. Compression or larger batches may complicate reconstruction but should not be represented as formal privacy guarantees.",
+  "readings": [
+    {
+      "title": "Deep Learning with Differential Privacy",
+      "url": "https://arxiv.org/abs/1607.00133",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Per-example clipping, Gaussian noise, and privacy accounting in DP-SGD.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Communication-Efficient Learning of Deep Networks from Decentralized Data",
+      "url": "https://arxiv.org/abs/1602.05629",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Federated averaging and communication/data-distribution tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Membership Inference Attacks Against Machine Learning Models",
+      "url": "https://arxiv.org/abs/1610.05820",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Threat model, confidence-based inference, and empirical privacy leakage.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

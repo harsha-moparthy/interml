@@ -1,0 +1,46 @@
+{
+  "id": 896,
+  "answer": "CLIP normalizes each image/text score against batch alternatives with softmax. SigLIP trains matched and mismatched pairs using independent sigmoid binary losses, with a learned scale/bias convention. [1](https://arxiv.org/abs/2303.15343)\n\n$$L=-\\sum_{ij}\\log\\sigma(y_{ij}(s_{ij}+b)),\\qquad y_{ij}\\in\\{-1,+1\\}.$$\n\nPairwise losses avoid requiring a global softmax denominator and allow flexible distribution of pair computations. Negative-pair count, sampling, and weighting still matter; sigmoid does not make the full all-pairs cost disappear. Reported advantages at particular batch sizes are empirical, not a guarantee of stability for every configuration. Compare matched compute, data, negative coverage, and downstream retrieval/classification; distributed communication depends on how embeddings and pair blocks are exchanged.",
+  "readings": [
+    {
+      "title": "Sigmoid Loss for Language Image Pre-Training",
+      "url": "https://arxiv.org/abs/2303.15343",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Pairwise logistic image–text training and distributed scaling comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "url": "https://arxiv.org/abs/2103.00020",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Image–text contrastive learning, zero-shot transfer, and limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Patch tokenization and the data/inductive-bias tradeoff of ViTs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

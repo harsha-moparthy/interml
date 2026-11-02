@@ -1,0 +1,46 @@
+{
+  "id": 1098,
+  "answer": "Build a versioned replay set of representative requests with expected schemas, reference labels/evidence where available, and important failure slices. Run baseline and candidate under pinned model/configuration/data versions, measuring quality, schema validity, latency, token/resource cost, and error rates. Gate merges on explicit thresholds and uncertainty, allowing human review for ambiguous quality changes. [1](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/)\n\nFor shadowing, duplicate permitted live inputs to an isolated candidate whose outputs and side effects are not delivered to users. Disable external writes and use controlled tool responses. Protect sensitive data with approved retention/redaction, and separate replay traffic from production capacity. Include cold starts, cache states, timeouts, and dependency failures. Offline replay and shadowing establish regression evidence, but cannot replace randomized online measurement of changed user behavior.",
+  "readings": [
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "RAGAS: Automated Evaluation of Retrieval Augmented Generation",
+      "url": "https://arxiv.org/abs/2309.15217",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Context relevance, faithfulness, and answer relevance evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Position, verbosity, and self-enhancement bias in model judging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "id": "lesson-q469-implement-variational-autoencoder-vae-loss-elbo",
   "kind": "lesson",
   "title": "Implement Variational Autoencoder (VAE) Loss (ELBO)",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            5,
-            11
+            8,
+            8
           ],
           "match": "reconstruction = (",
           "text": "Sum per example. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            12,
-            12
+            15,
+            15
           ],
           "match": "kl = 0.5 * (mu.square() + lo",
           "text": "Compute latent KL. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            13,
-            13
+            16,
+            16
           ],
           "match": "return (reconstruction + bet",
           "text": "Average negative ELBO. This is the code stage shown in the mechanism animation."

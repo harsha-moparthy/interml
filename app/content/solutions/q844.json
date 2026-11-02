@@ -1,0 +1,46 @@
+{
+  "id": 844,
+  "answer": "RL rewards successful completions, so behavior patterns correlated with success can become more frequent without step-by-step human labels. A model pretrained on reasoning text already has candidate patterns such as checking or revising; reward optimization can select and extend them. [1](https://arxiv.org/abs/2501.12948)\n\nThis does not prove human-like introspection or that every visible “wait” indicates a meaningful correction. Distinguish genuine improvements on independently verified tasks from longer text or reward-format exploitation. Rule-based rewards work best where correctness can be checked reliably, such as executable code or math with a known answer. Training details differ across model families; unpublished internals should not be inferred from surface behavior. Evaluate accuracy, compute, and robustness under independent tests, not narrative appearance alone.",
+  "readings": [
+    {
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability via Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2501.12948",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Group-relative rewards, reasoning training, and reported limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Proximal Policy Optimization Algorithms",
+      "url": "https://arxiv.org/abs/1707.06347",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Clipped policy ratios, advantage estimates, and policy optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Let's Verify Step by Step",
+      "url": "https://arxiv.org/abs/2305.20050",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Process supervision, outcome supervision, and verifier evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "STaR: Bootstrapping Reasoning With Reasoning",
+      "url": "https://arxiv.org/abs/2203.14465",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Iterative generation, correctness filtering, and rationale fine-tuning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally",
+      "url": "https://arxiv.org/abs/2408.03314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Adaptive inference-time compute allocation and comparison with model scaling.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

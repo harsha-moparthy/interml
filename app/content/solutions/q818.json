@@ -1,0 +1,46 @@
+{
+  "id": 818,
+  "answer": "Dynamic batching waits briefly to combine compatible requests, increasing matrix-multiply efficiency and amortizing overhead. It helps when throughput rises enough to offset queue delay. It can hurt low-traffic or tightly latency-bound workloads. [1](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/batcher.html)\n\n$$L_{request}=L_{queue}+L_{preprocess}+L_{inference}(batch)+L_{postprocess}.$$\n\nBenchmark service time across batch sizes, then replay realistic arrival bursts while sweeping maximum queue delay and concurrency. Reserve latency budget for the rest of the request path; never set the queue delay equal to the whole p99 SLO. Track request-level p99, throughput, cancellations, and queue depth. Variable shapes require compatible batching or bucketing. Stateful/autoregressive models may require sequence or continuous batching rather than a stateless dynamic-batcher configuration.",
+  "readings": [
+    {
+      "title": "Triton: Dynamic Batcher",
+      "url": "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/batcher.html",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Batch size, preferred sizes, and queue-delay configuration.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

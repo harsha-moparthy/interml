@@ -2,7 +2,7 @@
   "id": "lesson-q233",
   "kind": "lesson",
   "title": "Normalize each token across its own features",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            10,
-            10
+            12,
+            12
           ],
           "match": "mean = np.mean(X, axis=-1, keepdims=True)",
           "text": "The final feature axis is reduced separately at each batch/token position."
         },
         {
           "lines": [
-            13,
-            13
+            15,
+            15
           ],
           "match": "norm_X = gamma * X_norm + beta",
           "text": "Learned per-feature affine parameters act after normalization."

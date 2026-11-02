@@ -2,7 +2,7 @@
   "id": "lesson-q528-implement-splade-style-pooling-and-sparsity-penalties",
   "kind": "lesson",
   "title": "Implement SPLADE-style pooling and sparsity penalties",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            6,
-            8
+            10,
+            10
           ],
           "match": "activated = torch.log1p(F.re",
           "text": "Mask padded tokens. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            9,
-            9
+            11,
+            11
           ],
           "match": "weights = activated.max(dim=",
           "text": "Max-pool across tokens. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            10,
-            10
+            12,
+            12
           ],
           "match": "return (weights, weights.sum",
           "text": "Measure corpus FLOPS penalty. This is the code stage shown in the mechanism animation."

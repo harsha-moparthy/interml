@@ -1,0 +1,46 @@
+{
+  "id": 866,
+  "answer": "CUDA Graphs record a GPU operation sequence and replay it with much less CPU launch overhead. This is useful when many small kernels finish so quickly that dispatch gaps dominate small-batch decode latency. [1](https://docs.nvidia.com/cuda/cuda-c-programming-guide/)\n\nCaptured execution needs stable operation structure and memory-address assumptions; supported updates and multiple graph variants can accommodate some changes, so “all dynamic behavior is impossible” is too strong. Allocate and warm up appropriately, avoid unsupported capture-time operations, and use fixed buffers or shape buckets when required.\n\nGraph replay does not reduce the mathematical workload or guarantee a speedup for large compute-bound kernels. Account for capture cost, graph memory, padding/bucketing waste, and fallback paths. Verify numerical parity and measure CPU/GPU timelines to confirm launch overhead was actually the bottleneck.",
+  "readings": [
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch: torch.compile Troubleshooting",
+      "url": "https://docs.pytorch.org/docs/stable/torch.compiler_troubleshooting.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Guards, recompilation, graph breaks, and diagnosis.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Efficient Memory Management for LLM Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Block tables, fragmentation, shared prefixes, and serving throughput.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

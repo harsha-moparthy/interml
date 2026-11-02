@@ -2,7 +2,7 @@
   "id": "lesson-q361-direct-preference-optimization-dpo-loss",
   "kind": "lesson",
   "title": "Direct Preference Optimization (DPO) Loss",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,16 +89,16 @@
         },
         {
           "lines": [
-            11,
-            15
+            14,
+            14
           ],
           "match": "margin = beta * (",
           "text": "Subtract reference margin. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            16,
-            16
+            20,
+            20
           ],
           "match": "return float(np.logaddexp(0,",
           "text": "Scale by beta. This is the code stage shown in the mechanism animation."

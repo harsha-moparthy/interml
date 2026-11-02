@@ -1,0 +1,46 @@
+{
+  "id": 1031,
+  "answer": "With paired row matrices $A,B\\in\\mathbb R^{n\\times d}$, solve $\\min_{\\Omega^T\\Omega=I}\\|A-B\\Omega\\|_F^2$. Expanding gives constant terms minus $2\\operatorname{tr}(\\Omega^TB^TA)$. Let $B^TA=U\\Sigma V^T$; maximizing that trace yields $\\Omega=UV^T$. Thus a new row embedding $b$ maps to $b\\Omega$. [1](https://probml.github.io/pml-book/book2.html)\n\nTo see optimality, set $C=U^T\\Omega V$, which is orthogonal. The trace is $\\sum_i\\sigma_i C_{ii}\\leq\\sum_i\\sigma_i$, achieved at $C=I$. Reflections are allowed; requiring determinant +1 needs a sign correction on the smallest singular direction. Center paired data if translation matters, and apply the corresponding means during inference. The solution preserves distances under its map but cannot repair arbitrary semantic changes between encoders.",
+  "readings": [
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The FAISS Library",
+      "url": "https://arxiv.org/abs/2401.08281",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Exact and approximate search, compression, and index tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Matryoshka Representation Learning",
+      "url": "https://arxiv.org/abs/2205.13147",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Training useful nested embedding prefixes for adaptive cost.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

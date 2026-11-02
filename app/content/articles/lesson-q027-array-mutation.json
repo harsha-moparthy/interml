@@ -2,7 +2,7 @@
   "id": "lesson-q027-array-mutation",
   "kind": "lesson",
   "title": "Same values, different memory",
-  "revision": 9,
+  "revision": 10,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            6,
-            6
+            8,
+            8
           ],
           "match": "view = a[::2]",
           "text": "Basic slicing creates the alias that later writes use."
         },
         {
           "lines": [
-            8,
-            8
+            11,
+            11
           ],
           "match": "copied = b[np.arange",
           "text": "Advanced integer indexing creates independent data for this temporary result."

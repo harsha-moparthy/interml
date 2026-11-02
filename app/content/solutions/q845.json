@@ -1,0 +1,46 @@
+{
+  "id": 845,
+  "answer": "Tree search amplifies whatever its value/process scorer favors. If a scorer rewards plausible-looking but incorrect steps, search discovers those weaknesses; changing policies also shift the distribution on which the value model must be accurate. Fine-grained labeling and long branching searches add substantial cost. [1](https://arxiv.org/abs/2305.20050) [2](https://arxiv.org/abs/2501.12948)\n\nVerifiable outcome rewards avoid some learned-judge ambiguity, and group-relative baselines remove a separately trained critic. They still suffer sparse rewards, test incompleteness, and reward hacking. This is not proof that MCTS/PRMs universally fail: they can help when intermediate verification and search structure are strong. Compare correctness at equal total compute and audit the verifier itself. A broken test suite gives a precisely optimized but wrong target regardless of the RL algorithm.",
+  "readings": [
+    {
+      "title": "Let's Verify Step by Step",
+      "url": "https://arxiv.org/abs/2305.20050",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Process supervision, outcome supervision, and verifier evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability via Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2501.12948",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Group-relative rewards, reasoning training, and reported limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Proximal Policy Optimization Algorithms",
+      "url": "https://arxiv.org/abs/1707.06347",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Clipped policy ratios, advantage estimates, and policy optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally",
+      "url": "https://arxiv.org/abs/2408.03314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Adaptive inference-time compute allocation and comparison with model scaling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Understanding R1-Zero-Like Training: A Critical Perspective",
+      "url": "https://arxiv.org/abs/2503.20783",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Response-length and reward-normalization biases and the Dr. GRPO objective.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

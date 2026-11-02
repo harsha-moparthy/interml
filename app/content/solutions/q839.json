@@ -1,0 +1,46 @@
+{
+  "id": 839,
+  "answer": "**Illustrative interview answer:** “Our offline ranker improved NDCG, but the canary reduced completed actions. I first checked assignment/logging and rollback thresholds. Traces showed the new feature service added tail latency, causing client timeouts; replay also found that offline features included fresher values than serving could access.” [1](https://developers.google.com/machine-learning/guides/rules-of-ml) [2](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/)\n\n“We restored the prior version, imposed a feature deadline with fallback, rebuilt point-in-time training features, and repeated shadow and randomized tests. The lesson was that ranking quality and delivered decisions are different objectives. I added parity tests and request-level latency/timeout guardrails to promotion.” [3](https://docs.feast.dev/getting-started/concepts/point-in-time-joins)\n\nThis is a model response, not personal history. In an interview, substitute your actual incident, evidence, impact, and ownership. If you have no such incident, describe a real near-miss or clearly frame a hypothetical diagnosis.",
+  "readings": [
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Feast: Point-in-time Joins",
+      "url": "https://docs.feast.dev/getting-started/concepts/point-in-time-joins",
+      "publisher": "docs.feast.dev",
+      "tags": "",
+      "why": "Historical feature retrieval with event-time correctness.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 723,
+  "answer": "An outcome reward model scores the final answer or overall completion. A process reward model scores intermediate steps, making it possible to identify where a derivation first becomes invalid and to guide search before the final answer. [1](https://arxiv.org/abs/2305.20050)\n\nA correct final number can follow faulty reasoning, and a sound partial derivation can end with an arithmetic slip. Outcome-only labels do not distinguish these cases. Process supervision can provide denser feedback but requires reliable step boundaries and annotations; alternative valid derivations should not be penalized merely for differing from a reference.\n\nDuring search, aggregate step scores carefully: a product of probabilities penalizes long solutions, while a minimum focuses on the weakest step. Validate process judges against human or executable checks and keep final-answer verification. Neither scorer's confidence is a proof of correctness.",
+  "readings": [
+    {
+      "title": "Let's Verify Step by Step",
+      "url": "https://arxiv.org/abs/2305.20050",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Process supervision, outcome supervision, and verifier evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability via Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2501.12948",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Group-relative rewards, reasoning training, and reported limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Training Language Models to Follow Instructions with Human Feedback",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "SFT, reward modeling, PPO, and human evaluation in an RLHF pipeline.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Proximal Policy Optimization Algorithms",
+      "url": "https://arxiv.org/abs/1707.06347",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Clipped policy ratios, advantage estimates, and policy optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Direct Preference Optimization",
+      "url": "https://arxiv.org/abs/2305.18290",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "KL-regularized optimal policies and the preference logistic objective.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

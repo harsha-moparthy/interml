@@ -1,0 +1,46 @@
+{
+  "id": 862,
+  "answer": "Extra agents help when work can be decomposed, contexts differ usefully, and outputs are independently verifiable. They hurt when handoffs lose constraints, agents share correlated errors, reviewers reward persuasive text, or coordination consumes more time than the work itself. [1](https://www.anthropic.com/research/building-effective-agents)\n\nIf a serial workflow has independent stage success probabilities $p_i$, end-to-end success is $\\prod_i p_i$; five 95%-reliable stages give about 77.4%. Independence is only an illustrative assumption—shared model errors can be worse. Parallel redundancy helps only when selection/verification is reliable.\n\nUse typed artifacts, one source of task state, clear ownership, bounded messages, and executable acceptance tests. Compare with a single-agent baseline at equal compute and latency. The number of agents is not a quality metric.",
+  "readings": [
+    {
+      "title": "Building Effective Agents — Anthropic",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Workflow patterns, tool interfaces, evaluation, and when agent complexity is justified.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Interleaving observations, reasoning, and tool actions.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally",
+      "url": "https://arxiv.org/abs/2408.03314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Adaptive inference-time compute allocation and comparison with model scaling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Position, verbosity, and self-enhancement bias in model judging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

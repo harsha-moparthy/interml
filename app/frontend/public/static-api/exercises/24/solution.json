@@ -1,1 +1,1 @@
-{"id":24,"language":"Python","code":"import numpy as np\n\n\ndef q024(array, shape):\n    return np.asarray(array).reshape(shape).copy()\n","answer":"","content_kind":"coding"}
+{"id":24,"language":"Python","code":"import numpy as np\n\n\ndef q024(array, shape):\n    \"\"\"Reshape an array and return an independent copy, even when reshape returns a view.\"\"\"\n    return np.asarray(array).reshape(shape).copy()\n","answer":"","content_kind":"coding"}

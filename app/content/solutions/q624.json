@@ -1,0 +1,47 @@
+{
+  "id": 624,
+  "code_file": "q624.py",
+  "answer": "The stable identity is max(z,0)−z·y+log1p(exp(−|z|)). Its exponential argument is never positive, so large-magnitude logits do not overflow. Avoid computing sigmoid then log: saturation can create log(0). The function averages over all elements and accepts soft binary targets in [0,1]. Extreme correct predictions approach zero loss; extreme incorrect predictions grow approximately linearly.\n\n**Mathematical and practical explanation.** Using $\\operatorname{softplus}(z)-yz$ gives the same BCE as sigmoid probabilities, with derivative $\\sigma(z)-y$. The stable softplus form is $\\max(z,0)+\\log(1+e^{-|z|})$. Test logits of large positive and negative magnitude against a trusted logits-based loss, checking both finite values and gradients. [3](https://www.deeplearningbook.org/)\n\nFor the implementation or system context discussed above, see [1](https://gombru.github.io/2018/05/23/cross_entropy_loss/) and [2](https://docs.pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html).",
+  "readings": [
+    {
+      "title": "Understanding Categorical Cross-Entropy Loss, Binary Cross-Entropy Loss, Softmax Loss, Logistic Loss, Focal Loss and all those confusing names",
+      "url": "https://gombru.github.io/2018/05/23/cross_entropy_loss/",
+      "publisher": "Raúl Gómez",
+      "tags": "",
+      "why": "Untangles the cross-entropy variants and their gradients.",
+      "access": "Free to read"
+    },
+    {
+      "title": "BCEWithLogitsLoss",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.BCEWithLogitsLoss.html",
+      "publisher": "PyTorch",
+      "tags": "",
+      "why": "The combined logits formulation avoids unstable sigmoid-then-log evaluation.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

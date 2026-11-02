@@ -1,0 +1,46 @@
+{
+  "id": 1000,
+  "answer": "Platt scaling fits a sigmoid with slope/intercept to a binary score; multiclass extensions require a specified construction. Temperature scaling fits a single positive scalar on held-out multiclass logits. [1](https://scikit-learn.org/stable/modules/calibration.html)\n\n$$p_i(T)=\\frac{e^{z_i/T}}{\\sum_j e^{z_j/T}},\\qquad T>0.$$\n\nDividing all logits by the same positive value preserves their ordering, so top-1 class predictions remain unchanged aside from numerical/tie effects. Larger temperature softens probabilities; smaller temperature sharpens them. It cannot fix misranked classes or arbitrary class-specific calibration errors. Fit on independent calibration data and recheck under distribution shift.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

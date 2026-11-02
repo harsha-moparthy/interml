@@ -1,0 +1,22 @@
+{
+  "id": 28,
+  "code_file": "q028.py",
+  "readings": [
+    {
+      "title": "Computation on Arrays: Broadcasting (Python Data Science Handbook)",
+      "url": "https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html",
+      "publisher": "Jake VanderPlas",
+      "tags": "",
+      "why": "Walks through broadcasting rules with shape diagrams and runnable examples.",
+      "access": "Free to read"
+    },
+    {
+      "title": "NumPy broadcasting rules",
+      "url": "https://numpy.org/doc/stable/user/basics.broadcasting.html",
+      "publisher": "NumPy",
+      "tags": "",
+      "why": "Check how singleton axes produce the requested output shape without tiling inputs.",
+      "access": "Free to read"
+    }
+  ]
+}

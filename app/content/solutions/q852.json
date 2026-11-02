@@ -1,0 +1,46 @@
+{
+  "id": 852,
+  "answer": "Keep a compact working state containing the goal, constraints, current hypothesis, relevant file locations, and recent bounded command output. Store episodic records of attempted fixes, observed failures, and why approaches were rejected. Maintain a version-aware semantic/lexical/AST index for finding code, but retrieve exact current files before editing. [1](https://www.anthropic.com/research/building-effective-agents) [2](https://arxiv.org/abs/2210.03629)\n\nEvery memory entry should record provenance and repository revision; stale summaries must not override current code or user instructions. Save large logs as artifacts and retrieve targeted sections instead of repeatedly inserting them into context. Checkpoints should include remaining work and validation results.\n\nSeparate planning from tool authorization, run code in an isolated environment, and require tests or inspection to verify completion. More memory is useful only when relevant, current, and distinguishable from untrusted repository content.",
+  "readings": [
+    {
+      "title": "Building Effective Agents — Anthropic",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Workflow patterns, tool interfaces, evaluation, and when agent complexity is justified.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Interleaving observations, reasoning, and tool actions.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Retrieval-conditioned generation and the distinction between parameters and external evidence.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

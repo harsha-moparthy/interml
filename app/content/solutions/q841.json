@@ -1,0 +1,46 @@
+{
+  "id": 841,
+  "answer": "**Illustrative interview answer:** “A classifier's labels were assembled from a mutable status table. Historical examples therefore sometimes received features updated after the outcome. I reconstructed event-time snapshots, audited ambiguous labels with domain reviewers, and separated unresolved cases instead of labeling them negative.” [1](https://scikit-learn.org/stable/common_pitfalls.html) [2](https://developers.google.com/machine-learning/guides/rules-of-ml)\n\n“To compare data work with architecture work, I used the same frozen evaluation set and a factorial comparison: old/new data crossed with baseline/new model. I reported confidence intervals and slice changes, not only the best run. Cleaning can lower an inflated offline metric while improving real validity.”\n\nUse your own data issue and actual measurements. Explain how the problem was detected, how fixes were verified, and which permanent data tests prevented recurrence; do not claim that cleaning always beats modeling by a universal percentage.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Common Pitfalls",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Preprocessing leakage, pipelines, and reproducible evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

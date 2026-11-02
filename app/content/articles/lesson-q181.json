@@ -2,7 +2,7 @@
   "id": "lesson-q181",
   "kind": "lesson",
   "title": "Soft assignments move the distributions",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,18 +90,18 @@
       "notes": [
         {
           "lines": [
-            18,
-            18
+            23,
+            23
           ],
-          "match": "return np.exp(logp - logsumexp(logp, axis=1, keepdims=True))",
+          "match": "log_probabilities - logsumexp(log_probabilities, axis=1, keepdims=True)",
           "text": "Log-space normalization produces one probability distribution over components per row."
         },
         {
           "lines": [
-            24,
-            24
+            30,
+            30
           ],
-          "match": "means = r.T @ x / counts[:, None]",
+          "match": "means = responsibilities.T @ x / counts[:, None]",
           "text": "The M-step computes responsibility-weighted component means."
         }
       ],

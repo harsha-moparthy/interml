@@ -1,0 +1,46 @@
+{
+  "id": 702,
+  "answer": "FlashAttention computes the same dense attention, up to floating-point rounding, without materializing the full $N\\times N$ score/probability matrix in HBM. It loads query/key/value tiles into fast memory and maintains a running row maximum, normalization sum, and weighted value sum. [1](https://arxiv.org/abs/2205.14135)\n\n$$m'=\\max(m,m_b),\\quad \\ell'=e^{m-m'}\\ell+\\sum_j e^{s_j-m'},\\quad o'=e^{m-m'}o+\\sum_j e^{s_j-m'}v_j.$$\n\nBackward reloads tiles and reconstructs probabilities from saved row normalization statistics and inputs. This spends arithmetic to save memory traffic. FlashAttention-2 improves parallel work partitioning and reduces non-matmul operations. FlashAttention-3 exploits Hopper-specific asynchronous execution and low-precision techniques. [2](https://arxiv.org/abs/2307.08691) [3](https://arxiv.org/abs/2407.08608) Dense attention FLOPs remain quadratic in sequence length; lower IO does not make the algorithm sparse or approximate.",
+  "readings": [
+    {
+      "title": "FlashAttention: Exact Attention with IO-Awareness",
+      "url": "https://arxiv.org/abs/2205.14135",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Online softmax, SRAM tiling, and recomputation in the backward pass.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention-2: Better Parallelism and Work Partitioning",
+      "url": "https://arxiv.org/abs/2307.08691",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Reducing non-matmul work and improving GPU work partitioning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention-3: Asynchrony and Low-precision",
+      "url": "https://arxiv.org/abs/2407.08608",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Hopper-specific pipelining and low-precision attention.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

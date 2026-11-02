@@ -2,7 +2,7 @@
   "id": "lesson-q066",
   "kind": "lesson",
   "title": "Solve a system by choosing better directions",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            7,
-            7
+            9,
+            9
           ],
           "match": "x = np.zeros_like(b)",
           "text": "The original implementation starts at zero even when x0 is supplied; this is a source limitation."
         },
         {
           "lines": [
-            16,
-            16
+            18,
+            18
           ],
           "match": "p = rPlus1 + bet * p",
           "text": "The correction combines the new residual with the previous direction to preserve conjugacy."

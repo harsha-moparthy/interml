@@ -2,7 +2,7 @@
   "id": "lesson-q209",
   "kind": "lesson",
   "title": "Repair only the order violations",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,18 +90,18 @@
       "notes": [
         {
           "lines": [
-            10,
-            10
+            13,
+            13
           ],
           "match": "weight = np.bincount(inverse)",
           "text": "Tied-score groups retain their observation counts for weighted fitting."
         },
         {
           "lines": [
-            22,
-            22
+            29,
+            29
           ],
-          "match": "blocks.append([a[0], b[1], a[2] + b[2], a[3] + b[3]])",
+          "match": "left_block[2] + right_block[2]",
           "text": "Pooling combines interval boundaries, weights, and sums without losing multiplicity."
         }
       ],

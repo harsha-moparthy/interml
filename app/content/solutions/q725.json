@@ -1,0 +1,46 @@
+{
+  "id": 725,
+  "answer": "Flat search compares a query with all stored vectors: it provides exact nearest neighbors under the chosen metric but costs $O(Nd)$ per query. IVF partitions the space, probing selected clusters; fewer probes reduce work and may miss neighbors. PQ compresses vectors into subvector codebooks, reducing storage while introducing distance error. HNSW navigates a multilayer neighbor graph, trading graph memory and build cost for high-recall search. [1](https://arxiv.org/abs/2401.08281) [2](https://arxiv.org/abs/1603.09320)\n\n$$M_{flat}\\approx Ndb,\\qquad M_{PQ,codes}\\approx Nm\\log_2(K)/8.$$\n\nPQ's formula excludes codebooks and index metadata. IVF and PQ can be combined; HNSW may also index compressed representations. Benchmark recall against exact search, p95 latency, update/delete behavior, and RAM on representative queries. Recall is approximate-search recall, not proof that the embedding represents user relevance well.",
+  "readings": [
+    {
+      "title": "The FAISS Library",
+      "url": "https://arxiv.org/abs/2401.08281",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Exact and approximate search, compression, and index tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Efficient and Robust Approximate Nearest Neighbor Search Using HNSW",
+      "url": "https://arxiv.org/abs/1603.09320",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Graph construction, search breadth, and recall/latency tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Matryoshka Representation Learning",
+      "url": "https://arxiv.org/abs/2205.13147",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Training useful nested embedding prefixes for adaptive cost.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

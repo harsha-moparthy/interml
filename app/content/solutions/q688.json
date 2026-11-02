@@ -1,0 +1,46 @@
+{
+  "id": 688,
+  "answer": "Partition each query and key into coordinate pairs. For pair $j$, rotate the query at position $m$ by $m\\theta_j$ and the key at position $n$ by $n\\theta_j$. Rotations are orthogonal and compose by adding angles. [1](https://arxiv.org/abs/2104.09864)\n\n$$R(\\phi)=\\begin{pmatrix}\\cos\\phi&-\\sin\\phi\\\\\\sin\\phi&\\cos\\phi\\end{pmatrix},\\quad (R(m\\theta)q)^TR(n\\theta)k=q^TR((n-m)\\theta)k.$$\n\nThe explicit positional component depends only on the offset, with sign determined by the rotation convention. The score still depends on token content through $q,k$; it is not a function of distance alone. Rotation preserves each pair's norm. Different frequencies represent offsets at different scales. Long-distance extrapolation can nevertheless fail because the model has not learned to interpret those phase combinations.\n\n![RoPE rotates query and key coordinate pairs; their dot product depends on the angle difference.](/answer-diagrams/rope.svg)",
+  "readings": [
+    {
+      "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+      "url": "https://arxiv.org/abs/2104.09864",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Rotation matrices and the relative-position dot-product identity.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "YaRN: Efficient Context Window Extension",
+      "url": "https://arxiv.org/abs/2309.00071",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Frequency-dependent RoPE extension and attention temperature scaling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "GQA: Training Generalized Multi-Query Transformer Models",
+      "url": "https://arxiv.org/abs/2305.13245",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "The quality, bandwidth, and cache tradeoff between MHA, MQA, and GQA.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

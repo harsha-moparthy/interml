@@ -1,0 +1,46 @@
+{
+  "id": 985,
+  "answer": "`model.eval()` changes module behavior such as dropout and BatchNorm statistics; it does not disable autograd. `torch.no_grad()` disables gradient recording in its scope but does not toggle module training/evaluation mode. [1](https://docs.pytorch.org/docs/stable/index.html)\n\nFor typical inference, use evaluation mode together with no-grad or a suitable inference-mode context. For gradient-based attribution, you may need evaluation mode with gradients enabled. Conversely, a training-mode forward inside no-grad can still update BatchNorm running statistics. Choose both controls deliberately and restore state after temporary evaluation; confusing them can produce unnecessary memory use or inconsistent predictions.",
+  "readings": [
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Batch Normalization",
+      "url": "https://arxiv.org/abs/1502.03167",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Batch statistics, learned affine parameters, and inference behavior.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch: Automatic Mixed Precision Examples",
+      "url": "https://docs.pytorch.org/docs/stable/notes/amp_examples.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Autocast, scaling, gradient accumulation, and clipping order.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

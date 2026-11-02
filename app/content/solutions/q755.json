@@ -1,0 +1,46 @@
+{
+  "id": 755,
+  "answer": "For each spatial axis, dilation makes the effective kernel $K_{eff}=D(K-1)+1$. With symmetric padding and floor-based convolution output sizing, [1](https://docs.pytorch.org/docs/stable/index.html)\n\n$$H_{out}=\\left\\lfloor\\frac{H+2P-D(K-1)-1}{S}\\right\\rfloor+1,\\quad W_{out}=\\left\\lfloor\\frac{W+2P-D(K-1)-1}{S}\\right\\rfloor+1.$$\n\nFor groups $G$, trainable weights are $C_{out}(C_{in}/G)K^2$, plus $C_{out}$ if bias is enabled. With 3 input channels, 16 output channels, 3×3 kernels, stride 2, padding 1, dilation 1, and 32×32 input, output is 16×16×16 and parameters are $16\\cdot3\\cdot9+16=448$. Asymmetric padding and framework-specific “same” rules need separate accounting.",
+  "readings": [
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Residual Learning for Image Recognition",
+      "url": "https://arxiv.org/abs/1512.03385",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Residual blocks and empirical evidence about depth and optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Patch tokenization and the data/inductive-bias tradeoff of ViTs.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

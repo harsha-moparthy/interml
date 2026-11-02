@@ -1,1 +1,1 @@
-{"id":30,"language":"Python","code":"import numpy as np\n\n\ndef q030(x, y):\n    return np.asarray(x)[:, None, :] - np.asarray(y)[None, :, :]\n","answer":"","content_kind":"coding"}
+{"id":30,"language":"Python","code":"import numpy as np\n\n\ndef q030(x, y):\n    \"\"\"Return x[i] - y[j] for row vectors; output shape is (N, M, D).\"\"\"\n    # Singleton axes pair every row in x with every row in y; inputs are not tiled.\n    return np.asarray(x)[:, None, :] - np.asarray(y)[None, :, :]\n","answer":"","content_kind":"coding"}

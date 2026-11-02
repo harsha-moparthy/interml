@@ -2,7 +2,7 @@
   "id": "lesson-q092",
   "kind": "lesson",
   "title": "Let evidence reshape a belief",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            2,
-            2
+            5,
+            5
           ],
           "match": "a, b = (alpha + successes, beta + failures)",
           "text": "Sufficient counts update the two Beta parameters."
         },
         {
           "lines": [
-            3,
-            3
+            6,
+            6
           ],
           "match": "return (a, b,",
           "text": "The return includes parameters, mean, and variance, so callers can inspect both belief and uncertainty."

@@ -1,0 +1,46 @@
+{
+  "id": 905,
+  "answer": "A standard two-tower score factorizes as $f(user)^Tg(item)$ so item vectors can be computed once and indexed. A feature depending jointly on this user and this candidate cannot generally be evaluated inside either independently precomputed tower without breaking that separation. [1](https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/)\n\nFor example, “this user's historical CTR on this author” changes with both sides. Introduce it after candidate retrieval in pre-ranking/heavy ranking, or approximate it through separately encoded user-author preferences. Some structured interactions can be algebraically factorized or stored in user features, so the prohibition is not absolute for every cross-feature.\n\nVerify index freshness and query/item encoder version compatibility. Adding arbitrary pairwise features to retrieval would require scoring the whole catalog or a different indexing strategy, defeating the intended scalability.",
+  "readings": [
+    {
+      "title": "Sampling-Bias-Corrected Neural Modeling for Large Corpus Item Recommendations",
+      "url": "https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Two-tower retrieval, sampled negatives, and popularity correction.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Interest Network for Click-Through Rate Prediction",
+      "url": "https://arxiv.org/abs/1706.06978",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Candidate-aware attention over user behavior history.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction",
+      "url": "https://arxiv.org/abs/2004.12832",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Token-level MaxSim and late interaction storage costs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning Recommendation Model for Personalization and Recommendation Systems",
+      "url": "https://arxiv.org/abs/1906.00091",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Categorical embeddings, dense features, and interaction/serving costs.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

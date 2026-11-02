@@ -1,0 +1,46 @@
+{
+  "id": 918,
+  "answer": "Duplicate columns or more columns than rows make $X$ rank-deficient, so $X^TX$ has zero eigenvalues and the ordinary inverse does not exist. Least-squares fitted values can still be unique even when coefficients are not; the pseudoinverse selects a minimum-norm solution. [1](https://scikit-learn.org/stable/modules/linear_model.html)\n\nFor any nonzero $v$ and $\\lambda>0$,\n\n$$v^T(X^TX+\\lambda I)v=\\|Xv\\|^2+\\lambda\\|v\\|^2>0.$$\n\nThus the fully penalized matrix is positive definite and invertible. If an intercept is exempt, analyze that block separately. Ridge improves conditioning but introduces shrinkage bias. Use a stable linear solve/QR/SVD rather than explicitly constructing the inverse in production numerical code.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Matrix Decomposition",
+      "url": "https://scikit-learn.org/stable/modules/decomposition.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "PCA, SVD, centering, whitening, and decomposition variants.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

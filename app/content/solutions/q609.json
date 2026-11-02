@@ -1,0 +1,47 @@
+{
+  "id": 609,
+  "code_file": "q609.py",
+  "answer": "RMSNorm divides by √(mean(x²)+eps), then applies a learned scale; it does not subtract the feature mean. Accumulating the second moment in float32 reduces low-precision error. The implementation supports a scale initialized to one and a zero-centered parameterization using 1+weight. These are parameterization choices, not a guarantee that arbitrary model checkpoints are interchangeable.\n\n**Mathematical and practical explanation.** $y_i=\\gamma_i x_i/\\sqrt{d^{-1}\\sum_jx_j^2+\\epsilon}$. This preserves the direction of a row before learned coordinate scaling, whereas centering in LayerNorm also changes that direction. Epsilon prevents division by zero but means exact scale invariance holds only approximately when the second moment dominates epsilon. [3](https://arxiv.org/abs/1910.07467)\n\nFor the implementation or system context discussed above, see [1](https://sebastianraschka.com/faq/docs/rmsnorm-vs-layernorm.html) and [2](https://docs.pytorch.org/docs/stable/generated/torch.nn.RMSNorm.html).",
+  "readings": [
+    {
+      "title": "RMSNorm vs LayerNorm",
+      "url": "https://sebastianraschka.com/faq/docs/rmsnorm-vs-layernorm.html",
+      "publisher": "Sebastian Raschka",
+      "tags": "",
+      "why": "Explains exactly what RMSNorm drops from LayerNorm.",
+      "access": "Free to read"
+    },
+    {
+      "title": "RMSNorm",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.RMSNorm.html",
+      "publisher": "PyTorch",
+      "tags": "",
+      "why": "Check the normalization equation and epsilon convention.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Root Mean Square Layer Normalization",
+      "url": "https://arxiv.org/abs/1910.07467",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "RMS normalization, invariances, and measured rather than universal efficiency gains.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "On Layer Normalization in the Transformer Architecture",
+      "url": "https://arxiv.org/abs/2002.04745",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Gradient behavior at initialization and normalization placement.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

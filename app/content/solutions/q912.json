@@ -1,0 +1,46 @@
+{
+  "id": 912,
+  "answer": "Post-click conversion labels exist on the clicked subset, whose distribution differs from all impressions. ESMM shares representations and trains CTR and click-and-conversion predictions across impression space using the probability chain rule. [1](https://arxiv.org/abs/1804.07931)\n\n$$P(click,conversion\\mid x)=P(click\\mid x)P(conversion\\mid click,x).$$\n\nThe product tower receives joint-outcome supervision even for unclicked impressions, while CTR has its own labels. This can reduce sparsity and improve generalization, but does not magically identify conversion under arbitrary forced clicks or remove all confounding. The conditional CVR target and causal conversion effect are different quantities. Delayed conversions, tiny CTR denominators, and model misspecification remain concerns. Evaluate mature labels, calibration, and click-conditioned as well as impression-level metrics.",
+  "readings": [
+    {
+      "title": "Entire Space Multi-Task Model",
+      "url": "https://arxiv.org/abs/1804.07931",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Impression-space CTR/CTCVR learning and post-click conversion modeling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Doubly Robust Policy Evaluation and Learning",
+      "url": "https://arxiv.org/abs/1103.4601",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Combining reward models and logged propensities for off-policy evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sampling-Bias-Corrected Neural Modeling for Large Corpus Item Recommendations",
+      "url": "https://research.google/pubs/sampling-bias-corrected-neural-modeling-for-large-corpus-item-recommendations/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Two-tower retrieval, sampled negatives, and popularity correction.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Causal Inference: What If",
+      "url": "https://miguelhernan.org/whatifbook",
+      "publisher": "miguelhernan.org",
+      "tags": "",
+      "why": "Hernán and Robins' open book on identification, confounding, weighting, and longitudinal causal inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

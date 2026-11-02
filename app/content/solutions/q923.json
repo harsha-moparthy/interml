@@ -1,0 +1,46 @@
+{
+  "id": 923,
+  "answer": "A high-cardinality feature offers many candidate partitions, increasing the chance of finding an apparently good split by noise. A unique transaction ID can isolate rows perfectly while providing no reusable predictive structure. Impurity-based importance inherits related selection bias. [1](https://scikit-learn.org/stable/modules/ensemble.html)\n\nGain ratio divides information gain by split information, discouraging some high-branching splits but not eliminating all selection bias. Minimum leaf sizes, depth/leaf limits, penalties, and validation reduce memorization. CatBoost's ordered target handling addresses a different but related leakage/prediction-shift problem; it is not simply a cardinality penalty. [2](https://arxiv.org/abs/1706.09516)\n\nAudit ID-like variables, compare permutation importance on held-out data, and use group/time splits. A random split can make repeated-entity memorization look useful when deployment must generalize to unseen entities.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CatBoost: Unbiased Boosting with Categorical Features",
+      "url": "https://arxiv.org/abs/1706.09516",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Ordered boosting, target statistics, and prediction shift.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "LightGBM: A Highly Efficient Gradient Boosting Decision Tree",
+      "url": "https://proceedings.neurips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html",
+      "publisher": "proceedings.neurips.cc",
+      "tags": "",
+      "why": "GOSS and exclusive feature bundling from the original paper.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "XGBoost: A Scalable Tree Boosting System",
+      "url": "https://arxiv.org/abs/1603.02754",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order tree objectives and sparsity-aware split finding.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

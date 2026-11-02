@@ -1,0 +1,46 @@
+{
+  "id": 1002,
+  "answer": "Build a temporal heterogeneous graph of accounts, reviewed entities, devices/network signals where legitimately available, and shared content. Combine text similarity with synchronized activity, repeated reviewer–business patterns, and abnormal graph motifs. Train on adjudicated cases with temporal/entity-separated validation. [1](https://arxiv.org/abs/1609.02907) [2](https://arxiv.org/abs/1908.10084)\n\nCoordinated legitimate behavior can resemble a ring, so output risk scores and evidence for review rather than automatically treating graph proximity as guilt. Use robust negative sampling, monitor adversarial adaptation, and limit sensitive features to authorized purposes. Evaluate precision at reviewer capacity, false positives on new/shared-network users, and time-to-detection. Preserve provenance and an appeal/review path. Text-only classifiers miss coordination; graph-only classifiers can overflag communities with normal shared interests.",
+  "readings": [
+    {
+      "title": "Semi-Supervised Classification with Graph Convolutional Networks",
+      "url": "https://arxiv.org/abs/1609.02907",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Normalized graph propagation and semi-supervised node classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Doubly Robust Policy Evaluation and Learning",
+      "url": "https://arxiv.org/abs/1103.4601",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Combining reward models and logged propensities for off-policy evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

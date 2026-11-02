@@ -1,0 +1,47 @@
+{
+  "id": 641,
+  "code_file": "q641.py",
+  "answer": "At each node test thresholds between adjacent distinct feature values. Choose the largest reduction in weighted Gini impurity, then recurse subject to depth and minimum-leaf constraints. Leaves predict the majority class with deterministic ties. This reference is deliberately exhaustive and supports finite continuous features; missing-value routing, categorical splits, pruning, and histogram acceleration are separate extensions.\n\n**Mathematical and practical explanation.** A node's Gini impurity is $1-\\sum_cp_c^2$. Split gain subtracts the child impurities weighted by their fractions of parent examples. Test only boundaries between distinct sorted values, enforce minimum leaf size before accepting a split, and separate split selection from stopping rules to make tie behavior reproducible. [3](https://www.statlearning.com/)\n\nFor the implementation or system context discussed above, see [1](https://mlcourse.ai/book/topic03/topic03_decision_trees_kNN.html) and [2](https://scikit-learn.org/stable/modules/tree.html).",
+  "readings": [
+    {
+      "title": "Topic 3. Decision trees and k-NN (mlcourse.ai)",
+      "url": "https://mlcourse.ai/book/topic03/topic03_decision_trees_kNN.html",
+      "publisher": "mlcourse.ai",
+      "tags": "",
+      "why": "Entropy, information gain and Gini built up with a worked toy dataset.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Decision Trees (scikit-learn)",
+      "url": "https://scikit-learn.org/stable/modules/tree.html",
+      "publisher": "scikit-learn",
+      "tags": "",
+      "why": "Mathematical formulation of Gini, entropy and the CART split search, plus pruning.",
+      "access": "Free to read"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

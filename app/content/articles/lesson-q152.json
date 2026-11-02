@@ -2,7 +2,7 @@
   "id": "lesson-q152",
   "kind": "lesson",
   "title": "Grow a margin one dual coordinate at a time",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,16 +90,16 @@
       "notes": [
         {
           "lines": [
-            13,
-            13
+            17,
+            17
           ],
           "match": "updated = np.clip(",
           "text": "The box constraint is applied to the proposed coordinate optimum."
         },
         {
           "lines": [
-            16,
-            16
+            18,
+            18
           ],
           "match": "w += (updated - a[i]) * y[i] * x[i]",
           "text": "The primal vector is updated by the change in one example’s dual contribution."

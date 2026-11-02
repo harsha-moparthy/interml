@@ -1,0 +1,46 @@
+{
+  "id": 768,
+  "answer": "At each candidate split, XGBoost evaluates where missing examples should go and learns a default left/right direction according to objective gain. At inference a missing value follows that stored branch. Observed values use the threshold normally. [1](https://arxiv.org/abs/1603.02754)\n\nThis avoids requiring a universal mean/median imputation and lets missingness itself be predictive. It does not infer the missing value's true numeric value, and a missingness pattern changing in production can break the learned rule. Sparse matrices also have representation-specific missing/zero semantics: verify whether an absent entry means missing or a genuine numeric zero.\n\nAudit performance by missingness pattern, validate feature availability at prediction time, and retain preprocessing/version consistency. A learned default branch can exploit leakage just as an explicit indicator can.",
+  "readings": [
+    {
+      "title": "XGBoost: A Scalable Tree Boosting System",
+      "url": "https://arxiv.org/abs/1603.02754",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order tree objectives and sparsity-aware split finding.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "LightGBM: A Highly Efficient Gradient Boosting Decision Tree",
+      "url": "https://proceedings.neurips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html",
+      "publisher": "proceedings.neurips.cc",
+      "tags": "",
+      "why": "GOSS and exclusive feature bundling from the original paper.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CatBoost: Unbiased Boosting with Categorical Features",
+      "url": "https://arxiv.org/abs/1706.09516",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Ordered boosting, target statistics, and prediction shift.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

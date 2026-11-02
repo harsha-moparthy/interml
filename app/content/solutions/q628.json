@@ -1,0 +1,47 @@
+{
+  "id": 628,
+  "code_file": "q628.py",
+  "answer": "For each anchor select the farthest positive and nearest negative under the same distance definition, then average max(d_pos−d_neg+margin,0). Exclude self-comparisons. Skip anchors lacking either a positive or negative and return a differentiable zero for a fully invalid batch. Sampling multiple examples per class is therefore part of the training design, not just an efficiency detail.\n\n**Mathematical and practical explanation.** Batch-hard triplet loss is $\\max(\\max_{p\\in P(a)}d(a,p)-\\min_{n\\in N(a)}d(a,n)+m,0)$. Empty positive/negative sets do not define extrema, so valid-anchor masking is part of correctness. Squared Euclidean, Euclidean, and cosine distances produce different margins and gradients; choose one consistently in training and evaluation. [3](https://arxiv.org/abs/1908.10084)\n\nFor the implementation or system context discussed above, see [1](https://omoindrot.github.io/triplet-loss) and [2](https://docs.pytorch.org/docs/stable/generated/torch.nn.TripletMarginLoss.html).",
+  "readings": [
+    {
+      "title": "Triplet Loss and Online Triplet Mining in TensorFlow",
+      "url": "https://omoindrot.github.io/triplet-loss",
+      "publisher": "Olivier Moindrot",
+      "tags": "",
+      "why": "Explains the triplet loss, margin and hard/semi-hard mining, with code.",
+      "access": "Free to read"
+    },
+    {
+      "title": "TripletMarginLoss",
+      "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.TripletMarginLoss.html",
+      "publisher": "PyTorch",
+      "tags": "",
+      "why": "Compare the distance and margin convention; mining is an additional operation.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": 635,
+  "code_file": "q635.py",
+  "answer": "Affine INT8 maps real x to round(x/scale+zero_point), clips to [−128,127], and reconstructs with (q−zero_point)·scale. Include zero in the calibration range, especially for one-sided or constant tensors. This implementation uses one scale for the tensor; per-channel quantization can substantially reduce error when channels have different ranges. Stored codes alone do not accelerate inference without an appropriate integer kernel.\n\n**Mathematical and practical explanation.** Affine quantization uses $q=\\operatorname{clip}(\\operatorname{round}(x/s)+z,q_{min},q_{max})$ and $\\hat x=s(q-z)$. Away from clipping, rounding error is at most roughly $s/2$. Calibration outliers enlarge $s$ and degrade resolution for ordinary values, motivating per-channel/group scales or other outlier-aware methods. [3](https://arxiv.org/abs/2210.17323)\n\nFor the implementation or system context discussed above, see [1](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization) and [2](https://leimao.github.io/article/Neural-Networks-Quantization/).",
+  "readings": [
+    {
+      "title": "A Visual Guide to Quantization",
+      "url": "https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization",
+      "publisher": "Maarten Grootendorst",
+      "tags": "",
+      "why": "Diagrams of absmax and zero-point quantization, calibration and where each error comes from.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Neural Networks Quantization",
+      "url": "https://leimao.github.io/article/Neural-Networks-Quantization/",
+      "publisher": "Lei Mao",
+      "tags": "",
+      "why": "Derives the affine quantization mapping and the integer arithmetic for matmul and convolution.",
+      "access": "Free to read"
+    },
+    {
+      "title": "GPTQ: Accurate Post-Training Quantization",
+      "url": "https://arxiv.org/abs/2210.17323",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order reconstruction and sequential quantization error compensation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "AWQ: Activation-aware Weight Quantization",
+      "url": "https://arxiv.org/abs/2306.00978",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Activation-informed protection of important weight channels.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SmoothQuant: Accurate and Efficient Post-Training Quantization",
+      "url": "https://arxiv.org/abs/2211.10438",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Moving activation-channel scale into weights for easier quantization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

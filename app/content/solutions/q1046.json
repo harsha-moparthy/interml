@@ -1,0 +1,46 @@
+{
+  "id": 1046,
+  "answer": "A mixture density network predicts weights $\\pi_k(x)$, means $\\mu_k(x)$, and positive scales $\\sigma_k(x)$, giving $p(y|x)=\\sum_{k=1}^K\\pi_k\\mathcal N(y;\\mu_k,\\sigma_k^2)$. Use softmax weights, positive scale parameterization, and log-sum-exp to minimize negative log likelihood stably. [1](https://probml.github.io/pml-book/book1.html) [2](https://probml.github.io/pml-book/book2.html)\n\nIf two outcomes near -3 and +3 are plausible, an MSE regressor predicts their mean near zero, which may itself be implausible. A mixture can retain both modes; sample from it or report mode-specific probabilities and intervals. Guard against variance collapse, unused components, and label switching. More components increase flexibility but also estimation difficulty. Evaluate held-out likelihood and predictive calibration rather than only error of the mixture mean.",
+  "readings": [
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

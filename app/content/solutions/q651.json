@@ -1,0 +1,47 @@
+{
+  "id": 651,
+  "code_file": "q651.py",
+  "answer": "IoU is intersection area divided by union area for continuous xyxy coordinates; there is no +1 pixel convention. Greedy NMS keeps the highest score, removes boxes whose overlap exceeds the threshold, and repeats. The selection loop is inherently sequential, while each overlap comparison is vectorized. Class-aware detection runs NMS separately per class or uses a class-aware variant.\n\n**Mathematical and practical explanation.** $IoU(A,B)=|A\\cap B|/(|A|+|B|-|A\\cap B|)$. Greedy NMS repeatedly selects the remaining highest-score box and removes sufficiently overlapping alternatives. It can suppress two genuinely distinct nearby objects, so threshold tuning and class-aware handling matter. Evaluation matching and inference-time suppression are different operations and should not be conflated. [3](https://cocodataset.org/#detection-eval)\n\nFor the implementation or system context discussed above, see [1](https://learnopencv.com/non-maximum-suppression-theory-and-implementation-in-pytorch) and [2](https://d2l.ai/chapter_computer-vision/bounding-box.html).",
+  "readings": [
+    {
+      "title": "Non Maximum Suppression: Theory and Implementation in PyTorch",
+      "url": "https://learnopencv.com/non-maximum-suppression-theory-and-implementation-in-pytorch",
+      "publisher": "LearnOpenCV",
+      "tags": "",
+      "why": "Defines IoU, then walks through the NMS loop and its PyTorch code.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Object Detection: bounding boxes (Dive into Deep Learning)",
+      "url": "https://d2l.ai/chapter_computer-vision/bounding-box.html",
+      "publisher": "Dive into Deep Learning",
+      "tags": "",
+      "why": "Box formats and conversions used when encoding and decoding detections.",
+      "access": "Free to read"
+    },
+    {
+      "title": "COCO Detection Evaluation",
+      "url": "https://cocodataset.org/#detection-eval",
+      "publisher": "cocodataset.org",
+      "tags": "",
+      "why": "Official matching rules, IoU thresholds, recall interpolation, and size/max-detection settings.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Generalized Intersection over Union",
+      "url": "https://arxiv.org/abs/1902.09630",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bounding-box overlap loss and enclosing-box correction.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Distance-IoU Loss",
+      "url": "https://arxiv.org/abs/1911.08287",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Center-distance and aspect-ratio penalties for box regression.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 747,
+  "answer": "Classical intuition predicts a U-shaped test-error curve as capacity rises. Around interpolation, a model may fit training noise using an unstable solution, creating a peak. Far beyond that threshold, optimization and implicit/explicit regularization can select smoother or lower-norm interpolating solutions, so test error decreases again. [1](https://arxiv.org/abs/1812.11118) [2](https://www.deeplearningbook.org/contents/optimization.html)\n\nThis is double descent, observed across model size, data size, or training time in different settings. Zero training error is not enough to predict generalization: the chosen solution and data distribution matter. The effect is not guaranteed, and the second descent can disappear under different noise, regularization, or optimization. Plot validation performance across a sufficiently broad capacity range and retain an untouched test set rather than interpreting one overfit model as evidence of the full phenomenon.",
+  "readings": [
+    {
+      "title": "Reconciling Modern ML Practice and the Bias-Variance Trade-off",
+      "url": "https://arxiv.org/abs/1812.11118",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Interpolation thresholds and the double-descent risk curve.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

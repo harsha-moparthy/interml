@@ -1,0 +1,46 @@
+{
+  "id": 1082,
+  "answer": "With $e(X)=P(T=1|X)$, inverse-probability weighting reweights treated observations by $1/e(X)$ and controls by $1/(1-e(X))$. Under consistency, conditional exchangeability, and positivity, this can identify a population average treatment effect. Near-zero or near-one propensities yield huge weights, high variance, and sensitivity to model errors. [1](https://miguelhernan.org/whatifbook)\n\nTrimming or clipping weights trades variance for bias and can change the target population; report the rule, overlap diagnostics, and effective sample size. Doubly robust estimators combine outcome and propensity models and can remain consistent when one is correctly specified, under the other identification/regularity conditions. They do not fix a genuine absence of overlap or unmeasured confounding. If treatment is never observed for a group, its missing counterfactual cannot be recovered by a clever weight alone.",
+  "readings": [
+    {
+      "title": "Causal Inference: What If",
+      "url": "https://miguelhernan.org/whatifbook",
+      "publisher": "miguelhernan.org",
+      "tags": "",
+      "why": "Hernán and Robins' open book on identification, confounding, weighting, and longitudinal causal inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Double/Debiased Machine Learning for Treatment and Structural Parameters",
+      "url": "https://arxiv.org/abs/1608.00060",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Orthogonal scores, cross-fitting, and nuisance-model error control.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Doubly Robust Policy Evaluation and Learning",
+      "url": "https://arxiv.org/abs/1103.4601",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Combining reward models and logged propensities for off-policy evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: Advanced Topics",
+      "url": "https://probml.github.io/pml-book/book2.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open textbook on approximate inference, generative models, and advanced probabilistic methods.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

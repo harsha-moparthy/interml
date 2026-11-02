@@ -1,0 +1,47 @@
+{
+  "id": 606,
+  "code_file": "q606.py",
+  "answer": "Even coordinates use sine and odd coordinates use cosine at geometrically spaced inverse frequencies. Compute an outer product of positions and frequencies rather than a loop over tokens. Odd model widths need one fewer cosine column. The offset argument supports incremental generation. These encodings are added to token embeddings; unlike RoPE, they are not rotations of projected queries and keys.\n\n**Mathematical and practical explanation.** The original frequencies are $PE(p,2i)=\\sin(p/10000^{2i/D})$ and $PE(p,2i+1)=\\cos(p/10000^{2i/D})$. For any fixed displacement, sine/cosine addition formulas express the shifted pair as a linear transformation of the original pair. This supplies a relative-shift structure without learning a separate vector for every position. [3](https://arxiv.org/abs/1706.03762)\n\nFor the implementation or system context discussed above, see [1](https://kazemnejad.com/blog/transformer_architecture_positional_encoding/) and [2](https://huggingface.co/blog/designing-positional-encoding).",
+  "readings": [
+    {
+      "title": "Transformer Architecture: The Positional Encoding",
+      "url": "https://kazemnejad.com/blog/transformer_architecture_positional_encoding/",
+      "publisher": "Amirhossein Kazemnejad",
+      "tags": "",
+      "why": "Derives the sine/cosine formula and why relative offsets become linear maps.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Designing Positional Encoding",
+      "url": "https://huggingface.co/blog/designing-positional-encoding",
+      "publisher": "Hugging Face",
+      "tags": "",
+      "why": "Builds the design requirements from scratch and compares absolute, learned and relative schemes.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

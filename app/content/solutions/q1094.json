@@ -1,0 +1,46 @@
+{
+  "id": 1094,
+  "answer": "GPU utilization describes activity, not user demand or remaining capacity. High utilization may coexist with healthy batching, while low utilization can hide CPU bottlenecks or request queues. Scale using queue age/depth, arrival rate, measured service capacity, and latency SLOs, with stabilization to prevent oscillation. Little's law $L=\\lambda W$ connects average in-flight work, arrival rate, and time in a stable system. [1](https://sre.google/sre-book/table-of-contents/)\n\nA 90-second model cold start requires headroom: retain warm replicas, prefetch/cache weights, use readiness only after load/warmup, and scale predictively before known demand. Bound queues and apply backpressure/admission control during overload. Test storage bandwidth and simultaneous replica launches. Autoscaling cannot rescue an immediate burst faster than provisioning unless capacity is already available or requests can tolerate the wait.",
+  "readings": [
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Triton: Dynamic Batcher",
+      "url": "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/batcher.html",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Batch size, preferred sizes, and queue-delay configuration.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Efficient Memory Management for LLM Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Block tables, fragmentation, shared prefixes, and serving throughput.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

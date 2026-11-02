@@ -1,0 +1,46 @@
+{
+  "id": 711,
+  "answer": "DDP replicates parameters and optimizer state, divides examples across workers, and synchronizes gradients. ZeRO-1 shards optimizer states; ZeRO-2 additionally shards gradients; ZeRO-3/FSDP additionally shards parameters, gathering needed parameters around computation. [1](https://arxiv.org/abs/1910.02054)\n\nTensor parallelism splits individual matrix operations, requiring collectives within layers. Pipeline parallelism assigns different layers to stages and sends activations/gradients between them; microbatches reduce bubbles. Sequence parallelism distributes selected activation operations across tokens, whereas context parallelism distributes long sequences and exchanges information needed for attention. Terminology varies by implementation. [2](https://arxiv.org/abs/1909.08053) [3](https://jax-ml.github.io/scaling-book/)\n\nChoose according to the constrained resource: model-state capacity, activation memory, per-layer compute, or global throughput. Combinations are common. A theoretical memory saving may be erased by slow collectives, temporary all-gathers, poor overlap, or small microbatches; profile the whole step.",
+  "readings": [
+    {
+      "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+      "url": "https://arxiv.org/abs/1910.02054",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Optimizer, gradient, and parameter sharding with communication accounting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Megatron-LM: Training Multi-Billion Parameter Language Models",
+      "url": "https://arxiv.org/abs/1909.08053",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Column/row parallel linear layers and communication placement.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Training Deep Nets with Sublinear Memory Cost",
+      "url": "https://arxiv.org/abs/1604.06174",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Activation recomputation and memory–compute tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

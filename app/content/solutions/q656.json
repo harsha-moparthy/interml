@@ -1,0 +1,46 @@
+{
+  "id": 656,
+  "answer": "Define the target languages, repository tasks, execution environment, and acceptable latency before choosing training. Build a consented, license-reviewed repository corpus with dependency manifests and snapshots. Split by repository and time before generating examples; remove near duplicates and benchmark contamination across training and evaluation. Examples should include realistic repository context and executable task specifications.\n\nBegin with SFT on high-quality demonstrations. Generate additional candidates in isolated execution sandboxes with no secrets/network, bounded CPU/memory/time, and read-only base images. Compile, lint, and run hidden tests; passing visible tests alone does not prove correctness. Save tests, environment hashes, and execution traces with each accepted example.\n\nUse preference optimization or execution-reward RL only if the reward predicts held-out usefulness. Counter reward hacking with fresh/private tests and penalize undesirable side effects. Mix general code tasks, retain a reference/KL constraint where appropriate, and monitor broad capability suites to detect forgetting. Compare adapter tuning with full tuning on quality and serving cost. Release a versioned checkpoint through shadow and canary stages; retain the old model and dataset lineage for rollback.\n\n**Mathematical and practical explanation.** For n sampled solutions with c passing tests, the usual estimator is $pass@k=1-\\binom{n-c}{k}/\\binom nk$ when the sampling conditions apply. It measures success under a sampling budget, not universal coding ability. Include repository-level contamination checks and hidden behavioral tests, since memorized examples or shallow tests can inflate the apparent gain. [3](https://arxiv.org/abs/2305.18290)\n\nFor the implementation or system context discussed above, see [1](https://huggingface.co/blog/pref-tuning) and [2](https://huggingface.co/blog/the-stack).",
+  "readings": [
+    {
+      "title": "Preference Tuning LLMs with DPO and Friends",
+      "url": "https://huggingface.co/blog/pref-tuning",
+      "publisher": "Hugging Face",
+      "tags": "dpo preference alignment chosen rejected ipo kto",
+      "why": "Compares DPO-style methods in practice.",
+      "access": "Free to read"
+    },
+    {
+      "title": "The Stack: responsibly assembled code data",
+      "url": "https://huggingface.co/blog/the-stack",
+      "publisher": "BigCode / Hugging Face",
+      "tags": "",
+      "why": "Discusses code corpus provenance, licensing, and opt-out considerations.",
+      "access": "Free to read"
+    },
+    {
+      "title": "Direct Preference Optimization",
+      "url": "https://arxiv.org/abs/2305.18290",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "KL-regularized optimal policies and the preference logistic objective.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

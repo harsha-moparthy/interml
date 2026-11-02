@@ -305,18 +305,19 @@ def lesson_316():
            facts=[("the wrong split has the same shape (2, 3, 2) but different values; the correct split equals Q[:, :2] for head 0", "numpy")])
     a.set_default("split-repair", version="wrong")
     a.callout("mistake", "A wrong reshape keeps the shape and changes the meaning. Check one head against a plain slice `Q[:, :d_k]`.", title="A silent bug")
-    a.callout("boundary", "If `d_model` is not divisible by `n_heads`, the supplied function stops with an assertion error. A model width of 6 with 4 heads cannot be split.")
+    a.callout("boundary", "If `d_model` is not divisible by `n_heads`, the supplied function raises ValueError. A model width of 6 with 4 heads cannot be split.")
 
     a.h2("Read the supplied solution")
     a.walkthrough(316, [
-        (kit.line_of(316, "Q = np.dot(X, W_q)"), "Q = np.dot(X, W_q)", "Three projections. They give `Q`, `K`, and `V` from the same input `X` with different weights."),
-        (kit.line_of(316, "scores = np.matmul(Q, K.T)"), "np.sqrt(d_k)", "Scaled scores: the dot products of all query-key pairs divided by $\\sqrt{d_k}$."),
-        ((kit.line_of(316, "score_max = "), kit.line_of(316, "attention_weights = ") + 2), "np.max(scores", "A stable softmax. The maximum is subtracted before the exponential. See the softmax article."),
-        (kit.line_of(316, "attention_output = np.matmul(attention_weights, V)"), "np.matmul(attention_weights, V)", "The weighted sum of values."),
-        (kit.line_of(316, "assert d_model % n_heads == 0"), "assert d_model % n_heads == 0", "The width must split evenly into heads."),
-        (kit.line_of(316, "Q_reshaped = "), ".transpose(1, 0, 2)", "The correct head split: first `reshape(T, H, d_k)`, then move the head axis to the front."),
-        (kit.line_of(316, "attn = self_attention("), "self_attention(", "Each head runs the same single-head attention on its own slice."),
-        (kit.line_of(316, "attention_output = np.concatenate"), "np.concatenate(attentions, axis=-1)", "The heads are joined along the feature axis. This restores the width `d_model`."),
+        (kit.line_of(316, 'return X @ W_q'), 'return X @ W_q', 'Project the same input into queries, keys, and values with separate weights.'),
+        (kit.line_of(316, 'scores = queries @'), 'scores = queries @', 'Scale dot products by the square root of the per-head width.'),
+        (kit.line_of(316, 'weights = np.exp'), 'weights = np.exp', 'Subtract each row maximum before exponentiation to keep softmax stable.'),
+        (kit.line_of(316, 'return weights @ values'), 'return weights @ values', 'Weight the value vectors by the attention probabilities.'),
+        (kit.line_of(316, 'or model_dim % n_heads'), 'or model_dim % n_heads', 'Require a positive head count that divides the model width.'),
+        (kit.line_of(316, 'return array.reshape'), 'return array.reshape', 'Reshape into heads and move the head axis to the front.'),
+        (kit.line_of(316, 'context = self_attention'), 'context = self_attention', 'A batched matrix product evaluates independent attention for all heads.'),
+        (kit.line_of(316, 'return context.transpose'), 'return context.transpose', 'Move the head axis back and combine features into the model width.'),
+
     ], title="Question 316: three small functions")
 
     a.h2("Test yourself")

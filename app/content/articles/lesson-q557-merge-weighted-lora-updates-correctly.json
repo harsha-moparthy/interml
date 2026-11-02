@@ -2,7 +2,7 @@
   "id": "lesson-q557-merge-weighted-lora-updates-correctly",
   "kind": "lesson",
   "title": "Merge weighted LoRA updates correctly",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            2,
-            3
+            6,
+            6
           ],
           "match": "if len(adapters) != len(weig",
           "text": "Form each B times A. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            4,
-            4
+            8,
+            8
           ],
           "match": "merged = base.clone()",
           "text": "Scale by alpha over rank. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            5,
-            11
+            9,
+            9
           ],
           "match": "for (a, b, alpha), coefficie",
           "text": "Weight each complete delta. This is the code stage shown in the mechanism animation."

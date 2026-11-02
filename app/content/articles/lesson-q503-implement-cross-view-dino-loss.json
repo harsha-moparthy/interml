@@ -2,7 +2,7 @@
   "id": "lesson-q503-implement-cross-view-dino-loss",
   "kind": "lesson",
   "title": "Implement cross-view DINO loss",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            9,
-            10
+            13,
+            13
           ],
           "match": "if student.ndim != 3 or stud",
           "text": "Create student view logits. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            11,
-            12
+            15,
+            15
           ],
           "match": "if teacher_targets.shape != ",
           "text": "Skip aligned view pair. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            13,
-            13
+            17,
+            17
           ],
           "match": "logp = F.log_softmax(student",
           "text": "Score cross-view entropy. This is the code stage shown in the mechanism animation."

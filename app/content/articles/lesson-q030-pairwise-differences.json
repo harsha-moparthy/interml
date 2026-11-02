@@ -2,7 +2,7 @@
   "id": "lesson-q030-pairwise-differences",
   "kind": "lesson",
   "title": "Pairwise differences with broadcasting",
-  "revision": 11,
+  "revision": 12,
   "review_state": "complete",
   "blocks": [
     {
@@ -167,24 +167,24 @@
         },
         {
           "lines": [
-            5,
-            5
+            7,
+            7
           ],
           "match": "np.asarray(x)",
           "text": "`np.asarray` accepts lists or arrays and gives an array without copying when it can."
         },
         {
           "lines": [
-            5,
-            5
+            7,
+            7
           ],
           "match": "[:, None, :]",
           "text": "This inserts an axis of size 1 between the rows and the features. `x` becomes `(n, 1, d)`."
         },
         {
           "lines": [
-            5,
-            5
+            7,
+            7
           ],
           "match": "- np.asarray(y)[None, :, :]",
           "text": "This inserts the size-1 axis in front. `y` becomes `(1, m, d)`. The subtraction broadcasts the two shapes to `(n, m, d)`."

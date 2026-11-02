@@ -33,6 +33,11 @@ class ApiTests(unittest.TestCase):
         self.assertEqual(r.status_code, 200)
         return r.json()
 
+    def test_answer_types(self):
+        for number, expected in [(316, "solution"), (601, "solution"), (653, "answer"), (685, "answer"), (1100, "answer")]:
+            response = client.get(f"/api/exercises/{number}")
+            self.assertEqual(response.json()["answer_type"], expected)
+
     def test_all_in_order(self):
         data = self.get()
         self.assertEqual([i["id"] for i in data["items"]], list(range(1, 1101)))
@@ -77,6 +82,8 @@ class QuestionTests(unittest.TestCase):
     def test_every_question_page_matches_workbook(self):
         import json
         from placement import importer
+        from placement.curated import load_solutions
+        curated = load_solutions()
         wb = json.loads((importer.REPO / importer.SOURCES["workbook"]).read_text())
         for r in wb:
             page = client.get(f"/api/exercises/{r['number']}")
@@ -86,7 +93,7 @@ class QuestionTests(unittest.TestCase):
             self.assertNotIn("solution_code", body)
             self.assertNotIn("code", body)
             sol = client.get(f"/api/exercises/{r['number']}/solution").json()
-            self.assertEqual(sol["code"], r["code"])
+            self.assertEqual(sol["code"], curated.get(r["number"], {}).get("code") or r["code"])
 
     def test_unknown_question(self):
         self.assertEqual(client.get("/api/exercises/1101").status_code, 404)
@@ -103,7 +110,7 @@ class QuestionTests(unittest.TestCase):
         original = client.get("/api/exercises/316").json()
         extra = client.get("/api/exercises/601").json()
         self.assertEqual([r["rank"] for r in original["resources"]], [1, 2])
-        self.assertEqual([r["rank"] for r in extra["resources"]], [1, 2])
+        self.assertEqual([r["rank"] for r in extra["resources"]], [1, 2, 3, 4, 5])
         self.assertTrue(all(r["url"].startswith("https://") for r in extra["resources"]))
         answer = client.get("/api/exercises/601/solution").json()
         self.assertEqual(answer["content_kind"], "coding")

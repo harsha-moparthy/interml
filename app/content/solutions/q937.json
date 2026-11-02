@@ -1,0 +1,46 @@
+{
+  "id": 937,
+  "answer": "Raw agreement can be high when annotators mostly choose the dominant class. If both independently label 95% of items negative, expected agreement from their marginals is $0.95^2+0.05^2=0.905$, even without useful case-level agreement.\n\n$$\\kappa=\\frac{p_o-p_e}{1-p_e}.$$\n\nCohen's kappa corrects relative to that marginal-chance model for two raters. Krippendorff's alpha generalizes disagreement accounting to multiple raters, missing annotations, and distance functions for different label scales. [1](https://scikit-learn.org/stable/modules/model_evaluation.html)\n\nNeither is a universal annotation-quality score: prevalence, rater bias, and ambiguous guidelines affect them. Report confusion matrices, class-specific agreement, adjudication findings, and label uncertainty. High agreement can still reflect shared misunderstanding rather than correctness.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Snorkel: Rapid Training Data Creation with Weak Supervision",
+      "url": "https://arxiv.org/abs/1711.10160",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Combining noisy labeling functions with a probabilistic label model.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 1084,
+  "answer": "TabNet uses sequential attentive feature masks to focus each decision step on selected columns; the masks aid inspection but are not causal explanations. FT-Transformer maps numerical/categorical features into tokens and applies self-attention, providing a strong supervised tabular neural baseline. TabPFN learns a prior over tasks during pretraining and conditions on labeled rows to predict new rows in context. [1](https://arxiv.org/abs/1908.07442) [2](https://arxiv.org/abs/2106.11959) [3](https://arxiv.org/abs/2207.01848)\n\nCompare them with tuned GBDTs on leakage-free splits, including categorical handling, missingness, row/feature limits, compute, and calibration. TabPFN shifts much optimization cost to pretraining, while TabNet/FT-Transformer typically optimize on the target dataset. No method wins on every table; dataset size, feature semantics, distribution shift, and pretrained assumptions determine suitability. Match evaluation budgets rather than comparing tuned neural models to default tree settings.",
+  "readings": [
+    {
+      "title": "TabNet: Attentive Interpretable Tabular Learning",
+      "url": "https://arxiv.org/abs/1908.07442",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Sequential attentive feature selection in tabular networks.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Revisiting Deep Learning Models for Tabular Data",
+      "url": "https://arxiv.org/abs/2106.11959",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Feature tokenization, Transformer baselines, and tabular benchmarking.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "TabPFN: A Transformer That Solves Small Tabular Classification Problems",
+      "url": "https://arxiv.org/abs/2207.01848",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Synthetic-task pretraining and in-context tabular inference assumptions.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "XGBoost: A Scalable Tree Boosting System",
+      "url": "https://arxiv.org/abs/1603.02754",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order tree objectives and sparsity-aware split finding.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CatBoost: Unbiased Boosting with Categorical Features",
+      "url": "https://arxiv.org/abs/1706.09516",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Ordered boosting, target statistics, and prediction shift.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

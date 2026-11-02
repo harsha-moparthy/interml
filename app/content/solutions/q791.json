@@ -1,0 +1,46 @@
+{
+  "id": 791,
+  "answer": "ROC plots TPR against FPR; precision–recall plots precision against recall. Prevalence enters precision explicitly. [1](https://scikit-learn.org/stable/modules/model_evaluation.html)\n\n$$precision=\\frac{\\pi\\,TPR}{\\pi\\,TPR+(1-\\pi)FPR},\\qquad \\Delta FPR=\\Delta FP/N_-.$$\n\nWith 100 positives and 100,000 negatives, TPR 0.9 and FPR 0.01 yield 90 true positives and 1,000 false positives: precision is only 8.26%. A 1% FPR can therefore be operationally unacceptable. ROC-AUC is not mathematically invalid; it summarizes ranking across thresholds and can hide the operating region of interest. PR curves are prevalence-sensitive. Specify whether “PR-AUC” means trapezoidal area or average precision, and compare models on the same target population.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

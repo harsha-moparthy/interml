@@ -2,7 +2,7 @@
   "id": "lesson-q016",
   "kind": "lesson",
   "title": "A group statistic, back in every row",
-  "revision": 6,
+  "revision": 7,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,8 +90,8 @@
       "notes": [
         {
           "lines": [
-            2,
-            2
+            3,
+            3
           ],
           "match": "frame.copy()",
           "text": "Copying creates the output frame without adding a column to the caller’s object."

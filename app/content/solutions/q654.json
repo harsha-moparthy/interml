@@ -1,0 +1,46 @@
+{
+  "id": 654,
+  "answer": "Represent a research job as a durable state machine containing the user objective, constraints, plan, evidence records, remaining time/token budget, and pending tool calls. Ask a clarifying question when an unresolved choice would change the research scope or produce an unusable result; do not ask for facts retrievable from permitted sources.\n\nA planner decomposes the objective into evidence-seeking questions. Execute independent searches concurrently under bounded fan-out, deduplicate URLs, and retain source dates, excerpts, and citation IDs. The controller decides whether another search can close a specific evidence gap; cap depth, tool count, retries, and spend. Retrieved pages are untrusted evidence, not instructions to the agent. Tool credentials and side-effect permissions remain outside model control.\n\nCompact context into claims, supporting evidence IDs, contradictions, and unfinished questions rather than discarding provenance. For an illustrative 60-second interactive budget, reserve time for synthesis and allow only bounded research waves; offer a resumable background job for larger requests. Evaluate factual support, coverage, contradiction handling, completion rate, and cost per successful task. A timeout should return a clearly partial report with preserved evidence, not a fabricated conclusion.\n\n**Mathematical and practical explanation.** Treat each tool step as a state transition $s_{t+1}=F(s_t,a_t,o_t)$ recorded durably. Retry read operations safely and attach idempotency keys or approval gates to externally consequential writes. Evaluate final evidence quality and task completion under a fixed budget, since more tool calls can increase cost and error exposure without improving the result. [3](https://arxiv.org/abs/2210.03629)\n\nFor the implementation or system context discussed above, see [1](https://www.anthropic.com/engineering/multi-agent-research-system) and [2](https://lilianweng.github.io/posts/2023-06-23-agent/).",
+  "readings": [
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "publisher": "Anthropic",
+      "tags": "",
+      "why": "Architecture, prompting and evaluation lessons from a production deep-research agent.",
+      "access": "Free to read"
+    },
+    {
+      "title": "LLM Powered Autonomous Agents",
+      "url": "https://lilianweng.github.io/posts/2023-06-23-agent/",
+      "publisher": "Lilian Weng",
+      "tags": "",
+      "why": "A readable survey of planning, memory, and tool use.",
+      "access": "Free to read"
+    },
+    {
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Interleaving observations, reasoning, and tool actions.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Building Effective Agents — Anthropic",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Workflow patterns, tool interfaces, evaluation, and when agent complexity is justified.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

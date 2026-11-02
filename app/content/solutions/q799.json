@@ -1,0 +1,46 @@
+{
+  "id": 799,
+  "answer": "At fixed $x$, write $y=f(x)+\\epsilon$ with zero conditional noise mean and variance $\\sigma_\\epsilon^2$. Let $m=E_D[\\hat f_D(x)]$ over training datasets. Add and subtract $m$ inside the squared prediction error. [1](https://www.statlearning.com/)\n\n$$E[(y-\\hat f)^2]=(f-m)^2+E[(\\hat f-m)^2]+\\sigma_\\epsilon^2.$$\n\nThe cross terms vanish because centered estimator fluctuations and test noise have zero expectation, assuming the test noise is independent of training. The terms are squared bias, variance, and irreducible noise. This decomposition is for squared loss at a specified distribution; it does not directly decompose classification accuracy. More flexible models can change both bias and variance, and optimization/regularization determines which function is actually fitted.",
+  "readings": [
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 7: Regularization",
+      "url": "https://www.deeplearningbook.org/contents/regularization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Regularization, parameter penalties, dropout, and generalization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

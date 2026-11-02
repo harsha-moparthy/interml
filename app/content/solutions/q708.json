@@ -1,0 +1,46 @@
+{
+  "id": 708,
+  "answer": "KV quantization reduces bytes per cached scalar, allowing more concurrent or longer sequences. Quantization error perturbs keys before softmax and values after weighting; errors can compound across layers and affect rare retrieval events even when average perplexity changes little. No fixed perplexity penalty follows solely from “FP8” or “INT4.” [1](https://arxiv.org/abs/2305.13245) [4](https://arxiv.org/abs/2211.10438)\n\n$$\\hat x=s(q-z),\\qquad \\Delta s_{ij}=q_i^T(\\hat k_j-k_j)/\\sqrt{d_h}.$$\n\nKey and value tensors may need different granularity because their outlier structure differs. Include scales, zero points, and an optional recent-token high-precision buffer in memory accounting. Measure perplexity versus context length, retrieval at different positions, and downstream quality. A cache that is nominally four times smaller can deliver less than four times practical capacity once metadata and other model allocations are counted.",
+  "readings": [
+    {
+      "title": "GQA: Training Generalized Multi-Query Transformer Models",
+      "url": "https://arxiv.org/abs/2305.13245",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "The quality, bandwidth, and cache tradeoff between MHA, MQA, and GQA.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Efficient Memory Management for LLM Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Block tables, fragmentation, shared prefixes, and serving throughput.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "url": "https://arxiv.org/abs/2305.14314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "NF4, double quantization, and paged optimizers with trainable adapters.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SmoothQuant: Accurate and Efficient Post-Training Quantization",
+      "url": "https://arxiv.org/abs/2211.10438",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Moving activation-channel scale into weights for easier quantization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

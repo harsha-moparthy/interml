@@ -1,1 +1,1 @@
-{"id":6,"language":"Python","code":"def q006(frame, fill_values):\n    return frame.fillna(fill_values)\n","answer":"","content_kind":"coding"}
+{"id":6,"language":"Python","code":"def q006(frame, fill_values):\n    \"\"\"Fill missing entries using a scalar or per-column mapping; preserve the input.\"\"\"\n    return frame.fillna(fill_values)\n","answer":"","content_kind":"coding"}

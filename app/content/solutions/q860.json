@@ -1,0 +1,46 @@
+{
+  "id": 860,
+  "answer": "Subword tokens hide character boundaries: a word may be one token or several chunks, so counting letters requires recovering and operating on its spelling rather than counting input tokens. Arithmetic similarly depends on digit alignment, carries, and place value, which arbitrary multi-digit chunks can obscure. [1](https://arxiv.org/abs/1808.06226)\n\nSingle-digit tokenization exposes consistent units; right-to-left grouping can align least-significant digits and carries. These inductive biases may help but do not guarantee algorithmic generalization to longer numbers. “Strawberry” has three r's regardless of its tokenizer representation.\n\nFor exact tasks, execute a deterministic string/counting or arithmetic operation and validate its input. Benchmark across lengths and unusual characters, including Unicode normalization; apparent gains on familiar number lengths can conceal failure on distribution shifts.",
+  "readings": [
+    {
+      "title": "SentencePiece: A Simple and Language Independent Subword Tokenizer",
+      "url": "https://arxiv.org/abs/1808.06226",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Unigram/BPE tokenization, normalization, and raw-text training.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Attention scaling, multi-head projections, and the original encoder–decoder architecture.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally",
+      "url": "https://arxiv.org/abs/2408.03314",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Adaptive inference-time compute allocation and comparison with model scaling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 701,
+  "answer": "Prefill processes many known prompt tokens at once, so weight matrices are reused across a large matrix–matrix multiplication. Decode commonly processes one new token per sequence, making weight and KV reads large relative to arithmetic, particularly at small batch sizes. [1](https://jax-ml.github.io/scaling-book/) [2](https://arxiv.org/abs/2205.14135)\n\n$$T\\gtrsim\\max\\left(\\frac{F}{P_{peak}},\\frac{M_{bytes}}{BW}\\right),\\qquad I=F/M_{bytes}.$$\n\nThe roofline comparison is between arithmetic intensity $I$ and the device's compute/bandwidth ratio. Larger decode batches improve weight reuse and may become compute-bound. Long-context prefill can have substantial attention and memory costs. Therefore “prefill compute-bound, decode bandwidth-bound” is a useful common regime, not a universal law. Measure kernels, batch sizes, context lengths, and communication to identify the actual bottleneck.\n\n![Roofline analysis compares compute time and memory-transfer time; the larger bounds execution.](/answer-diagrams/roofline.svg)",
+  "readings": [
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "FlashAttention: Exact Attention with IO-Awareness",
+      "url": "https://arxiv.org/abs/2205.14135",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Online softmax, SRAM tiling, and recomputation in the backward pass.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Efficient Memory Management for LLM Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Block tables, fragmentation, shared prefixes, and serving throughput.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "GQA: Training Generalized Multi-Query Transformer Models",
+      "url": "https://arxiv.org/abs/2305.13245",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "The quality, bandwidth, and cache tradeoff between MHA, MQA, and GQA.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

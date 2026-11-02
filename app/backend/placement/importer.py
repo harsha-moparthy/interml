@@ -1,6 +1,7 @@
 """Build exercises.db from the audited sources. Usage: python -m placement.importer [--allow-drift]
 
-Reads code and prompts from workbook.json only. PDF text is used for page ranges, never for code.
+Reads original prompts/code from workbook.json and applies maintained solution overrides.
+PDF text is used for page ranges, never for code.
 Writes a temporary database, checks it, then replaces exercises.db. Never touches content.db.
 """
 import argparse
@@ -15,6 +16,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from . import config
+from .curated import load_solutions
 from .reading_groups import overrides as reading_overrides
 from .resources import answer_guide, select_readings
 
@@ -201,6 +203,7 @@ def validate(workbook, catalog, cat_items, pages):
 
 
 def build(db_path: Path, workbook, catalog, cat_items, supplemental, supplemental_chapters, info):
+    curated = load_solutions()
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     con = sqlite3.connect(db_path)
     con.executescript((config.SCHEMA_DIR / "exercises.sql").read_text())
@@ -226,6 +229,10 @@ def build(db_path: Path, workbook, catalog, cat_items, supplemental, supplementa
     docs: list[tuple[int, str]] = []
     for r in workbook:
         n = r["number"]
+        source_code = r["code"]
+        r = dict(r)  # Keep the source workbook unchanged.
+        reviewed = curated.get(n, {})
+        r["code"] = reviewed.get("code") or r["code"]
         cid, sid, sub_title, chap_title = sub_ids[n]
         c = cat_items[n]
         first, last = info["pages"][n]
@@ -235,20 +242,21 @@ def build(db_path: Path, workbook, catalog, cat_items, supplemental, supplementa
             "INSERT INTO exercise (id, list_position, chapter_id, subsection_id, title, prompt, solution_code,"
             " answer_text, content_kind, supplemental, language, provenance, source_key, source_url, repository_url, difficulty, license_note,"
             " pdf_page_first, pdf_page_last, record_sha256) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-            (n, n, cid, sid, r["title"], r["question"], r["code"], "", "coding", 0, r["language"], r["provenance"],
+            (n, n, cid, sid, r["title"], r["question"], r["code"], reviewed.get("answer", ""), "coding", 0, r["language"], r["provenance"],
              r["source"], r["url"], r["repository_url"], c.get("difficulty"),
              LICENSE_NOTE if repo else None, first, last, rec_hash))
         topics = {sub_title, r.get("subsection") or "", c.get("category") or "", c.get("subsection") or ""}
         topics = sorted(t for t in topics if t)
         con.executemany("INSERT INTO exercise_topic VALUES (?,?)", [(n, t) for t in topics])
-        terms = code_terms(r["code"], r["language"], n)
+        # Presentation-only documentation changes must not perturb search ranking.
+        terms = code_terms(source_code, r["language"], n)
         con.execute("INSERT INTO exercise_search (exercise_id, id_text, title, chapter, topics, prompt, code_terms) "
                     "VALUES (?,?,?,?,?,?,?)",
                     (n, f"{n:03d} {n}", r["title"], chap_title, " ".join(topics), r["question"], terms))
         docs.append((n, embedding_text(r, chap_title, sub_title, terms)))
         # Do not use implementation identifiers for reading selection. A helper
         # such as np.clip can otherwise look like the CLIP model, for example.
-        chosen = READING_OVERRIDES.get(n) or select_readings(f"{r['title']} {r['question']}", f"{chap_title} {sub_title}")
+        chosen = reviewed.get("readings") or READING_OVERRIDES.get(n) or select_readings(f"{r['title']} {r['question']}", f"{chap_title} {sub_title}")
         for rank, reading in enumerate(chosen, 1):
             con.execute("INSERT INTO exercise_resource VALUES (?,?,?,?,?,?,?)",
                         (n, rank, reading.title, reading.url, reading.publisher, reading.access, reading.why))
@@ -263,14 +271,16 @@ def build(db_path: Path, workbook, catalog, cat_items, supplemental, supplementa
             kind, language = "system-design", "Architecture"
         else:
             kind, language = "theory", "Theory"
-        readings = READING_OVERRIDES.get(n) or select_readings(f"{r['title']} {r['prompt']}", f"{r['chapter_title']} {r['subsection_title']}")
-        answer = answer_guide(r["prompt"], readings, kind)
+        reviewed = curated.get(n, {})
+        readings = reviewed.get("readings") or READING_OVERRIDES.get(n) or select_readings(f"{r['title']} {r['prompt']}", f"{r['chapter_title']} {r['subsection_title']}")
+        answer = reviewed.get("answer") or answer_guide(r["prompt"], readings, kind)
+        code = reviewed.get("code", "")
         rec_hash = hashlib.sha256(json.dumps(r, sort_keys=True).encode()).hexdigest()
         con.execute(
             "INSERT INTO exercise (id, list_position, chapter_id, subsection_id, title, prompt, solution_code, answer_text,"
             " content_kind, supplemental, language, provenance, source_key, difficulty, record_sha256) "
             "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-            (n, n, cid, sid, r["title"], r["prompt"], "", answer, kind, 1, language,
+            (n, n, cid, sid, r["title"], r["prompt"], code, answer, kind, 1, language,
              "supplemental", "ADDL", "Advanced", rec_hash))
         topics = sorted({r["subsection_title"], r["chapter_title"]})
         con.executemany("INSERT INTO exercise_topic VALUES (?,?)", [(n, t) for t in topics])
@@ -316,8 +326,12 @@ def verify(db_path: Path):
         problems.append("chapter count is not 54")
     if con.execute("SELECT count(*) FROM exercise_search").fetchone()[0] != 1100:
         problems.append("search index does not hold 1100 rows")
-    if con.execute("SELECT count(*) FROM exercise_resource").fetchone()[0] != 2200:
-        problems.append("external reading index does not hold exactly 2 links per question")
+    invalid_resources = con.execute(
+        "SELECT e.id FROM exercise e LEFT JOIN exercise_resource r ON r.exercise_id=e.id "
+        "GROUP BY e.id HAVING count(r.rank) != CASE WHEN e.supplemental=1 THEN 5 ELSE 2 END"
+    ).fetchall()
+    if invalid_resources:
+        problems.append("expected 2 workbook readings and 5 appendix readings per question")
     emb = con.execute("SELECT count(*) FROM exercise_embedding").fetchone()[0]
     status = con.execute("SELECT value FROM meta WHERE key='embedding_status'").fetchone()[0]
     if status == "on" and emb != 1100:

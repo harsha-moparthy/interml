@@ -1,0 +1,46 @@
+{
+  "id": 916,
+  "answer": "Normalize carefully, preserve the original query, and generate rather than blindly replace spelling alternatives. Tokenize using index-compatible rules; infer intent and extract entities/constraints such as brand, color, and price. Expand with controlled synonyms or semantic rewrites, then retrieve and rerank. [1](https://nlp.stanford.edu/IR-book/)\n\nOrdering is not rigid: entity recognition can prevent a rare brand from being “corrected” into a common word, and code/SKU queries should often bypass aggressive normalization. Keep hard constraints separate from optional semantic hints. Log the rewrite and offer fallback to the original.\n\nEvaluate query slices, zero-result rate, exact-identifier accuracy, and downstream satisfaction. A rewrite that increases recall but changes “without sugar” to “sugar” is a semantic failure despite returning many results.",
+  "readings": [
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SentencePiece: A Simple and Language Independent Subword Tokenizer",
+      "url": "https://arxiv.org/abs/1808.06226",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Unigram/BPE tokenization, normalization, and raw-text training.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SPLADE: Sparse Lexical and Expansion Model for First Stage Ranking",
+      "url": "https://arxiv.org/abs/2107.05720",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Learned sparse term weights and vocabulary expansion.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Retrieval-conditioned generation and the distinction between parameters and external evidence.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

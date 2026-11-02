@@ -1,0 +1,46 @@
+{
+  "id": 884,
+  "answer": "Code-switched audio may have multiple acceptable scripts/transliterations, while a multilingual decoder's language/task token can bias output toward one script or toward translation. Training imbalance and an overly strong language prior can replace unusual mixed-language speech with more familiar text. [1](https://arxiv.org/abs/2212.04356) [2](https://arxiv.org/abs/1808.06226)\n\nUse the intended transcription task and language hints without forcing every segment into one language. Evaluate with explicitly permitted alternate references or transliteration-normalized scores, while retaining a strict score for names/numbers where script matters. Semantic embeddings can complement surface metrics but may miss negation, quantities, and hallucinations.\n\nAudit audio-grounded errors with bilingual reviewers. A fluent translation is not a faithful transcript when the requested output is verbatim code-switched speech; keep those tasks and metrics separate.",
+  "readings": [
+    {
+      "title": "Robust Speech Recognition via Large-Scale Weak Supervision",
+      "url": "https://arxiv.org/abs/2212.04356",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder speech recognition, training data, and error behavior.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SentencePiece: A Simple and Language Independent Subword Tokenizer",
+      "url": "https://arxiv.org/abs/1808.06226",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Unigram/BPE tokenization, normalization, and raw-text training.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Connectionist Temporal Classification",
+      "url": "https://www.cs.toronto.edu/~graves/icml_2006.pdf",
+      "publisher": "www.cs.toronto.edu",
+      "tags": "",
+      "why": "Alignment marginalization with blanks and repeated-label collapse.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sequence Transduction with Recurrent Neural Networks",
+      "url": "https://arxiv.org/abs/1211.3711",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Transducer alignment, prediction network, and streaming sequence modeling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

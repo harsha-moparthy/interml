@@ -1,0 +1,46 @@
+{
+  "id": 736,
+  "answer": "DiT changes the denoiser backbone: patchify latent images, process tokens with transformer blocks, and condition through mechanisms such as adaptive normalization. Diffusion or flow objectives can both use a transformer; the architecture and generative training path are distinct decisions. [1](https://arxiv.org/abs/2212.09748) [2](https://arxiv.org/abs/2210.02747)\n\nFor a simple flow-matching path between noise $x_0$ and data $x_1$,\n\n$$x_t=(1-t)x_0+tx_1,\\quad u_t=x_1-x_0,\\quad \\mathcal L=E\\|v_\\theta(x_t,t)-u_t\\|^2.$$\n\nSampling integrates $dx/dt=v_\\theta(x,t)$ from noise to data. Rectified-flow methods seek easier, straighter transport paths; discretization and model error still matter. A transformer does not itself guarantee fewer sampling steps, and flow matching does not inherently require a transformer. Compare objective, backbone, solver, and guidance independently.",
+  "readings": [
+    {
+      "title": "Scalable Diffusion Models with Transformers",
+      "url": "https://arxiv.org/abs/2212.09748",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Transformer denoisers, latent patching, and conditioning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Flow Matching for Generative Modeling",
+      "url": "https://arxiv.org/abs/2210.02747",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Velocity-field training, probability paths, and ODE sampling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Denoising Diffusion Probabilistic Models",
+      "url": "https://arxiv.org/abs/2006.11239",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Forward diffusion, reverse Gaussian transitions, and noise-prediction training.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+      "url": "https://arxiv.org/abs/2112.10752",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Autoencoder compression and conditioning in latent-space diffusion.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Classifier-Free Diffusion Guidance",
+      "url": "https://arxiv.org/abs/2207.12598",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Conditional/unconditional prediction mixing and quality/diversity tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

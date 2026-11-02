@@ -1,0 +1,46 @@
+{
+  "id": 720,
+  "answer": "For a fixed prompt, maximizing expected reward minus forward KL gives $\\pi^*(y)\\propto\\pi_{ref}(y)e^{r(y)/\\beta}$. Rearranging expresses reward through a policy/reference likelihood ratio plus a prompt-specific constant. In a Bradley–Terry preference model, that constant cancels between chosen and rejected responses. [1](https://arxiv.org/abs/2305.18290)\n\n$$\\mathcal L_{DPO}=-\\log\\sigma\\left(\\beta\\left[\\log\\frac{\\pi_\\theta(y^+\\mid x)}{\\pi_{ref}(y^+\\mid x)}-\\log\\frac{\\pi_\\theta(y^-\\mid x)}{\\pi_{ref}(y^-\\mid x)}\\right]\\right).$$\n\nThis trains directly on preference pairs without explicitly fitting a separate reward model or sampling PPO rollouts. It does not remove the need for reliable preference data, an appropriate reference, or held-out evaluation. The objective increases a relative margin; it does not require the absolute probability of every preferred answer to increase.",
+  "readings": [
+    {
+      "title": "Direct Preference Optimization",
+      "url": "https://arxiv.org/abs/2305.18290",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "KL-regularized optimal policies and the preference logistic objective.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Training Language Models to Follow Instructions with Human Feedback",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "SFT, reward modeling, PPO, and human evaluation in an RLHF pipeline.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Proximal Policy Optimization Algorithms",
+      "url": "https://arxiv.org/abs/1707.06347",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Clipped policy ratios, advantage estimates, and policy optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "A General Theoretical Paradigm to Understand Learning from Human Preferences",
+      "url": "https://arxiv.org/abs/2310.12036",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Preference optimization assumptions and the IPO objective.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SimPO: Simple Preference Optimization with a Reference-Free Reward",
+      "url": "https://arxiv.org/abs/2405.14734",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Length-normalized log probability and target margins.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

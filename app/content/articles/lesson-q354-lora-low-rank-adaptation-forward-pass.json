@@ -2,7 +2,7 @@
   "id": "lesson-q354-lora-low-rank-adaptation-forward-pass",
   "kind": "lesson",
   "title": "LoRA: Low-Rank Adaptation Forward Pass",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -90,15 +90,15 @@
         {
           "lines": [
             1,
-            2
+            1
           ],
           "match": "def q354(x, weight, a, b, al",
           "text": "Project back to output. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            2,
-            2
+            5,
+            5
           ],
           "match": "return x @ weight.T + alpha ",
           "text": "Scale low-rank delta. This is the code stage shown in the mechanism animation."

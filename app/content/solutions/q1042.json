@@ -1,0 +1,46 @@
+{
+  "id": 1042,
+  "answer": "Automated red teaming can generate diverse test prompts and score failures, but the exercise should target an authorized isolated system with controlled tools and data. Optimize both discovered failure severity and coverage/diversity so the generator does not repeat a single exploit pattern. Use human adjudication to separate actual failures from evaluator errors. [1](https://arxiv.org/abs/2212.08073) [2](https://arxiv.org/abs/2401.05566)\n\nPartition test discovery from final evaluation to avoid overfitting defenses to the same prompts. Maintain a reproducible corpus, versioned model/tool configurations, and regression checks for repaired cases. Measure false positives and benign-task utility alongside attack success. Reward-model scores are proxies, not proof of safety; adversarially optimizing them can expose weaknesses in the judge instead of the system. Feed verified findings into concrete controls and retest.",
+  "readings": [
+    {
+      "title": "Constitutional AI: Harmlessness from AI Feedback",
+      "url": "https://arxiv.org/abs/2212.08073",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Principle-based critique/revision and AI preference feedback.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training",
+      "url": "https://arxiv.org/abs/2401.05566",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Controlled evidence about persistent backdoors and evaluation limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Position, verbosity, and self-enhancement bias in model judging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Building Effective Agents — Anthropic",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Workflow patterns, tool interfaces, evaluation, and when agent complexity is justified.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

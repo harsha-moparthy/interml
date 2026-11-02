@@ -2,7 +2,7 @@
   "id": "lesson-q485-bm25-ranking",
   "kind": "lesson",
   "title": "BM25 Ranking",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -81,32 +81,32 @@
       "notes": [
         {
           "lines": [
-            5,
-            5
+            7,
+            7
           ],
           "match": "def calculate_bm25_scores(co",
           "text": "Tokenize query and documents. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            8,
-            8
+            10,
+            10
           ],
           "match": "doc_lengths = [len(doc) for ",
           "text": "Count term frequency. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            10,
-            10
+            12,
+            12
           ],
           "match": "doc_term_counts = [Counter(d",
           "text": "Compute inverse document frequency. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            14,
-            14
+            16,
+            16
           ],
           "match": "scores = np.zeros(len(corpus",
           "text": "Normalize document length. This is the code stage shown in the mechanism animation."

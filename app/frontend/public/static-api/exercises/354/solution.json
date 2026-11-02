@@ -1,1 +1,1 @@
-{"id":354,"language":"Python","code":"def q354(x, weight, a, b, alpha):\n    return x @ weight.T + alpha / a.shape[0] * (x @ a.T) @ b.T\n","answer":"","content_kind":"coding"}
+{"id":354,"language":"Python","code":"def q354(x, weight, a, b, alpha):\n    \"\"\"Compute a LoRA-adapted linear layer with weight (out,in), A (rank,in), B (out,rank),\n    and scaling alpha/rank. Return xW.T+alpha/rank*xA.TB.T.\n    \"\"\"\n    return x @ weight.T + alpha / a.shape[0] * (x @ a.T) @ b.T\n","answer":"","content_kind":"coding"}

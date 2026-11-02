@@ -1,0 +1,46 @@
+{
+  "id": 1052,
+  "answer": "Write $S_i=e^{z_i}/Z$, $Z=\\sum_k e^{z_k}$. The quotient rule gives $\\partial S_i/\\partial z_j=S_i\\delta_{ij}-S_iS_j$, or $J=\\operatorname{diag}(S)-SS^T$. For $L=-\\sum_i y_i\\log S_i$, multiply by $-y_i/S_i$ and sum to obtain $\\partial L/\\partial z_j=S_j\\sum_i y_i-y_j$. With normalized target probabilities this is $S_j-y_j$. [1](https://www.deeplearningbook.org/) [2](https://d2l.ai/)\n\nThe gradients sum to zero, consistent with invariance to adding the same constant to every logit. Use log-softmax/log-sum-exp for stability. Label smoothing retains the formula when its targets sum to one; arbitrary unnormalized targets do not. Include batch-reduction factors and class-weight effects explicitly rather than assuming every cross-entropy implementation has identical gradients.",
+  "readings": [
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

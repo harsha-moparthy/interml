@@ -1,0 +1,46 @@
+{
+  "id": 709,
+  "answer": "Prefix caching reuses KV states for an identical token prefix instead of recomputing its prefill. Cache identity must include token IDs, model/version, relevant positional configuration, adapter state, and isolation policy. Similar semantic meaning is not enough: token sequences and computation must match. [1](https://arxiv.org/abs/2309.06180)\n\n$$T_{prefill,new}\\approx T_{lookup}+T_{uncached\\ suffix}.$$\n\nPut stable shared instructions before dynamic material to maximize reusable prefixes. Multi-turn systems can append to a retained conversation state, but inserting or editing earlier tokens invalidates downstream causal states. Bound caches with eviction and per-tenant quotas; invalidated permissions must not expose cached content. Cached prefixes save prefill work, not the output decoding itself. Measure token-weighted hit rates and total latency separately, since many short hits may save little compute.",
+  "readings": [
+    {
+      "title": "Efficient Memory Management for LLM Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Block tables, fragmentation, shared prefixes, and serving throughput.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Retrieval-conditioned generation and the distinction between parameters and external evidence.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "GQA: Training Generalized Multi-Query Transformer Models",
+      "url": "https://arxiv.org/abs/2305.13245",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "The quality, bandwidth, and cache tradeoff between MHA, MQA, and GQA.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": 908,
+  "answer": "Negative transfer occurs when shared parameters receive conflicting task gradients or must represent incompatible patterns. Improving click prediction can harm conversion or satisfaction, especially when labels and populations differ. [1](https://research.google/pubs/modeling-task-relationships-in-multi-task-learning-with-multi-gate-mixture-of-experts/)\n\nMMoE uses shared experts with task-specific gates, allowing each task a different mixture. PLE separates shared and task-specific experts across layers, restricting which information is passed where. These designs reduce forced sharing but do not guarantee positive transfer or solve label bias.\n\nMeasure per-task gradient alignment, data availability, loss scales, and performance against separate-model baselines. Tune task weighting and missing-label handling. A single weighted average metric can hide a harmed high-priority task; use explicit constraints or a Pareto analysis before selecting the final model.",
+  "readings": [
+    {
+      "title": "Modeling Task Relationships with Multi-gate Mixture-of-Experts",
+      "url": "https://research.google/pubs/modeling-task-relationships-in-multi-task-learning-with-multi-gate-mixture-of-experts/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Task-specific gates over shared experts and empirical task-transfer behavior.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Interest Network for Click-Through Rate Prediction",
+      "url": "https://arxiv.org/abs/1706.06978",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Candidate-aware attention over user behavior history.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DeepFM: A Factorization-Machine based Neural Network for CTR Prediction",
+      "url": "https://arxiv.org/abs/1703.04247",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Shared embeddings for explicit pairwise and learned higher-order interactions.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

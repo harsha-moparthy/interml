@@ -1,0 +1,46 @@
+{
+  "id": 840,
+  "answer": "**Illustrative interview answer:** “The proposal was an LLM for mapping known vendor codes into a fixed taxonomy. I clarified whether the goal was flexible language understanding or accurate code lookup. A versioned lookup table plus a small classifier for messy descriptions covered the task, with explicit abstention on unknown codes.” [1](https://developers.google.com/machine-learning/guides/rules-of-ml)\n\n“I compared the approaches on the same held-out cases, including malformed and novel inputs, and measured correctness, p99 latency, and cost per resolved case. I proposed the simpler path plus an escalation route, and defined the threshold at which richer language handling would justify reevaluation.”\n\nThe answer should demonstrate collaborative evidence-based pushback, not opposition to LLMs. Replace hypothetical results with measured ones; include the stakeholder's constraint and the decision you jointly reached.",
+  "readings": [
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Building Effective Agents — Anthropic",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Workflow patterns, tool interfaces, evaluation, and when agent complexity is justified.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

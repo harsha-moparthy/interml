@@ -1,0 +1,46 @@
+{
+  "id": 746,
+  "answer": "FP32 has 8 exponent and 23 stored fraction bits; FP16 has 5 and 10; BF16 has 8 and 7. BF16 therefore retains FP32-like exponent range but lower precision. TF32 is a tensor-core computation mode with reduced mantissa precision, commonly using FP32 storage. FP8 formats trade still fewer exponent/fraction bits, with format-specific rules. [1](https://docs.pytorch.org/docs/stable/notes/amp_examples.html) [3](https://docs.nvidia.com/cuda/cuda-c-programming-guide/)\n\nFP16's narrow range can underflow small gradients or overflow activations. Loss scaling multiplies the loss before backward, then unscales gradients before clipping and updating. BF16 usually avoids that underflow problem because of its exponent range, but still rounds aggressively. Neither dtype guarantees stability. Keep sensitive reductions or optimizer states in adequate precision and check the actual hardware/operator implementation.",
+  "readings": [
+    {
+      "title": "PyTorch: Automatic Mixed Precision Examples",
+      "url": "https://docs.pytorch.org/docs/stable/notes/amp_examples.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Autocast, scaling, gradient accumulation, and clipping order.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "CUDA C++ Programming Guide",
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/",
+      "publisher": "docs.nvidia.com",
+      "tags": "",
+      "why": "Thread hierarchy, memory access, synchronization, and device execution details.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "How to Scale Your Model",
+      "url": "https://jax-ml.github.io/scaling-book/",
+      "publisher": "jax-ml.github.io",
+      "tags": "",
+      "why": "Author-written systems math for hardware limits, training, sharding, and inference.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning, Chapter 8: Optimization",
+      "url": "https://www.deeplearningbook.org/contents/optimization.html",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Derivations and failure modes of gradient-based neural-network optimization.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

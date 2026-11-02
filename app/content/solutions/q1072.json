@@ -1,0 +1,46 @@
+{
+  "id": 1072,
+  "answer": "With enclosing box $C$, $GIoU=IoU-|C\\setminus(A\\cup B)|/|C|$, so $1-GIoU$ adds an enclosure penalty even when overlap is zero. DIoU adds normalized squared center distance: $L_{DIoU}=1-IoU+\\rho^2(b,b^*)/c^2$, where $c$ is the enclosing-box diagonal. CIoU additionally penalizes aspect-ratio disagreement. [1](https://arxiv.org/abs/1902.09630) [2](https://arxiv.org/abs/1911.08287)\n\nSpecifically, $v=\\frac4{\\pi^2}(\\arctan(w^*/h^*)-\\arctan(w/h))^2$ and the usual weighting is $\\alpha=v/(1-IoU+v)$, giving $L_{CIoU}=L_{DIoU}+\\alpha v$. Standard IoU is locally flat when boxes remain disjoint, so it lacks a useful overlap gradient there. These extensions add geometric signals but still have degenerate/nonsmooth cases. Enforce valid box dimensions and numerical safeguards, and compare localization quality with the official evaluation metric.",
+  "readings": [
+    {
+      "title": "Generalized Intersection over Union",
+      "url": "https://arxiv.org/abs/1902.09630",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bounding-box overlap loss and enclosing-box correction.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Distance-IoU Loss",
+      "url": "https://arxiv.org/abs/1911.08287",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Center-distance and aspect-ratio penalties for box regression.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "COCO Detection Evaluation",
+      "url": "https://cocodataset.org/#detection-eval",
+      "publisher": "cocodataset.org",
+      "tags": "",
+      "why": "Official matching rules, IoU thresholds, recall interpolation, and size/max-detection settings.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "End-to-End Object Detection with Transformers",
+      "url": "https://arxiv.org/abs/2005.12872",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Set prediction, bipartite matching, and duplicate suppression without NMS.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Focal Loss for Dense Object Detection",
+      "url": "https://arxiv.org/abs/1708.02002",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Down-weighting easy examples and dense detector imbalance.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

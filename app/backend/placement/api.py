@@ -125,6 +125,8 @@ def exercise(eid: int):
         "e.id, e.title, e.prompt, e.language, e.provenance, e.source_key, e.source_url, e.repository_url, "
         "e.difficulty, e.license_note, e.pdf_page_first, e.pdf_page_last, e.chapter_id, "
         "e.content_kind, e.supplemental, "
+        "CASE WHEN e.solution_code != '' THEN 'solution' "
+        "WHEN e.answer_text LIKE 'Answer focus:%' THEN 'guide' ELSE 'answer' END AS answer_type, "
         "c.title AS chapter_title, s.title AS subsection_title")
     d = dict(row)
     d["lesson"] = lesson_status(eid, selected_ids(), completed_lessons())

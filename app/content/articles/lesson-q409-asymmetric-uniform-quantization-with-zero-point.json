@@ -2,7 +2,7 @@
   "id": "lesson-q409-asymmetric-uniform-quantization-with-zero-point",
   "kind": "lesson",
   "title": "Asymmetric Uniform Quantization with Zero-Point",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,24 +89,24 @@
         },
         {
           "lines": [
-            7,
-            7
+            11,
+            11
           ],
           "match": "x = np.asarray(x, float)",
           "text": "Choose integer grid. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            9,
-            9
+            13,
+            13
           ],
           "match": "high = max(float(x.max()), 0",
           "text": "Compute scale and zero-point. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            12,
-            12
+            16,
+            16
           ],
           "match": "zero = int(np.clip(np.rint(-",
           "text": "Round and clip integers. This is the code stage shown in the mechanism animation."

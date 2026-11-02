@@ -1,0 +1,46 @@
+{
+  "id": 911,
+  "answer": "ECE bins predicted probabilities and averages absolute confidence-versus-frequency gaps, weighted by bin size. Brier score is mean squared probability error. Normalized cross-entropy divides model log loss by a specified baseline entropy/log loss. [1](https://scikit-learn.org/stable/modules/calibration.html) [2](https://scikit-learn.org/stable/modules/model_evaluation.html)\n\n$$ECE=\\sum_b\\frac{n_b}{N}|acc_b-conf_b|,\\quad BS=N^{-1}\\sum_i(p_i-y_i)^2,\\quad NE=\\frac{logloss}{-\\pi\\log\\pi-(1-\\pi)\\log(1-\\pi)}.$$\n\nFor this NE convention, values below one beat the constant-prevalence predictor. State the convention because names vary. ECE depends on binning and can hide subgroup errors. Log loss strongly penalizes confident mistakes and is useful for ads probabilities, but no unsupported claim about a company's universal current “north-star” metric is needed. Report ranking, calibration, and online utility together.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Entire Space Multi-Task Model",
+      "url": "https://arxiv.org/abs/1804.07931",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Impression-space CTR/CTCVR learning and post-click conversion modeling.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Microsoft Research: Experimentation Platform",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/",
+      "publisher": "www.microsoft.com",
+      "tags": "",
+      "why": "Primary research on online controlled experiments, trustworthy metrics, and operational pitfalls.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

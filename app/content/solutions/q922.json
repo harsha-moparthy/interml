@@ -1,0 +1,46 @@
+{
+  "id": 922,
+  "answer": "The diagonal boundary $x_1+x_2=0$ is a linear separator, so logistic regression can represent it with coefficients $(1,1)$ and zero intercept, up to scale. Axis-aligned trees approximate the diagonal by a staircase of rectangular regions, potentially requiring many leaves. [1](https://scikit-learn.org/stable/modules/linear_model.html) [2](https://scikit-learn.org/stable/modules/ensemble.html)\n\nFor same-sign quadrants $x_1x_2>0$, no single linear boundary separates the two positive quadrants from the two negative ones. Adding the interaction feature $z=x_1x_2$ makes a linear threshold in $z$ sufficient. A small tree can represent quadrant logic directly.\n\nPerformance still depends on noise, training data, regularization, and the tested range. This comparison illustrates inductive bias, not a universal ranking of trees and linear models.",
+  "readings": [
+    {
+      "title": "Scikit-learn: Linear Models",
+      "url": "https://scikit-learn.org/stable/modules/linear_model.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "OLS, ridge, lasso, elastic net, and logistic-regression objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Ensemble Methods",
+      "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Bagging, boosting, tree regularization, and practical model comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "XGBoost: A Scalable Tree Boosting System",
+      "url": "https://arxiv.org/abs/1603.02754",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Second-order tree objectives and sparsity-aware split finding.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

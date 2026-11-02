@@ -2,7 +2,7 @@
   "id": "lesson-q461-compute-gae-advantages-with-episode-boundaries",
   "kind": "lesson",
   "title": "Compute GAE Advantages with Episode Boundaries",
-  "revision": 4,
+  "revision": 5,
   "review_state": "complete",
   "blocks": [
     {
@@ -89,18 +89,18 @@
         },
         {
           "lines": [
-            14,
-            14
+            18,
+            18
           ],
           "match": "v = np.asarray(values)",
           "text": "Start at rollout end. This is the code stage shown in the mechanism animation."
         },
         {
           "lines": [
-            15,
+            19,
             19
           ],
-          "match": "delta = (",
+          "match": "delta = r + gamma",
           "text": "Carry advantage backward. This is the code stage shown in the mechanism animation."
         },
         {

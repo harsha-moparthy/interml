@@ -1,0 +1,46 @@
+{
+  "id": 893,
+  "answer": "TEDS compares predicted and reference table trees using normalized edit cost, reflecting structural changes such as missing cells or wrong spans and, in content-aware variants, cell text differences. A common form is [1](https://arxiv.org/abs/1911.10683)\n\n$$TEDS=1-\\frac{EditDist(T_p,T_r)}{\\max(|T_p|,|T_r|)}.$$\n\nBounding-box IoU measures spatial overlap but may assign a good score to a cell attached to the wrong row/header or with an incorrect span. Conversely, tree similarity alone may hide small numeric transcription errors with large business impact. Report structure-only and content-aware variants, text/numeric accuracy, and geometric metrics together. Canonicalize equivalent HTML consistently and specify the edit-cost implementation; raw HTML-string similarity is not the same as DOM-tree correctness.",
+  "readings": [
+    {
+      "title": "Image-based Table Recognition: Data, Model, and Evaluation",
+      "url": "https://arxiv.org/abs/1911.10683",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Table structure/content evaluation with tree-edit distance.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "OCR-free Document Understanding Transformer",
+      "url": "https://arxiv.org/abs/2111.15664",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Document image encoding and structured text generation without a separate OCR stage.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}

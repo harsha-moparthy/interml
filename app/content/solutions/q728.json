@@ -1,0 +1,46 @@
+{
+  "id": 728,
+  "answer": "ColBERT retains contextualized token vectors rather than compressing each document to one vector. For every query token, find the strongest matching document token, then sum those scores. Document token representations are precomputed. [1](https://arxiv.org/abs/2004.12832)\n\n$$s(q,d)=\\sum_{i=1}^{|q|}\\max_{j\\le |d|}q_i^Td_j.$$\n\nThis preserves fine-grained matches while avoiding a full joint transformer pass for every query/document pair. For example, different document tokens can separately satisfy “red,” “waterproof,” and “jacket.” It needs substantially more index storage than one vector per document, plus efficient token-level candidate generation and compression. MaxSim also discards some relational structure, so “near cross-encoder accuracy” is benchmark-dependent rather than guaranteed. Compare storage, latency, and relevance on the intended corpus.",
+  "readings": [
+    {
+      "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction",
+      "url": "https://arxiv.org/abs/2004.12832",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Token-level MaxSim and late interaction storage costs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+      "url": "https://arxiv.org/abs/1908.10084",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Bi-encoder representations and their difference from joint pair scoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The FAISS Library",
+      "url": "https://arxiv.org/abs/2401.08281",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Exact and approximate search, compression, and index tradeoffs.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/",
+      "publisher": "nlp.stanford.edu",
+      "tags": "",
+      "why": "Open textbook on inverted indexes, scoring, retrieval evaluation, and classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Matryoshka Representation Learning",
+      "url": "https://arxiv.org/abs/2205.13147",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Training useful nested embedding prefixes for adaptive cost.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ]
+}
