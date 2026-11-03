@@ -14,6 +14,9 @@ const STATE_LABEL = { draft: "Draft", reviewed: "Reviewed", complete: "Complete"
 const SOURCE_LABEL = { DM: "Deep-ML", TT: "TensorTonic", RESUME: "Resume project", EXT: "External", ADDL: "Additional interview set" };
 
 function SourceLink({ q }) {
+  if (q.source_key === "GITHUB-SURVEY") return (
+    <a href={q.source_url} target="_blank" rel="noopener noreferrer">GitHub topic discovery source</a>
+  );
   return q.source_url ? (
     <>
       <a href={q.source_url} target="_blank" rel="noopener noreferrer">Original source ({SOURCE_LABEL[q.source_key] || q.source_key})</a>
@@ -23,8 +26,10 @@ function SourceLink({ q }) {
 }
 
 export function MarkdownPrompt({ text }) {
-  const parts = text.split(/(\$\$[\s\S]*?\$\$)/g);
-  return parts.map((part, i) => part.startsWith("$$")
+  const parts = text.split(/(```[\s\S]*?```|\$\$[\s\S]*?\$\$)/g);
+  return parts.map((part, i) => part.startsWith("```")
+    ? <pre className="answer-code" key={i}><code>{part.replace(/^```[^\n]*\n/, "").replace(/\n?```$/, "")}</code></pre>
+    : part.startsWith("$$")
     ? <div className="prompt-equation" key={i}><Tex tex={part.slice(2, -2).trim()} display /></div>
     : part.split(/\n\s*\n/).filter((p) => p.trim()).map((p, j) => {
       const figure = p.trim().match(/^!\[([^\]]+)\]\(\/answer-diagrams\/([a-z0-9-]+\.svg)\)$/);
@@ -118,7 +123,7 @@ export function QuestionPage({ id }) {
 
       <section aria-labelledby="task-h">
         <h2 id="task-h">Original task</h2>
-        {q.source_url && <p className="sub"><a className="cta" href={q.source_url} target="_blank" rel="noopener noreferrer">Open this problem on {SOURCE_LABEL[q.source_key] || q.source_key} ↗</a></p>}
+        {q.source_url && <p className="sub"><a className="cta" href={q.source_url} target="_blank" rel="noopener noreferrer">{q.source_key === "GITHUB-SURVEY" ? "Explore the related GitHub question collection" : `Open this problem on ${SOURCE_LABEL[q.source_key] || q.source_key}`} ↗</a></p>}
         <div className="task"><MarkdownPrompt text={q.prompt} /></div>
       </section>
 

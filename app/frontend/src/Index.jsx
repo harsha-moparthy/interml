@@ -126,7 +126,7 @@ export function IndexPage({ filters, setFilters }) {
   const searching = q.trim().length > 0;
   const byState = state !== "all";
   // A learner-state filter works on the whole result set, so ask for everything and filter here.
-  const url = useMemo(() => `/api/search?${new URLSearchParams({ q, chapter, lesson, limit: searching && !byState ? limit : 1100 })}`, [q, chapter, lesson, limit, searching, byState]);
+  const url = useMemo(() => `/api/search?${new URLSearchParams({ q, chapter, lesson, limit: searching && !byState ? limit : 10000 })}`, [q, chapter, lesson, limit, searching, byState]);
   const res = useFetch(url);
   useEffect(() => setLimit(40), [q, chapter, lesson, state]);
 

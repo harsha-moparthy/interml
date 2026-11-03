@@ -1,0 +1,47 @@
+{
+  "id": 1101,
+  "answer": "**BERT originally learns two tasks at once: recover hidden tokens and classify whether two text segments belong together.** The shared encoder receives learning signals from both heads. This is self-supervision: the training text supplies the targets; a person does not label each example. [1](https://arxiv.org/abs/1810.04805)[2](https://d2l.ai/chapter_natural-language-processing-pretraining/bert.html)\n\nTake the invented pair “Mira put the soup on the stove. It began to boil.” Hide *soup*. The token head must use surrounding words to assign probability to the original token. Separately, the pair head should recognize that the second segment is the actual continuation. These tasks train different predictions from the same contextual representations.\n\n![One shared BERT encoder receives gradients from masked-token reconstruction and next-sentence classification.](/answer-diagrams/bert-two-losses.svg)\n\nLet $M$ be the selected token positions, $x$ the original sequence, and $\\tilde x$ its corrupted version. A mean-reduced masked-language-model loss is\n\n$$L_{MLM}=-\\frac{1}{|M|}\\sum_{i\\in M}\\log p_\\theta(x_i\\mid\\tilde x).$$\n\nIf $y=1$ means an actual continuation and $s_\\theta$ is the predicted continuation probability, the pair loss is\n\n$$L_{NSP}=-y\\log s_\\theta-(1-y)\\log(1-s_\\theta),\\qquad L=L_{MLM}+L_{NSP}.$$\n\nThe original implementation combines mean MLM and mean NSP losses. Summing all token losses instead would change their relative weight; always state the reduction. For one selected token assigned probability $0.2$ and a true continuation assigned $0.8$, the illustrative combined loss is $-\\log(0.2)-\\log(0.8)\\approx1.833$. Raising either correct probability lowers the loss. [1](https://arxiv.org/abs/1810.04805)[2](https://d2l.ai/chapter_natural-language-processing-pretraining/bert.html)\n\n**Why hide tokens?** With unrestricted bidirectional attention, predicting an unchanged token at its own position can become copying. Corruption makes reconstruction informative. At downstream fine-tuning time, a task-specific head usually replaces these pretraining heads: sentiment classification does not require continuing to compute NSP. Later models changed this recipe, so “every BERT-like model uses both losses” is false. Compare RoBERTa and ALBERT for concrete counterexamples. [3](https://web.stanford.edu/~jurafsky/slp3/9.pdf)[4](https://arxiv.org/abs/1907.11692)[5](https://arxiv.org/abs/1909.11942)",
+  "readings": [
+    {
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers",
+      "url": "https://arxiv.org/abs/1810.04805",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Masked language modeling and bidirectional representations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning: BERT",
+      "url": "https://d2l.ai/chapter_natural-language-processing-pretraining/bert.html",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Step-by-step BERT inputs and pretraining objectives with code.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Jurafsky and Martin: Masked Language Models (2026 draft, Chapter 9)",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/9.pdf",
+      "publisher": "web.stanford.edu",
+      "tags": "",
+      "why": "Bidirectional encoders, masked pretraining, and downstream classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "RoBERTa: A Robustly Optimized BERT Pretraining Approach",
+      "url": "https://arxiv.org/abs/1907.11692",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Dynamic masking, removal of NSP, and controlled pretraining experiments.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ALBERT: A Lite BERT",
+      "url": "https://arxiv.org/abs/1909.11942",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Factorized embeddings, parameter sharing, and sentence-order prediction.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

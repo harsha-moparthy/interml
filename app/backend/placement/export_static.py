@@ -35,7 +35,7 @@ def main() -> int:
 
         write("chapters.json", get("/api/chapters"))
         write("stats.json", get("/api/stats"))
-        everything = get("/api/exercises?limit=1100")
+        everything = get("/api/exercises")
         write("all.json", everything)
         for e in everything["items"]:
             write(f"exercises/{e['id']}.json", get(f"/api/exercises/{e['id']}"))

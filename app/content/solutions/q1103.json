@@ -1,0 +1,47 @@
+{
+  "id": 1103,
+  "answer": "**Next sentence prediction (NSP) is binary classification of a pair of text segments. It does not generate the next sentence.** Original BERT constructs about half its pairs from consecutive segments and half with a randomly sampled second segment. “Sentence” here can mean a span containing more than one natural-language sentence. [1](https://arxiv.org/abs/1810.04805)[2](https://d2l.ai/chapter_natural-language-processing-pretraining/bert.html)\n\nFor example, A = “The alarm rang.” and B = “Leena woke up.” might be a positive pair if adjacent in the source. A = “The alarm rang.” and B = “Granite contains quartz.” might be a negative pair. The label comes from the sampling process, not a human judgment of whether the two sentences could logically occur together.\n\nThe packed input is `[CLS] A [SEP] B [SEP]`. A classifier uses the final representation of `[CLS]` (with the original pooled transformation) to produce two class logits. Softmax gives $p(IsNext\\mid A,B)$, and cross entropy penalizes low probability for the sampled label. If a positive pair gets probability $0.9$, its loss is about $0.105$; at $0.1$, its loss is about $2.303$.\n\n**The intended intuition** is to make the encoder learn relationships spanning segments. But a negative pair from a different document may be recognizable merely because its topic changes. High NSP accuracy therefore does not establish sophisticated discourse understanding. Randomly sampled negatives can occasionally even be plausible continuations. [1](https://arxiv.org/abs/1810.04805)[4](https://arxiv.org/abs/1909.11942)\n\nContrast three targets: causal language modeling predicts the next token; NSP predicts whether B was sampled as A's continuation; ALBERT's sentence-order prediction distinguishes consecutive segments in their original order from the same pair swapped. The last comparison makes a topic shortcut less useful. RoBERTa showed that strong pretraining need not retain NSP under its training recipe. Treat these as objective choices with experimental evidence, not a universal rule that sentence-pair supervision always helps or always harms. [4](https://arxiv.org/abs/1909.11942)[5](https://arxiv.org/abs/1907.11692)",
+  "readings": [
+    {
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers",
+      "url": "https://arxiv.org/abs/1810.04805",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Masked language modeling and bidirectional representations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning: BERT",
+      "url": "https://d2l.ai/chapter_natural-language-processing-pretraining/bert.html",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Step-by-step BERT inputs and pretraining objectives with code.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Jurafsky and Martin: Masked Language Models (2026 draft, Chapter 9)",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/9.pdf",
+      "publisher": "web.stanford.edu",
+      "tags": "",
+      "why": "Bidirectional encoders, masked pretraining, and downstream classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ALBERT: A Lite BERT",
+      "url": "https://arxiv.org/abs/1909.11942",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Factorized embeddings, parameter sharing, and sentence-order prediction.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "RoBERTa: A Robustly Optimized BERT Pretraining Approach",
+      "url": "https://arxiv.org/abs/1907.11692",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Dynamic masking, removal of NSP, and controlled pretraining experiments.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

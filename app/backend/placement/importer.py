@@ -16,6 +16,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from . import config
+from .question_bank import QUESTION_COUNT, load_additions
 from .curated import load_solutions
 from .reading_groups import overrides as reading_overrides
 from .resources import answer_guide, select_readings
@@ -176,6 +177,19 @@ def load_supplemental() -> tuple[list[dict], list[dict]]:
         raise ImportError_("addl_questions.md must contain question numbers 1..500 exactly once and in order")
     if [c["number"] for c in chapters] != list(range(1, 19)):
         raise ImportError_("addl_questions.md must contain Section 1..18 exactly once and in order")
+    addition_sections = {}
+    for item in load_additions():
+        chapter = chapters[item["chapter_number"] - 1]
+        if chapter["number"] not in addition_sections:
+            subsection = {"position": len(chapter["subsections"]) + 1,
+                          "title": "ML and AI interview foundations and practice"}
+            chapter["subsections"].append(subsection)
+            addition_sections[chapter["number"]] = subsection
+        subsection = addition_sections[chapter["number"]]
+        records.append(dict(item, source_number=item["id"] - 600,
+                            chapter_title=chapter["title"],
+                            subsection_position=subsection["position"],
+                            subsection_title=subsection["title"]))
     return records, chapters
 
 
@@ -272,16 +286,19 @@ def build(db_path: Path, workbook, catalog, cat_items, supplemental, supplementa
         else:
             kind, language = "theory", "Theory"
         reviewed = curated.get(n, {})
+        if n > 1100 and (not reviewed.get("answer") or len(reviewed.get("readings", ())) != 5):
+            raise ImportError_(f"{n}: interview additions require a worked answer and five readings")
         readings = reviewed.get("readings") or READING_OVERRIDES.get(n) or select_readings(f"{r['title']} {r['prompt']}", f"{r['chapter_title']} {r['subsection_title']}")
         answer = reviewed.get("answer") or answer_guide(r["prompt"], readings, kind)
         code = reviewed.get("code", "")
         rec_hash = hashlib.sha256(json.dumps(r, sort_keys=True).encode()).hexdigest()
         con.execute(
             "INSERT INTO exercise (id, list_position, chapter_id, subsection_id, title, prompt, solution_code, answer_text,"
-            " content_kind, supplemental, language, provenance, source_key, difficulty, record_sha256) "
-            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            " content_kind, supplemental, language, provenance, source_key, difficulty, record_sha256, source_url, repository_url) "
+            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
             (n, n, cid, sid, r["title"], r["prompt"], code, answer, kind, 1, language,
-             "supplemental", "ADDL", "Advanced", rec_hash))
+             "supplemental", "GITHUB-SURVEY" if n > 1100 else "ADDL", "Advanced", rec_hash,
+             r.get("source_url"), r.get("repository_url")))
         topics = sorted({r["subsection_title"], r["chapter_title"]})
         con.executemany("INSERT INTO exercise_topic VALUES (?,?)", [(n, t) for t in topics])
         con.execute("INSERT INTO exercise_search (exercise_id, id_text, title, chapter, topics, prompt, code_terms) "
@@ -320,12 +337,12 @@ def verify(db_path: Path):
     if con.execute("PRAGMA foreign_key_check").fetchall():
         problems.append("foreign key violations")
     ids = [r[0] for r in con.execute("SELECT id FROM exercise ORDER BY list_position")]
-    if ids != list(range(1, 1101)):
-        problems.append("exercise IDs are not exactly 1..1100 in original order")
+    if ids != list(range(1, QUESTION_COUNT + 1)):
+        problems.append(f"exercise IDs are not exactly 1..{QUESTION_COUNT} in original order")
     if con.execute("SELECT count(*) FROM chapter").fetchone()[0] != 54:
         problems.append("chapter count is not 54")
-    if con.execute("SELECT count(*) FROM exercise_search").fetchone()[0] != 1100:
-        problems.append("search index does not hold 1100 rows")
+    if con.execute("SELECT count(*) FROM exercise_search").fetchone()[0] != QUESTION_COUNT:
+        problems.append(f"search index does not hold {QUESTION_COUNT} rows")
     invalid_resources = con.execute(
         "SELECT e.id FROM exercise e LEFT JOIN exercise_resource r ON r.exercise_id=e.id "
         "GROUP BY e.id HAVING count(r.rank) != CASE WHEN e.supplemental=1 THEN 5 ELSE 2 END"
@@ -334,8 +351,8 @@ def verify(db_path: Path):
         problems.append("expected 2 workbook readings and 5 appendix readings per question")
     emb = con.execute("SELECT count(*) FROM exercise_embedding").fetchone()[0]
     status = con.execute("SELECT value FROM meta WHERE key='embedding_status'").fetchone()[0]
-    if status == "on" and emb != 1100:
-        problems.append(f"embeddings: {emb} vectors, expected 1100")
+    if status == "on" and emb != QUESTION_COUNT:
+        problems.append(f"embeddings: {emb} vectors, expected {QUESTION_COUNT}")
     if con.execute("SELECT count(*) FROM exercise WHERE solution_code = '' AND answer_text = ''").fetchone()[0]:
         problems.append("question without a solution or answer guide")
     con.close()

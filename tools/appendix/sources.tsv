@@ -191,3 +191,27 @@ ngjordan	On Discriminative vs. Generative Classifiers	https://proceedings.neurip
 mmoe	Modeling Task Relationships with Multi-gate Mixture-of-Experts	https://research.google/pubs/modeling-task-relationships-in-multi-task-learning-with-multi-gate-mixture-of-experts/	Task-specific gates over shared experts and empirical task-transfer behavior.
 fastspeech	FastSpeech 2: Fast and High-Quality End-to-End Text-to-Speech	https://arxiv.org/abs/2006.04558	Duration, pitch, and energy conditioning for non-autoregressive synthesis.
 vits	Conditional Variational Autoencoder with Adversarial Learning for End-to-End Text-to-Speech	https://arxiv.org/abs/2106.06103	Variational inference, flows, adversarial waveform synthesis, and duration modeling.
+slpmlm	Jurafsky and Martin: Masked Language Models (2026 draft, Chapter 9)	https://web.stanford.edu/~jurafsky/slp3/9.pdf	Bidirectional encoders, masked pretraining, and downstream classification.
+slpemb	Jurafsky and Martin: Embeddings (2026 draft, Chapter 5)	https://web.stanford.edu/~jurafsky/slp3/5.pdf	Distributional meaning, static embeddings, and similarity.
+slppost	Jurafsky and Martin: Post-training (2026 draft, Chapter 8)	https://web.stanford.edu/~jurafsky/slp3/8.pdf	Supervised instruction tuning and preference learning.
+slptag	Jurafsky and Martin: Sequence Labeling (2026 draft, Chapter 18)	https://web.stanford.edu/~jurafsky/slp3/18.pdf	Sequence tagging, named entities, and structured predictions.
+d2lbert	Dive into Deep Learning: BERT	https://d2l.ai/chapter_natural-language-processing-pretraining/bert.html	Step-by-step BERT inputs and pretraining objectives with code.
+roberta	RoBERTa: A Robustly Optimized BERT Pretraining Approach	https://arxiv.org/abs/1907.11692	Dynamic masking, removal of NSP, and controlled pretraining experiments.
+albert	ALBERT: A Lite BERT	https://arxiv.org/abs/1909.11942	Factorized embeddings, parameter sharing, and sentence-order prediction.
+electra	ELECTRA: Pre-training Text Encoders as Discriminators	https://arxiv.org/abs/2003.10555	Replaced-token detection and generator-discriminator training.
+distilbert	DistilBERT	https://arxiv.org/abs/1910.01108	Language-model, distillation, and cosine-distance objectives.
+dapt	Don't Stop Pretraining	https://arxiv.org/abs/2004.10964	Domain-adaptive and task-adaptive pretraining experiments.
+tying	Using the Output Embedding to Improve Language Models	https://arxiv.org/abs/1608.05859	Input-output weight tying and its gradient interpretation.
+icl	Language Models are Few-Shot Learners	https://arxiv.org/abs/2005.14165	In-context demonstrations without parameter updates.
+consistency	Self-Consistency Improves Chain of Thought Reasoning	https://arxiv.org/abs/2203.11171	Sampling reasoning paths and aggregating final answers.
+passk	Evaluating Large Language Models Trained on Code	https://arxiv.org/abs/2107.03374	HumanEval, functional correctness, and the pass-at-k estimator.
+workflow	Building Effective Agents	https://www.anthropic.com/engineering/building-effective-agents	Practical distinction between workflows and autonomous agents.
+mcp	Model Context Protocol: Architecture	https://modelcontextprotocol.io/docs/learn/architecture	Hosts, clients, servers, tools, resources, and prompts.
+registry	MLflow Model Registry	https://mlflow.org/docs/latest/ml/model-registry/	Model versions, aliases, lineage, and lifecycle management.
+repro	PyTorch: Reproducibility	https://docs.pytorch.org/docs/stable/notes/randomness.html	Random seeds, deterministic algorithms, and reproducibility limits.
+fair	Fairness and Machine Learning (Barocas, Hardt, Narayanan)	https://fairmlbook.org/	Statistical fairness criteria and their limitations.
+pdp	Scikit-learn: Partial Dependence and ICE	https://scikit-learn.org/stable/modules/partial_dependence.html	Averaged response curves and correlated-feature caveats.
+perm	Scikit-learn: Permutation Feature Importance	https://scikit-learn.org/stable/modules/permutation_importance.html	Held-out importance, repeated permutations, and correlated predictors.
+offrl	Offline Reinforcement Learning: Tutorial, Review, and Perspectives	https://arxiv.org/abs/2005.01643	Distribution shift and learning policies from fixed datasets.
+cql	Conservative Q-Learning for Offline Reinforcement Learning	https://arxiv.org/abs/2006.04779	Conservative value estimation for actions unsupported by data.
+shaping	Policy Invariance Under Reward Transformations	https://www.cs.utexas.edu/~shivaram/readings/b2hd-NgHR1999.html	Potential-based reward shaping and policy invariance.

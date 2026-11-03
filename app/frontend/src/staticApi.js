@@ -188,7 +188,7 @@ export async function search(params) {
   let q = params.get("q") || "";
   if (params.get("chapter")) q += ` chapter:${params.get("chapter")}`;
   if (params.get("lesson")) q += ` lesson:${params.get("lesson")}`;
-  const limit = Math.min(+params.get("limit") || 40, 1100);
+  const limit = Math.min(+params.get("limit") || 40, all.items.length);
   const p = parse(q);
   const fixes = correct(ix, p.words);
   const words = p.words.map((w) => fixes[w] || w);

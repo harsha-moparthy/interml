@@ -1,0 +1,157 @@
+{
+  "scope": "ML and AI interviews only; FDE excluded. Curated gap review, not an exhaustive scrape of GitHub.",
+  "reviewed_files": [
+    {
+      "repo": "ombharatiya/AI-Engineer-Interview-Questions",
+      "commit": "e080df282aaf14c128ade55c177a20c38d82df1d",
+      "path": "01-ml-and-dl-foundations/questions.md",
+      "url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/01-ml-and-dl-foundations/questions.md",
+      "candidate_lines": 46,
+      "sha256": "01f20e903715aaf0619542b035bf94a59505a6846b40f124a20271a0dbfe8a87"
+    },
+    {
+      "repo": "ombharatiya/AI-Engineer-Interview-Questions",
+      "commit": "e080df282aaf14c128ade55c177a20c38d82df1d",
+      "path": "02-llm-fundamentals/questions.md",
+      "url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/02-llm-fundamentals/questions.md",
+      "candidate_lines": 59,
+      "sha256": "550e35759192caf018d488079c72a1f845663844ff9bdec8f0872cef4f346817"
+    },
+    {
+      "repo": "ombharatiya/AI-Engineer-Interview-Questions",
+      "commit": "e080df282aaf14c128ade55c177a20c38d82df1d",
+      "path": "03-prompt-engineering-and-context/questions.md",
+      "url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/03-prompt-engineering-and-context/questions.md",
+      "candidate_lines": 51,
+      "sha256": "4a282df8edbf5f30c17c23c0c84aa12d5f842efca27fa827f192bb8854a96273"
+    },
+    {
+      "repo": "ombharatiya/AI-Engineer-Interview-Questions",
+      "commit": "e080df282aaf14c128ade55c177a20c38d82df1d",
+      "path": "04-rag-and-retrieval/questions.md",
+      "url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/04-rag-and-retrieval/questions.md",
+      "candidate_lines": 54,
+      "sha256": "4acc94638e8b47135489595772a63ee0cd4795d32be5ea52ca727e873d8161a3"
+    },
+    {
+      "repo": "ombharatiya/AI-Engineer-Interview-Questions",
+      "commit": "e080df282aaf14c128ade55c177a20c38d82df1d",
+      "path": "05-fine-tuning-and-alignment/questions.md",
+      "url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/05-fine-tuning-and-alignment/questions.md",
+      "candidate_lines": 48,
+      "sha256": "e588c135ad8bdcb741651d99c103115dfc9f9d971a37b132afe61aaf92273e3f"
+    },
+    {
+      "repo": "ombharatiya/AI-Engineer-Interview-Questions",
+      "commit": "e080df282aaf14c128ade55c177a20c38d82df1d",
+      "path": "06-agents-and-tool-use/questions.md",
+      "url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/06-agents-and-tool-use/questions.md",
+      "candidate_lines": 68,
+      "sha256": "6abc68c6174347d211fd52445d5e74890160509b1c4765c33c7cac3be9b1a8e5"
+    },
+    {
+      "repo": "ombharatiya/AI-Engineer-Interview-Questions",
+      "commit": "e080df282aaf14c128ade55c177a20c38d82df1d",
+      "path": "07-evaluation-and-observability/questions.md",
+      "url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/07-evaluation-and-observability/questions.md",
+      "candidate_lines": 54,
+      "sha256": "2fc72f3e8f4fcb7e10c7497f14326aab00ca8682696aefb63a50ab20b0d13fbb"
+    },
+    {
+      "repo": "ombharatiya/AI-Engineer-Interview-Questions",
+      "commit": "e080df282aaf14c128ade55c177a20c38d82df1d",
+      "path": "08-inference-and-production/questions.md",
+      "url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/08-inference-and-production/questions.md",
+      "candidate_lines": 48,
+      "sha256": "74a4fa14069bf63243f653c168ad3b5021dc6feaf6b5443fff2e592b9be580ec"
+    },
+    {
+      "repo": "ombharatiya/AI-Engineer-Interview-Questions",
+      "commit": "e080df282aaf14c128ade55c177a20c38d82df1d",
+      "path": "09-safety-security-and-responsible-ai/questions.md",
+      "url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/09-safety-security-and-responsible-ai/questions.md",
+      "candidate_lines": 44,
+      "sha256": "240e0a8b1c6d086afcc926e418b991cf3c3700ee42c16772fe42bf62e4dae442"
+    },
+    {
+      "repo": "ombharatiya/AI-Engineer-Interview-Questions",
+      "commit": "e080df282aaf14c128ade55c177a20c38d82df1d",
+      "path": "10-multimodal/questions.md",
+      "url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/10-multimodal/questions.md",
+      "candidate_lines": 37,
+      "sha256": "b9a73b1dde1373d127bae62ddc315c237f9cf034de8be68db19d553240ee629a"
+    },
+    {
+      "repo": "ombharatiya/AI-Engineer-Interview-Questions",
+      "commit": "e080df282aaf14c128ade55c177a20c38d82df1d",
+      "path": "13-interview-process-and-behavioral/questions.md",
+      "url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/13-interview-process-and-behavioral/questions.md",
+      "candidate_lines": 33,
+      "sha256": "3baa3f9b2b0f8285ccb19f6ab7e9fab2129a443354f9531b021fc5ace3e15f9a"
+    },
+    {
+      "repo": "Devinterview-io/mlops-interview-questions",
+      "commit": "255ec45de14d8e8216d8a1cfa144f7fb0e1163bd",
+      "path": "README.md",
+      "url": "https://github.com/Devinterview-io/mlops-interview-questions/blob/255ec45de14d8e8216d8a1cfa144f7fb0e1163bd/README.md",
+      "candidate_lines": 13,
+      "sha256": "dc2cedf0239d26182fe289bf6a12e783c1ad7893d0007ddda8c64ed16ef7cf8c"
+    },
+    {
+      "repo": "chiphuyen/ml-interviews-book",
+      "commit": "2287e82994feb7a3d5d77fb621687ff981752275",
+      "path": "contents/5.1-algebra-and-calculus.md",
+      "url": "https://github.com/chiphuyen/ml-interviews-book/blob/2287e82994feb7a3d5d77fb621687ff981752275/contents/5.1-algebra-and-calculus.md",
+      "candidate_lines": 0,
+      "sha256": "989af626305aeaf0d708b23f7a21696af743dfeadf709799b3648823779221e2"
+    },
+    {
+      "repo": "chiphuyen/ml-interviews-book",
+      "commit": "2287e82994feb7a3d5d77fb621687ff981752275",
+      "path": "contents/5.1.1-vectors.md",
+      "url": "https://github.com/chiphuyen/ml-interviews-book/blob/2287e82994feb7a3d5d77fb621687ff981752275/contents/5.1.1-vectors.md",
+      "candidate_lines": 3,
+      "sha256": "e5ec4277d97ad9e8723813947ef208ec36627dcbe3cf9f8dfe66ff52cc2595fd"
+    }
+  ],
+  "fetch_failures": 50,
+  "new_ids": [
+    1101,
+    1102,
+    1103,
+    1104,
+    1105,
+    1106,
+    1107,
+    1108,
+    1109,
+    1110,
+    1111,
+    1112,
+    1113,
+    1114,
+    1115,
+    1116,
+    1117,
+    1118,
+    1119,
+    1120,
+    1121,
+    1122,
+    1123,
+    1124,
+    1125,
+    1126,
+    1127,
+    1128,
+    1129,
+    1130,
+    1131,
+    1132,
+    1133,
+    1134,
+    1135,
+    1136
+  ],
+  "authorship": "Prompts and explanations are newly authored. Repository URLs document topic discovery, not answer authority. Five textbook/paper/documentation readings accompany each answer."
+}

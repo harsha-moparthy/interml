@@ -1,3 +1,4 @@
+from placement.question_bank import QUESTION_COUNT
 import json
 from pathlib import Path
 import tempfile
@@ -15,7 +16,7 @@ class CuratedSolutionsTests(unittest.TestCase):
 
     def test_authored_appendix_has_code_or_substantive_answers(self):
         solutions = load_solutions()
-        for number in range(601, 1101):
+        for number in range(601, QUESTION_COUNT + 1):
             item = solutions[number]
             self.assertNotIn("A complete answer must", item["answer"])
             self.assertNotIn("A complete solution must", item["answer"])

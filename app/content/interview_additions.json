@@ -1,0 +1,326 @@
+[
+  {
+    "id": 1101,
+    "chapter_number": 3,
+    "title": "BERT pretraining: MLM and NSP losses",
+    "prompt": "What losses does original BERT use during pretraining? Derive the masked-language-model and next-sentence-prediction losses, explain how they are combined, and work through a numerical example.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/02-llm-fundamentals/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1102,
+    "chapter_number": 3,
+    "title": "BERT masking: selection, corruption, and labels",
+    "prompt": "Explain BERT's 15% selection and 80/10/10 corruption rule. Which positions contribute to the loss, and how do loss masks differ from attention masks?",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/02-llm-fundamentals/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1103,
+    "chapter_number": 3,
+    "title": "Next sentence prediction versus next-token prediction",
+    "prompt": "What is next sentence prediction in BERT? Explain pair construction, the classification head, the loss, topic shortcuts, and how it differs from generating a continuation.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/02-llm-fundamentals/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1104,
+    "chapter_number": 3,
+    "title": "BERT input representations and downstream heads",
+    "prompt": "Explain BERT's token, position, and segment embeddings; CLS and SEP tokens; padding masks; and the output heads for classification, named-entity recognition, and extractive QA.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/02-llm-fundamentals/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1105,
+    "chapter_number": 3,
+    "title": "RoBERTa: objective versus training recipe",
+    "prompt": "How does RoBERTa change BERT pretraining? Explain dynamic masking and removing NSP, and why a bundled benchmark improvement does not isolate the effect of one change.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/02-llm-fundamentals/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1106,
+    "chapter_number": 3,
+    "title": "ALBERT: factorization, sharing, and sentence order",
+    "prompt": "How does ALBERT reduce parameter count? Derive factorized embedding savings, distinguish sharing from skipping computation, and compare SOP with NSP.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/02-llm-fundamentals/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1107,
+    "chapter_number": 3,
+    "title": "ELECTRA and replaced-token detection",
+    "prompt": "Explain ELECTRA's generator and discriminator objectives. Which positions receive supervision, what happens when the generator samples the original token, and why is this not ordinary GAN training?",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/02-llm-fundamentals/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1108,
+    "chapter_number": 3,
+    "title": "DistilBERT and temperature-based knowledge distillation",
+    "prompt": "Explain how DistilBERT learns from a teacher. Derive the temperature-scaled distillation objective and explain its relationship to MLM and representation alignment.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/02-llm-fundamentals/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1109,
+    "chapter_number": 3,
+    "title": "Static versus contextual word embeddings",
+    "prompt": "Compare word2vec/GloVe embeddings with contextual BERT representations using an ambiguous-word example. Distinguish input embeddings, contextual states, and sentence embeddings.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/02-llm-fundamentals/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1110,
+    "chapter_number": 3,
+    "title": "CRF sequence labeling and Viterbi decoding",
+    "prompt": "Why add a linear-chain CRF to a token classifier? Derive the sequence score and likelihood, explain forward normalization versus Viterbi decoding, and discuss BIO constraints.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/02-llm-fundamentals/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1111,
+    "chapter_number": 3,
+    "title": "DAPT, TAPT, and supervised fine-tuning",
+    "prompt": "Compare domain-adaptive pretraining, task-adaptive pretraining, and supervised fine-tuning. Explain their data, targets, evaluation, and leakage risks with a concrete example.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/02-llm-fundamentals/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1112,
+    "chapter_number": 10,
+    "title": "Assistant-only SFT: loss masks and packed conversations",
+    "prompt": "How do you train on assistant responses while conditioning on user prompts? Explain shifted labels, chat templates, token averaging, and attention isolation when packing examples.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/05-fine-tuning-and-alignment/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1113,
+    "chapter_number": 4,
+    "title": "Input-output embedding weight tying",
+    "prompt": "What is weight tying in a language model? Derive parameter savings, explain shared gradients, and distinguish memory savings from output-softmax computation.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/02-llm-fundamentals/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1114,
+    "chapter_number": 3,
+    "title": "In-context learning versus weight updates",
+    "prompt": "How do few-shot demonstrations influence a model without updating its weights? Explain example selection, ordering, context cost, leakage, and when to compare with fine-tuning.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/03-prompt-engineering-and-context/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1115,
+    "chapter_number": 10,
+    "title": "Self-consistency and correlated reasoning errors",
+    "prompt": "How does self-consistency aggregate sampled answers? Work through a majority-vote example and explain why correlated errors, answer normalization, and verifier quality matter.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/03-prompt-engineering-and-context/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1116,
+    "chapter_number": 10,
+    "title": "Workflow versus autonomous agent",
+    "prompt": "When should an AI application use a fixed workflow versus an agent? Explain control flow, explicit state, verification, and end-to-end reliability using a concrete task.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/06-agents-and-tool-use/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1117,
+    "chapter_number": 10,
+    "title": "MCP versus function calling",
+    "prompt": "How does Model Context Protocol relate to model function calling? Explain hosts, clients, servers, tools, resources, prompts, and the execution/authorization boundary.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/06-agents-and-tool-use/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1118,
+    "chapter_number": 10,
+    "title": "Agent stopping conditions and verified completion",
+    "prompt": "How should an agent know when to stop? Design success criteria, budgets, loop detection, cancellation, and safe retry behavior without relying solely on the model's claim of success.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/06-agents-and-tool-use/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1119,
+    "chapter_number": 10,
+    "title": "Pass-at-k: derivation and interpretation",
+    "prompt": "Derive the pass-at-k estimator from n samples with c successes. Work through an example and distinguish oracle success, majority voting, and deployable candidate selection.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/06-agents-and-tool-use/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1120,
+    "chapter_number": 7,
+    "title": "Benchmark contamination and hidden holdouts",
+    "prompt": "How can benchmark contamination inflate model scores? Explain duplicate detection, split units, temporal/private holdouts, developer overfitting, and limits of contamination tests.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/07-evaluation-and-observability/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1121,
+    "chapter_number": 6,
+    "title": "Paired evaluation: bootstrap and McNemar",
+    "prompt": "How should you compare two models evaluated on the same examples? Explain paired bootstrap intervals, McNemar's test, clustered data, and practical versus statistical significance.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/01-ml-and-dl-foundations/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1122,
+    "chapter_number": 7,
+    "title": "Building and maintaining a golden evaluation set",
+    "prompt": "How do you construct a reliable evaluation set for an AI application? Explain representative and adversarial slices, rubrics, versioning, evaluator calibration, and held-out testing.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/07-evaluation-and-observability/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1123,
+    "chapter_number": 7,
+    "title": "Semantic response caches versus prefix caches",
+    "prompt": "Compare semantic response caching with exact-prefix KV caching. Explain validity, user isolation, freshness, false hits, and what computation each approach saves.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/08-inference-and-production/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1124,
+    "chapter_number": 7,
+    "title": "Streaming, cancellation, and incomplete outputs",
+    "prompt": "What can go wrong when streaming an LLM response? Explain fragment parsing, terminal reasons, cancellation propagation, partial structured outputs, and recovery after interrupted actions.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/08-inference-and-production/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1125,
+    "chapter_number": 7,
+    "title": "Token-aware rate limits and backpressure",
+    "prompt": "How do you prevent an LLM service from overloading? Explain token budgets, concurrency, bounded queues, deadlines, retry storms, and fair scheduling.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/08-inference-and-production/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1126,
+    "chapter_number": 7,
+    "title": "Why temperature zero is not full reproducibility",
+    "prompt": "Why can greedy decoding produce different outputs across runs or systems? Explain numerical differences, seeds, kernels, versioning, and reproducibility levels.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/08-inference-and-production/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1127,
+    "chapter_number": 7,
+    "title": "Model registry versus artifact store",
+    "prompt": "What does a model registry add beyond storing weight files? Explain immutable versions, mutable aliases, lineage, complete release bundles, promotion, and rollback.",
+    "source_url": "https://github.com/Devinterview-io/mlops-interview-questions/blob/255ec45de14d8e8216d8a1cfa144f7fb0e1163bd/README.md",
+    "repository_url": "https://github.com/Devinterview-io/mlops-interview-questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1128,
+    "chapter_number": 7,
+    "title": "Dataset lineage and point-in-time reproducibility",
+    "prompt": "What must be recorded to reproduce a training dataset? Explain snapshots, transformations, split assignments, availability time, schema semantics, and model lineage.",
+    "source_url": "https://github.com/Devinterview-io/mlops-interview-questions/blob/255ec45de14d8e8216d8a1cfa144f7fb0e1163bd/README.md",
+    "repository_url": "https://github.com/Devinterview-io/mlops-interview-questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1129,
+    "chapter_number": 5,
+    "title": "Fairness criteria and incompatible goals",
+    "prompt": "Define demographic parity, equalized odds, and within-group calibration. Give a numerical example showing different criteria, state incompatibility caveats, and discuss label quality.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/01-ml-and-dl-foundations/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1130,
+    "chapter_number": 5,
+    "title": "Deriving a cost-sensitive decision threshold",
+    "prompt": "Derive the optimal binary decision threshold from false-positive and false-negative costs. Explain calibration, unequal costs, prevalence shift, and capacity constraints.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/01-ml-and-dl-foundations/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1131,
+    "chapter_number": 5,
+    "title": "Permutation importance and partial dependence pitfalls",
+    "prompt": "Compare permutation feature importance with partial dependence. Explain correlated predictors, unrealistic combinations, grouped permutation, and why these are not causal effects.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/01-ml-and-dl-foundations/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1132,
+    "chapter_number": 6,
+    "title": "Mutual information versus Pearson correlation",
+    "prompt": "Can two dependent variables have zero Pearson correlation? Construct a discrete example, compute its mutual information, and discuss estimation and causal limitations.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/01-ml-and-dl-foundations/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1133,
+    "chapter_number": 8,
+    "title": "Contextual bandit versus sequential MDP",
+    "prompt": "When should a decision problem be modeled as a contextual bandit versus an MDP? Explain action-dependent future states, delayed feedback, reward horizons, and data coverage.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/01-ml-and-dl-foundations/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1134,
+    "chapter_number": 8,
+    "title": "Offline RL and unsupported actions",
+    "prompt": "Why is offline reinforcement learning difficult? Explain extrapolation error in bootstrapped targets, behavior constraints, conservative learning, and offline evaluation limits.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/01-ml-and-dl-foundations/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1135,
+    "chapter_number": 8,
+    "title": "Potential-based reward shaping",
+    "prompt": "Derive why potential-based reward shaping preserves policy rankings. Show the telescoping return and state discount, boundedness, and terminal-state assumptions.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/01-ml-and-dl-foundations/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  },
+  {
+    "id": 1136,
+    "chapter_number": 8,
+    "title": "On-policy versus off-policy reinforcement learning",
+    "prompt": "Compare on-policy and off-policy learning using SARSA and Q-learning. Explain importance ratios, support, variance, and the distinction between off-policy and offline learning.",
+    "source_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions/blob/e080df282aaf14c128ade55c177a20c38d82df1d/01-ml-and-dl-foundations/questions.md",
+    "repository_url": "https://github.com/ombharatiya/AI-Engineer-Interview-Questions",
+    "discovery_note": "Original question expanding a topic gap identified during the repository review; not a verbatim scraped question."
+  }
+]

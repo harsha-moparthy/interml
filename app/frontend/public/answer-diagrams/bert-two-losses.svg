@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" role="img" aria-labelledby="title desc">
+<title id="title">One BERT encoder, two pretraining losses</title><desc id="desc">A corrupted pair enters a shared bidirectional encoder. Selected token states predict original tokens through the MLM head; the CLS state predicts whether the pair is consecutive through the NSP head. Both losses update the encoder.</desc>
+<rect width="760" height="420" rx="16" fill="#f4f7fc"/>
+<g font-family="Arial, sans-serif" fill="#15243b" text-anchor="middle">
+<text x="380" y="32" font-size="23" font-weight="bold">One encoder learns from two tasks</text>
+<rect x="30" y="52" width="700" height="58" rx="9" fill="#e1e9f8" stroke="#5274a6"/>
+<text x="380" y="77" font-size="17">[CLS] Mira heated the [MASK]. [SEP] It began to boil. [SEP]</text>
+<text x="380" y="98" font-size="14">Original selected token: soup · Pair label: IsNext</text>
+<path d="M380 112v32" stroke="#5274a6" stroke-width="3"/>
+<rect x="180" y="145" width="400" height="62" rx="10" fill="#244d81"/>
+<text x="380" y="172" font-size="21" fill="white">Shared bidirectional BERT encoder</text>
+<text x="380" y="194" font-size="15" fill="white">Both objectives update these parameters</text>
+<path d="M280 207v24H190v24 M480 207v24h90v24" fill="none" stroke="#5274a6" stroke-width="3"/>
+<rect x="40" y="255" width="300" height="100" rx="9" fill="#def2e7" stroke="#347255"/>
+<text x="190" y="280" font-size="20" font-weight="bold">MLM head</text><text x="190" y="305" font-size="16">Selected token states → vocabulary</text><text x="190" y="333" font-size="17">Target: soup · Loss: −log p(soup)</text>
+<rect x="420" y="255" width="300" height="100" rx="9" fill="#fff0d3" stroke="#8d6821"/>
+<text x="570" y="280" font-size="20" font-weight="bold">NSP head</text><text x="570" y="305" font-size="16">[CLS] state → pair classification</text><text x="570" y="333" font-size="17">Target: IsNext · Loss: −log p(IsNext)</text>
+<text x="380" y="389" font-size="18" font-weight="bold">Combined loss = mean MLM loss + mean NSP loss</text>
+<text x="380" y="410" font-size="13">Original explanatory diagram; see BERT and Dive into Deep Learning in the readings.</text>
+</g></svg>

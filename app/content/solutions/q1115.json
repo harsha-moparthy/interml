@@ -1,0 +1,47 @@
+{
+  "id": 1115,
+  "answer": "**Self-consistency samples multiple reasoning attempts and aggregates their final answers.** The intuition is that different valid paths may converge on the same answer, whereas some accidental mistakes vary. It is a test-time strategy, not an update to model parameters. [1](https://arxiv.org/abs/2203.11171)\n\nSuppose five attempts at a word problem produce `12, 12, 9, 12, 15`. Majority voting selects 12. First normalize equivalent answers: `0.5`, `1/2`, and `50%` may represent the same value in context. Without normalization, voting can split correct answers across surface forms.\n\nIf attempts were independent with correctness probability $p>1/2$, an odd-size majority would be correct with probability\n\n$$\\sum_{j=(n+1)/2}^{n}{n\\choose j}p^j(1-p)^{n-j}.$$\n\nFor $n=3$ and $p=0.7$, this is $3(0.7)^2(0.3)+(0.7)^3=0.784$. This is an illustrative independence calculation, not a promise about actual language-model samples.\n\n**Correlated errors are the central limitation.** Repeated attempts can all use the same false assumption or memorized misconception. Then increasing the sample count merely repeats the error with greater apparent confidence. Deterministic decoding may also produce identical attempts, adding cost without diversity.\n\nCompare majority voting with a verifier that checks candidate answers against tests, constraints, or a trusted calculation. A verifier can choose a correct minority answer when the majority is wrong, but it has its own error rate and cost. [3](https://arxiv.org/abs/2305.20050)[5](https://arxiv.org/abs/2306.05685) Measure accuracy against total generated tokens and latency, and state the sample count and decoding settings. For free-form tasks without a well-defined final-answer equivalence relation, naive voting may be inappropriate; use a task-specific scoring or validation procedure instead. Agreement is evidence about consistency, not proof of truth.",
+  "readings": [
+    {
+      "title": "Self-Consistency Improves Chain of Thought Reasoning",
+      "url": "https://arxiv.org/abs/2203.11171",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Sampling reasoning paths and aggregating final answers.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Language Models are Few-Shot Learners",
+      "url": "https://arxiv.org/abs/2005.14165",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "In-context demonstrations without parameter updates.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Let's Verify Step by Step",
+      "url": "https://arxiv.org/abs/2305.20050",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Process supervision, outcome supervision, and verifier evaluation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability via Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2501.12948",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Group-relative rewards, reasoning training, and reported limitations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Position, verbosity, and self-enhancement bias in model judging.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

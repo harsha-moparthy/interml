@@ -1,0 +1,47 @@
+{
+  "id": 1105,
+  "answer": "**RoBERTa asks how far BERT can improve when the training recipe is changed substantially.** Its changes include dynamic masking, removing NSP, training on more data for longer with larger batches, and changing input construction and tokenization details. The useful interview answer separates the architecture from the recipe. [1](https://arxiv.org/abs/1907.11692)\n\nImagine reusing a paragraph for multiple epochs. With fixed corruption, the learner repeatedly solves largely the same fill-in-the-blank exercise. With dynamic masking, different presentations can hide different tokens. This creates more prediction tasks from the same paragraph, although it does not create new factual knowledge or independent documents.\n\nRemoving NSP leaves masked-token prediction as the pretraining objective. This saves the model from optimizing that particular pair-classification task, but the remaining MLM training still learns relationships among tokens within its context window. “No NSP” therefore does not mean “no information about relationships between sentences.” [1](https://arxiv.org/abs/1907.11692)[2](https://arxiv.org/abs/1810.04805)\n\n**Do not turn a bundled result into a causal claim.** If a run changes corpus, batch size, training steps, masking, and objective together, a higher benchmark score cannot be attributed solely to deleting NSP. To isolate that change, hold the data, compute budget, model size, evaluation, and other recipe choices fixed, then compare with and without the pair loss across seeds.\n\nFor a practical decision, compare quality at the latency and memory budget you actually have, and evaluate on your own held-out task. Also measure preprocessing compatibility: a checkpoint expects its own tokenizer and special-token conventions. Substituting a BERT tokenizer into a RoBERTa pipeline because both are encoders can corrupt the input representation. The broader lesson is that a pretraining objective must be evaluated within its training conditions; ALBERT's sentence-order objective is a useful contrasting experiment rather than a contradiction. [3](https://web.stanford.edu/~jurafsky/slp3/9.pdf)[4](https://d2l.ai/chapter_natural-language-processing-pretraining/bert.html)[5](https://arxiv.org/abs/1909.11942)",
+  "readings": [
+    {
+      "title": "RoBERTa: A Robustly Optimized BERT Pretraining Approach",
+      "url": "https://arxiv.org/abs/1907.11692",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Dynamic masking, removal of NSP, and controlled pretraining experiments.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers",
+      "url": "https://arxiv.org/abs/1810.04805",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Masked language modeling and bidirectional representations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Jurafsky and Martin: Masked Language Models (2026 draft, Chapter 9)",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/9.pdf",
+      "publisher": "web.stanford.edu",
+      "tags": "",
+      "why": "Bidirectional encoders, masked pretraining, and downstream classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning: BERT",
+      "url": "https://d2l.ai/chapter_natural-language-processing-pretraining/bert.html",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Step-by-step BERT inputs and pretraining objectives with code.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "ALBERT: A Lite BERT",
+      "url": "https://arxiv.org/abs/1909.11942",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Factorized embeddings, parameter sharing, and sentence-order prediction.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from . import config
+from .question_bank import QUESTION_COUNT
 from .resources import Reading
 
 DIRECTORY = config.APP_DIR / "content" / "solutions"
@@ -16,7 +17,7 @@ def load_solutions(directory: Path = DIRECTORY) -> dict[int, dict]:
     for path in sorted(directory.glob("*.json")):
         item = json.loads(path.read_text(encoding="utf-8"))
         number = item["id"]
-        if type(number) is not int or not 1 <= number <= 1100 or number in result:
+        if type(number) is not int or not 1 <= number <= QUESTION_COUNT or number in result:
             raise ValueError(f"{path}: invalid or duplicate exercise id")
         code_path = item.get("code_file")
         code = ""

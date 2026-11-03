@@ -1,0 +1,47 @@
+{
+  "id": 1119,
+  "answer": "**Pass@k measures whether at least one of k generated candidates passes a correctness test.** It is useful for code generation when unit tests provide a functional check. It does not measure the probability that a deployed system can identify and return that correct candidate without a verifier. [1](https://arxiv.org/abs/2107.03374)\n\nIf a problem has $n$ sampled candidates and $c$ pass, the usual estimator for $k\\le n$ is\n\n$$\\widehat{pass@k}=1-\\frac{{n-c\\choose k}}{{n\\choose k}}.$$\n\nThe fraction is the probability that a uniformly selected subset of $k$ candidates contains only failures. Subtract it from one to obtain the chance of at least one success. If fewer than $k$ failures exist, the numerator is zero.\n\nFor $n=10$, $c=2$, and $k=3$, the estimate is $1-\\binom83/\\binom{10}3=1-56/120\\approx0.533$. Pass@1 is $c/n=0.2$. The improvement reflects more attempts, not an improvement in the underlying model's single-attempt behavior.\n\nUnder independent sampling from the same generation distribution, the estimator is unbiased for the corresponding success-within-k quantity. Report the sampling policy, temperature, sample count, tests, and any filtering. Changing these changes the experiment. For many problems, estimate per problem and average; pooling all candidates first can incorrectly weight problems or obscure differences in difficulty.\n\n**Limitations:** incomplete tests can accept incorrect programs, and repeated near-identical samples reduce practical diversity. Further, comparing model A at pass@100 with model B at pass@1 ignores a large inference-budget difference. Include a matched-budget comparison and, where relevant, the accuracy of the selection mechanism. Majority voting, best-of-k with an imperfect judge, and pass@k with an oracle test are distinct metrics and should not be reported interchangeably. [2](https://arxiv.org/abs/2203.11171)[3](https://arxiv.org/abs/2306.05685)",
+  "readings": [
+    {
+      "title": "Evaluating Large Language Models Trained on Code",
+      "url": "https://arxiv.org/abs/2107.03374",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "HumanEval, functional correctness, and the pass-at-k estimator.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Self-Consistency Improves Chain of Thought Reasoning",
+      "url": "https://arxiv.org/abs/2203.11171",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Sampling reasoning paths and aggregating final answers.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Position, verbosity, and self-enhancement bias in model judging.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "SciPy Statistics Reference",
+      "url": "https://docs.scipy.org/doc/scipy/reference/stats.html",
+      "publisher": "docs.scipy.org",
+      "tags": "",
+      "why": "Distribution parameterizations, statistical tests, and numerical implementation references.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

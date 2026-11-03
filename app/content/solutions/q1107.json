@@ -1,0 +1,47 @@
+{
+  "id": 1107,
+  "answer": "**ELECTRA trains an encoder to detect whether each observed token is original or a replacement.** A small generator first predicts missing tokens; sampled predictions fill the gaps. A discriminator then processes this corrupted sequence and classifies token positions. The discriminator is the encoder retained for downstream tasks. [1](https://arxiv.org/abs/2003.10555)\n\nConsider “The chef sliced the bread.” A generator might replace *bread* with *stone*. The discriminator should identify the changed position from context. A more plausible replacement, such as *cake*, makes the discrimination harder. This gives training signals at all ordinary positions, including tokens left untouched, whereas MLM directly predicts vocabulary identities only at selected positions.\n\nLet $\\tilde x$ be the generated sequence and $y_i=1$ when $\\tilde x_i=x_i$. If $D_i$ predicts that a token is original, the discriminator loss is\n\n$$L_D=-\\sum_i[y_i\\log D_i+(1-y_i)\\log(1-D_i)].$$\n\nThe generator has its own MLM loss, and training combines it with a weighted discriminator loss. **If the generator samples the actual original token, that position is labeled original.** Labeling every sampled position as replaced would teach the wrong task. [1](https://arxiv.org/abs/2003.10555)\n\nThe setup resembles a generator/discriminator pair, but it is not ordinary adversarial GAN training: the generator is trained with maximum likelihood, and the discrete sample is not backpropagated through as a differentiable token. The goal is useful representations rather than a generator that wins an adversarial game.\n\nThe practical tradeoff is richer positional supervision versus sensitivity to the corruption task. If replacements are trivial to spot, the discriminator may learn superficial shortcuts. If a generator is too strong or too weak, learning difficulty changes. Thus compare matched compute budgets and downstream performance, not just the number of loss terms. BERT and RoBERTa provide MLM baselines; the encoder representation remains useful even though the pretraining classification target differs. [2](https://arxiv.org/abs/1810.04805)[3](https://arxiv.org/abs/1907.11692)",
+  "readings": [
+    {
+      "title": "ELECTRA: Pre-training Text Encoders as Discriminators",
+      "url": "https://arxiv.org/abs/2003.10555",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Replaced-token detection and generator-discriminator training.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers",
+      "url": "https://arxiv.org/abs/1810.04805",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Masked language modeling and bidirectional representations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "RoBERTa: A Robustly Optimized BERT Pretraining Approach",
+      "url": "https://arxiv.org/abs/1907.11692",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Dynamic masking, removal of NSP, and controlled pretraining experiments.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Jurafsky and Martin: Masked Language Models (2026 draft, Chapter 9)",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/9.pdf",
+      "publisher": "web.stanford.edu",
+      "tags": "",
+      "why": "Bidirectional encoders, masked pretraining, and downstream classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning: BERT",
+      "url": "https://d2l.ai/chapter_natural-language-processing-pretraining/bert.html",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Step-by-step BERT inputs and pretraining objectives with code.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

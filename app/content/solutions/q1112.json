@@ -1,0 +1,47 @@
+{
+  "id": 1112,
+  "answer": "**Assistant-only supervised fine-tuning teaches the model to produce the assistant's responses while treating the user prompt as conditioning context.** The prompt remains visible to attention, but its token positions can be excluded from the loss. Loss masking and attention masking perform different jobs. [1](https://web.stanford.edu/~jurafsky/slp3/8.pdf)[2](https://arxiv.org/abs/2203.02155)\n\nFor a toy conversation, the serialized input might be `USER: add 2 and 3 ASSISTANT: 5 END`. Training should increase the probability of the desired response and its termination. If assistant-only supervision is intended, the user text and its delimiters do not become prediction targets, though the assistant uses them to answer.\n\nWith a binary supervision mask $m_t$, a mean token objective is\n\n$$L=-\\frac{\\sum_t m_t\\log p_\\theta(x_t\\mid x_{<t})}{\\sum_t m_t}.$$\n\nBe explicit about token shifting: the logits before a target position predict that target. Implementations often use an ignored label value for prompt and padding positions. The denominator counts supervised tokens; averaging each example first instead gives different weighting to short and long responses.\n\nUse the checkpoint's expected chat template, including role separators and end-of-turn markers. A mismatch between training serialization and inference serialization can reduce quality even when the underlying messages look identical to a human. For multi-turn conversations, decide whether every assistant turn or only the final one contributes to loss; this is a dataset-design choice, not an automatic consequence of the role name.\n\n**Packing requires care.** Concatenating unrelated examples into one token sequence can allow later examples to attend to earlier ones. If independent-example training is intended, use suitable attention boundaries and position handling. Do not assume ignoring labels also prevents attention. Finally, reject samples with zero supervised tokens and inspect a decoded example with the supervised positions marked before launching a large run. This simple inspection often catches a broken template or a mask that trains on the wrong speaker. [5](https://docs.pytorch.org/docs/stable/index.html)",
+  "readings": [
+    {
+      "title": "Jurafsky and Martin: Post-training (2026 draft, Chapter 8)",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/8.pdf",
+      "publisher": "web.stanford.edu",
+      "tags": "",
+      "why": "Supervised instruction tuning and preference learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Training Language Models to Follow Instructions with Human Feedback",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "SFT, reward modeling, PPO, and human evaluation in an RLHF pipeline.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+      "url": "https://arxiv.org/abs/1910.10683",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Encoder–decoder pretraining objectives and controlled architecture comparisons.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers",
+      "url": "https://arxiv.org/abs/1810.04805",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Masked language modeling and bidirectional representations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch Documentation",
+      "url": "https://docs.pytorch.org/docs/stable/index.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Official operator, autograd, numerical, and distributed-training contracts.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

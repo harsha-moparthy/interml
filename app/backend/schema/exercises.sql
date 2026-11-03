@@ -23,7 +23,7 @@ CREATE TABLE subsection (
 );
 
 CREATE TABLE exercise (
-  id             INTEGER PRIMARY KEY CHECK (id BETWEEN 1 AND 1100), -- permanent question ID
+  id             INTEGER PRIMARY KEY CHECK (id >= 1), -- permanent question ID; catalog validates bounds
   list_position  INTEGER NOT NULL UNIQUE,   -- original order; equals id in the first edition
   chapter_id     TEXT NOT NULL REFERENCES chapter(id),
   subsection_id  INTEGER NOT NULL REFERENCES subsection(id),

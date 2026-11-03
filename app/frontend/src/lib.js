@@ -4,7 +4,7 @@ import { apiFetch } from "./staticApi.js";
 export const pad = (n) => String(n).padStart(3, "0");
 
 /** The complete question list. Every page that needs it shares one cached request. */
-export const ALL_URL = `/api/search?${new URLSearchParams({ q: "", chapter: "", lesson: "", limit: 1100 })}`;
+export const ALL_URL = `/api/search?${new URLSearchParams({ q: "", chapter: "", lesson: "", limit: 10000 })}`;
 const cache = new Map();
 const getJson = (url) => apiFetch(url).then((r) => (r.ok ? r.json() : Promise.reject(new Error(`${r.status} ${r.statusText}`))));
 

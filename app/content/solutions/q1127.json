@@ -1,0 +1,47 @@
+{
+  "id": 1127,
+  "answer": "**An artifact store holds files; a model registry organizes identifiable model versions and their lifecycle metadata.** A file named `best_model.bin` does not tell you which dataset produced it, what evaluation it passed, or whether it is compatible with the current inference code. [1](https://mlflow.org/docs/latest/ml/model-registry/)\n\nA useful registered version points to the model artifact, training run, dataset snapshot, code revision, parameters, evaluation results, and input/output signature. The actual files may still live in an object store. The registry supplies relationships and version identity rather than replacing all storage.\n\nFor deployment, define a release bundle that includes preprocessing, tokenizer or feature definitions, model weights, inference code, dependency environment, and relevant configuration. Otherwise rolling back only the weights can leave a new tokenizer or scaler paired with an old model, producing incorrect predictions despite a successful file download.\n\nAliases such as `candidate` or `champion` can make selection convenient, but aliases are mutable. Record the resolved immutable version when a release starts. Two requests using an alias at different times may otherwise refer to different artifacts, making an incident difficult to reproduce.\n\n**Promotion is an application policy.** A registry does not automatically prove that a model is fit for production. Define required validation, compatibility checks, owner decisions, and rollback criteria. Test loading the complete bundle in a clean environment and run a small set of representative predictions before shifting traffic. [2](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/)[3](https://sre.google/sre-book/table-of-contents/)\n\nAn illustrative failure is an apparently improved model whose feature order changed from `[age, income]` to `[income, age]`. Both columns are numeric, so the service may run without an exception while predictions become wrong. Versioned schemas and parity tests catch this better than a filename convention. The registry's value is traceable, reproducible selection; runtime monitoring is still needed after release. [4](https://developers.google.com/machine-learning/guides/rules-of-ml)[5](https://docs.pytorch.org/docs/stable/notes/randomness.html)",
+  "readings": [
+    {
+      "title": "MLflow Model Registry",
+      "url": "https://mlflow.org/docs/latest/ml/model-registry/",
+      "publisher": "mlflow.org",
+      "tags": "",
+      "why": "Model versions, aliases, lineage, and lifecycle management.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "PyTorch: Reproducibility",
+      "url": "https://docs.pytorch.org/docs/stable/notes/randomness.html",
+      "publisher": "docs.pytorch.org",
+      "tags": "",
+      "why": "Random seeds, deterministic algorithms, and reproducibility limits.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

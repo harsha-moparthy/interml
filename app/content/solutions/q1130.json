@@ -1,0 +1,47 @@
+{
+  "id": 1130,
+  "answer": "**The best classification threshold depends on error costs and calibrated probabilities.** A threshold of 0.5 is justified only under particular assumptions, such as equal false-positive and false-negative costs with zero cost for correct decisions. [1](https://scikit-learn.org/stable/modules/calibration.html)[2](https://scikit-learn.org/stable/modules/model_evaluation.html)\n\nLet $p=P(Y=1\\mid x)$, let $C_{FP}$ be the cost of a false positive, and let $C_{FN}$ be the cost of a false negative. Predicting positive has expected loss $C_{FP}(1-p)$; predicting negative has expected loss $C_{FN}p$. Choose positive when\n\n$$C_{FP}(1-p)<C_{FN}p\\quad\\Longleftrightarrow\\quad p>\\frac{C_{FP}}{C_{FP}+C_{FN}}.$$\n\nFor invented costs $C_{FP}=2$ and $C_{FN}=18$, the threshold is $0.1$. A case with probability $0.2$ has expected positive-decision loss $1.6$ and negative-decision loss $3.6$, so positive is preferable despite its probability being below one half.\n\nThe derivation assumes these costs apply to each example and that correct decisions have zero cost. If costs vary by customer or situation, use example-specific expected losses. Capacity constraints, such as reviewing only 100 cases per day, create a constrained decision problem rather than a single universally optimal threshold. [3](https://probml.github.io/pml-book/book1.html)[4](https://www.statlearning.com/)\n\n**Calibration matters:** a score of 0.2 must correspond to a meaningful estimated outcome probability under the deployment distribution. A ranking score with a convenient numeric range is not enough. Estimate calibration using held-out data, and select any empirical threshold on validation data rather than repeatedly optimizing the test set.\n\nClass weighting during training and threshold selection at decision time are related but different operations. Weighting can change the learned scores and their calibration; thresholding chooses actions from scores. A change in class prevalence can also invalidate an old calibrated model. Monitor the relevant distribution, costs, and workload rather than treating the selected threshold as a permanent model property. [1](https://scikit-learn.org/stable/modules/calibration.html)[2](https://scikit-learn.org/stable/modules/model_evaluation.html)[5](https://scikit-learn.org/stable/user_guide.html)",
+  "readings": [
+    {
+      "title": "Scikit-learn: Probability Calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Reliability diagrams, sigmoid/isotonic calibration, and held-out fitting.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Model Evaluation",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Metric definitions, averaging conventions, and classification/regression caveats.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "publisher": "probml.github.io",
+      "tags": "",
+      "why": "Open author-hosted textbook covering probabilistic modeling and classical ML derivations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "An Introduction to Statistical Learning with Python",
+      "url": "https://www.statlearning.com/",
+      "publisher": "www.statlearning.com",
+      "tags": "",
+      "why": "Author-hosted book and labs for regression, classification, validation, and statistical learning.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn User Guide",
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Maintainer documentation with estimator equations, assumptions, and executable examples.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

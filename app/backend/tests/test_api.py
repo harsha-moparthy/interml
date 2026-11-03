@@ -1,3 +1,4 @@
+from placement.question_bank import QUESTION_COUNT
 import unittest
 from fastapi.testclient import TestClient
 from placement.main import app
@@ -40,7 +41,7 @@ class ApiTests(unittest.TestCase):
 
     def test_all_in_order(self):
         data = self.get()
-        self.assertEqual([i["id"] for i in data["items"]], list(range(1, 1101)))
+        self.assertEqual([i["id"] for i in data["items"]], list(range(1, QUESTION_COUNT + 1)))
 
     def test_search_by_id(self):
         self.assertIn(316, [i["id"] for i in self.get(q="316")["items"]])
@@ -68,10 +69,10 @@ class ApiTests(unittest.TestCase):
 
     def test_stats_and_chapters(self):
         s = client.get("/api/stats").json()
-        self.assertEqual(s, {"imported_questions": 1100, "planned_deep_lessons": 72, "completed_deep_lessons": 0})
+        self.assertEqual(s, {"imported_questions": QUESTION_COUNT, "planned_deep_lessons": 72, "completed_deep_lessons": 0})
         ch = client.get("/api/chapters").json()
         self.assertEqual(len(ch), 54)
-        self.assertEqual(sum(c["count"] for c in ch), 1100)
+        self.assertEqual(sum(c["count"] for c in ch), QUESTION_COUNT)
 
 
 if __name__ == "__main__":
@@ -96,15 +97,15 @@ class QuestionTests(unittest.TestCase):
             self.assertEqual(sol["code"], curated.get(r["number"], {}).get("code") or r["code"])
 
     def test_unknown_question(self):
-        self.assertEqual(client.get("/api/exercises/1101").status_code, 404)
+        self.assertEqual(client.get(f"/api/exercises/{QUESTION_COUNT + 1}").status_code, 404)
         self.assertEqual(client.get("/api/exercises/0/solution").status_code, 404)
 
     def test_license_note_and_neighbours(self):
         ids = [i["id"] for i in client.get("/api/exercises").json()["items"]]
-        notes = [client.get(f"/api/exercises/{i}").json() for i in (1, 16, 1100)]
+        notes = [client.get(f"/api/exercises/{i}").json() for i in (1, 16, QUESTION_COUNT)]
         self.assertEqual((notes[0]["previous_id"], notes[0]["next_id"]), (None, 2))
         self.assertIsNone(notes[2]["next_id"])
-        self.assertEqual(len(ids), 1100)
+        self.assertEqual(len(ids), QUESTION_COUNT)
 
     def test_two_ranked_readings_and_supplemental_answer(self):
         original = client.get("/api/exercises/316").json()

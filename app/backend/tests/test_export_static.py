@@ -1,3 +1,4 @@
+from placement.question_bank import QUESTION_COUNT
 import json
 import tempfile
 import unittest
@@ -24,17 +25,17 @@ class ExportStaticTest(unittest.TestCase):
 
     def test_every_question_has_a_page_and_a_solution(self):
         ids = [e["id"] for e in self.load("all.json")["items"]]
-        self.assertEqual(ids, list(range(1, 1101)))
-        for i in (1, 316, 601, 1100):
+        self.assertEqual(ids, list(range(1, QUESTION_COUNT + 1)))
+        for i in (1, 316, 601, QUESTION_COUNT):
             self.assertEqual(self.load(f"exercises/{i}.json")["id"], i)
             self.assertEqual(self.load(f"exercises/{i}/solution.json")["id"], i)
-        self.assertEqual(len(list((self.out / "exercises").glob("*.json"))), 1100)
-        self.assertEqual(len(list((self.out / "exercises").glob("*/solution.json"))), 1100)
+        self.assertEqual(len(list((self.out / "exercises").glob("*.json"))), QUESTION_COUNT)
+        self.assertEqual(len(list((self.out / "exercises").glob("*/solution.json"))), QUESTION_COUNT)
 
     def test_chapters_cover_main_and_appendix(self):
         chapters = {c["id"]: c["count"] for c in self.load("chapters.json")}
         self.assertEqual(len(chapters), 54)
-        self.assertEqual(sum(chapters.values()), 1100)
+        self.assertEqual(sum(chapters.values()), QUESTION_COUNT)
         self.assertEqual((chapters["A01"], chapters["A18"]), (52, 50))
 
     def test_every_article_is_exported(self):
@@ -45,8 +46,8 @@ class ExportStaticTest(unittest.TestCase):
 
     def test_vectors_match_the_search_index(self):
         index = self.load("search-index.json")
-        self.assertEqual([d["id"] for d in index["docs"]], list(range(1, 1101)))
-        self.assertEqual((self.out / "embeddings.bin").stat().st_size, 1100 * 384 * 4)
+        self.assertEqual([d["id"] for d in index["docs"]], list(range(1, QUESTION_COUNT + 1)))
+        self.assertEqual((self.out / "embeddings.bin").stat().st_size, QUESTION_COUNT * 384 * 4)
 
     def test_solutions_stay_out_of_the_question_files(self):
         self.assertNotIn("solution_code", self.load("exercises/316.json"))

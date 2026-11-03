@@ -4,6 +4,7 @@ import sqlite3
 from fastapi import APIRouter, HTTPException, Query
 
 from . import config, db, search as search_engine
+from .question_bank import QUESTION_COUNT
 
 router = APIRouter(prefix="/api")
 
@@ -35,7 +36,7 @@ def lesson_status(eid: int, planned: dict, done: set) -> str:
 
 @router.get("/search")
 def search_questions(q: str = "", chapter: str = "", lesson: str = Query("", pattern="^(|complete|planned|none)$"),
-                     limit: int = Query(40, ge=1, le=1100), mode: str = Query("hybrid", pattern="^(hybrid|keyword|semantic)$")):
+                     limit: int = Query(40, ge=1, le=10000), mode: str = Query("hybrid", pattern="^(hybrid|keyword|semantic)$")):
     """Ranked search. See placement/search.py for the query syntax."""
     planned, done = selected_ids(), completed_lessons()
     status = lambda i: lesson_status(i, planned, done)
@@ -80,7 +81,7 @@ def chapters():
 
 @router.get("/exercises")
 def exercises(q: str = "", chapter: str = "", lesson: str = Query("", pattern="^(|complete|planned|none)$"),
-              limit: int = Query(1100, ge=1, le=1100), offset: int = Query(0, ge=0)):
+              limit: int = Query(QUESTION_COUNT, ge=1, le=10000), offset: int = Query(0, ge=0)):
     con = db.open_exercises()
     where, args = [], []
     if q.strip():
@@ -141,7 +142,7 @@ def exercise(eid: int):
     finally:
         c.close()
     d["previous_id"] = eid - 1 if eid > 1 else None
-    d["next_id"] = eid + 1 if eid < 1100 else None
+    d["next_id"] = eid + 1 if eid < QUESTION_COUNT else None
     return d
 
 

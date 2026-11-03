@@ -1,0 +1,47 @@
+{
+  "id": 1120,
+  "answer": "**Benchmark contamination means evaluation material, or information that reveals its answers, influenced training or development.** The resulting score can reflect familiarity with the benchmark instead of generalization to genuinely new cases. A train/test split performed after duplicate ingestion may be too late. [1](https://arxiv.org/abs/2107.03374)[2](https://arxiv.org/abs/2005.14165)\n\nFor example, a coding problem may appear in training under a different filename but with identical tests and solution structure. Exact string deduplication misses this. Conversely, sharing ordinary vocabulary with the test set is not itself contamination; the concern is overlap that materially changes the evaluation's meaning.\n\nUse several checks: exact hashes, normalized-text hashes, near-duplicate similarity, shared source identifiers, and temporal provenance. Split by the unit that can leak information, such as repository, document family, patient, or customer. The correct unit depends on the deployment question; random rows from one long document are rarely independent examples. [4](https://scikit-learn.org/stable/modules/cross_validation.html)[5](https://scikit-learn.org/stable/common_pitfalls.html)\n\nFor an LLM whose full pretraining corpus is unavailable, absence of a detected match does not prove absence of contamination. Use newly authored private tests, temporal holdouts, and perturbations that preserve the skill while changing surface form. Keep a final holdout out of prompt development, hyperparameter selection, and repeated manual inspection.\n\n**A concrete diagnostic:** compare performance on an original task and a carefully checked variant with changed names, numbers, or constraints. A large collapse may suggest brittle memorization or template dependence, though it is not conclusive proof of training-set membership. Validate that the variant has the same intended difficulty before drawing conclusions.\n\nReport known overlaps, deduplication methods, and the remaining uncertainty. Also distinguish model-training contamination from developer overfitting: repeatedly tuning a system against a public leaderboard can compromise evaluation even when no test item appeared in pretraining. A benchmark is evidence within its data lineage and protocol, not a permanent certificate of capability. [3](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/)",
+  "readings": [
+    {
+      "title": "Evaluating Large Language Models Trained on Code",
+      "url": "https://arxiv.org/abs/2107.03374",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "HumanEval, functional correctness, and the pass-at-k estimator.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Language Models are Few-Shot Learners",
+      "url": "https://arxiv.org/abs/2005.14165",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "In-context demonstrations without parameter updates.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Cross-validation",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Group-aware and temporal splitting and validation methodology.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Scikit-learn: Common Pitfalls",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "publisher": "scikit-learn.org",
+      "tags": "",
+      "why": "Preprocessing leakage, pipelines, and reproducible evaluation.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

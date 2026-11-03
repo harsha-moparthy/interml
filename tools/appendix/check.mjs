@@ -3,8 +3,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import katex from '../../app/frontend/node_modules/katex/dist/katex.mjs';
 const root=path.resolve(import.meta.dirname,'../..');
+const total=1100+JSON.parse(fs.readFileSync(`${root}/app/content/interview_additions.json`)).length;
 let equations=0, citations=0, figures=0;
-for(let id=601;id<=1100;id++) {
+for(let id=601;id<=total;id++) {
  const item=JSON.parse(fs.readFileSync(`${root}/app/content/solutions/q${id}.json`));
  const assert=(condition,message)=>{if(!condition)throw Error(`Q${id}: ${message}`);};
  assert(item.id===id,'ID mismatch');
@@ -26,4 +27,4 @@ for(let id=601;id<=1100;id++) {
   assert(fs.existsSync(`${root}/app/frontend/public/answer-diagrams/${name}`),'missing figure');figures++;
  }
 }
-console.log(`PASS 500 authored answers; 2500 reading entries; ${citations} citations; ${equations} math expressions; ${figures} figure placements`);
+console.log(`PASS ${total-600} authored answers; ${(total-600)*5} reading entries; ${citations} citations; ${equations} math expressions; ${figures} figure placements`);

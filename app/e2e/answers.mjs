@@ -7,20 +7,25 @@ const page=await browser.newPage({viewport:{width:1100,height:850}});
 const errors=[];page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
 const ok=(condition,message)=>{console.log(`${condition?'PASS':'FAIL'} ${message}`);if(!condition)process.exitCode=1;};
 await page.goto(BASE+'#/question/601');
+const total=1100+JSON.parse(fs.readFileSync(new URL("../content/interview_additions.json",import.meta.url))).length;
 let failures=[];
-for(let id=601;id<=1100;id++){
+for(let id=601;id<=total;id++){
  await page.evaluate(id=>{window.location.hash=`#/question/${id}`;},id);
  await page.waitForFunction(id=>document.querySelector('h1 .id')?.textContent===String(id)&&document.querySelector('.answer-guide')?.innerText.length>100,id);
  const result=await page.evaluate(()=>({visible:!document.querySelector('#solution-panel').hidden,resources:document.querySelectorAll('.readings li').length,citations:document.querySelectorAll('.answer-guide a[href^="https://"]').length,mathErrors:document.querySelectorAll('.answer-guide .katex-error').length}));
  if(!result.visible||result.resources!==5||!result.citations||result.mathErrors)failures.push({id,...result});
  if(id%50===0)console.log(`Checked through Q${id}`);
 }
-ok(failures.length===0,`all 500 answers render with five readings and citations: ${JSON.stringify(failures)}`);
-for(const id of [605,614,653,684,688,701,724,734,796,824,1080]){
+ok(failures.length===0,`all ${total-600} answers render with five readings and citations: ${JSON.stringify(failures)}`);
+for(const id of [605,614,653,684,688,701,724,734,796,824,1080,1101]){
  await page.goto(BASE+`#/question/${id}`);await page.waitForSelector('.answer-figure img');
  await page.locator('.answer-figure').scrollIntoViewIfNeeded();
  await page.waitForFunction(()=>[...document.querySelectorAll('.answer-figure img')].every(i=>i.complete&&i.naturalWidth>0));
  ok(true,`Q${id} diagram loads`);
+}
+for(const id of [1102,1117]){
+ await page.goto(BASE+`#/question/${id}`);await page.waitForSelector('.answer-guide');
+ ok(await page.locator('pre.answer-code code').count()===1,`Q${id} preserves fenced code and line breaks`);
 }
 for(const [id,phrase] of [[796,'0.8113'],[824,'Hard negative'],[1100,'first day']]){
  await page.goto(BASE+`#/question/${id}`);await page.waitForSelector('.answer-guide');
@@ -30,7 +35,7 @@ for(const [id,phrase] of [[796,'0.8113'],[824,'Hard negative'],[1100,'first day'
 await page.goto(BASE+'#/question/1080');await page.waitForSelector('.answer-guide');
 ok(await page.locator('.task strong .katex').count()===3,'math inside emphasized question text renders');
 await page.setViewportSize({width:390,height:844});
-for(const id of [688,796,824,1053,1058,1080,1100]){
+for(const id of [688,796,824,1053,1058,1080,1100,1101,1102,1119,1135,1136]){
  await page.goto(BASE+`#/question/${id}`);await page.waitForSelector('.answer-guide');
  ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),`Q${id} mobile page fits viewport`);
 }

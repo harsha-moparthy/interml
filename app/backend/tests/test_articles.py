@@ -94,7 +94,7 @@ class ImportTests(ArticleCase):
             "unknown prerequisite": art("a", prerequisites=["nope"]),
             "unknown exercise": art("a", exercises=[{"id": 9999, "purpose": "related", "order": 1}]),
             "unknown article": art("a", blocks=[{"type": "paragraph", "text": "[[article:nope]]"}]),
-            "unknown question": art("a", blocks=[{"type": "paragraph", "text": "[[q:1101]]"}]),
+            "unknown question": art("a", blocks=[{"type": "paragraph", "text": "[[q:999999]]"}]),
             "unknown type": art("a", blocks=[{"type": "video", "src": "x"}]),
             "needs path, description, and alt_text": art("a", media=[{"path": "x.png", "description": "d", "alt_text": ""}]),
             "not listed in media": art("a", blocks=[{"type": "image", "path": "x.png"}]),

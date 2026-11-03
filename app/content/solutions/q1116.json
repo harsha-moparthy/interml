@@ -1,0 +1,47 @@
+{
+  "id": 1116,
+  "answer": "**A workflow follows a developer-defined control flow; an agent lets a model choose some of the next actions.** The distinction is about who selects the path, not whether an LLM appears anywhere in the system. A fixed chain of LLM calls can still be a workflow. [1](https://www.anthropic.com/engineering/building-effective-agents)\n\nConsider invoice extraction. A workflow can read a document, extract fields, validate totals, and send ambiguous cases to review. The sequence is predictable and easy to test. A research assistant may need to decide what to search next after seeing earlier results; that uncertainty can justify an agent loop.\n\nA useful agent loop stores state explicitly: goal, observations, permitted tools, pending actions, and remaining budget. The model proposes an action; application code validates it; a tool executes; the resulting observation updates the state. The tool result is evidence to interpret, not an instruction that automatically gains authority over the original task.\n\nMore autonomy creates more possible trajectories. If each of five necessary steps succeeds independently with probability $0.95$, the full path succeeds with probability $0.95^5\\approx0.774$. Real errors need not be independent, but this calculation illustrates why a good single-step score does not establish reliable end-to-end behavior.\n\nChoose a workflow when the process is known and constrained. Add model-directed branching only where variability makes fixed rules inadequate, and retain deterministic checks for amounts, schemas, permissions, and completion conditions. [1](https://www.anthropic.com/engineering/building-effective-agents)[3](https://sre.google/sre-book/table-of-contents/)\n\n**A practical test:** can you reproduce a failure from recorded state and tool results, identify the first incorrect decision, and stop the system safely? If not, adding more tools will often make diagnosis harder. Evaluate task completion, unnecessary actions, cost, and recovery behavior. A protocol such as MCP can standardize tool connectivity, but it does not decide whether the overall task needs an agent or whether a proposed action is appropriate. [2](https://modelcontextprotocol.io/docs/learn/architecture)",
+  "readings": [
+    {
+      "title": "Building Effective Agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Practical distinction between workflows and autonomous agents.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Model Context Protocol: Architecture",
+      "url": "https://modelcontextprotocol.io/docs/learn/architecture",
+      "publisher": "modelcontextprotocol.io",
+      "tags": "",
+      "why": "Hosts, clients, servers, tools, resources, and prompts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

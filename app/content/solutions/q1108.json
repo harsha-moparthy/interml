@@ -1,0 +1,47 @@
+{
+  "id": 1108,
+  "answer": "**Distillation teaches a smaller student to imitate information in a larger teacher's predictions.** A one-hot target says only which answer is correct; a teacher distribution also expresses which alternatives are plausible. DistilBERT combines language-model supervision, prediction distillation, and a hidden-representation cosine objective. [1](https://arxiv.org/abs/1910.01108)[2](https://arxiv.org/abs/1503.02531)\n\nSuppose the correct token is *cat*. A teacher assigning probabilities to *cat*, *dog*, and *car* conveys that *dog* is a more plausible confusion than *car*. A smaller student can learn this relationship even when both wrong tokens would receive the same zero label in ordinary one-hot supervision.\n\nTemperature $T$ softens logits before softmax: $p_T=\\operatorname{softmax}(z_{teacher}/T)$ and $q_T=\\operatorname{softmax}(z_{student}/T)$. A common distillation term is\n\n$$L_{KD}=T^2\\,D_{KL}(p_T\\Vert q_T).$$\n\nThe teacher is fixed when differentiating this loss. Cross entropy with the teacher distribution has the same student gradient because the teacher entropy is constant. The conventional $T^2$ factor compensates for temperature-related gradient scaling; it does not remove the need to choose the relative weights of the different losses. [2](https://arxiv.org/abs/1503.02531)\n\nA schematic combined objective is $\\alpha L_{MLM}+\\beta L_{KD}+\\gamma L_{cosine}$. The cosine term aligns selected teacher/student hidden representations; architecture choices determine which layers can be matched. A student with fewer layers saves computation but cannot necessarily reproduce every teacher behavior. [1](https://arxiv.org/abs/1910.01108)\n\n**Distillation differs from quantization:** distillation trains a model to imitate another, while quantization lowers numerical precision. They can be combined. Evaluate the student on the actual task, including rare inputs and calibration, rather than assuming the teacher's strengths transfer uniformly. Likewise, a teacher's mistakes and biases can be inherited. Benchmark speed at a stated batch size and hardware configuration; parameter count alone is not a latency measurement.",
+  "readings": [
+    {
+      "title": "DistilBERT",
+      "url": "https://arxiv.org/abs/1910.01108",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Language-model, distillation, and cosine-distance objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Distilling the Knowledge in a Neural Network",
+      "url": "https://arxiv.org/abs/1503.02531",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Soft targets, temperature, and student training objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers",
+      "url": "https://arxiv.org/abs/1810.04805",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Masked language modeling and bidirectional representations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Jurafsky and Martin: Masked Language Models (2026 draft, Chapter 9)",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/9.pdf",
+      "publisher": "web.stanford.edu",
+      "tags": "",
+      "why": "Bidirectional encoders, masked pretraining, and downstream classification.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

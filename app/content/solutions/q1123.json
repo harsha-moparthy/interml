@@ -1,0 +1,47 @@
+{
+  "id": 1123,
+  "answer": "**Prefix caching reuses intermediate computation for identical token prefixes; semantic response caching reuses an earlier answer for a similar request.** The former can preserve the model's intended computation under valid cache conditions. The latter changes the application behavior and can return an incorrect answer even when embeddings are close. [1](https://docs.vllm.ai/en/latest/design/prefix_caching/)[2](https://arxiv.org/abs/2309.06180)\n\nImagine “What is my account balance?” asked by two different customers. The requests are nearly identical in wording but require different answers. A semantic cache keyed only by text similarity would leak or confuse user-specific information. Even the same customer's answer may become stale after a transaction.\n\nA response-cache entry therefore needs an applicability boundary: tenant and authorization context, relevant data version, model and prompt version, response policy, and freshness requirements. A similarity threshold is only one part of the decision. Requests involving mutable personal state may need exact structured keys or no response caching at all.\n\nPrefix caching is different: when the token prefix and necessary model/cache identity match, the server can reuse previously computed key/value states and continue processing the suffix. It saves repeated prefill work, not necessarily output-token generation. Cache validity depends on implementation details such as model weights, adapters, token sequence, and isolation configuration. [1](https://docs.vllm.ai/en/latest/design/prefix_caching/)\n\nMeasure both hit rate and error rate. For a response cache, test false hits on near-neighbor requests with opposite meanings, changed dates, different permissions, and updated documents. For prefix caching, measure time to first token, memory pressure, and eviction effects under actual traffic.\n\n**An illustrative tradeoff:** a 60% semantic hit rate looks attractive, but even a small false-hit rate may be unacceptable for account information. A lower hit rate with exact scoped keys can be better. Cache only when the system can state why reuse is valid; semantic similarity is evidence of related wording, not equivalence of the required answer. [3](https://sre.google/sre-book/table-of-contents/)[4](https://arxiv.org/abs/2005.11401)[5](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/)",
+  "readings": [
+    {
+      "title": "vLLM Prefix Caching Design",
+      "url": "https://docs.vllm.ai/en/latest/design/prefix_caching/",
+      "publisher": "docs.vllm.ai",
+      "tags": "",
+      "why": "Hash-chained cache blocks, extra hash inputs, and cache isolation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Efficient Memory Management for LLM Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Block tables, fragmentation, shared prefixes, and serving throughput.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Retrieval-conditioned generation and the distinction between parameters and external evidence.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

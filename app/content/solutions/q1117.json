@@ -1,0 +1,47 @@
+{
+  "id": 1117,
+  "answer": "**Function calling is a model-facing way to request structured operations; MCP is a protocol for connecting applications to capability-providing servers.** They can be used together. A host may obtain tools from an MCP server and expose those tools to a model through its function-calling interface. [1](https://modelcontextprotocol.io/docs/learn/architecture)\n\nImagine an assistant that searches a document store. A native tool definition describes `search(query)` and its argument schema. The model emits a request; your application decides whether to execute it. MCP standardizes communication with a server providing that search capability, including discovery and invocation. It is not a replacement for the model or the application's policy decisions.\n\nIn MCP terminology, a host contains clients connecting to servers. Servers may expose **tools** for actions, **resources** for readable context, and **prompts** for reusable interaction templates. These are distinct primitives; a resource does not have to be an executable function. Consult the protocol version used by the implementation because capabilities and transport details evolve. [1](https://modelcontextprotocol.io/docs/learn/architecture)\n\nA useful architecture sketch is:\n\n```text\nuser → host application → model proposes tool arguments\n             ↓ validates request\n        MCP client → server → underlying data/service\n             ↑ structured result returns to the host\n```\n\nThe important boundary is execution. Schema-valid arguments are not necessarily authorized arguments. For example, a valid `customer_id` may refer to a customer the user cannot access. The application and service must enforce identity, access control, and relevant approval rules at the appropriate layers.\n\n**What MCP does not guarantee:** correct model reasoning, trustworthy tool output, safe arbitrary execution, or task completion. Treat tool descriptions and returned content according to their trust level, restrict capabilities to the task, and test failure responses. Choose MCP when standardized integrations are useful; a small application with one internal function may not need the extra protocol layer. [2](https://www.anthropic.com/engineering/building-effective-agents)[3](https://sre.google/sre-book/table-of-contents/)",
+  "readings": [
+    {
+      "title": "Model Context Protocol: Architecture",
+      "url": "https://modelcontextprotocol.io/docs/learn/architecture",
+      "publisher": "modelcontextprotocol.io",
+      "tags": "",
+      "why": "Hosts, clients, servers, tools, resources, and prompts.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Building Effective Agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "publisher": "www.anthropic.com",
+      "tags": "",
+      "why": "Practical distinction between workflows and autonomous agents.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Site Reliability Engineering — Google",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "publisher": "sre.google",
+      "tags": "",
+      "why": "Engineering chapters on SLOs, monitoring, overload, rollout, and incident response.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "The ML Test Score: A Rubric for ML Production Readiness",
+      "url": "https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/",
+      "publisher": "research.google",
+      "tags": "",
+      "why": "Concrete tests for data, models, infrastructure, and production monitoring.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Rules of Machine Learning — Google",
+      "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+      "publisher": "developers.google.com",
+      "tags": "",
+      "why": "Production guidance on baselines, feature pipelines, validation, and training-serving consistency.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}

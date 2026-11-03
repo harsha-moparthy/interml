@@ -1,0 +1,47 @@
+{
+  "id": 1113,
+  "answer": "**Weight tying reuses the vocabulary embedding table as the output classifier's weights.** It reduces parameters and couples how a token is represented as input with how it is scored as output. It does not tie every parameter in the transformer. [1](https://arxiv.org/abs/1608.05859)\n\nLet the embedding table be $E\\in\\mathbb R^{V\\times d}$. Input token $i$ retrieves row $E_i$. An untied output head needs another matrix $W\\in\\mathbb R^{V\\times d}$ and produces logits $Wh+b$. With tying, logits become $Eh+b$, so a token receives a high score when its embedding aligns with the hidden state.\n\nFor a vocabulary of 50,000 entries and width 1,024, eliminating the separate output matrix saves 51.2 million parameters. At two bytes per parameter, that is about 102.4 MB of raw weight storage in decimal units. Optimizer and gradient storage can increase training savings; the exact total depends on precision and optimizer implementation.\n\nThe shared table receives gradients from both roles. Input occurrences update the representation used to read a token; output predictions update rows according to the classification loss. Sharing changes the model's inductive assumptions, rather than merely compressing an otherwise identical trained network. In architectures with differing input and hidden widths, a projection or a different sharing scheme is needed. [1](https://arxiv.org/abs/1608.05859)[2](https://arxiv.org/abs/1810.04805)\n\n**What does it not save?** The vocabulary logits still have to be computed for an ordinary full-softmax prediction. Reusing weights does not eliminate the $V$-way output calculation. Likewise, sharing a matrix is not knowledge distillation or reduced-precision quantization, although these techniques may coexist. Check that checkpoint loading preserves parameter identity, not just equal initial values: two copied tensors that later train independently are no longer tied. Evaluate quality and memory separately because the parameter reduction is predictable, while the task-quality effect is empirical.",
+  "readings": [
+    {
+      "title": "Using the Output Embedding to Improve Language Models",
+      "url": "https://arxiv.org/abs/1608.05859",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Input-output weight tying and its gradient interpretation.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers",
+      "url": "https://arxiv.org/abs/1810.04805",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Masked language modeling and bidirectional representations.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Deep Learning — Goodfellow, Bengio, Courville",
+      "url": "https://www.deeplearningbook.org/",
+      "publisher": "www.deeplearningbook.org",
+      "tags": "",
+      "why": "Open textbook: use the relevant chapters on optimization, probability, regularization, and generative models.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Distilling the Knowledge in a Neural Network",
+      "url": "https://arxiv.org/abs/1503.02531",
+      "publisher": "arxiv.org",
+      "tags": "",
+      "why": "Soft targets, temperature, and student training objectives.",
+      "access": "Free online paper, book, or documentation"
+    },
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "publisher": "d2l.ai",
+      "tags": "",
+      "why": "Open textbook with mathematical explanations and runnable neural-network implementations.",
+      "access": "Free online paper, book, or documentation"
+    }
+  ],
+  "explanation_revision": "beginner-worked-v2"
+}
